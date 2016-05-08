@@ -15,9 +15,12 @@ public class PlayerDash : MonoBehaviour {
 	private State state;
 	private int dashRemaining;
 
+	private PlayerController playerController;
+
 	void Start() {
 		state = State.WAITING;
 		dashRemaining = maxDash;
+		playerController = GetComponent<PlayerController>();
 	}
 
 	void FixedUpdate() {
@@ -31,7 +34,7 @@ public class PlayerDash : MonoBehaviour {
 	}
 
 	private void keepWaiting() {
-		if (dashRemaining == maxDash && Input.GetKey(KeyCode.Space)) {
+		if (dashRemaining == maxDash && Input.GetButton("Dash " + playerController.playerNumber)) {
 			state = State.DASHING;
 		}
 	}

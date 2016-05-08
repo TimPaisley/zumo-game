@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 
+	private PlayerDash pd;
 	private Rigidbody rb;
 	private Animator anim;
 
@@ -14,10 +15,13 @@ public class PlayerController : MonoBehaviour {
 
 	public float bound = 15.0f;
 	public float speed = 6.0f;
+	public float dashSpeed = 2.0f;
 	public float knockBackDelay = 1.0f;
 
 	public float activeSpeed;
 	private float originalMass;
+
+	public int playerNumber;
 
 	// Raycast
 	private RaycastHit hit;
@@ -26,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
+		pd = GetComponent<PlayerDash> ();
 		anim = GetComponentInChildren<Animator> ();
 
 		gm = FindObjectOfType<GameManager> ();
@@ -35,11 +40,17 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		float h = Input.GetAxis ("Horizontal");
-		float v = Input.GetAxis ("Vertical");
+		float h = Input.GetAxis ("Horizontal " + playerNumber);
+		float v = Input.GetAxis ("Vertical " + playerNumber);
 
 		if (grounded) {
-			Vector3 movement = new Vector3 (h, rb.velocity.y / activeSpeed, v);
+			var movement = new Vector3 (h, 0, v);
+
+			if (pd.isDashing) {
+				movement *= dashSpeed;
+			}
+
+			movement.y = rb.velocity.y / activeSpeed;
 			rb.velocity = movement * activeSpeed;
 
 			if (h != 0 || v != 0) {
@@ -79,7 +90,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision collision) {
-		if (collision.transform.tag == "Enemy" || collision.transform.tag == "Environment") {
+		if (collision.transform.tag == "Enemy") {
 			BounceAway (collision.transform.position);
 		}
 	}
@@ -89,10 +100,12 @@ public class PlayerController : MonoBehaviour {
 		Vector3 awayDir = (transform.position - otherPos);
 
 		// Calculate vector between direction and Y-axis (upwards)
-		Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z) + new Vector3 (0, 1, 0);
+		Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
 
 		// Add impulse force in that direction
 		rb.AddForce (dir * gm.activeBounceForce, ForceMode.Impulse);
+
+		Debug.Log (playerNumber + " got bounced away at " + (dir * gm.activeBounceForce));
 
 		grounded = false;
 		knockedBack = true;

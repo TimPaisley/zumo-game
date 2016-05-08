@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-
-	private CanvasManager cm;
-
+	
 	public GameObject pandaPrefab;
 	public GameObject pickupPrefab;
 
@@ -20,12 +18,10 @@ public class GameManager : MonoBehaviour {
 
 	[HideInInspector]
 	public float activeBounceForce;
-	private float panTime;
 	private float pickTime;
 	private float effectTime;
 
 	private Stack inv;
-	private ArrayList pandas;
 	private int score = 0;
 
 	private PickUp activePickup;
@@ -38,14 +34,10 @@ public class GameManager : MonoBehaviour {
 	public bool speedUp;
 
 	void Start () {
-		cm = FindObjectOfType<CanvasManager> ();
-
 		inv = new Stack ();
-		pandas = new ArrayList ();
 
 		activeBounceForce = bounceForce;
 		pickTime = pickUpDelay;
-		panTime = pandaDropDelay;
 		effectTime = effectDuration;
 	}
 
@@ -85,7 +77,6 @@ public class GameManager : MonoBehaviour {
 
 		// manage timers
 		pickTime -= Time.deltaTime;
-		panTime -= Time.deltaTime;
 
 		if (bounceUp || massUp || speedUp) {
 			effectTime -= Time.deltaTime;
@@ -96,12 +87,6 @@ public class GameManager : MonoBehaviour {
 			pickTime = pickUpDelay;
 			//Debug.Log ("Deploying Pick Up");
 			DeployPickUp ();
-		}
-
-		if (panTime <= 0.0f) {
-			panTime = pandaDropDelay;
-			//Debug.Log ("Deploying Panda");
-			DeployPanda ();
 		}
 
 		if (effectTime < 0.0f) {
@@ -124,7 +109,6 @@ public class GameManager : MonoBehaviour {
 
 	public string PopFromInventory() {
 		return (string) inv.Pop ();
-		cm.UpdateSlots (inv);
 	}
 
 	private void ResetEffects () {
@@ -135,7 +119,6 @@ public class GameManager : MonoBehaviour {
 
 	public void AddScore () {
 		score++;
-		cm.SetScore (score);
 	}
 
 	private void DeployPickUp () {
@@ -152,15 +135,5 @@ public class GameManager : MonoBehaviour {
 		GameObject newPickUp = (GameObject) Instantiate(pickupPrefab, pickUpSpots[pos].gameObject.transform.position, Quaternion.identity);
 		activePickup = newPickUp.GetComponent<PickUp> (); // convert from gameObject to PickUp
 		activePickup.SetEffect (pickUpEffects[effect]);
-	}
-
-	private void DeployPanda () {
-		// assign random position
-		int pos = Mathf.FloorToInt(Random.value * pandaDropSpots.Length);
-
-		// deploy new panda
-		if (!testing) {
-			pandas.Add ((GameObject)Instantiate (pandaPrefab, pandaDropSpots [pos].gameObject.transform.position, Quaternion.identity));
-		}
 	}
 }
