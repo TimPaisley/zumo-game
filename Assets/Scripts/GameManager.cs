@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour {
 	public GameObject pickupPrefab;
 
 	public GameObject[] pickUpSpots;
-	public GameObject[] pandaDropSpots;
+
+	public PlayerController[] players;
 
 	public bool testing;
 
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour {
 
 	void Start () {
 		inv = new Stack ();
+
+		players = FindObjectsOfType<PlayerController> ();
 
 		activeBounceForce = bounceForce;
 		pickTime = pickUpDelay;

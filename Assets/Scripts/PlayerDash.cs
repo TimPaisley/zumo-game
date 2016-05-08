@@ -9,12 +9,11 @@ public class PlayerDash : MonoBehaviour {
 	public bool isDashing {
 		get { return state == State.DASHING; }
 	}
+	public int dashRemaining { get; private set; }
 
 	private enum State { WAITING, DASHING, RECHARGING };
 
 	private State state;
-	private int dashRemaining;
-
 	private PlayerController playerController;
 
 	void Start() {

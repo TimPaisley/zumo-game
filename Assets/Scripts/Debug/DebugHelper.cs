@@ -3,14 +3,16 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class DebugHelper : MonoBehaviour {
+	
+	private Canvas canvas;
 
 	void Start () {
-	
+		canvas = GetComponent<Canvas> ();
 	}
 
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.BackQuote)) {
-			SceneManager.LoadScene ("Development");
+			canvas.enabled = !canvas.enabled;
 		}
 	}
 }
