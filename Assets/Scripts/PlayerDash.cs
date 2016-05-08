@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerDash : MonoBehaviour {
-	public int maxDash = 20;
+	public int cooldown = 50;
+	public int dashLength = 10;
 	public Text dashDisplay;
 
 	public bool isDashing {
@@ -18,7 +19,7 @@ public class PlayerDash : MonoBehaviour {
 
 	void Start() {
 		state = State.WAITING;
-		dashRemaining = maxDash;
+		dashRemaining = dashLength;
 		playerController = GetComponent<PlayerController>();
 	}
 
@@ -33,7 +34,7 @@ public class PlayerDash : MonoBehaviour {
 	}
 
 	private void keepWaiting() {
-		if (dashRemaining == maxDash && Input.GetButton("Dash " + playerController.playerNumber)) {
+		if (Input.GetButton("Dash " + playerController.playerNumber)) {
 			state = State.DASHING;
 		}
 	}
@@ -47,7 +48,8 @@ public class PlayerDash : MonoBehaviour {
 	}
 
 	private void keepRecharging() {
-		if (dashRemaining == maxDash) {
+		if (dashRemaining == cooldown) {
+			dashRemaining = dashLength;
 			state = State.WAITING;
 		} else {
 			dashRemaining++;

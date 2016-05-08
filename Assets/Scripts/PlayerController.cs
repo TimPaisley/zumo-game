@@ -14,11 +14,13 @@ public class PlayerController : MonoBehaviour {
 	private float knockBackTimer;
 
 	public float bound = 15.0f;
+	public float maxSpeed = 6.0f;
+	public float minSpeed = 1.0f;
 	public float speed = 6.0f;
+	public float acceleration = 0.01f;
 	public float dashSpeed = 2.0f;
 	public float knockBackDelay = 1.0f;
 
-	public float activeSpeed;
 	private float originalMass;
 
 	public int playerNumber;
@@ -34,14 +36,12 @@ public class PlayerController : MonoBehaviour {
 		anim = GetComponentInChildren<Animator> ();
 
 		gm = FindObjectOfType<GameManager> ();
-
-		activeSpeed = speed;
 		originalMass = rb.mass;
 	}
 
 	void FixedUpdate () {
-		float h = Input.GetAxis ("Horizontal " + playerNumber);
-		float v = Input.GetAxis ("Vertical " + playerNumber);
+		float h = Input.GetAxisRaw ("Horizontal " + playerNumber);
+		float v = Input.GetAxisRaw ("Vertical " + playerNumber);
 
 		if (grounded) {
 			var movement = new Vector3 (h, 0, v);
@@ -50,8 +50,17 @@ public class PlayerController : MonoBehaviour {
 				movement *= dashSpeed;
 			}
 
-			movement.y = rb.velocity.y / activeSpeed;
-			rb.velocity = movement * activeSpeed;
+			// account for gravity
+			movement.y = rb.velocity.y / speed;
+
+			if(h != 0 || v != 0){
+				speed = Mathf.Min(speed + acceleration, maxSpeed);
+			}
+			else{
+				speed = Mathf.Max(speed - acceleration, minSpeed);
+			}
+				
+			rb.velocity = movement * speed;
 
 			if (h != 0 || v != 0) {
 				transform.rotation = Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z));
@@ -68,13 +77,6 @@ public class PlayerController : MonoBehaviour {
 			rb.mass = originalMass * 2.0f;
 		} else {
 			rb.mass = originalMass;
-		}
-
-		// manage speed
-		if (gm.speedUp) {
-			activeSpeed = 15.0f;
-		} else {
-			activeSpeed = speed;
 		}
 
 		if (knockedBack) {
