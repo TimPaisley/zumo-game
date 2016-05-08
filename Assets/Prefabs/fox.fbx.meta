@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: c9b01fa0fabd2554d8afad36fe7807a6
+timeCreated: 1460269172
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: head
+    100004: ikHandle1
+    100006: ikHandle10
+    100008: ikHandle2
+    100010: ikHandle3
+    100012: ikHandle4
+    100014: ikHandle5
+    100016: ikHandle6
+    100018: ikHandle7
+    100020: ikHandle8
+    100022: ikHandle9
+    100024: imagePlane2
+    100026: joint1
+    100028: joint10
+    100030: joint11
+    100032: joint11 1
+    100034: joint12
+    100036: joint12 1
+    100038: joint13
+    100040: joint13 1
+    100042: joint14
+    100044: joint15
+    100046: joint16
+    100048: joint17
+    100050: joint18
+    100052: joint19
+    100054: joint2
+    100056: joint20
+    100058: joint21
+    100060: joint22
+    100062: joint23
+    100064: joint3
+    100066: joint4
+    100068: joint5
+    100070: joint6
+    100072: joint7
+    100074: joint7 1
+    100076: joint8
+    100078: joint8 1
+    100080: joint9
+    100082: joint9 1
+    100084: leftBackAnkle
+    100086: leftFrontAnkle
+    100088: leftFrontToe
+    100090: leftToe
+    100092: locator1
+    100094: nurbsCircle8
+    100096: nurbsCircle9
+    100098: pCylinder1
+    100100: pCylinder2
+    100102: polySurface2
+    100104: rightBackAnkle
+    100106: rightBackToe
+    100108: rightFrontAnkle
+    100110: rightFrontToe
+    100112: tail
+    100114: transform1
+    100116: transform2
+    400000: //RootNode
+    400002: head
+    400004: ikHandle1
+    400006: ikHandle10
+    400008: ikHandle2
+    400010: ikHandle3
+    400012: ikHandle4
+    400014: ikHandle5
+    400016: ikHandle6
+    400018: ikHandle7
+    400020: ikHandle8
+    400022: ikHandle9
+    400024: imagePlane2
+    400026: joint1
+    400028: joint10
+    400030: joint11
+    400032: joint11 1
+    400034: joint12
+    400036: joint12 1
+    400038: joint13
+    400040: joint13 1
+    400042: joint14
+    400044: joint15
+    400046: joint16
+    400048: joint17
+    400050: joint18
+    400052: joint19
+    400054: joint2
+    400056: joint20
+    400058: joint21
+    400060: joint22
+    400062: joint23
+    400064: joint3
+    400066: joint4
+    400068: joint5
+    400070: joint6
+    400072: joint7
+    400074: joint7 1
+    400076: joint8
+    400078: joint8 1
+    400080: joint9
+    400082: joint9 1
+    400084: leftBackAnkle
+    400086: leftFrontAnkle
+    400088: leftFrontToe
+    400090: leftToe
+    400092: locator1
+    400094: nurbsCircle8
+    400096: nurbsCircle9
+    400098: pCylinder1
+    400100: pCylinder2
+    400102: polySurface2
+    400104: rightBackAnkle
+    400106: rightBackToe
+    400108: rightFrontAnkle
+    400110: rightFrontToe
+    400112: tail
+    400114: transform1
+    400116: transform2
+    4300000: pCylinder1
+    7400000: run
+    7400002: idle
+    9500000: //RootNode
+    13700000: pCylinder1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
