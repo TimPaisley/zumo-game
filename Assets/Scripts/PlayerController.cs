@@ -72,13 +72,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
-		// manage mass
-		if (gm.massUp) {
-			rb.mass = originalMass * 2.0f;
-		} else {
-			rb.mass = originalMass;
-		}
-
 		if (knockedBack) {
 			knockBackTimer -= Time.deltaTime;
 
@@ -105,9 +98,9 @@ public class PlayerController : MonoBehaviour {
 		Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
 
 		// Add impulse force in that direction
-		rb.AddForce (dir * gm.activeBounceForce, ForceMode.Impulse);
+		rb.AddForce (dir * gm.bounceForce, ForceMode.Impulse);
 
-		Debug.Log (playerNumber + " got bounced away at " + (dir * gm.activeBounceForce));
+		// Debug.Log (playerNumber + " got bounced away at " + (dir * gm.bounceForce));
 
 		grounded = false;
 		knockedBack = true;

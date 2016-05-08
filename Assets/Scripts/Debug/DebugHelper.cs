@@ -13,6 +13,8 @@ public class DebugHelper : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.BackQuote)) {
 			canvas.enabled = !canvas.enabled;
+		} else if (Input.GetKeyDown (KeyCode.Tab)) {
+			SceneManager.LoadScene ("Development");
 		}
 	}
 }
