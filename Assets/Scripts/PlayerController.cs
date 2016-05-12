@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
 			float h = Input.GetAxisRaw ("Horizontal " + playerNumber);
 			float v = Input.GetAxisRaw ("Vertical " + playerNumber);
 
-			animal.Move (-h, v); // not entirely sure why h needs to be negative here...
+			animal.Move (h, v);
 		}
 	}
 }

@@ -86,7 +86,8 @@ public class AnimalController : MonoBehaviour {
 
 			// If moving, look in the direction of movement
 			if (h != 0 || v != 0) {
-				transform.rotation = Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z));
+				//transform.rotation = Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z));
+				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z)), Time.deltaTime * 20.0f);
 				anim.SetBool ("isMoving", true);
 			} else {
 				anim.SetBool ("isMoving", false);
