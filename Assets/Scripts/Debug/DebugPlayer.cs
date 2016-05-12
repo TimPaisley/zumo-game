@@ -14,8 +14,7 @@ public class DebugPlayer : MonoBehaviour {
 
 	void Update () {
 		modules [1].text = player.gameObject.transform.position.ToString ();
-		modules [2].text = "Speed: " + player.speed;
+		modules [2].text = "Last Bounce";
 		modules [3].text = "Dash: " + player.GetComponent<PlayerDash> ().dashRemaining;
-		modules [4].text = "Last Bounce (NOT WORKING)";
 	}
 }
