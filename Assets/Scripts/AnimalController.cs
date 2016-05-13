@@ -31,6 +31,7 @@ public class AnimalController : MonoBehaviour {
 	private RaycastHit hit;
 	private Ray downRay;
 	private Vector3 dir;
+	private Vector3 raycastPos;
 
 	// State properties
 	public bool isDashing { get; private set; }
@@ -155,7 +156,8 @@ public class AnimalController : MonoBehaviour {
 		grounded = false;
 
 		// Set up raycast variables
-		downRay = new Ray (transform.position, Vector3.down);
+		raycastPos = new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z);
+		downRay = new Ray (raycastPos, Vector3.down);
 
 		// Draw raycast ray [DEBUG]
 		Debug.DrawRay (transform.position, Vector3.down);
