@@ -7,7 +7,6 @@ public class AnimalController : MonoBehaviour {
 	private GameManager gm;
 
 	// Local References
-	private AnimalDash pd;
 	private Rigidbody rb;
 	private Animator anim;
 
@@ -17,6 +16,8 @@ public class AnimalController : MonoBehaviour {
 	public float minSpeed = 1.0f;
 	public float acceleration = 0.01f;
 	public float dashSpeed = 2.0f;
+	public float dashCooldown = 1.0f;
+	public float dashLength = 0.5f;
 	public float knockBackDelay = 0.2f;
 
 	// Management Variables
@@ -24,11 +25,16 @@ public class AnimalController : MonoBehaviour {
 	private float speed;
 	private bool knockedBack;
 	private float knockBackTimer;
+	private float dashLengthRemaining;
+	private float dashCooldownRemaining;
 
 	// Raycast Variables
 	private RaycastHit hit;
 	private Ray downRay;
 	private Vector3 dir;
+
+	// State properties
+	public bool isDashing { get; private set; }
 
 	void Start () {
 		// Initialize Global References
@@ -36,11 +42,28 @@ public class AnimalController : MonoBehaviour {
 
 		// Initialize Local References
 		rb = GetComponent<Rigidbody> ();
-		pd = GetComponent<AnimalDash> ();
 		anim = GetComponentInChildren<Animator> (); // GetComponent<Animator>() when new fox is imported
 
 		// Set initial variables
 		speed = minSpeed;
+	}
+
+	void FixedUpdate () {
+		if (isDashing) {
+			dashLengthRemaining -= Time.deltaTime;
+
+			if (dashLengthRemaining <= 0) {
+				dashLengthRemaining = 0;
+				isDashing = false;
+				dashCooldownRemaining = dashCooldown;
+			}
+		} else {
+			dashCooldownRemaining -= Time.deltaTime;
+
+			if (dashCooldownRemaining < 0) {
+				dashCooldownRemaining = 0;
+			}
+		}
 	}
 
 	void Update () {
@@ -64,7 +87,7 @@ public class AnimalController : MonoBehaviour {
 			var movement = new Vector3 (h, 0, v);
 
 			// Apply dashing speed
-			if (pd.isDashing) {
+			if (isDashing) {
 				movement *= dashSpeed;
 			}
 
@@ -92,6 +115,13 @@ public class AnimalController : MonoBehaviour {
 			} else {
 				anim.SetBool ("isMoving", false);
 			}
+		}
+	}
+
+	public void Dash () {
+		if (!isDashing && dashCooldownRemaining == 0) {
+			isDashing = true;
+			dashLengthRemaining = dashLength;
 		}
 	}
 
