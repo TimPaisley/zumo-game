@@ -124,7 +124,7 @@ public class AnimalController : MonoBehaviour {
 		downRay = new Ray (transform.position, Vector3.down);
 
 		// Draw raycast ray [DEBUG]
-		// Debug.DrawRay (transform.position, Vector3.down);
+		Debug.DrawRay (transform.position, Vector3.down);
 
 		// If ray hits anything within a distance of 1.0f, animal is grounded
 		if (Physics.Raycast (downRay, out hit)) {

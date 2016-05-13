@@ -1,0 +1,335 @@
+fileFormatVersion: 2
+guid: 958ca706b6a3e44288c16d1ed024cba7
+timeCreated: 1462688882
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Head
+    100002: head
+    100004: //RootNode
+    100006: IK_LeftBackLeg
+    100008: IK_LeftFrontLeg
+    100010: joint1
+    100012: joint2
+    100014: joint3
+    100016: joint4
+    100018: joint5
+    100020: joint6
+    100022: joint7
+    100024: Lbacktoe
+    100026: LEar
+    100028: LEar2
+    100030: left
+    100032: LeftBackFoot
+    100034: Leftear
+    100036: leftFrontFoot
+    100038: LFoot
+    100040: Lfoot
+    100042: LFrontLeg
+    100044: LfrontToe
+    100046: Lft
+    100048: LKnee
+    100050: Lknee
+    100052: LRearLeg
+    100054: LToe
+    100056: Ltoe
+    100058: main
+    100060: mainSpine
+    100062: MASTER
+    100064: nose
+    100066: PandaMesh
+    100068: Rbackfoot
+    100070: RbackLeg
+    100072: RbackToe
+    100074: Rbt1
+    100076: REar
+    100078: REar2
+    100080: RfrontFoot
+    100082: RFrontLeg
+    100084: Rfrontleg
+    100086: RfrontToe
+    100088: RightBackFoot
+    100090: rightEar
+    100092: RightFrontFoot
+    100094: RKnee
+    100096: RKnee 1
+    100098: RRearLeg
+    100100: shoulder
+    100102: spine1
+    100104: spine1 1
+    100106: spine2
+    100108: spine2 1
+    100110: spine3
+    100112: tail
+    100114: tail 1
+    400000: Head
+    400002: head
+    400004: //RootNode
+    400006: IK_LeftBackLeg
+    400008: IK_LeftFrontLeg
+    400010: joint1
+    400012: joint2
+    400014: joint3
+    400016: joint4
+    400018: joint5
+    400020: joint6
+    400022: joint7
+    400024: Lbacktoe
+    400026: LEar
+    400028: LEar2
+    400030: left
+    400032: LeftBackFoot
+    400034: Leftear
+    400036: leftFrontFoot
+    400038: LFoot
+    400040: Lfoot
+    400042: LFrontLeg
+    400044: LfrontToe
+    400046: Lft
+    400048: LKnee
+    400050: Lknee
+    400052: LRearLeg
+    400054: LToe
+    400056: Ltoe
+    400058: main
+    400060: mainSpine
+    400062: MASTER
+    400064: nose
+    400066: PandaMesh
+    400068: Rbackfoot
+    400070: RbackLeg
+    400072: RbackToe
+    400074: Rbt1
+    400076: REar
+    400078: REar2
+    400080: RfrontFoot
+    400082: RFrontLeg
+    400084: Rfrontleg
+    400086: RfrontToe
+    400088: RightBackFoot
+    400090: rightEar
+    400092: RightFrontFoot
+    400094: RKnee
+    400096: RKnee 1
+    400098: RRearLeg
+    400100: shoulder
+    400102: spine1
+    400104: spine1 1
+    400106: spine2
+    400108: spine2 1
+    400110: spine3
+    400112: tail
+    400114: tail 1
+    4300000: PandaMesh
+    7400000: pandaIdle
+    9500000: //RootNode
+    13700000: PandaMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: pandaIdle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: left
+        weight: 1
+      - path: main
+        weight: 1
+      - path: main/LRearLeg
+        weight: 1
+      - path: main/LRearLeg/LKnee
+        weight: 1
+      - path: main/LRearLeg/LKnee/LFoot
+        weight: 1
+      - path: main/LRearLeg/LKnee/LFoot/Ltoe
+        weight: 1
+      - path: main/RRearLeg
+        weight: 1
+      - path: main/RRearLeg/RKnee
+        weight: 1
+      - path: main/RRearLeg/RKnee/joint3
+        weight: 1
+      - path: main/RRearLeg/RKnee/joint3/joint4
+        weight: 1
+      - path: main/spine1
+        weight: 1
+      - path: main/spine1/joint6
+        weight: 1
+      - path: main/spine1/spine2
+        weight: 1
+      - path: main/spine1/spine2/joint5
+        weight: 1
+      - path: main/spine1/spine2/shoulder
+        weight: 1
+      - path: main/spine1/spine2/shoulder/head
+        weight: 1
+      - path: main/spine1/spine2/shoulder/head/LEar
+        weight: 1
+      - path: main/spine1/spine2/shoulder/head/LEar/LEar2
+        weight: 1
+      - path: main/spine1/spine2/shoulder/head/nose
+        weight: 1
+      - path: main/spine1/spine2/shoulder/head/REar
+        weight: 1
+      - path: main/spine1/spine2/shoulder/head/REar/REar2
+        weight: 1
+      - path: main/spine1/spine2/shoulder/LFrontLeg
+        weight: 1
+      - path: main/spine1/spine2/shoulder/LFrontLeg/Lknee
+        weight: 1
+      - path: main/spine1/spine2/shoulder/LFrontLeg/Lknee/Lfoot
+        weight: 1
+      - path: main/spine1/spine2/shoulder/LFrontLeg/Lknee/Lfoot/LToe
+        weight: 1
+      - path: main/spine1/spine2/shoulder/RFrontLeg
+        weight: 1
+      - path: main/spine1/spine2/shoulder/RFrontLeg/RKnee 1
+        weight: 1
+      - path: main/spine1/spine2/shoulder/RFrontLeg/RKnee 1/joint1
+        weight: 1
+      - path: main/spine1/spine2/shoulder/RFrontLeg/RKnee 1/joint1/joint2
+        weight: 1
+      - path: main/tail
+        weight: 1
+      - path: main/tail/joint7
+        weight: 1
+      - path: MASTER
+        weight: 1
+      - path: MASTER/LeftBackFoot
+        weight: 1
+      - path: MASTER/LeftBackFoot/IK_LeftBackLeg
+        weight: 1
+      - path: MASTER/LeftBackFoot/Lbacktoe
+        weight: 1
+      - path: MASTER/LeftBackFoot/Lbacktoe/Rbt1
+        weight: 1
+      - path: MASTER/leftFrontFoot
+        weight: 1
+      - path: MASTER/leftFrontFoot/IK_LeftFrontLeg
+        weight: 1
+      - path: MASTER/leftFrontFoot/LfrontToe
+        weight: 1
+      - path: MASTER/leftFrontFoot/LfrontToe/Lft
+        weight: 1
+      - path: MASTER/mainSpine
+        weight: 1
+      - path: MASTER/mainSpine/spine1 1
+        weight: 1
+      - path: MASTER/mainSpine/spine1 1/spine2 1
+        weight: 1
+      - path: MASTER/mainSpine/spine1 1/spine2 1/spine3
+        weight: 1
+      - path: MASTER/mainSpine/spine1 1/spine2 1/spine3/Head
+        weight: 1
+      - path: MASTER/mainSpine/spine1 1/spine2 1/spine3/Head/Leftear
+        weight: 1
+      - path: MASTER/mainSpine/spine1 1/spine2 1/spine3/Head/rightEar
+        weight: 1
+      - path: MASTER/mainSpine/tail 1
+        weight: 1
+      - path: MASTER/RightBackFoot
+        weight: 1
+      - path: MASTER/RightBackFoot/RbackLeg
+        weight: 1
+      - path: MASTER/RightBackFoot/RbackToe
+        weight: 1
+      - path: MASTER/RightBackFoot/RbackToe/Rbackfoot
+        weight: 1
+      - path: MASTER/RightFrontFoot
+        weight: 1
+      - path: MASTER/RightFrontFoot/Rfrontleg
+        weight: 1
+      - path: MASTER/RightFrontFoot/RfrontToe
+        weight: 1
+      - path: MASTER/RightFrontFoot/RfrontToe/RfrontFoot
+        weight: 1
+      - path: PandaMesh
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
