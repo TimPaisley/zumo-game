@@ -9,6 +9,7 @@ public class AnimalController : MonoBehaviour {
 	// Local References
 	private Rigidbody rb;
 	private Animator anim;
+	private AudioSource dashSound;
 
 	// Control Variables
 	public float bound = 15.0f;
@@ -25,8 +26,6 @@ public class AnimalController : MonoBehaviour {
 	private float speed;
 	private bool knockedBack;
 	private float knockBackTimer;
-	private float dashLengthRemaining;
-	private float dashCooldownRemaining;
 
 	// Raycast Variables
 	private RaycastHit hit;
@@ -35,6 +34,8 @@ public class AnimalController : MonoBehaviour {
 
 	// State properties
 	public bool isDashing { get; private set; }
+	public float dashLengthRemaining { get; private set; }
+	public float dashCooldownRemaining { get; private set; }
 
 	void Start () {
 		// Initialize Global References
@@ -43,6 +44,7 @@ public class AnimalController : MonoBehaviour {
 		// Initialize Local References
 		rb = GetComponent<Rigidbody> ();
 		anim = GetComponentInChildren<Animator> (); // GetComponent<Animator>() when new fox is imported
+		dashSound = GetComponent<AudioSource> ();
 
 		// Set initial variables
 		speed = minSpeed;
@@ -122,6 +124,8 @@ public class AnimalController : MonoBehaviour {
 		if (!isDashing && dashCooldownRemaining == 0) {
 			isDashing = true;
 			dashLengthRemaining = dashLength;
+
+			dashSound.PlayOneShot(dashSound.clip);
 		}
 	}
 

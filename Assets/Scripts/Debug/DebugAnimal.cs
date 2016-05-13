@@ -15,6 +15,7 @@ public class DebugAnimal : MonoBehaviour {
 	void Update () {
 		modules [1].text = animal.gameObject.transform.position.ToString ();
 		modules [2].text = "Last Bounce";
-		modules [3].text = "Dash: " + animal.GetComponent<AnimalDash> ().dashRemaining;
+		modules [3].text = "Dash: " + animal.GetComponent<AnimalController> ().dashLengthRemaining +
+			" / Cooldown: " + animal.GetComponent<AnimalController> ().dashCooldownRemaining;
 	}
 }
