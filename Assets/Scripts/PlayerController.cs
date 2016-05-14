@@ -3,17 +3,35 @@ using InControl;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-	// Global References
+    private class FakeInputControl : InputControl {
+        public FakeInputControl () : base("", InputControlType.Action1) { }
+
+        public new const float Value = 0;
+        public new const bool IsPressed = false;
+    }
+
+    private class FakeInputDevice : InputDevice {
+        public FakeInputDevice () : base("") { }
+
+        public new InputControl RightStickX = new FakeInputControl();
+        public new InputControl RightStickY = new FakeInputControl();
+        public new InputControl LeftStickX = new FakeInputControl();
+        public new InputControl LeftStickY = new FakeInputControl();
+        public new InputControl RightTrigger = new FakeInputControl();
+        public new InputControl LeftTrigger = new FakeInputControl();
+    }
+
+    // Global References
 
 
-	// Player Variables
-	public int playerNumber;
+    // Player Variables
+    public int playerNumber;
 	public AnimalController animal;
 
 	private InputDevice input;
 
 	void Start () {
-		input = InputManager.Devices[playerNumber / 2];
+		input = (InputManager.Devices.Count > playerNumber / 2) ? InputManager.Devices[playerNumber / 2] : new FakeInputDevice();
 	}
 
 	void FixedUpdate () {
