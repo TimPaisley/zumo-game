@@ -25,13 +25,13 @@ public class PlayerController : MonoBehaviour {
 
 
     // Player Variables
-    public int playerNumber;
+    public int playerIndex;
 	public AnimalController animal;
 
 	private InputDevice input;
 
 	void Start () {
-		input = (InputManager.Devices.Count > playerNumber / 2) ? InputManager.Devices[playerNumber / 2] : new FakeInputDevice();
+		input = (InputManager.Devices.Count > playerIndex / 2) ? InputManager.Devices[playerIndex / 2] : new FakeInputDevice();
 	}
 
 	void FixedUpdate () {
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private bool isOddNumbered () {
-		return playerNumber % 2 == 1;
+		return playerIndex % 2 == 1;
 	}
 
 	private InputControl xAxis () {

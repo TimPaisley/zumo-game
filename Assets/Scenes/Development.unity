@@ -1835,7 +1835,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_AnchorMin.x
@@ -1862,24 +1862,20 @@ Prefab:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: animal
+      propertyPath: player
       value: 
-      objectReference: {fileID: 1446442666}
+      objectReference: {fileID: 1154174117}
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: camera
+      propertyPath: worldCamera
       value: 
       objectReference: {fileID: 346573345}
     - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.b
-      value: 0.28567597
+      propertyPath: m_Color.a
+      value: 0.7058824
       objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.r
-      value: 0.89705884
-      objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.g
-      value: 0.10553633
+    - target: {fileID: 187320, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
@@ -2491,7 +2487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 2
+  playerIndex: 2
   animal: {fileID: 1511844170}
 --- !u!4 &322610543 stripped
 Transform:
@@ -3688,7 +3684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 3
+  playerIndex: 3
   animal: {fileID: 649508531}
 --- !u!1 &574704342
 GameObject:
@@ -6511,7 +6507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_AnchorMin.x
@@ -6537,29 +6533,37 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: animal
-      value: 
-      objectReference: {fileID: 1511844175}
-    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 346573345}
     - target: {fileID: 102404, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Name
       value: Fox 2 Indicator
       objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.g
-      value: 0.6604224
-      objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Color.r
-      value: 0.9044118
+      value: 0.44296628
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_Color.b
+      value: 0.99264705
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_Color.g
+      value: 0.22626512
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 318075009}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: worldCamera
+      value: 
+      objectReference: {fileID: 346573345}
+    - target: {fileID: 187320, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.b
-      value: 0.01995028
+      propertyPath: m_Color.a
+      value: 0.7058824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
@@ -7108,7 +7112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 0
+  playerIndex: 0
   animal: {fileID: 1446442667}
 --- !u!1 &1155113151
 GameObject:
@@ -8002,7 +8006,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_AnchorMin.x
@@ -8028,29 +8032,41 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: animal
-      value: 
-      objectReference: {fileID: 644102410}
-    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 346573345}
     - target: {fileID: 102404, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Name
       value: Panda 1 Indicator
       objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Color.r
-      value: 0.31909677
+      value: 0.09375
       objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Color.g
-      value: 0.23842993
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_Color.b
+      value: 0.45129302
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1680844786}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: worldCamera
+      value: 
+      objectReference: {fileID: 346573345}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: yOffset
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 187320, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.b
-      value: 0.9264706
+      propertyPath: m_Color.a
+      value: 0.5882353
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
@@ -8227,7 +8243,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_AnchorMin.x
@@ -8253,29 +8269,45 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: animal
-      value: 
-      objectReference: {fileID: 649508536}
-    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 346573345}
     - target: {fileID: 102404, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Name
       value: Panda 2 Indicator
       objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.r
-      value: 0.13283956
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_Color.g
-      value: 0.8602941
+      value: 0.6455048
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_Color.b
+      value: 0.08596452
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490388, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_Color.r
+      value: 0.7794118
+      objectReference: {fileID: 0}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: worldCamera
+      value: 
+      objectReference: {fileID: 346573345}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 564911508}
+    - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: yOffset
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 187320, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11494714, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
-      propertyPath: m_Color.b
-      value: 0.6194816
+      propertyPath: m_Color.a
+      value: 0.7058824
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
@@ -10415,7 +10447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerIndex: 1
   animal: {fileID: 644102412}
 --- !u!1 &1685938718
 GameObject:
