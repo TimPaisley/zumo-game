@@ -17,12 +17,12 @@ public class AnimalController : MonoBehaviour {
 	public float minSpeed = 1.0f;
 	public float acceleration = 0.01f;
 	public float dashSpeed = 2.0f;
+    public float dashMass = 5.0f;
 	public float dashCooldown = 1.0f;
 	public float dashLength = 0.5f;
 	public float knockBackDelay = 0.2f;
-    
-	// Management Variables
-	//private bool grounded;
+
+    // Management Variables
 	private float speed;
 	private bool knockedBack;
 	private float knockBackTimer;
@@ -116,7 +116,10 @@ public class AnimalController : MonoBehaviour {
 			// Apply dashing speed
 			if (isDashing) {
 				movement *= dashSpeed;
-			}
+                rb.mass = dashMass;
+			} else {
+                rb.mass = originalMass;
+            }
 
 			// Adjust Y movement to account for gravity
 			movement.y = rb.velocity.y / speed;
