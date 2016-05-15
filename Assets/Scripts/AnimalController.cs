@@ -20,13 +20,13 @@ public class AnimalController : MonoBehaviour {
 	public float dashCooldown = 1.0f;
 	public float dashLength = 0.5f;
 	public float knockBackDelay = 0.2f;
-
+    
 	// Management Variables
 	private bool grounded;
 	private float speed;
 	private bool knockedBack;
 	private float knockBackTimer;
-
+ 
 	// Raycast Variables
 	private RaycastHit hit;
 	private Ray downRay;
@@ -38,7 +38,13 @@ public class AnimalController : MonoBehaviour {
 	public float dashLengthRemaining { get; private set; }
 	public float dashCooldownRemaining { get; private set; }
 
-	void Start () {
+    //Power up Variables
+    private float originalMass;
+    private float originalMaxSpeed;
+    private float originalMinSpeed;
+    private ArrayList powerUpQueue;
+
+    void Start () {
 		// Initialize Global References
 		gm = FindObjectOfType<GameManager>();
 
@@ -49,7 +55,13 @@ public class AnimalController : MonoBehaviour {
 
 		// Set initial variables
 		speed = minSpeed;
-	}
+
+        //Store original mass and speed
+        originalMass = rb.mass;
+        originalMaxSpeed = maxSpeed;
+        originalMinSpeed = minSpeed;
+        powerUpQueue = new ArrayList();
+    }
 
 	void FixedUpdate () {
 		if (isDashing) {
@@ -82,7 +94,23 @@ public class AnimalController : MonoBehaviour {
 		} else {
 			CheckGrounded ();
 		}
-	}
+        int index = -1; 
+        // The index of the power up that needs to be removed
+        for (int i = 0; i < powerUpQueue.Count; i++)
+        //Check if powerup run out of time
+        {
+            PowerUpHistory ph = (PowerUpHistory)powerUpQueue[i];
+            if (ph.getTicker() < 0.0f)
+            {
+                removePowerUp(ph.getPuType());
+                index = i;     
+            }
+        }
+        if(index != -1)
+        {
+            powerUpQueue.RemoveAt(index);
+        }
+    }
 
 	public void Move (float v, float h) {
 		if (grounded) {
@@ -135,7 +163,53 @@ public class AnimalController : MonoBehaviour {
 		if (collision.transform.tag == "Animal") {
 			BounceAway (collision.transform.position);
 		}
-	}
+        // If the collides with power up item
+        else if (collision.transform.tag == "PowerUp")
+        {
+            PowerUp pu = collision.gameObject.GetComponent<PowerUp>();
+            string currentPower = pu.getPowerUpType();
+            PowerUpHistory nph = new PowerUpHistory(currentPower);
+            for(int i = 0; i<powerUpQueue.Count; i++)
+            // if the power up is already active on the animal restart the timer
+            {
+                PowerUpHistory ph = (PowerUpHistory)powerUpQueue[i];
+                if (ph.getPuType().Equals(currentPower))
+                {
+                    Debug.LogWarning("Extended: " + currentPower + " timer");
+                    ph.restTicker();
+                    Destroy(collision.gameObject);
+                    return;
+                }
+            }
+            powerUpQueue.Add(nph);
+            Debug.LogWarning("Apply: " + currentPower + " powerup");
+            if (currentPower.Equals("mass"))
+            {
+                rb.mass = rb.mass * pu.getMassMultiplie();
+            }
+            else if (currentPower.Equals("speed"))
+            {
+                minSpeed *= pu.getSpeedMulti();
+                maxSpeed *= pu.getSpeedMulti();
+            }
+            Destroy(collision.gameObject);
+        }
+
+    }
+
+    public void removePowerUp(string currentPower)
+    {
+        Debug.LogWarning("Remove: "+ currentPower +" change");
+        if (currentPower.Equals("mass"))
+        {
+            rb.mass = originalMass;
+        }
+        else if (currentPower.Equals("speed"))
+        {
+            minSpeed = originalMinSpeed;
+            maxSpeed = originalMaxSpeed;
+        }
+    }
 
 	public void BounceAway (Vector3 otherPos) {
 		// Calculate vector away from collision object
@@ -182,4 +256,27 @@ public class AnimalController : MonoBehaviour {
 		// If animal is out of bounds, return false
 		return false;
 	}
+
+    public class PowerUpHistory{
+        private string pu = "";
+        private float ticker = 10.0f;
+
+        public PowerUpHistory(string p)
+        {
+            pu = p;
+        }
+        public float getTicker()
+        {
+            ticker -= Time.deltaTime;
+            return ticker;
+        }
+        public void restTicker()
+        {
+            ticker = 10.0f;
+        }
+        public string getPuType()
+        {
+            return pu;
+        }
+    }
 }
