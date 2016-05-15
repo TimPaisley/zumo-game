@@ -11,8 +11,8 @@ public class AnimalController : MonoBehaviour {
 	private Animator anim;
 	private AudioSource dashSound;
 
-	// Control Variables
-	public float bound = 15.0f;
+    // Control Variables
+    public Renderer board;
 	public float maxSpeed = 6.0f;
 	public float minSpeed = 1.0f;
 	public float acceleration = 0.01f;
@@ -22,7 +22,7 @@ public class AnimalController : MonoBehaviour {
 	public float knockBackDelay = 0.2f;
     
 	// Management Variables
-	private bool grounded;
+	//private bool grounded;
 	private float speed;
 	private bool knockedBack;
 	private float knockBackTimer;
@@ -30,8 +30,6 @@ public class AnimalController : MonoBehaviour {
 	// Raycast Variables
 	private RaycastHit hit;
 	private Ray downRay;
-	private Vector3 dir;
-	private Vector3 raycastPos;
 
 	// State properties
 	public bool isDashing { get; private set; }
@@ -91,8 +89,6 @@ public class AnimalController : MonoBehaviour {
 				knockedBack = false;
 				knockBackTimer = knockBackDelay;
 			}
-		} else {
-			CheckGrounded ();
 		}
         int index = -1; 
         // The index of the power up that needs to be removed
@@ -113,7 +109,7 @@ public class AnimalController : MonoBehaviour {
     }
 
 	public void Move (float v, float h) {
-		if (grounded) {
+		if (!knockedBack && isGrounded) {
 			// Create movement vector
 			var movement = new Vector3 (h, 0, v);
 
@@ -149,16 +145,30 @@ public class AnimalController : MonoBehaviour {
 		}
 	}
 
-	public void Dash () {
-		if (!isDashing && dashCooldownRemaining == 0) {
-			isDashing = true;
-			dashLengthRemaining = dashLength;
+    public void Dash () {
+        if (!isDashing && dashCooldownRemaining == 0) {
+            isDashing = true;
+            dashLengthRemaining = dashLength;
 
-			dashSound.PlayOneShot(dashSound.clip);
-		}
-	}
+            dashSound.PlayOneShot(dashSound.clip);
+        }
+    }
 
-	void OnCollisionEnter (Collision collision) {
+    public void Kill () {
+        anim.Stop();
+        throwOutOfBounds();
+    }
+
+    public bool isInBounds {
+        get {
+            // Check whether a raycast straight down hits the ground
+            var raycastHit = raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
+
+            return raycastHit.HasValue && raycastHit.Value.collider.gameObject.CompareTag("Ground");
+        }
+    }
+
+    void OnCollisionEnter (Collision collision) {
 		// If this collides with another animal, bounce away
 		if (collision.transform.tag == "Animal") {
 			BounceAway (collision.transform.position);
@@ -222,40 +232,40 @@ public class AnimalController : MonoBehaviour {
 		rb.AddForce (dir * gm.bounceForce, ForceMode.Impulse);
 
 		// Allow player to leave the ground
-		grounded = false;
 		knockedBack = true;
 	}
 
-	private void CheckGrounded () {
-		grounded = false;
+	private bool isGrounded {
+        get {
+            var raycastHit = raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
 
-		// Set up raycast variables
-		raycastPos = new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z);
-		downRay = new Ray (raycastPos, Vector3.down);
-
-		// Draw raycast ray [DEBUG]
-		Debug.DrawRay (transform.position, Vector3.down);
-
-		// If ray hits anything within a distance of 1.0f, animal is grounded
-		if (Physics.Raycast (downRay, out hit)) {
-			if (hit.distance < 1.0f) {
-				grounded = true;
-			}
-		}
+            return raycastHit.HasValue && raycastHit.Value.distance < 1.0f;
+        }
 	}
 
-	public bool CheckInBounds () {
-		float x = transform.position.x;
-		float z = transform.position.z;
+    private RaycastHit? raycast (Vector3 origin, Vector3 direction) {
+        // Set up raycast variables
+        downRay = new Ray(origin, direction);
 
-		// If animal is within the bounds, return true
-		if (x > -bound && x < bound && z > -bound && z < bound) {
-			return true;
-		}
+        // Draw raycast ray [DEBUG]
+        Debug.DrawRay(origin, direction);
 
-		// If animal is out of bounds, return false
-		return false;
-	}
+        // If ray hits anything within a distance of 1.0f, animal is grounded
+        if (Physics.Raycast(downRay, out hit)) {
+            return hit;
+        } else {
+            return null;
+        }
+    }
+
+    private void throwOutOfBounds () {
+        var boardPos = board.transform.position;
+
+        rb.freezeRotation = false;
+        rb.mass = 10;
+        rb.AddForce(Vector3.Normalize(transform.position - boardPos) * 100 + Vector3.up * 200);
+        rb.AddTorque(1000, 500, 1000);
+    }
 
     public class PowerUpHistory{
         private string pu = "";

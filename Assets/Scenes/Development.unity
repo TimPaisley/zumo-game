@@ -2489,6 +2489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 2
   animal: {fileID: 1511844170}
+  board: {fileID: 1301926164}
 --- !u!4 &322610543 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d83422ddd6e65d74dab751316f440546, type: 3}
@@ -3686,6 +3687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 3
   animal: {fileID: 649508531}
+  board: {fileID: 1301926164}
 --- !u!1 &574704342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4412,7 +4414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bound: 15
+  board: {fileID: 1301926164}
   maxSpeed: 6
   minSpeed: 3
   acceleration: 0.1
@@ -4591,7 +4593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bound: 15
+  board: {fileID: 1301926164}
   maxSpeed: 6
   minSpeed: 3
   acceleration: 0.1
@@ -7219,6 +7221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 0
   animal: {fileID: 1446442667}
+  board: {fileID: 1301926164}
 --- !u!1 &1155113151
 GameObject:
   m_ObjectHideFlags: 0
@@ -8951,7 +8954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bound: 15
+  board: {fileID: 1301926164}
   maxSpeed: 10
   minSpeed: 5
   acceleration: 0.1
@@ -9599,7 +9602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bound: 15
+  board: {fileID: 1301926164}
   maxSpeed: 10
   minSpeed: 5
   acceleration: 0.1
@@ -10605,6 +10608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerIndex: 1
   animal: {fileID: 644102412}
+  board: {fileID: 1301926164}
 --- !u!1 &1685938718
 GameObject:
   m_ObjectHideFlags: 0

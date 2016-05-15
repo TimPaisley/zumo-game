@@ -27,20 +27,32 @@ public class PlayerController : MonoBehaviour {
     // Player Variables
     public int playerIndex;
 	public AnimalController animal;
+    public Renderer board;
+
+    public bool isAlive { get; private set; }
 
 	private InputDevice input;
 
 	void Start () {
 		input = (InputManager.Devices.Count > playerIndex / 2) ? InputManager.Devices[playerIndex / 2] : new FakeInputDevice();
+        isAlive = true;
 	}
 
 	void FixedUpdate () {
-		if (animal != null) {
+		if (isAlive) {
 			animal.Move (xAxis().Value, -yAxis().Value); // y-axis is inverted by default
 
 			if (dashButton().IsPressed) {
 				animal.Dash();
 			}
+
+            if (!animal.isInBounds) {
+                Debug.Log("KILLING ANIMAL");
+                isAlive = false;
+                animal.Kill();
+            } else {
+                Debug.Log("fine");
+            }
 		}
 	}
 
