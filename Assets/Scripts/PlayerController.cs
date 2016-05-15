@@ -47,11 +47,8 @@ public class PlayerController : MonoBehaviour {
 			}
 
             if (!animal.isInBounds) {
-                Debug.Log("KILLING ANIMAL");
                 isAlive = false;
                 animal.Kill();
-            } else {
-                Debug.Log("fine");
             }
 		}
 	}
