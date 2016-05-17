@@ -4,7 +4,7 @@ using System.Collections;
 public class PowerUpCreater : MonoBehaviour {
     public Transform[] SpawnPostion;
     public GameObject PowerUpObj;
-    public float SpawnTime = 6f;
+    public float SpawnTime = 4f;
     private float TimeTicker;
 
     void start()
