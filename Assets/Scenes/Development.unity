@@ -4491,14 +4491,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1301926164}
-  maxSpeed: 6
+  maxSpeed: 8
   minSpeed: 3
-  acceleration: 0.1
-  dashSpeed: 4
+  minTurnSpeed: 6
+  acceleration: 0.2
+  decceleration: -0.4
+  dashSpeed: 3
   dashMass: 5
   dashCooldown: 2
   dashLength: 0.5
   knockBackDelay: 0.2
+  slowAngle: 70
+  turnRate: 30
+  speed: 0
 --- !u!136 &644102413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4671,14 +4676,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1301926164}
-  maxSpeed: 6
+  maxSpeed: 8
   minSpeed: 3
-  acceleration: 0.1
-  dashSpeed: 4
+  minTurnSpeed: 6
+  acceleration: 0.2
+  decceleration: -0.4
+  dashSpeed: 3
   dashMass: 5
   dashCooldown: 2
   dashLength: 0.5
   knockBackDelay: 0.2
+  slowAngle: 70
+  turnRate: 30
+  speed: 0
 --- !u!65 &649508532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9135,14 +9145,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1301926164}
-  maxSpeed: 10
+  maxSpeed: 15
   minSpeed: 5
-  acceleration: 0.1
-  dashSpeed: 5
+  minTurnSpeed: 8
+  acceleration: 0.4
+  decceleration: -0.6
+  dashSpeed: 3
   dashMass: 5
   dashCooldown: 1
   dashLength: 0.25
   knockBackDelay: 0.2
+  slowAngle: 70
+  turnRate: 40
+  speed: 0
 --- !u!136 &1446442668
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9784,14 +9799,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 1301926164}
-  maxSpeed: 10
+  maxSpeed: 15
   minSpeed: 5
-  acceleration: 0.1
-  dashSpeed: 5
+  minTurnSpeed: 8
+  acceleration: 0.4
+  decceleration: -0.6
+  dashSpeed: 3
   dashMass: 5
   dashCooldown: 1
   dashLength: 0.25
   knockBackDelay: 0.2
+  slowAngle: 70
+  turnRate: 40
+  speed: 0
 --- !u!65 &1511844171
 BoxCollider:
   m_ObjectHideFlags: 0
