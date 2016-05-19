@@ -16,18 +16,24 @@ public class AnimalController : MonoBehaviour {
     public Renderer board;
 	public float maxSpeed = 6.0f;
 	public float minSpeed = 1.0f;
+    public float minTurnSpeed = 6.0f;
 	public float acceleration = 0.01f;
+    public float decceleration = -0.01f;
 	public float dashSpeed = 2.0f;
     public float dashMass = 5.0f;
 	public float dashCooldown = 1.0f;
 	public float dashLength = 0.5f;
 	public float knockBackDelay = 0.2f;
+    public float slowAngle;
+    public float turnRate = 5.0f;
 
     // Management Variables
-	private float speed;
+    public float speed;
 	private bool knockedBack;
 	private float knockBackTimer;
- 
+    private int stationaryDelay = 0;
+    
+
 	// Raycast Variables
 	private RaycastHit hit;
 	private Ray downRay;
@@ -116,9 +122,38 @@ public class AnimalController : MonoBehaviour {
 		if (!knockedBack && isGrounded) {
 			// Create movement vector
 			var movement = new Vector3 (h, 0, v);
+            float currentAcceleration = acceleration;
 
-			// Apply dashing speed
-			if (isDashing) {
+            // If moving, look in the direction of movement
+            if (h != 0 || v != 0)
+            {
+                //rotate speed is dependent on current speed
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(movement.x, 0.0f, movement.z)), Time.deltaTime * (turnRate/speed));
+
+                //deccelerate if turning
+                if (Vector3.Angle(movement,transform.forward)>slowAngle&&speed>minTurnSpeed) {
+                     speed = Mathf.Max(speed - 2, minSpeed);
+                      currentAcceleration = decceleration;
+                 }
+
+
+               //set movement to new rotation
+                movement = transform.forward;
+                anim.SetBool("isMoving", true);
+
+                //set animationspeed to moving speed
+                float speedIncrem = 1 / maxSpeed*1.5f;
+                anim.speed = Mathf.Max(speed*speedIncrem, 0.7f);
+            }
+            else
+            {
+                anim.SetBool("isMoving", false);
+            }
+
+            
+
+            // Apply dashing speed
+            if (isDashing) {
 				movement *= dashSpeed;
                 rb.mass = dashMass;
 			} else {
@@ -130,7 +165,8 @@ public class AnimalController : MonoBehaviour {
 
 			// Set moving speed
 			if(h != 0 || v != 0){
-				speed = Mathf.Min(speed + acceleration, maxSpeed);
+				speed = Mathf.Min(speed + currentAcceleration, maxSpeed);
+                if (speed<minSpeed) { speed = minSpeed; }
 			}
 
 			// Set stationary speed
@@ -138,17 +174,20 @@ public class AnimalController : MonoBehaviour {
 				speed = Mathf.Max(speed - acceleration, minSpeed);
 			}
 
-			// Apply changes in velocity
-			rb.velocity = movement * speed;
+            // Apply changes in velocity
+            rb.velocity = movement * speed;
 
-			// If moving, look in the direction of movement
-			if (h != 0 || v != 0) {
-				//transform.rotation = Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z));
-				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z)), Time.deltaTime * 20.0f);
-				anim.SetBool ("isMoving", true);
-			} else {
-				anim.SetBool ("isMoving", false);
-			}
+            //remove speed if player is stationary
+            if (rb.velocity == new Vector3(0.0f, 0.0f, 0.0f))
+            {
+                stationaryDelay++;
+                if (stationaryDelay == 5)
+                {
+                    speed = minSpeed;
+                }
+            }
+            else { stationaryDelay = 0; }
+
 		}
 	}
 
