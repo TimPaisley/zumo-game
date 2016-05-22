@@ -4365,6 +4365,7 @@ GameObject:
   - 114: {fileID: 644102412}
   - 82: {fileID: 644102411}
   - 65: {fileID: 644102416}
+  - 114: {fileID: 644102417}
   m_Layer: 0
   m_Name: Panda 1
   m_TagString: Animal
@@ -4556,6 +4557,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04, y: 0.06, z: 0.1}
   m_Center: {x: 0.001, y: 0.03, z: 0}
+--- !u!114 &644102417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644102408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
+  MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
+  SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
+  initialPostion: {fileID: 1121208771}
+  canvas: {fileID: 1390303993}
+  worldCamera: {fileID: 346573345}
 --- !u!1 &649508528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4571,6 +4589,7 @@ GameObject:
   - 114: {fileID: 649508531}
   - 82: {fileID: 649508530}
   - 65: {fileID: 649508529}
+  - 114: {fileID: 649508537}
   m_Layer: 0
   m_Name: Panda 2
   m_TagString: Animal
@@ -4762,6 +4781,23 @@ Transform:
   - {fileID: 618404520}
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &649508537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 649508528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
+  MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
+  SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
+  initialPostion: {fileID: 1121208771}
+  canvas: {fileID: 1390303993}
+  worldCamera: {fileID: 346573345}
 --- !u!1 &657894123
 GameObject:
   m_ObjectHideFlags: 0
@@ -7769,7 +7805,7 @@ Transform:
   - {fileID: 1905393868}
   - {fileID: 2119768766}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!4 &1250772360 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 2d2b78af3ce304029b2bfc729b59722f, type: 3}
@@ -8966,7 +9002,7 @@ RectTransform:
   - {fileID: 1457876820}
   - {fileID: 553634599}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -9082,6 +9118,7 @@ GameObject:
   - 114: {fileID: 1446442667}
   - 82: {fileID: 1446442670}
   - 65: {fileID: 1446442672}
+  - 114: {fileID: 1446442673}
   m_Layer: 0
   m_Name: Fox 1
   m_TagString: Animal
@@ -9284,6 +9321,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.05, y: 0.1, z: 0.2}
   m_Center: {x: 0, y: 0.055, z: 0}
+--- !u!114 &1446442673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446442664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
+  MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
+  SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
+  initialPostion: {fileID: 1121208771}
+  canvas: {fileID: 1390303993}
+  worldCamera: {fileID: 346573345}
 --- !u!1 &1450092614
 GameObject:
   m_ObjectHideFlags: 0
@@ -9623,7 +9677,7 @@ Transform:
   - {fileID: 937585606}
   - {fileID: 869473827}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &1503794772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9694,6 +9748,7 @@ GameObject:
   - 114: {fileID: 1511844170}
   - 82: {fileID: 1511844169}
   - 65: {fileID: 1511844168}
+  - 114: {fileID: 1511844176}
   m_Layer: 0
   m_Name: Fox 2
   m_TagString: Animal
@@ -9896,6 +9951,23 @@ Transform:
   - {fileID: 2062101362}
   m_Father: {fileID: 0}
   m_RootOrder: 8
+--- !u!114 &1511844176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1511844167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
+  MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
+  SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
+  initialPostion: {fileID: 1121208771}
+  canvas: {fileID: 1390303993}
+  worldCamera: {fileID: 346573345}
 --- !u!1 &1525253033
 GameObject:
   m_ObjectHideFlags: 0
@@ -12475,7 +12547,7 @@ RectTransform:
   - {fileID: 1361660244}
   - {fileID: 19042800}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}

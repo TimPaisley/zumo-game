@@ -10,6 +10,7 @@ public class AnimalController : MonoBehaviour {
 	private Rigidbody rb;
 	private Animator anim;
 	private AudioSource dashSound;
+	private PowerUpDisplay puDisplay;
 
     // Control Variables
     public Renderer board;
@@ -56,6 +57,7 @@ public class AnimalController : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 		anim = GetComponentInChildren<Animator> (); // GetComponent<Animator>() when new fox is imported
 		dashSound = GetComponent<AudioSource> ();
+		puDisplay = GetComponent<PowerUpDisplay> ();
 
 		// Set initial variables
 		speed = minSpeed;
@@ -102,11 +104,13 @@ public class AnimalController : MonoBehaviour {
         //Check if powerup run out of time
         {
             PowerUpHistory ph = (PowerUpHistory)powerUpQueue[i];
-            if (ph.getTicker() < 0.0f)
+			float currTicker = ph.getTicker();
+			if (currTicker < 0.0f)
             {
                 removePowerUp(ph.getPuType());
                 index = i;     
             }
+			puDisplay.updateTimer(ph.getPuType(),currTicker);
         }
         if(index != -1)
         {
@@ -230,6 +234,7 @@ public class AnimalController : MonoBehaviour {
                     Debug.LogWarning("Extended: " + currentPower + " timer");
                     ph.restTicker();
                     Destroy(collision.gameObject);
+					puDisplay.displayPowerUp(currentPower);
                     return;
                 }
             }
@@ -243,8 +248,10 @@ public class AnimalController : MonoBehaviour {
             {
                 minSpeed *= pu.getSpeedMulti();
                 maxSpeed *= pu.getSpeedMulti();
+				speed = maxSpeed;
             }
             Destroy(collision.gameObject);
+			puDisplay.displayPowerUp(currentPower);
         }
 
     }
@@ -260,6 +267,7 @@ public class AnimalController : MonoBehaviour {
         {
             minSpeed = originalMinSpeed;
             maxSpeed = originalMaxSpeed;
+			speed = minSpeed;
         }
     }
 
