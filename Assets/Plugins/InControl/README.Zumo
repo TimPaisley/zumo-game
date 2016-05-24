@@ -1,0 +1,5 @@
+﻿InControl open source version. Cloned 2016-05.
+
+Modifications
+* Made InputDevice InputControl's virtual to allow overriding in FakeInputDevice and KeyboardInputDevice
+* Made InputControl Value + IsPressed virtual for much the same reason

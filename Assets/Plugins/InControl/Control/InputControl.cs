@@ -121,7 +121,7 @@ namespace InControl
 		}
 
 
-		public float Value
+		public virtual float Value
 		{
 			get { return thisState.Value; }
 		}
@@ -139,7 +139,7 @@ namespace InControl
 		}
 
 
-		public bool IsPressed
+		public virtual bool IsPressed
 		{
 			get { return thisState.State; }
 		}

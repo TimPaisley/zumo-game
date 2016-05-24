@@ -272,30 +272,30 @@ namespace InControl
 		}
 
 
-		public InputControl LeftStickX { get { return GetControl( InputControlType.LeftStickX ); } }
-		public InputControl LeftStickY { get { return GetControl( InputControlType.LeftStickY ); } }
+		public virtual InputControl LeftStickX { get { return GetControl( InputControlType.LeftStickX ); } }
+		public virtual InputControl LeftStickY { get { return GetControl( InputControlType.LeftStickY ); } }
 
-		public InputControl RightStickX { get { return GetControl( InputControlType.RightStickX ); } }
-		public InputControl RightStickY { get { return GetControl( InputControlType.RightStickY ); } }
+		public virtual InputControl RightStickX { get { return GetControl( InputControlType.RightStickX ); } }
+		public virtual InputControl RightStickY { get { return GetControl( InputControlType.RightStickY ); } }
 
-		public InputControl DPadUp { get { return GetControl( InputControlType.DPadUp ); } }
-		public InputControl DPadDown { get { return GetControl( InputControlType.DPadDown ); } }
-		public InputControl DPadLeft { get { return GetControl( InputControlType.DPadLeft ); } }
-		public InputControl DPadRight { get { return GetControl( InputControlType.DPadRight ); } }
+		public virtual InputControl DPadUp { get { return GetControl( InputControlType.DPadUp ); } }
+		public virtual InputControl DPadDown { get { return GetControl( InputControlType.DPadDown ); } }
+		public virtual InputControl DPadLeft { get { return GetControl( InputControlType.DPadLeft ); } }
+		public virtual InputControl DPadRight { get { return GetControl( InputControlType.DPadRight ); } }
 
-		public InputControl Action1 { get { return GetControl( InputControlType.Action1 ); } }
-		public InputControl Action2 { get { return GetControl( InputControlType.Action2 ); } }
-		public InputControl Action3 { get { return GetControl( InputControlType.Action3 ); } }
-		public InputControl Action4 { get { return GetControl( InputControlType.Action4 ); } }
+		public virtual InputControl Action1 { get { return GetControl( InputControlType.Action1 ); } }
+		public virtual InputControl Action2 { get { return GetControl( InputControlType.Action2 ); } }
+		public virtual InputControl Action3 { get { return GetControl( InputControlType.Action3 ); } }
+		public virtual InputControl Action4 { get { return GetControl( InputControlType.Action4 ); } }
 
-		public InputControl LeftTrigger { get { return GetControl( InputControlType.LeftTrigger ); } }
-		public InputControl RightTrigger { get { return GetControl( InputControlType.RightTrigger ); } }
+		public virtual InputControl LeftTrigger { get { return GetControl( InputControlType.LeftTrigger ); } }
+		public virtual InputControl RightTrigger { get { return GetControl( InputControlType.RightTrigger ); } }
 
-		public InputControl LeftBumper { get { return GetControl( InputControlType.LeftBumper ); } }
-		public InputControl RightBumper { get { return GetControl( InputControlType.RightBumper ); } }
+		public virtual InputControl LeftBumper { get { return GetControl( InputControlType.LeftBumper ); } }
+		public virtual InputControl RightBumper { get { return GetControl( InputControlType.RightBumper ); } }
 
-		public InputControl LeftStickButton { get { return GetControl( InputControlType.LeftStickButton ); } }
-		public InputControl RightStickButton { get { return GetControl( InputControlType.RightStickButton ); } }
+		public virtual InputControl LeftStickButton { get { return GetControl( InputControlType.LeftStickButton ); } }
+		public virtual InputControl RightStickButton { get { return GetControl( InputControlType.RightStickButton ); } }
 
 
 		public float DPadX
