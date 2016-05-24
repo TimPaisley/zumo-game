@@ -210,7 +210,7 @@ public class AnimalController : MonoBehaviour {
             // Check whether a raycast straight down hits the ground
             var raycastHit = raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
 
-            return raycastHit.HasValue && raycastHit.Value.collider.gameObject.CompareTag("Ground");
+			return raycastHit.HasValue && Tags.HasAnyTag(raycastHit.Value.collider.gameObject, Tags.BoardObjects);
         }
     }
 
@@ -299,13 +299,12 @@ public class AnimalController : MonoBehaviour {
 
         // Draw raycast ray [DEBUG]
         Debug.DrawRay(origin, direction);
-
-        // If ray hits anything within a distance of 1.0f, animal is grounded
-        if (Physics.Raycast(downRay, out hit)) {
-            return hit;
-        } else {
-            return null;
-        }
+		
+		if (Physics.Raycast(downRay, out hit)) {
+			return hit;
+		} else {
+			return null;
+		}
     }
 
     private void throwOutOfBounds () {
