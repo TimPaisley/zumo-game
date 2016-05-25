@@ -242,6 +242,7 @@ public class AnimalController : MonoBehaviour {
             Debug.LogWarning("Apply: " + currentPower + " powerup");
             if (currentPower.Equals("mass"))
             {
+				this.transform.localScale = (this.transform.localScale * 1.5f);
                 rb.mass = rb.mass * pu.getMassMultiplie();
             }
             else if (currentPower.Equals("speed"))
@@ -262,6 +263,8 @@ public class AnimalController : MonoBehaviour {
         if (currentPower.Equals("mass"))
         {
             rb.mass = originalMass;
+			this.transform.localScale = (this.transform.localScale / 1.5f);
+
         }
         else if (currentPower.Equals("speed"))
         {
