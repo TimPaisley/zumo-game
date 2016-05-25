@@ -8,6 +8,7 @@ public class PowerUpDisplay : MonoBehaviour {
 	public GameObject PuDisplayPrefab;
 	public GameObject MassPuPrefab;
 	public GameObject SpeedPuPrefab;
+	public GameObject dashPrefab;
 	public Transform initialPostion;
 	//Canvas
 	public Canvas canvas;
@@ -56,6 +57,10 @@ public class PowerUpDisplay : MonoBehaviour {
 				pu = Instantiate (SpeedPuPrefab);
 				pu.transform.SetParent (Display.transform);
 				powerUps.Add (name, pu);
+			} else if (name.Equals ("dash")) {
+				pu = Instantiate (dashPrefab);
+				pu.transform.SetParent (Display.transform);
+				powerUps.Add (name, pu);
 			}
 		} else {
 			GameObject renew = powerUps [name];
@@ -74,5 +79,15 @@ public class PowerUpDisplay : MonoBehaviour {
 			}
 		}
 	}
-
+	public void updateDashTimer(float remain){
+		if (powerUps.ContainsKey ("dash")) {
+			GameObject renew = powerUps ["dash"];
+			float remainDur = remain/1.0f;
+			renew.transform.GetChild (1).GetComponent<Image> ().fillAmount = remainDur;
+			if (remain < 0.0f) {
+				Destroy (renew);
+				powerUps.Remove ("dash");
+			}
+		}
+	}
 }

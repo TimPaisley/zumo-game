@@ -77,11 +77,13 @@ public class AnimalController : MonoBehaviour {
 				dashLengthRemaining = 0;
 				isDashing = false;
 				dashCooldownRemaining = dashCooldown;
+				puDisplay.displayPowerUp("dash");
 			}
 		} else {
 			dashCooldownRemaining -= Time.deltaTime;
+			puDisplay.updateDashTimer(dashCooldownRemaining);
 
-			if (dashCooldownRemaining < 0) {
+			if (dashCooldownRemaining < 0.0f) {
 				dashCooldownRemaining = 0;
 			}
 		}
@@ -231,7 +233,7 @@ public class AnimalController : MonoBehaviour {
                 PowerUpHistory ph = (PowerUpHistory)powerUpQueue[i];
                 if (ph.getPuType().Equals(currentPower))
                 {
-                    Debug.LogWarning("Extended: " + currentPower + " timer");
+                    //Debug.LogWarning("Extended: " + currentPower + " timer");
                     ph.restTicker();
                     Destroy(collision.gameObject);
 					puDisplay.displayPowerUp(currentPower);
@@ -239,7 +241,7 @@ public class AnimalController : MonoBehaviour {
                 }
             }
             powerUpQueue.Add(nph);
-            Debug.LogWarning("Apply: " + currentPower + " powerup");
+            //Debug.LogWarning("Apply: " + currentPower + " powerup");
             if (currentPower.Equals("mass"))
             {
 				this.transform.localScale = (this.transform.localScale * 1.5f);
@@ -259,7 +261,7 @@ public class AnimalController : MonoBehaviour {
 
     public void removePowerUp(string currentPower)
     {
-        Debug.LogWarning("Remove: "+ currentPower +" change");
+        //Debug.LogWarning("Remove: "+ currentPower +" change");
         if (currentPower.Equals("mass"))
         {
             rb.mass = originalMass;
