@@ -4571,7 +4571,7 @@ MonoBehaviour:
   PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
-  dashPrefab: {fileID: 0}
+  dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
   worldCamera: {fileID: 346573345}
@@ -4796,7 +4796,7 @@ MonoBehaviour:
   PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
-  dashPrefab: {fileID: 0}
+  dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
   worldCamera: {fileID: 346573345}
@@ -9916,7 +9916,7 @@ MonoBehaviour:
   PuDisplayPrefab: {fileID: 144100, guid: 2278b2f33d6194a39a8614182c618746, type: 2}
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
-  dashPrefab: {fileID: 0}
+  dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
   worldCamera: {fileID: 346573345}
