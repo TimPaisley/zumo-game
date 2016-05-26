@@ -14,6 +14,12 @@ public class CameraManager : MonoBehaviour {
 
     private Camera mainCamera;
 
+    private float movementTime;
+    private float movementDuration;
+    private Vector3 originalPosition;
+    private Vector3 originalLocalEulerAngles;
+    private Transform targetTransform;
+
 	void Start () {
         mainCamera = Instantiate(defaultCameras[0]);
         
@@ -23,13 +29,38 @@ public class CameraManager : MonoBehaviour {
 	}
 	
 	void Update () {
-	
-	}
+        if (targetTransform) {
+            movementTime += Time.deltaTime;
 
-    public void ChangePosition (CameraPosition position) {
+            if (movementTime >= movementDuration) {
+                mainCamera.transform.position = targetTransform.position;
+                mainCamera.transform.localEulerAngles = targetTransform.localEulerAngles;
+                targetTransform = null;
+                return;
+            }
+
+            var t = movementTime / movementDuration;
+
+            mainCamera.transform.position = new Vector3(
+                Mathf.SmoothStep(originalPosition.x, targetTransform.position.x, t),
+                Mathf.SmoothStep(originalPosition.y, targetTransform.position.y, t),
+                Mathf.SmoothStep(originalPosition.z, targetTransform.position.z, t)
+            );
+            mainCamera.transform.localEulerAngles = new Vector3(
+                Mathf.SmoothStep(originalLocalEulerAngles.x, targetTransform.localEulerAngles.x, t),
+                Mathf.SmoothStep(originalLocalEulerAngles.y, targetTransform.localEulerAngles.y, t),
+                Mathf.SmoothStep(originalLocalEulerAngles.z, targetTransform.localEulerAngles.z, t)
+            );
+        }
+    }
+
+    public void ChangePosition (CameraPosition position, float duration = 1) {
         var camera = defaultCameras[(int)position];
 
-        mainCamera.transform.position = camera.transform.position;
-        mainCamera.transform.localRotation = camera.transform.localRotation;
+        movementTime = 0;
+        movementDuration = duration;
+        originalPosition = mainCamera.transform.position;
+        originalLocalEulerAngles = mainCamera.transform.localEulerAngles;
+        targetTransform = camera.transform;
     }
 }
