@@ -26,6 +26,10 @@ public class GameManager : MonoBehaviour {
     void Start () {
         winText.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
+
+        foreach (var animal in animals) {
+            animal.gameObject.SetActive(false);
+        }
 	}
 
     void Update () {
@@ -56,6 +60,8 @@ public class GameManager : MonoBehaviour {
         for (var i = 0; i < players.Length; i++) {
             players[i].animal = animals[i];
             players[i].isAlive = true;
+
+            animals[i].gameObject.SetActive(true);
 
             var playerIndicator = Instantiate(basePlayerIndicator);
             var canvas = basePlayerIndicator.GetComponentInParent<Canvas>();
