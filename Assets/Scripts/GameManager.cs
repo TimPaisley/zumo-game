@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public AudioSource gameMusic;
     public AudioSource winMusic;
     public AnimalController[] animals;
+    public CameraManager cameraManager;
 
     private PlayerController[] players;
     private delegate bool PlayerChecker (PlayerController player);
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour {
             players[i].isAlive = true;
         }
 
+        cameraManager.ChangePosition(CameraManager.CameraPosition.Game);
         gameStarted = true;
     }
 
