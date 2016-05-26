@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 	public float bounceForce = 10.0f;
+
     public GameObject winText;
+    public FollowAnimal basePlayerIndicator;
 
     public AudioSource gameMusic;
     public AudioSource winMusic;
@@ -17,12 +19,17 @@ public class GameManager : MonoBehaviour {
     private bool gameStarted = false;
     private bool gameOver = false;
 
-	void Start () {
+    public bool inProgress {
+        get { return gameStarted && !gameOver; }
+    }
+
+    void Start () {
         winText.SetActive(false);
+        basePlayerIndicator.gameObject.SetActive(false);
 	}
 
     void Update () {
-        if (!gameStarted || gameOver) {
+        if (!inProgress) {
             return;
         }
 
@@ -49,6 +56,12 @@ public class GameManager : MonoBehaviour {
         for (var i = 0; i < players.Length; i++) {
             players[i].animal = animals[i];
             players[i].isAlive = true;
+
+            var playerIndicator = Instantiate(basePlayerIndicator);
+            var canvas = basePlayerIndicator.GetComponentInParent<Canvas>();
+            playerIndicator.player = players[i];
+            playerIndicator.transform.SetParent(canvas.transform, false);
+            playerIndicator.gameObject.SetActive(true);
         }
 
         cameraManager.ChangePosition(CameraManager.CameraPosition.Game);
