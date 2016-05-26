@@ -14,7 +14,7 @@ public class DebugHelper : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.BackQuote)) {
 			canvas.enabled = !canvas.enabled;
 		} else if (Input.GetKeyDown (KeyCode.Tab)) {
-			SceneManager.LoadScene ("Development");
+			SceneManager.LoadScene (SceneManager.GetActiveScene().name);
 		}
 	}
 }
