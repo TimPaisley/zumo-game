@@ -21,7 +21,7 @@ public class InputMapping {
 		}
 	}
 
-	private class KeyInputControl : InputControl {
+	public class KeyInputControl : InputControl {
 		private KeyCode key;
 
 		public KeyInputControl (KeyCode key) : base("", InputControlType.Analog0) {
@@ -37,7 +37,7 @@ public class InputMapping {
 		}
 	}
 
-	private class KeyboardInputDevice : InputDevice {
+	public class KeyboardInputDevice : InputDevice {
 		private InputControl leftStickX = new AxisInputControl("Horizontal");
 		private InputControl leftStickY = new AxisInputControl("Vertical");
 		private InputControl rightStickX = new AxisInputControl("Horizontal 2");

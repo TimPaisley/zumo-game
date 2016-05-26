@@ -19,7 +19,7 @@ public class ReadyUpMenu : MonoBehaviour {
 
 	void Start () {
         rectTransform = GetComponent<RectTransform>();
-        playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2);
+        playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
         startIndicator.SetActive(false);
 
@@ -29,6 +29,11 @@ public class ReadyUpMenu : MonoBehaviour {
             createControllerAndPlayers(i, yOffset);
 
             yOffset -= 8;
+        }
+
+        if (Debug.isDebugBuild) {
+            // Create hidden keyboard controller - helpful for testing
+            createControllerAndPlayers(InputManager.Devices.Count, yOffset);
         }
 
         baseControllerView.gameObject.SetActive(false);

@@ -38,10 +38,17 @@ public class ReadyUpController : MonoBehaviour {
             image.sprite = xboxSprite;
             ltText.text = "LT";
             rtText.text = "RT";
+        } else if (isKeyboardController(leftPlayer.input.inputDevice)) {
+            // You can't disable a CanvasRenderer, so just set the scale to zero
+            transform.localScale = Vector3.zero;
         }
     }
 
     private bool isXboxController(InputDevice device) {
         return device is UnityInputDevice && (device as UnityInputDevice).Profile.Name.Contains("XBox");
+    }
+
+    private bool isKeyboardController(InputDevice device) {
+        return device is InputMapping.KeyboardInputDevice;
     }
 }
