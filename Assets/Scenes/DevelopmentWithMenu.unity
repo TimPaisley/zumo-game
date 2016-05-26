@@ -1889,7 +1889,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseControllerView: {fileID: 1042754127}
+  basePlayerController: {fileID: 1154174117}
   startIndicator: {fileID: 1681163631}
+  gameManager: {fileID: 1550336505}
 --- !u!1001 &246742241
 Prefab:
   m_ObjectHideFlags: 0
@@ -2631,48 +2633,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 819164566}
   m_RootOrder: 0
---- !u!1 &318075007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 318075008}
-  - 114: {fileID: 318075009}
-  m_Layer: 0
-  m_Name: Player 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &318075008
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 318075007}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1316400716}
-  m_RootOrder: 2
---- !u!114 &318075009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 318075007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 2
-  animal: {fileID: 1511844170}
-  board: {fileID: 1301926164}
 --- !u!4 &322610543 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d83422ddd6e65d74dab751316f440546, type: 3}
@@ -3905,48 +3865,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1450092615}
   m_RootOrder: 0
---- !u!1 &564911506
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 564911507}
-  - 114: {fileID: 564911508}
-  m_Layer: 0
-  m_Name: Player 3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &564911507
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564911506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1316400716}
-  m_RootOrder: 3
---- !u!114 &564911508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 564911506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 3
-  animal: {fileID: 649508531}
-  board: {fileID: 1301926164}
 --- !u!1 &574704342
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,7 +4780,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 644102408}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
   m_Name: 
@@ -5087,7 +5005,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649508528}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
   m_Name: 
@@ -7181,7 +7099,7 @@ Prefab:
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 318075009}
+      objectReference: {fileID: 0}
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: worldCamera
       value: 
@@ -7857,7 +7775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerIndex: 0
   animal: {fileID: 1446442667}
   board: {fileID: 1301926164}
 --- !u!1 &1154641791
@@ -8951,7 +8868,7 @@ Prefab:
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 1680844786}
+      objectReference: {fileID: 0}
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: worldCamera
       value: 
@@ -8997,9 +8914,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1154174116}
-  - {fileID: 1680844785}
-  - {fileID: 318075008}
-  - {fileID: 564911507}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!1 &1321679815
@@ -9277,7 +9191,7 @@ Prefab:
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 564911508}
+      objectReference: {fileID: 0}
     - target: {fileID: 11464280, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: yOffset
       value: 80
@@ -9577,7 +9491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1390303991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10041,7 +9955,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1446442664}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
   m_Name: 
@@ -10375,7 +10289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1481197260
 Transform:
   m_ObjectHideFlags: 0
@@ -10671,7 +10585,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1511844167}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8c1699763a314094aac35014c01cf3e, type: 3}
   m_Name: 
@@ -10928,6 +10842,11 @@ MonoBehaviour:
   winText: {fileID: 1824860054}
   gameMusic: {fileID: 1919744616}
   winMusic: {fileID: 829116023}
+  animals:
+  - {fileID: 1446442667}
+  - {fileID: 644102412}
+  - {fileID: 1511844170}
+  - {fileID: 649508531}
 --- !u!4 &1550336506
 Transform:
   m_ObjectHideFlags: 0
@@ -10949,7 +10868,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1550336504}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f5155b95f5e3c949bbcacc13a713e1f, type: 3}
   m_Name: 
@@ -11698,48 +11617,6 @@ Transform:
   - {fileID: 681674887}
   m_Father: {fileID: 1301926167}
   m_RootOrder: 3
---- !u!1 &1680844784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1680844785}
-  - 114: {fileID: 1680844786}
-  m_Layer: 0
-  m_Name: Player 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1680844785
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1680844784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1316400716}
-  m_RootOrder: 1
---- !u!114 &1680844786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1680844784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673bcfe7d9da2483da2389640ddbad8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerIndex: 1
-  animal: {fileID: 644102412}
-  board: {fileID: 1301926164}
 --- !u!1 &1681163631
 GameObject:
   m_ObjectHideFlags: 0
@@ -11806,7 +11683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: A Start
+  m_Text: Start
 --- !u!222 &1681163634
 CanvasRenderer:
   m_ObjectHideFlags: 0

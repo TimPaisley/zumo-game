@@ -3,67 +3,80 @@ using InControl;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(RectTransform))]
 public class ReadyUpMenu : MonoBehaviour {
     private int MIN_PLAYERS = 2;
 
     public ReadyUpController baseControllerView;
+    public PlayerController basePlayerController;
     public GameObject startIndicator;
+    public GameManager gameManager;
 
     private RectTransform rectTransform;
-    private List<ReadyUpController> controllerViews;
+    private List<PlayerController> playerControllers;
 
 	void Start () {
         rectTransform = GetComponent<RectTransform>();
-        controllerViews = new List<ReadyUpController>(InputManager.Devices.Count + 1);
+        playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2);
 
         startIndicator.SetActive(false);
 
         var yOffset = -9.5f;
 
-	    foreach (var device in InputManager.Devices) {
-            controllerViews.Add(createControllerView(device, yOffset));
+	    for (var i = 0; i < InputManager.Devices.Count; i++) {
+            createControllerAndPlayers(i, yOffset);
 
             yOffset -= 8;
         }
 
         baseControllerView.gameObject.SetActive(false);
+        basePlayerController.gameObject.SetActive(false);
 	}
 	
 	void Update () {
-	    if (!startIndicator.activeSelf && readyPlayers() >= MIN_PLAYERS) {
-            startIndicator.SetActive(true);
+        var players = readyPlayers();
+
+        if (players.Length >= MIN_PLAYERS) {
+            if (!startIndicator.activeSelf) {
+                startIndicator.SetActive(true);
+            }
+
+            if (playerActionButtonPressed()) {
+                gameManager.StartGame(players);
+                gameObject.SetActive(false);
+            }
         }
 	}
 
-    private ReadyUpController createControllerView (InputDevice device, float yOffset) {
+    private void createControllerAndPlayers (int deviceIndex, float yOffset) {
         var controllerView = Instantiate(baseControllerView.gameObject);
         var viewTransform = controllerView.GetComponent<RectTransform>();
         var controllerComponent = controllerView.GetComponent<ReadyUpController>();
 
-        viewTransform.parent = rectTransform;
-        viewTransform.position = Vector3.zero;
+        viewTransform.SetParent(rectTransform, false);
         viewTransform.localEulerAngles = Vector3.zero;
         viewTransform.anchoredPosition = new Vector2(0, yOffset);
 
-        controllerComponent.UseInput(device);
+        controllerComponent.basePlayerController = basePlayerController;
+        controllerComponent.SetupPlayers(deviceIndex * 2);
 
-        return controllerComponent;
+        playerControllers.Add(controllerComponent.leftPlayer);
+        playerControllers.Add(controllerComponent.rightPlayer);
     }
 
-    private int readyPlayers() {
-        int count = 0;
+    private PlayerController[] readyPlayers() {
+        return playerControllers.Where(player => player.isReady).ToArray();
+    }
 
-        foreach (var controller in controllerViews) {
-            if (controller.leftPlayerReady) {
-                count++;
-            }
-            if (controller.rightPlayerReady) {
-                count++;
+    private bool playerActionButtonPressed() {
+        foreach (var player in playerControllers) {
+            if (player.input.actionButton.IsPressed) {
+                return true;
             }
         }
 
-        return count;
+        return false;
     }
 }

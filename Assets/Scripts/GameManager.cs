@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 	public float bounceForce = 10.0f;
@@ -7,20 +8,20 @@ public class GameManager : MonoBehaviour {
 
     public AudioSource gameMusic;
     public AudioSource winMusic;
+    public AnimalController[] animals;
 
-	private PlayerController[] players;
+    private PlayerController[] players;
     private delegate bool PlayerChecker (PlayerController player);
 
+    private bool gameStarted = false;
     private bool gameOver = false;
 
 	void Start () {
-		players = FindObjectsOfType<PlayerController> ();
-
         winText.SetActive(false);
 	}
 
     void Update () {
-        if (gameOver) {
+        if (!gameStarted || gameOver) {
             return;
         }
 
@@ -39,6 +40,17 @@ public class GameManager : MonoBehaviour {
 
             gameOver = true;
         }
+    }
+
+    public void StartGame (PlayerController[] readyPlayers) {
+        players = readyPlayers;
+
+        for (var i = 0; i < players.Length; i++) {
+            players[i].animal = animals[i];
+            players[i].isAlive = true;
+        }
+
+        gameStarted = true;
     }
 
     private int countPlayers(PlayerChecker checker) {

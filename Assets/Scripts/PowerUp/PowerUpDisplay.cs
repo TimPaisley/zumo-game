@@ -25,10 +25,13 @@ public class PowerUpDisplay : MonoBehaviour {
 	private Text text;
 	private Dictionary <string,GameObject> powerUps;
 
-	void Start(){
-		Display = Instantiate(PuDisplayPrefab);
-		Display.transform.SetParent (canvas.transform);
+    void Awake () {
 		powerUps = new Dictionary<string, GameObject> ();
+    }
+
+	void Start(){
+		//Display = Instantiate(PuDisplayPrefab);
+		//Display.transform.SetParent (canvas.transform);
 		animal = GetComponent<AnimalController>();
 		canvasRect = Display.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
 		rectTransform = Display.GetComponent<RectTransform>();
