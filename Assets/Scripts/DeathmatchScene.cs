@@ -42,7 +42,7 @@ public class DeathmatchScene : VirtualScene {
             }
 
             winText.SetActive(true);
-            musicManager.Play(musicManager.menuSong);
+            musicManager.Play(musicManager.winSong);
 
             gameOver = true;
         }
