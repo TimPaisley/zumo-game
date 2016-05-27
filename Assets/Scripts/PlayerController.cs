@@ -3,29 +3,32 @@ using InControl;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
-    
+
 
     // Global References
 
 
     // Player Variables
-    public int playerIndex;
-	public AnimalController animal;
+    public AnimalController animal;
     public Renderer board;
 
-    public bool isAlive { get; private set; }
+    public bool isAlive { get; set; }
 
-	private InputMapping input;
+    public int playerIndex { get; private set; }
+    public bool isReady { get; private set; }
+    public InputMapping input { get; private set; }
 
-	void Start () {
-		InputMapping.Side controllerSide = playerIndex % 2 == 1 ? InputMapping.Side.RIGHT : InputMapping.Side.LEFT;
-
-		input = new InputMapping(playerIndex / 2, controllerSide);
-        isAlive = true;
-	}
+    void Awake () {
+        isReady = false;
+        isAlive = false;
+    }
 
 	void FixedUpdate () {
-		if (isAlive) {
+        if (!isReady) {
+            if (input.dashButton.IsPressed) {
+                isReady = true;
+            }
+        } else if (isAlive) {
 			animal.Move (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
 
 			if (input.dashButton.IsPressed) {
@@ -38,4 +41,11 @@ public class PlayerController : MonoBehaviour {
             }
 		}
 	}
+
+    public void Setup (int index) {
+        playerIndex = index;
+        InputMapping.Side controllerSide = playerIndex % 2 == 1 ? InputMapping.Side.RIGHT : InputMapping.Side.LEFT;
+
+        input = new InputMapping(playerIndex / 2, controllerSide);
+    }
 }

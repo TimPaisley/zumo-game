@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PowerUpCreater : MonoBehaviour {
+    public GameManager gameManager;
     public Transform[] SpawnPostion;
     public GameObject PowerUpObj;
     public float SpawnTime = 4f;
@@ -12,6 +13,9 @@ public class PowerUpCreater : MonoBehaviour {
         TimeTicker = SpawnTime;
     }
 	void Update () {
+        if (!gameManager.inProgress) {
+            return;
+        }
         TimeTicker -= Time.deltaTime;
         if(TimeTicker < 0.0f)
         {

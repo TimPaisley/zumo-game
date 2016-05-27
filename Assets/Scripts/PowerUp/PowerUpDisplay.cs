@@ -16,8 +16,7 @@ public class PowerUpDisplay : MonoBehaviour {
 	//object reference
 	private GameObject Display;
 	private float puDuration = 10f;
-	//private PlayerController player;
-	public Camera worldCamera;
+    private Camera worldCamera;
 	private int yOffset = 40;
 	private AnimalController animal;
 	private RectTransform canvasRect;
@@ -25,13 +24,17 @@ public class PowerUpDisplay : MonoBehaviour {
 	private Text text;
 	private Dictionary <string,GameObject> powerUps;
 
-	void Start(){
-		Display = Instantiate(PuDisplayPrefab);
-		Display.transform.SetParent (canvas.transform);
+    void Awake () {
 		powerUps = new Dictionary<string, GameObject> ();
-		animal = GetComponent<AnimalController>();
-		canvasRect = Display.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+    }
+
+	void Start(){
+        Display = Instantiate(PuDisplayPrefab);
+		canvasRect = canvas.GetComponent<RectTransform>();
 		rectTransform = Display.GetComponent<RectTransform>();
+        rectTransform.SetParent(canvasRect, false);
+        animal = GetComponent<AnimalController>();
+        worldCamera = CameraManager.instance.mainCamera;
 	}
 		
 	void Update () {

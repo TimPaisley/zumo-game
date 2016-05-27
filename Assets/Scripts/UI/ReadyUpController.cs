@@ -11,28 +11,44 @@ public class ReadyUpController : MonoBehaviour {
 
     public Image image;
 
-    public InputDevice input { get; private set; }
-    public bool leftPlayerReady { get; private set; }
-    public bool rightPlayerReady { get; private set; }
+    public PlayerController basePlayerController { get; set; } // Set by the parent ReadyUpMenu
+
+    public PlayerController leftPlayer { get; private set; }
+    public PlayerController rightPlayer { get; private set; }
 
 	void Start () {
 	}
 	
 	void Update () {
-        if (input.LeftTrigger.IsPressed) {
-            leftPlayerReady = true;
-        } else if (input.RightTrigger.IsPressed) {
-            rightPlayerReady = true;
+        if (ltText.gameObject.activeSelf && leftPlayer.isReady) {
+            ltText.gameObject.SetActive(false);
         }
-	}
+        if (rtText.gameObject.activeSelf && rightPlayer.isReady) {
+            rtText.gameObject.SetActive(false);
+        }
+    }
 
-    public void UseInput (InputDevice input) {
-        this.input = input;
+    public void SetupPlayers (int leftPlayerIndex) {
+        leftPlayer = Instantiate(basePlayerController);
+        leftPlayer.Setup(leftPlayerIndex);
+        rightPlayer = Instantiate(basePlayerController);
+        rightPlayer.Setup(leftPlayerIndex + 1);
 
-        if (input is UnityInputDevice && (input as UnityInputDevice).Profile.Name.Contains("XBox")) {
+        if (isXboxController(leftPlayer.input.inputDevice)) {
             image.sprite = xboxSprite;
             ltText.text = "LT";
             rtText.text = "RT";
+        } else if (isKeyboardController(leftPlayer.input.inputDevice)) {
+            // You can't disable a CanvasRenderer, so just set the scale to zero
+            transform.localScale = Vector3.zero;
         }
+    }
+
+    private bool isXboxController(InputDevice device) {
+        return device is UnityInputDevice && (device as UnityInputDevice).Profile.Name.Contains("XBox");
+    }
+
+    private bool isKeyboardController(InputDevice device) {
+        return device is InputMapping.KeyboardInputDevice;
     }
 }

@@ -4,19 +4,20 @@ using UnityEngine.UI;
 
 public class FollowAnimal : MonoBehaviour {
     public PlayerController player;
-    public Camera worldCamera;
     public int yOffset = 70;
 
     private AnimalController animal;
     private RectTransform canvasRect;
     private RectTransform rectTransform;
     private Text text;
+    private Camera worldCamera;
 
 	// Use this for initialization
 	void Start () {
         animal = player.animal;
         canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
+        worldCamera = CameraManager.instance.mainCamera;
 
         GetComponentInChildren<Text>().text = "P" + (player.playerIndex + 1);
 	}

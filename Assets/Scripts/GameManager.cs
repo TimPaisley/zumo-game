@@ -1,26 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 	public float bounceForce = 10.0f;
+
     public GameObject winText;
+    public FollowAnimal basePlayerIndicator;
 
     public AudioSource gameMusic;
     public AudioSource winMusic;
+    public AnimalController[] animals;
+    public CameraManager cameraManager;
 
-	private PlayerController[] players;
+    private PlayerController[] players;
     private delegate bool PlayerChecker (PlayerController player);
 
+    private bool gameStarted = false;
     private bool gameOver = false;
 
-	void Start () {
-		players = FindObjectsOfType<PlayerController> ();
+    public bool inProgress {
+        get { return gameStarted && !gameOver; }
+    }
 
+    void Start () {
         winText.SetActive(false);
+        basePlayerIndicator.gameObject.SetActive(false);
+
+        foreach (var animal in animals) {
+            animal.gameObject.SetActive(false);
+        }
 	}
 
     void Update () {
-        if (gameOver) {
+        if (!inProgress) {
             return;
         }
 
@@ -39,6 +52,26 @@ public class GameManager : MonoBehaviour {
 
             gameOver = true;
         }
+    }
+
+    public void StartGame (PlayerController[] readyPlayers) {
+        players = readyPlayers;
+
+        for (var i = 0; i < players.Length; i++) {
+            players[i].animal = animals[i];
+            players[i].isAlive = true;
+
+            animals[i].gameObject.SetActive(true);
+
+            var playerIndicator = Instantiate(basePlayerIndicator);
+            var canvas = basePlayerIndicator.GetComponentInParent<Canvas>();
+            playerIndicator.player = players[i];
+            playerIndicator.transform.SetParent(canvas.transform, false);
+            playerIndicator.gameObject.SetActive(true);
+        }
+
+        cameraManager.ChangePosition(CameraManager.CameraPosition.Game);
+        gameStarted = true;
     }
 
     private int countPlayers(PlayerChecker checker) {
