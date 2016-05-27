@@ -5,20 +5,20 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
-[RequireComponent(typeof(RectTransform))]
-public class ReadyUpMenu : MonoBehaviour {
+public class ReadyUpMenu : VirtualScene {
     private int MIN_PLAYERS = 2;
 
+    public Canvas canvas;
     public ReadyUpController baseControllerView;
     public PlayerController basePlayerController;
     public GameObject startIndicator;
     public GameManager gameManager;
 
-    private RectTransform rectTransform;
+    private RectTransform canvasTransform;
     private List<PlayerController> playerControllers;
 
 	void Start () {
-        rectTransform = GetComponent<RectTransform>();
+        canvasTransform = canvas.GetComponent<RectTransform>();
         playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
         startIndicator.SetActive(false);
@@ -49,7 +49,8 @@ public class ReadyUpMenu : MonoBehaviour {
             }
 
             if (playerActionButtonPressed()) {
-                gameManager.StartGame(players);
+                gameManager.inGameScene.Prepare(players);
+                gameManager.inGameScene.Activate();
                 gameObject.SetActive(false);
             }
         }
@@ -60,7 +61,7 @@ public class ReadyUpMenu : MonoBehaviour {
         var viewTransform = controllerView.GetComponent<RectTransform>();
         var controllerComponent = controllerView.GetComponent<ReadyUpController>();
 
-        viewTransform.SetParent(rectTransform, false);
+        viewTransform.SetParent(canvasTransform, false);
         viewTransform.localEulerAngles = Vector3.zero;
         viewTransform.anchoredPosition = new Vector2(0, yOffset);
 
