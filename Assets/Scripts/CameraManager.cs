@@ -2,19 +2,8 @@
 using System.Collections;
 
 public class CameraManager : MonoBehaviour {
-    // Singleton - only one instance of this class may be in a scene
-    public static CameraManager instance;
-
-    // Stores the names of the cameras in defaultCameras. Make sure you update
-    // this if you change defaultCameras!
-    public enum CameraPosition {
-        Menu,
-        Game
-    }
-
-    [Header("Update the CameraManager class if you change this!")]
-    public Camera[] defaultCameras;
-    public Canvas[] screenCanvases;
+    public Camera menuCamera;
+    public Camera gameCamera;
 
     public Camera mainCamera { get; private set; }
 
@@ -24,16 +13,11 @@ public class CameraManager : MonoBehaviour {
     private Vector3 originalLocalEulerAngles;
     private Transform targetTransform;
 
-    void Awake () {
-        instance = this;
-    }
-
 	void Start () {
-        mainCamera = Instantiate(defaultCameras[0]);
-        
-        foreach (var camera in defaultCameras) {
-            camera.gameObject.SetActive(false);
-        }
+        mainCamera = Instantiate(menuCamera);
+
+        menuCamera.gameObject.SetActive(false);
+        gameCamera.gameObject.SetActive(false);
 	}
 	
 	void Update () {
@@ -62,11 +46,10 @@ public class CameraManager : MonoBehaviour {
         }
     }
 
-    public void ChangePosition (CameraPosition position, float duration = 1) {
-        var camera = defaultCameras[(int)position];
-
+    public void Use (Camera camera, float animationDuration = 1) {
         movementTime = 0;
-        movementDuration = duration;
+        movementDuration = animationDuration;
+
         originalPosition = mainCamera.transform.position;
         originalLocalEulerAngles = mainCamera.transform.localEulerAngles;
         targetTransform = camera.transform;

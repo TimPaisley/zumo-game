@@ -10,21 +10,21 @@ public class FollowAnimal : MonoBehaviour {
     private RectTransform canvasRect;
     private RectTransform rectTransform;
     private Text text;
-    private Camera worldCamera;
+    private CameraManager cameraManager;
 
 	// Use this for initialization
 	void Start () {
         animal = player.animal;
         canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
         rectTransform = GetComponent<RectTransform>();
-        worldCamera = CameraManager.instance.mainCamera;
+        cameraManager = FindObjectOfType<CameraManager>();
 
         GetComponentInChildren<Text>().text = "P" + (player.playerIndex + 1);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        var animalPos = worldCamera.WorldToViewportPoint(animal.transform.position);
+        var animalPos = cameraManager.mainCamera.WorldToViewportPoint(animal.transform.position);
 
         var screenPos = new Vector2(
             ((animalPos.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),

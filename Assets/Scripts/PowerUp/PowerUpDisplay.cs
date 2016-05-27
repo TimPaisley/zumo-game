@@ -16,7 +16,7 @@ public class PowerUpDisplay : MonoBehaviour {
 	//object reference
 	private GameObject Display;
 	private float puDuration = 10f;
-    private Camera worldCamera;
+    private CameraManager cameraManager;
 	private int yOffset = 40;
 	private AnimalController animal;
 	private RectTransform canvasRect;
@@ -34,11 +34,11 @@ public class PowerUpDisplay : MonoBehaviour {
 		rectTransform = Display.GetComponent<RectTransform>();
         rectTransform.SetParent(canvasRect, false);
         animal = GetComponent<AnimalController>();
-        worldCamera = CameraManager.instance.mainCamera;
+        cameraManager = FindObjectOfType<CameraManager>();
 	}
 		
 	void Update () {
-		var animalPos = worldCamera.WorldToViewportPoint(animal.transform.position);
+		var animalPos = cameraManager.mainCamera.WorldToViewportPoint(animal.transform.position);
 		var screenPos = new Vector2(
 			((animalPos.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
 			((animalPos.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f))

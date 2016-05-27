@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PowerUpCreater : MonoBehaviour {
-    public DeathmatchManager inGameScene;
+    public DeathmatchScene inGameScene;
     public Transform[] SpawnPostion;
     public GameObject PowerUpObj;
     public float SpawnTime = 4f;

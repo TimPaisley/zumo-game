@@ -5,8 +5,8 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour {
 	public float bounceForce = 10.0f;
 
-    public ReadyUpMenu readyUpScene;
-    public DeathmatchManager inGameScene;
+    public ReadyUpScene readyUpScene;
+    public DeathmatchScene inGameScene;
     
     void Start () {
         inGameScene.Deactivate();

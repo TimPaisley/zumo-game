@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DeathmatchManager : VirtualScene {
+public class DeathmatchScene : VirtualScene {
     public GameObject winText;
     public FollowAnimal basePlayerIndicator;
-
-    public AudioSource gameMusic;
-    public AudioSource winMusic;
+    
     public AnimalController[] animals;
-    public CameraManager cameraManager;
 
+    private CameraManager cameraManager;
+    private MusicManager musicManager;
     private PlayerController[] players;
     private delegate bool PlayerChecker (PlayerController player);
 
@@ -23,6 +22,9 @@ public class DeathmatchManager : VirtualScene {
     void Start () {
         winText.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
+
+        musicManager = FindObjectOfType<MusicManager>();
+        cameraManager = FindObjectOfType<CameraManager>();
     }
 	
 	void Update () {
@@ -40,8 +42,7 @@ public class DeathmatchManager : VirtualScene {
             }
 
             winText.SetActive(true);
-            gameMusic.Stop();
-            winMusic.Play();
+            musicManager.Play(musicManager.menuSong);
 
             gameOver = true;
         }
@@ -69,13 +70,13 @@ public class DeathmatchManager : VirtualScene {
             playerIndicator.gameObject.SetActive(true);
         }
 
-        cameraManager.ChangePosition(CameraManager.CameraPosition.Game);
+        cameraManager.Use(cameraManager.gameCamera);
     }
 
     public override void Activate () {
         base.Activate();
 
-        Debug.Log("Activating!");
+        musicManager.Play(musicManager.gameSong);
 
         gameStarted = true;
         foreach (var player in players) {

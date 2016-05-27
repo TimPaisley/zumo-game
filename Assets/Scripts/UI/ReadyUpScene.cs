@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
-public class ReadyUpMenu : VirtualScene {
+public class ReadyUpScene : VirtualScene {
     private int MIN_PLAYERS = 2;
 
     public Canvas canvas;
@@ -14,10 +14,12 @@ public class ReadyUpMenu : VirtualScene {
     public GameObject startIndicator;
     public GameManager gameManager;
 
+    private MusicManager musicManager;
     private RectTransform canvasTransform;
     private List<PlayerController> playerControllers;
 
 	void Start () {
+        musicManager = FindObjectOfType<MusicManager>();
         canvasTransform = canvas.GetComponent<RectTransform>();
         playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
@@ -51,10 +53,23 @@ public class ReadyUpMenu : VirtualScene {
             if (playerActionButtonPressed()) {
                 gameManager.inGameScene.Prepare(players);
                 gameManager.inGameScene.Activate();
-                gameObject.SetActive(false);
+                Deactivate();
             }
         }
 	}
+
+    public override void Activate () {
+        base.Activate();
+
+        canvas.enabled = true;
+        musicManager.Play(musicManager.menuSong);
+    }
+
+    public override void Deactivate () {
+        base.Deactivate();
+
+        canvas.enabled = false;
+    }
 
     private void createControllerAndPlayers (int deviceIndex, float yOffset) {
         var controllerView = Instantiate(baseControllerView.gameObject);
