@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     public int playerIndex;
 
     public bool isAlive { get; set; }
-    public bool isReady { get; private set; }
+    public bool isReady { get; set; }
     public InputMapping input { get; private set; }
 
     public string playerName {
@@ -31,11 +31,7 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void FixedUpdate () {
-        if (!isReady) {
-            if (input.dashButton.IsPressed) {
-                isReady = true;
-            }
-        } else if (isAlive) {
+        if (isReady && isAlive) {
 			animal.Move (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
 
 			if (input.dashButton.IsPressed) {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class DeathmatchScene : VirtualScene {
     public Canvas hudCanvas;
@@ -31,11 +32,11 @@ public class DeathmatchScene : VirtualScene {
         if (!inProgress) {
             return;
         }
-
-        var alivePlayers = countPlayers((player) => player.isAlive);
+        
+        var alivePlayers = players.Count(player => player.isAlive);
 
         if (alivePlayers == 1) {
-            var winningPlayer = findPlayer((player) => player.isAlive);
+            var winningPlayer = players.First(player => player.isAlive);
 
             foreach (var text in winText.GetComponentsInChildren<TextMesh>()) {
                 text.text = "Player " + (winningPlayer.playerIndex + 1) + " Wins!";
@@ -81,23 +82,5 @@ public class DeathmatchScene : VirtualScene {
         foreach (var player in players) {
             player.isAlive = true;
         }
-    }
-
-    private int countPlayers (PlayerChecker checker) {
-        var count = 0;
-
-        foreach (var player in players) {
-            if (checker(player)) count++;
-        }
-
-        return count;
-    }
-
-    private PlayerController findPlayer (PlayerChecker checker) {
-        foreach (var player in players) {
-            if (checker(player)) return player;
-        }
-
-        return null;
     }
 }

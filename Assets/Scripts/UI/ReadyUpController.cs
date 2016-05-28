@@ -15,15 +15,15 @@ public class ReadyUpController : MonoBehaviour {
 
     public PlayerController leftPlayer { get; private set; }
     public PlayerController rightPlayer { get; private set; }
-
-	void Start () {
-	}
-	
+    
 	void Update () {
-        if (ltText.gameObject.activeSelf && leftPlayer.isReady) {
+        if (!leftPlayer.isReady && leftPlayer.input.dashButton.IsPressed) {
+            leftPlayer.isReady = true;
             ltText.gameObject.SetActive(false);
         }
-        if (rtText.gameObject.activeSelf && rightPlayer.isReady) {
+        
+        if (!rightPlayer.isReady && rightPlayer.input.dashButton.IsPressed) {
+            rightPlayer.isReady = true;
             rtText.gameObject.SetActive(false);
         }
     }
