@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FloatingText : MonoBehaviour {
+public class WigglingText : MonoBehaviour {
     public float maxRotation = 20;
 
     private Vector3 initialRotation;
