@@ -17,7 +17,7 @@ public class PowerUpDisplay : MonoBehaviour {
 	private GameObject Display;
 	private float puDuration = 10f;
     private CameraManager cameraManager;
-	private int yOffset = 40;
+	private int yOffset = 100;
 	private AnimalController animal;
 	private RectTransform canvasRect;
 	private RectTransform rectTransform;
