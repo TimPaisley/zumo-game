@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11494714}
   - 114: {fileID: 11464280}
   m_Layer: 5
-  m_Name: Fox 1 Indicator
+  m_Name: Player Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  worldCamera: {fileID: 0}
   yOffset: 70
 --- !u!114 &11490388
 MonoBehaviour:

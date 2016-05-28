@@ -23,6 +23,7 @@ public class ReadyUpScene : VirtualScene {
         canvasTransform = canvas.GetComponent<RectTransform>();
         playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
+        canvas.enabled = false;
         startIndicator.SetActive(false);
 
         var yOffset = -9.5f;
@@ -51,8 +52,8 @@ public class ReadyUpScene : VirtualScene {
             }
 
             if (playerActionButtonPressed()) {
-                gameManager.inGameScene.Prepare(players);
-                gameManager.inGameScene.Activate();
+                gameManager.characterChoiceScene.Prepare(players);
+                gameManager.characterChoiceScene.Activate();
                 Deactivate();
             }
         }

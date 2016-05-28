@@ -1,38 +1,41 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using InControl;
 using System.Collections;
 
-[System.Serializable]
-public class AxisMovedEvent : UnityEvent<float> { }
-
-public class AxisInput : MonoBehaviour {
-	public string axis;
-	public AxisMovedEvent onMove;
+public class AxisInput {
+	private InputControl axis;
+    private float sensitivity;
 
 	private bool awaitingInput = true;
 	private float lastPosition = 0;
 
-	void Start() {
-		if (onMove == null) onMove = new AxisMovedEvent();
-	}
+    public AxisInput(InputControl axis, float sensitivity = 0.2f) {
+        this.axis = axis;
+        this.sensitivity = sensitivity;
+    }
 
-	void Update() {
-		float currentPosition = Input.GetAxis(axis);
+    public float CheckInput () {
+        float moveValue = 0;
 
-		if (awaitingInput) {
-			checkInput(currentPosition);
-		} else {
-			checkReverseMovement(currentPosition);
-		}
+        if (awaitingInput) {
+            moveValue = checkPositiveMovement(axis.Value);
+        } else {
+            checkReverseMovement(axis.Value);
+        }
 
-		lastPosition = currentPosition;
-	}
+        lastPosition = axis.Value;
 
-	private void checkInput(float position) {
-		if (Mathf.Abs(position) > Mathf.Abs(lastPosition)) {
+        return moveValue;
+    }
+
+	private float checkPositiveMovement(float position) {
+		if (Mathf.Abs(position) > Mathf.Abs(lastPosition) && Mathf.Abs(position) > sensitivity) {
 			awaitingInput = false;
-			onMove.Invoke(position);
+        
+            return position;
 		}
+        return 0;
 	}
 
 	private void checkReverseMovement(float position) {
