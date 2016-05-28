@@ -11,10 +11,9 @@ public class PlayerController : MonoBehaviour {
     // Player Variables
     public AnimalController animal;
     public Renderer board;
+    public int playerIndex;
 
     public bool isAlive { get; set; }
-
-    public int playerIndex { get; private set; }
     public bool isReady { get; private set; }
     public InputMapping input { get; private set; }
 

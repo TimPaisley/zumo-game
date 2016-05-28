@@ -56,9 +56,12 @@ public class DeathmatchScene : VirtualScene {
         basePlayerIndicator.gameObject.SetActive(false);
 
         for (var i = 0; i < players.Length; i++) {
-            players[i].animal = Instantiate(players[i].animal);
-            players[i].animal.transform.position = spawnPoints[i].position;
-            players[i].animal.transform.localRotation = spawnPoints[i].localRotation;
+            var animal = Instantiate(players[i].animal);
+            animal.gameObject.SetActive(true);
+            animal.transform.position = spawnPoints[i].position;
+            animal.transform.localRotation = spawnPoints[i].localRotation;
+
+            players[i].animal = animal;
 
             var playerIndicator = Instantiate(basePlayerIndicator);
             playerIndicator.player = players[i];
