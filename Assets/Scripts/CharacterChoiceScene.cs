@@ -17,7 +17,7 @@ public class CharacterChoiceScene : VirtualScene {
     public struct ChooserChooseOperation {
         public AnimalChooser chooser;
         public Vector2 currentPosition;
-        public AnimalController animal;
+        public int animalIndex;
     }
 
     public class AnimalChooser {
@@ -67,6 +67,7 @@ public class CharacterChoiceScene : VirtualScene {
     public RectTransform basePicker;
 
     public AnimalController[] animals;
+    public GameObject[] animalChoiceIndicators;
     public int animalColumnCount = 2;
     public float pickerSpacing = 30;
     
@@ -90,6 +91,10 @@ public class CharacterChoiceScene : VirtualScene {
 
         basePicker.gameObject.SetActive(false);
         sceneBase.SetActive(false);
+
+        foreach (var indicator in animalChoiceIndicators) {
+            indicator.SetActive(false);
+        }
 	}
 	
 	void Update () {
@@ -130,12 +135,22 @@ public class CharacterChoiceScene : VirtualScene {
 
         foreach (var operation in chooseOperations) {
             if (operation.chooser != null) {
-                operation.chooser.player.animal = operation.animal;
+                operation.chooser.player.animal = animals[operation.animalIndex];
                 Destroy(operation.chooser.picker.gameObject);
+
+                var indicator = animalChoiceIndicators[operation.animalIndex];
+                indicator.SetActive(true);
+                indicator.GetComponentInChildren<Text>().text = operation.chooser.player.playerName.ToUpper();
 
                 choiceMadePlayers.Add(operation.chooser.player);
                 animalChoosers[operation.currentPosition].Remove(operation.chooser);
             }
+        }
+
+        if (choiceMadePlayers.Count == players.Length) {
+            gameManager.inGameScene.Prepare(players);
+            gameManager.inGameScene.Activate();
+            Deactivate();
         }
 	}
 
@@ -147,10 +162,12 @@ public class CharacterChoiceScene : VirtualScene {
             player.animal = null;
         }
 
-        var choosers = readyPlayers.Select(player => new AnimalChooser(player, createAnimalPicker())).ToList();
+        var choosers = readyPlayers.Select(player => new AnimalChooser(player, createAnimalPicker(player))).ToList();
 
         animalChoosers.Add(NoPosition, choosers);
         recalculatePositions(NoPosition);
+
+        cameraManager.Use(cameraManager.tiltedMenuCamera, 0.5f);
     }
 
     public override void Activate () {
@@ -165,9 +182,11 @@ public class CharacterChoiceScene : VirtualScene {
         sceneBase.SetActive(false);
     }
 
-    private RectTransform createAnimalPicker () {
+    private RectTransform createAnimalPicker (PlayerController player) {
         var picker = Instantiate(basePicker);
         picker.transform.SetParent(canvas.transform, false);
+
+        picker.GetComponentInChildren<Text>().text = player.shortName;
         picker.gameObject.SetActive(true);
 
         return picker;
@@ -203,7 +222,8 @@ public class CharacterChoiceScene : VirtualScene {
     }
 
     private ChooserChooseOperation buildChooserChooseOperation(AnimalChooser chooser, Vector2 position) {
-        var animal = animals[animalIndex(position)];
+        var index = animalIndex(position);
+        var animal = animals[index];
 
         foreach (var player in choiceMadePlayers) {
             if (player.animal == animal) {
@@ -211,7 +231,7 @@ public class CharacterChoiceScene : VirtualScene {
             }
         }
 
-        return new ChooserChooseOperation { chooser = chooser, animal = animal, currentPosition = position };
+        return new ChooserChooseOperation { chooser = chooser, animalIndex = index, currentPosition = position };
     }
     
     private int animalIndex(Vector2 position) {

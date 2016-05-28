@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraManager : MonoBehaviour {
     public Camera menuCamera;
+    public Camera tiltedMenuCamera;
     public Camera gameCamera;
 
     public Camera mainCamera { get; private set; }

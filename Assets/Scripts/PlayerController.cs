@@ -18,6 +18,14 @@ public class PlayerController : MonoBehaviour {
     public bool isReady { get; private set; }
     public InputMapping input { get; private set; }
 
+    public string playerName {
+        get { return "Player " + (playerIndex + 1); }
+    }
+
+    public string shortName {
+        get { return "P" + (playerIndex + 1); }
+    }
+
     void Awake () {
         isReady = false;
         isAlive = false;

@@ -4,8 +4,7 @@ using System.Collections;
 public class DeathmatchScene : VirtualScene {
     public GameObject winText;
     public FollowAnimal basePlayerIndicator;
-    
-    public AnimalController[] animals;
+    public Transform[] spawnPoints;
 
     private CameraManager cameraManager;
     private MusicManager musicManager;
@@ -55,13 +54,10 @@ public class DeathmatchScene : VirtualScene {
         winText.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
 
-        foreach (var animal in animals) {
-            animal.gameObject.SetActive(false);
-        }
-
         for (var i = 0; i < players.Length; i++) {
-            players[i].animal = animals[i];
-            players[i].animal.gameObject.SetActive(true);
+            players[i].animal = Instantiate(players[i].animal);
+            players[i].animal.transform.position = spawnPoints[i].position;
+            players[i].animal.transform.localRotation = spawnPoints[i].localRotation;
 
             var playerIndicator = Instantiate(basePlayerIndicator);
             var canvas = basePlayerIndicator.GetComponentInParent<Canvas>();
