@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class DeathmatchScene : VirtualScene {
+    public Canvas hudCanvas;
     public GameObject winText;
     public FollowAnimal basePlayerIndicator;
     public Transform[] spawnPoints;
@@ -60,9 +61,8 @@ public class DeathmatchScene : VirtualScene {
             players[i].animal.transform.localRotation = spawnPoints[i].localRotation;
 
             var playerIndicator = Instantiate(basePlayerIndicator);
-            var canvas = basePlayerIndicator.GetComponentInParent<Canvas>();
             playerIndicator.player = players[i];
-            playerIndicator.transform.SetParent(canvas.transform, false);
+            playerIndicator.transform.SetParent(hudCanvas.transform, false);
             playerIndicator.gameObject.SetActive(true);
         }
 
