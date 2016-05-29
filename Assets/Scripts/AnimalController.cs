@@ -203,6 +203,8 @@ public class AnimalController : MonoBehaviour {
 				
             // Apply changes in velocity
 			if(isDashing){
+                movement.y = Mathf.Clamp(movement.y, 0, 0.01f);
+
 				rb.velocity = movement * dashSpeed;
 			}
 			else{
@@ -252,7 +254,8 @@ public class AnimalController : MonoBehaviour {
 
 	public void dashCharge(){
 		if(dashCooldownRemaining == 0){
-		dashIsCharging = true;
+		    dashIsCharging = true;
+            rb.velocity = Vector3.zero;
 		}
 	}
 
