@@ -9,6 +9,7 @@ public class PowerUpDisplay : MonoBehaviour {
 	public GameObject MassPuPrefab;
 	public GameObject SpeedPuPrefab;
 	public GameObject dashPrefab;
+	public GameObject dashCDPrefab;
 	public Transform initialPostion;
 	//Canvas
 	public Canvas canvas;
@@ -62,6 +63,10 @@ public class PowerUpDisplay : MonoBehaviour {
 				powerUps.Add (name, pu);
 			} else if (name.Equals ("dash")) {
 				pu = Instantiate (dashPrefab);
+				pu.transform.SetParent (Display.transform);
+				powerUps.Add (name, pu);
+			} else if (name.Equals ("dashCD")) {
+				pu = Instantiate (dashCDPrefab);
 				pu.transform.SetParent (Display.transform);
 				powerUps.Add (name, pu);
 			}

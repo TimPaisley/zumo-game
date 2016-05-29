@@ -38,6 +38,10 @@ public class PlayerController : MonoBehaviour {
 				animal.Dash();
 			}
 
+			if (input.dashButton.WasReleased) {
+
+			}
+
             if (!animal.isInBounds) {
                 isAlive = false;
                 animal.Kill();
