@@ -47,6 +47,7 @@ public class AnimalController : MonoBehaviour {
     private float originalMass;
     private float originalMaxSpeed;
     private float originalMinSpeed;
+	private float originalDashCD;
     private ArrayList powerUpQueue;
 
     void Start () {
@@ -62,10 +63,11 @@ public class AnimalController : MonoBehaviour {
 		// Set initial variables
 		speed = minSpeed;
 
-        //Store original mass and speed
+        //Store original mass and speed and dash cooldown
         originalMass = rb.mass;
         originalMaxSpeed = maxSpeed;
         originalMinSpeed = minSpeed;
+		originalDashCD = dashCooldown;
         powerUpQueue = new ArrayList();
     }
 
@@ -252,7 +254,11 @@ public class AnimalController : MonoBehaviour {
                 minSpeed *= pu.getSpeedMulti();
                 maxSpeed *= pu.getSpeedMulti();
 				speed = maxSpeed;
-            }
+			}
+			else if (currentPower.Equals("dashCD"))
+			{
+				dashCooldown = (float)(dashCooldown/pu.getNewDashCD());
+			}
             Destroy(collision.gameObject);
 			puDisplay.displayPowerUp(currentPower);
         }
@@ -274,6 +280,10 @@ public class AnimalController : MonoBehaviour {
             maxSpeed = originalMaxSpeed;
 			speed = minSpeed;
         }
+		else if (currentPower.Equals("speed"))
+		{
+			dashCooldown = originalDashCD;
+		}
     }
 
 	public void BounceAway (Vector3 otherPos) {

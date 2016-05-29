@@ -5,7 +5,8 @@ public class PowerUp : MonoBehaviour {
     private string PuType = "";
     public float speedMultiplier = 1.5f;
     public float massMultiplier = 2f;
-    public string[] PuTypes = { "mass", "speed" };
+	public float reduceDashCD = 2f;
+    public string[] PuTypes = { "mass", "speed", "dashCD" };
 
 	void Start () {
         int randomPower = Random.Range(0,PuTypes.Length);
@@ -23,4 +24,9 @@ public class PowerUp : MonoBehaviour {
     {
         return massMultiplier;
     }
+	public float getNewDashCD()
+	{
+		return reduceDashCD;
+	}
+		
 }

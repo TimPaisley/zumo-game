@@ -2287,7 +2287,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22408680, guid: 6dc0317357d112d4ebd7236452e9d93c, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -5656,6 +5656,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 138684, guid: a95d8a99e6bc6413e82efe4f087752a1, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &649508528
@@ -5880,6 +5881,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 138684, guid: a95d8a99e6bc6413e82efe4f087752a1, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &657894123
@@ -10886,6 +10888,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 138684, guid: a95d8a99e6bc6413e82efe4f087752a1, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &1450092614
@@ -11634,6 +11637,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 138684, guid: a95d8a99e6bc6413e82efe4f087752a1, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &1522672452
