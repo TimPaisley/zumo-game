@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class CharacterChoiceScene : VirtualScene {
-    private static readonly Vector2 NoPosition = new Vector2(-1, -1);
+    public static readonly Vector2 NoPosition = new Vector2(-1, -1);
 
     public struct ChooserMoveOperation {
         public AnimalChooser chooser;
@@ -20,51 +20,9 @@ public class CharacterChoiceScene : VirtualScene {
         public int animalIndex;
     }
 
-    public class AnimalChooser {
-        public RectTransform picker;
-        public PlayerController player;
-        public AxisInput xAxisInput;
-        public AxisInput yAxisInput;
-        public bool hasChosen = false;
-
-        public AnimalChooser (PlayerController player, RectTransform picker) {
-            this.player = player;
-            this.picker = picker;
-            xAxisInput = new AxisInput(player.input.xAxis);
-            yAxisInput = new AxisInput(player.input.yAxis);
-        }
-
-        public Vector2 desiredMoveLocation(Vector2 currentLocation) {
-            var xMove = xAxisInput.CheckInput();
-            var yMove = yAxisInput.CheckInput();
-
-            // Special case where moving from NoPosition to a position
-            if (currentLocation == NoPosition && yMove < 0) {
-                return new Vector2(0, 0);
-            }
-
-            var newLocation = new Vector2(currentLocation.x, currentLocation.y);
-            
-            if (xMove < 0) {
-                newLocation.x -= 1;
-            } else if (xMove > 0) {
-                newLocation.x += 1;
-            }
-
-            // Handle inverted y-axis
-            if (yMove > 0) {
-                newLocation.y -= 1;
-            } else if (yMove < 0) {
-                newLocation.y += 1;
-            }
-
-            return newLocation;
-        }
-    }
-
     public GameObject sceneBase;
     public Transform noPositionMarker;
-    public RectTransform basePicker;
+    public AnimalChooser baseChooser;
 
     public AnimalController[] animals;
     public GameObject[] animalChoiceIndicators;
@@ -89,7 +47,7 @@ public class CharacterChoiceScene : VirtualScene {
         canvas = sceneBase.GetComponentInChildren<Canvas>();
         canvasRect = canvas.GetComponent<RectTransform>();
 
-        basePicker.gameObject.SetActive(false);
+        baseChooser.gameObject.SetActive(false);
         sceneBase.SetActive(false);
 
         foreach (var indicator in animalChoiceIndicators) {
@@ -105,7 +63,7 @@ public class CharacterChoiceScene : VirtualScene {
             var currentLocation = choosers.Key;
 
             foreach (var chooser in choosers.Value) {
-                var desiredMoveLocation = chooser.desiredMoveLocation(currentLocation);
+                var desiredMoveLocation = chooser.DesiredMoveLocation(currentLocation);
 
                 if (desiredMoveLocation != currentLocation) {
                     moveOperations.Add(
@@ -136,14 +94,18 @@ public class CharacterChoiceScene : VirtualScene {
         foreach (var operation in chooseOperations) {
             if (operation.chooser != null) {
                 operation.chooser.player.animal = animals[operation.animalIndex];
-                Destroy(operation.chooser.picker.gameObject);
 
                 var indicator = animalChoiceIndicators[operation.animalIndex];
                 indicator.SetActive(true);
+                
                 indicator.GetComponentInChildren<Text>().text = operation.chooser.player.playerName.ToUpper();
+                indicator.GetComponentInChildren<Text>().color = operation.chooser.player.color;
+                indicator.GetComponentInChildren<Image>().color = operation.chooser.player.color;
 
                 choiceMadePlayers.Add(operation.chooser.player);
                 animalChoosers[operation.currentPosition].Remove(operation.chooser);
+
+                Destroy(operation.chooser.gameObject);
             }
         }
 
@@ -162,7 +124,7 @@ public class CharacterChoiceScene : VirtualScene {
             player.animal = null;
         }
 
-        var choosers = readyPlayers.Select(player => new AnimalChooser(player, createAnimalPicker(player))).ToList();
+        var choosers = readyPlayers.Select(player => createAnimalChooser(player)).ToList();
 
         animalChoosers.Add(NoPosition, choosers);
         recalculatePositions(NoPosition);
@@ -182,33 +144,32 @@ public class CharacterChoiceScene : VirtualScene {
         sceneBase.SetActive(false);
     }
 
-    private RectTransform createAnimalPicker (PlayerController player) {
-        var picker = Instantiate(basePicker);
-        picker.transform.SetParent(canvas.transform, false);
+    private AnimalChooser createAnimalChooser (PlayerController player) {
+        var chooser = Instantiate(baseChooser);
+        chooser.MatchPlayer(player);
+        chooser.transform.SetParent(canvas.transform, false);
 
-        picker.GetComponentInChildren<Text>().text = player.shortName;
-        picker.gameObject.SetActive(true);
+        chooser.GetComponentInChildren<Text>().text = player.shortName;
+        chooser.gameObject.SetActive(true);
 
-        return picker;
+        return chooser;
     }
 
     private void recalculatePositions(Vector2 position) {
         var choosers = animalChoosers[position];
+        var chooserRect = baseChooser.GetComponent<RectTransform>().rect;
         
         var baseTransform = position == NoPosition ? noPositionMarker : animals[animalIndex(position)].transform;
 
         var viewportPos = cameraManager.mainCamera.WorldToViewportPoint(baseTransform.position);
-        var baseScreenPos = new Vector2(
-            viewportPos.x * canvasRect.sizeDelta.x,
-            viewportPos.y * canvasRect.sizeDelta.y
-        );
+        var baseScreenPos = new Vector2(viewportPos.x * canvasRect.sizeDelta.x, viewportPos.y * canvasRect.sizeDelta.y);
 
-        var totalWidth = basePicker.rect.width * choosers.Count + pickerSpacing * (choosers.Count - 1);
+        var totalWidth = chooserRect.width * choosers.Count + pickerSpacing * (choosers.Count - 1);
         baseScreenPos.x -= totalWidth / 2;
 
         for (var i = 0; i < choosers.Count; i++) {
-            var x = baseScreenPos.x + i * (basePicker.rect.width + pickerSpacing);
-            choosers[i].picker.anchoredPosition = new Vector2(x, baseScreenPos.y);
+            var x = baseScreenPos.x + i * (chooserRect.width + pickerSpacing);
+            choosers[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(x, baseScreenPos.y);
         }
     }
 

@@ -19,7 +19,9 @@ public class FollowAnimal : MonoBehaviour {
         rectTransform = GetComponent<RectTransform>();
         cameraManager = FindObjectOfType<CameraManager>();
 
-        GetComponentInChildren<Text>().text = "P" + (player.playerIndex + 1);
+        var text = GetComponentInChildren<Text>();
+        text.text = "P" + (player.playerIndex + 1);
+        text.color = player.color;
 	}
 	
 	// Update is called once per frame

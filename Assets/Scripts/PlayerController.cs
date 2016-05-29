@@ -3,10 +3,16 @@ using InControl;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour {
+    private static Color rgb(int r, int g, int b) {
+        return new Color(r / 255f, g / 255f, b / 255f);
+    }
 
-
-    // Global References
-
+    public static readonly Color[] PlayerColors = {
+        rgb(243, 21, 81),
+        rgb(36, 154, 192),
+        rgb(255, 149, 35),
+        rgb(177, 96, 255)
+    };
 
     // Player Variables
     public AnimalController animal;
@@ -23,6 +29,10 @@ public class PlayerController : MonoBehaviour {
 
     public string shortName {
         get { return "P" + (playerIndex + 1); }
+    }
+
+    public Color color {
+        get { return PlayerColors[playerIndex]; }
     }
 
     void Awake () {

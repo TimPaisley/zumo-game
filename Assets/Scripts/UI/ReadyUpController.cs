@@ -6,11 +6,13 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class ReadyUpController : MonoBehaviour {
     public Sprite xboxSprite;
+    public Text leftPlayerText;
+    public Text rightPlayerText;
     public RectTransform leftPlayerButton;
     public RectTransform rightPlayerButton;
     public RectTransform leftPlayerReadyIcon;
     public RectTransform rightPlayerReadyIcon;
-
+    
     public Image image;
 
     public PlayerController basePlayerController { get; set; } // Set by the parent ReadyUpMenu
@@ -37,6 +39,11 @@ public class ReadyUpController : MonoBehaviour {
         leftPlayer.Setup(leftPlayerIndex);
         rightPlayer = Instantiate(basePlayerController);
         rightPlayer.Setup(leftPlayerIndex + 1);
+
+        leftPlayerText.text = leftPlayer.playerName;
+        leftPlayerText.color = leftPlayer.color;
+        rightPlayerText.text = rightPlayer.playerName;
+        rightPlayerText.color = rightPlayer.color;
 
         if (isXboxController(leftPlayer.input.inputDevice)) {
             image.sprite = xboxSprite;
