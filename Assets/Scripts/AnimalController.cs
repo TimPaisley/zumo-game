@@ -114,6 +114,7 @@ public class AnimalController : MonoBehaviour {
             }
 			puDisplay.updateTimer(ph.getPuType(),currTicker);
         }
+
         if(index != -1)
         {
             powerUpQueue.RemoveAt(index);
@@ -217,8 +218,9 @@ public class AnimalController : MonoBehaviour {
     }
 
     void OnCollisionEnter (Collision collision) {
-		// If this collides with another animal, bounce away
+		// If this collides with another animal, bounce away and display particle
 		if (collision.transform.tag == "Animal") {
+			StartCoroutine(gm.ShowCollisionParticle (collision.contacts [0].point));
 			BounceAway (collision.transform.position);
 		}
         // If the collides with power up item
