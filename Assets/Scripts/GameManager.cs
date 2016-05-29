@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour {
     public CharacterChoiceScene characterChoiceScene;
     public DeathmatchScene inGameScene;
 
-	public ParticleSystem collisionPS;
-	private ParticleSystem.EmissionModule collisionEM;
+	//public ParticleSystem collisionPS;
+	//private ParticleSystem.EmissionModule collisionEM;
     
     void Start () {
         if (instantPlay) {
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
             readyUpScene.Activate();
         }
 
-		collisionEM = collisionPS.emission;
+		//collisionEM = collisionPS.emission;
 	}
 
     private void setupInstantPlay() {
@@ -40,14 +40,14 @@ public class GameManager : MonoBehaviour {
     }
 
 	public IEnumerator ShowCollisionParticle (Vector3 pos) {
-		Debug.Log ("Show Collision Particle");
-		collisionPS.transform.position = pos;
-		collisionEM.enabled = true;
-		collisionPS.Simulate(0.0f,true,true);
-		collisionEM.enabled = true;
-		collisionPS.Play ();
-		yield return new WaitForSeconds(0.5f);
-		collisionEM.enabled = false;
-		collisionPS.Stop ();
-	}
+        //Debug.Log ("Show Collision Particle");
+        //collisionPS.transform.position = pos;
+        //collisionEM.enabled = true;
+        //collisionPS.Simulate(0.0f,true,true);
+        //collisionEM.enabled = true;
+        //collisionPS.Play ();
+        yield return new WaitForSeconds(0.5f);
+        //collisionEM.enabled = false;
+        //collisionPS.Stop ();
+    }
 }
