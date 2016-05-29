@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class DeathmatchScene : VirtualScene {
     public Canvas hudCanvas;
@@ -38,6 +39,11 @@ public class DeathmatchScene : VirtualScene {
 	
 	void Update () {
         if (!inProgress) {
+            //TODO restart the game properly
+            if (players.Any(player => player.input.actionButton.IsPressed)) {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
             return;
         }
         
