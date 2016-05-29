@@ -9,11 +9,15 @@ public class MusicManager : MonoBehaviour {
     private AudioSource nowPlaying;
 
     public void Play(AudioSource song) {
-        if (nowPlaying) {
+        if (nowPlaying && nowPlaying.isPlaying) {
             nowPlaying.Stop();
         }
 
         nowPlaying = song;
         nowPlaying.Play();
+    }
+
+    public void Stop() {
+        nowPlaying.Stop();
     }
 }

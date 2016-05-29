@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class FollowAnimal : MonoBehaviour {
     public PlayerController player;
     public int yOffset = 70;
+    
+    public bool gameStarted { get; set; }
 
     private AnimalController animal;
     private RectTransform canvasRect;
     private RectTransform rectTransform;
-    private Text text;
     private CameraManager cameraManager;
-
-	// Use this for initialization
+    
 	void Start () {
         animal = player.animal;
         canvasRect = GetComponentInParent<Canvas>().GetComponent<RectTransform>();
@@ -22,9 +22,8 @@ public class FollowAnimal : MonoBehaviour {
         var text = GetComponentInChildren<Text>();
         text.text = "P" + (player.playerIndex + 1);
         text.color = player.color;
-	}
+    }
 	
-	// Update is called once per frame
 	void Update () {
         var animalPos = cameraManager.mainCamera.WorldToViewportPoint(animal.transform.position);
 
@@ -37,7 +36,7 @@ public class FollowAnimal : MonoBehaviour {
 
         rectTransform.anchoredPosition = screenPos;
 
-        if (!player.isAlive) {
+        if (gameStarted && !player.isAlive) {
             gameObject.SetActive(false);
         }
     }
