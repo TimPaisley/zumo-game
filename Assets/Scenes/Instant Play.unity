@@ -349,6 +349,19 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 72b3f23a11f2e6b4ca4b20c853ef947c, type: 3}
+--- !u!136 &13851498
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 13851493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2464695
+  m_Height: 2.9
+  m_Direction: 1
+  m_Center: {x: 0.21, y: -0.06, z: 0.10535885}
 --- !u!1 &16686685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4682,7 +4695,7 @@ MonoBehaviour:
   minTurnSpeed: 6
   acceleration: 0.2
   decceleration: -0.4
-  dashSpeed: 3
+  dashSpeed: 35
   dashMass: 5
   dashCooldown: 2
   dashLength: 0.5
@@ -4690,6 +4703,7 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 30
   speed: 0
+  dashCharger: 0
 --- !u!136 &644102413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4757,6 +4771,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &649508528
@@ -4885,7 +4900,7 @@ MonoBehaviour:
   minTurnSpeed: 6
   acceleration: 0.2
   decceleration: -0.4
-  dashSpeed: 3
+  dashSpeed: 35
   dashMass: 5
   dashCooldown: 2
   dashLength: 0.5
@@ -4893,6 +4908,7 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 30
   speed: 0
+  dashCharger: 0
 --- !u!65 &649508532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4981,6 +4997,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &657894123
@@ -5635,6 +5652,19 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 72b3f23a11f2e6b4ca4b20c853ef947c, type: 3}
+--- !u!136 &745394625
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 745394620}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2464695
+  m_Height: 2.9
+  m_Direction: 1
+  m_Center: {x: 0.21, y: -0.06, z: 0.10535885}
 --- !u!1 &748963837
 GameObject:
   m_ObjectHideFlags: 0
@@ -8527,6 +8557,19 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 72b3f23a11f2e6b4ca4b20c853ef947c, type: 3}
   m_PrefabInternal: {fileID: 1299148551}
+--- !u!136 &1305158017
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1305158012}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2464695
+  m_Height: 2.9
+  m_Direction: 1
+  m_Center: {x: 0.21, y: -0.06, z: 0.10535885}
 --- !u!1 &1321679815
 GameObject:
   m_ObjectHideFlags: 0
@@ -9065,7 +9108,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -9266,7 +9308,7 @@ MonoBehaviour:
   minTurnSpeed: 8
   acceleration: 0.4
   decceleration: -0.6
-  dashSpeed: 3
+  dashSpeed: 45
   dashMass: 5
   dashCooldown: 1
   dashLength: 0.25
@@ -9274,6 +9316,7 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 40
   speed: 0
+  dashCharger: 0
 --- !u!136 &1446442668
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9294,7 +9337,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1446442664}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -9415,6 +9458,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &1450092614
@@ -9981,7 +10025,7 @@ MonoBehaviour:
   minTurnSpeed: 8
   acceleration: 0.4
   decceleration: -0.6
-  dashSpeed: 3
+  dashSpeed: 45
   dashMass: 5
   dashCooldown: 1
   dashLength: 0.25
@@ -9989,6 +10033,7 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 40
   speed: 0
+  dashCharger: 0
 --- !u!65 &1511844171
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10021,7 +10066,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1511844167}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -10088,6 +10133,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &1525253033
@@ -12700,7 +12746,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -13121,6 +13166,19 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 72b3f23a11f2e6b4ca4b20c853ef947c, type: 3}
+--- !u!136 &2044526651
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2044526646}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2464695
+  m_Height: 2.9
+  m_Direction: 1
+  m_Center: {x: 0.21, y: -0.06, z: 0.10535885}
 --- !u!1 &2045200012
 GameObject:
   m_ObjectHideFlags: 0
