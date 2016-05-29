@@ -32,10 +32,16 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (isReady && isAlive) {
-
+			if(animal.dashIsCharging){
+				animal.Rotate (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
+			}
+			else{
 				animal.Move (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
-			
+			}
 			if (input.dashButton.IsPressed) {
+				animal.dashCharge();
+			}
+			if(input.dashButton.WasReleased){
 				animal.Dash();
 			}
 
