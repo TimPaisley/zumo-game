@@ -6,8 +6,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class ReadyUpController : MonoBehaviour {
     public Sprite xboxSprite;
-    public Text ltText;
-    public Text rtText;
+    public RectTransform leftPlayerButton;
+    public RectTransform rightPlayerButton;
+    public RectTransform leftPlayerReadyIcon;
+    public RectTransform rightPlayerReadyIcon;
 
     public Image image;
 
@@ -19,12 +21,14 @@ public class ReadyUpController : MonoBehaviour {
 	void Update () {
         if (!leftPlayer.isReady && leftPlayer.input.dashButton.IsPressed) {
             leftPlayer.isReady = true;
-            ltText.gameObject.SetActive(false);
+            leftPlayerButton.gameObject.SetActive(false);
+            leftPlayerReadyIcon.gameObject.SetActive(true);
         }
         
         if (!rightPlayer.isReady && rightPlayer.input.dashButton.IsPressed) {
             rightPlayer.isReady = true;
-            rtText.gameObject.SetActive(false);
+            rightPlayerButton.gameObject.SetActive(false);
+            rightPlayerReadyIcon.gameObject.SetActive(true);
         }
     }
 
@@ -36,8 +40,8 @@ public class ReadyUpController : MonoBehaviour {
 
         if (isXboxController(leftPlayer.input.inputDevice)) {
             image.sprite = xboxSprite;
-            ltText.text = "LT";
-            rtText.text = "RT";
+            leftPlayerButton.GetComponentInChildren<Text>().text = "LT";
+            rightPlayerButton.GetComponentInChildren<Text>().text = "RT";
         } else if (isKeyboardController(leftPlayer.input.inputDevice)) {
             // You can't disable a CanvasRenderer, so just set the scale to zero
             transform.localScale = Vector3.zero;
