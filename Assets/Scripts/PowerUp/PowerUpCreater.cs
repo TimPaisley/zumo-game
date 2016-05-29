@@ -7,7 +7,7 @@ public class PowerUpCreater : MonoBehaviour {
     public GameObject PowerUpObj;
     public float SpawnTime = 4f;
     private float TimeTicker;
-	public GameObject[] existedPowerUp;
+	private GameObject[] existedPowerUp;
 
     void Start()
     {
