@@ -31,9 +31,10 @@ public class PlayerController : MonoBehaviour {
     }
 
 	void FixedUpdate () {
-        if (isReady && isAlive) {
-			animal.Move (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
+		if (isReady && isAlive) {
 
+				animal.Move (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
+			
 			if (input.dashButton.IsPressed) {
 				animal.Dash();
 			}

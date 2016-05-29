@@ -75,12 +75,14 @@ public class AnimalController : MonoBehaviour {
 		if (isDashing) {
 			dashLengthRemaining -= Time.deltaTime;
 
+
 			if (dashLengthRemaining <= 0) {
 				dashLengthRemaining = 0;
 				isDashing = false;
+				speed = minSpeed;
 				dashCooldownRemaining = dashCooldown;
-				puDisplay.displayPowerUp("dash");
-			}
+				puDisplay.displayPowerUp ("dash");
+			} 
 		} else {
 			dashCooldownRemaining -= Time.deltaTime;
 			puDisplay.updateDashTimer(dashCooldownRemaining);
@@ -123,26 +125,37 @@ public class AnimalController : MonoBehaviour {
     }
 
 	public void Move (float v, float h) {
+
+
+
 		if (!knockedBack && isGrounded) {
 			// Create movement vector
 			var movement = new Vector3 (h, 0, v);
             float currentAcceleration = acceleration;
 
             // If moving, look in the direction of movement
-            if (h != 0 || v != 0)
+			if (h != 0 || v != 0||isDashing)
             {
-                //rotate speed is dependent on current speed
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(movement.x, 0.0f, movement.z)), Time.deltaTime * (turnRate/speed));
 
-                //deccelerate if turning
-                if (Vector3.Angle(movement,transform.forward)>slowAngle&&speed>minTurnSpeed) {
-                     speed = Mathf.Max(speed - 2, minSpeed);
-                      currentAcceleration = decceleration;
-                 }
+				if(isDashing){
+					rb.mass = dashMass;
+					movement = transform.forward;
+				}
+				else{
+                	//rotate speed is dependent on current speed
+                	transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3(movement.x, 0.0f, movement.z)), Time.deltaTime * (turnRate/speed));
 
+                	//deccelerate if turning
+                	if (Vector3.Angle(movement,transform.forward)>slowAngle&&speed>minTurnSpeed) {
+                     	speed = Mathf.Max(speed - 2, minSpeed);
+                      	currentAcceleration = decceleration;
+                 	}
 
-               //set movement to new rotation
-                movement = transform.forward;
+				
+               		//set movement to new rotation
+                	movement = transform.forward;
+					rb.mass = originalMass;
+				}
                 anim.SetBool("isMoving", true);
 
                 //set animationspeed to moving speed
@@ -156,30 +169,27 @@ public class AnimalController : MonoBehaviour {
 
             
 
-            // Apply dashing speed
-            if (isDashing) {
-				movement *= dashSpeed;
-                rb.mass = dashMass;
-			} else {
-                rb.mass = originalMass;
-            }
-
 			// Adjust Y movement to account for gravity
 			movement.y = rb.velocity.y / speed;
 
 			// Set moving speed
-			if(h != 0 || v != 0){
+			if((h != 0 || v != 0)&&!isDashing){
 				speed = Mathf.Min(speed + currentAcceleration, maxSpeed);
                 if (speed<minSpeed) { speed = minSpeed; }
 			}
 
 			// Set stationary speed
-			else {
+			else if(!isDashing){
 				speed = Mathf.Max(speed - acceleration, minSpeed);
 			}
-
+				
             // Apply changes in velocity
-            rb.velocity = movement * speed;
+			if(isDashing){
+				rb.velocity = movement * dashSpeed;
+			}
+			else{
+            	rb.velocity = movement * speed;
+			}
 
             //remove speed if player is stationary
             if (rb.velocity == new Vector3(0.0f, 0.0f, 0.0f))
@@ -221,7 +231,12 @@ public class AnimalController : MonoBehaviour {
     void OnCollisionEnter (Collision collision) {
 		// If this collides with another animal, bounce away
 		if (collision.transform.tag == "Animal") {
+			dashLengthRemaining = 0.0f;
 			BounceAway (collision.transform.position);
+		}
+		//if it collides with terrain
+		if (collision.transform.tag == "Environment") {
+			dashLengthRemaining = 0.0f;
 		}
         // If the collides with power up item
         else if (collision.transform.tag == "PowerUp")

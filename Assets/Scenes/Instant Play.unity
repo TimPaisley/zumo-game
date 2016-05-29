@@ -4682,7 +4682,7 @@ MonoBehaviour:
   minTurnSpeed: 6
   acceleration: 0.2
   decceleration: -0.4
-  dashSpeed: 3
+  dashSpeed: 24
   dashMass: 5
   dashCooldown: 2
   dashLength: 0.5
@@ -4757,6 +4757,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &649508528
@@ -4981,6 +4982,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &657894123
@@ -9065,7 +9067,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -9266,7 +9267,7 @@ MonoBehaviour:
   minTurnSpeed: 8
   acceleration: 0.4
   decceleration: -0.6
-  dashSpeed: 3
+  dashSpeed: 45
   dashMass: 5
   dashCooldown: 1
   dashLength: 0.25
@@ -9415,6 +9416,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &1450092614
@@ -10088,6 +10090,7 @@ MonoBehaviour:
   MassPuPrefab: {fileID: 190076, guid: 9d376c219b2214be7ba822299b3aa685, type: 2}
   SpeedPuPrefab: {fileID: 196272, guid: f2bf8ba85f03a46d5a31bd5f78fef46c, type: 2}
   dashPrefab: {fileID: 197938, guid: f236e167a36384e8088f73f569f7222c, type: 2}
+  dashCDPrefab: {fileID: 0}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
 --- !u!1 &1525253033
@@ -12700,7 +12703,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
