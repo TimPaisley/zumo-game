@@ -6,11 +6,15 @@ public class PowerUp : MonoBehaviour {
     public float speedMultiplier = 1.5f;
     public float massMultiplier = 2f;
 	public float reduceDashCD = 2f;
-    public string[] PuTypes = { "mass", "speed", "dashCD" };
-
+	public string[] PuTypes;
+	void Awake(){
+		PuTypes= new string[]{"mass", "speed", "dashCD"};
+		int randomPower = Random.Range(0,PuTypes.Length);
+		Debug.LogWarning (PuTypes[2]);
+		PuType = PuTypes[randomPower];
+	}
 	void Start () {
-        int randomPower = Random.Range(0,PuTypes.Length);
-        PuType = PuTypes[randomPower];
+		
 	}
     public string getPowerUpType()
     {

@@ -9,11 +9,8 @@ public class PowerUpCreater : MonoBehaviour {
     private float TimeTicker;
 	private GameObject[] existedPowerUp;
 
-    void Start()
-    {
-        TimeTicker = SpawnTime;
-    }
 	void Awake () {
+		TimeTicker = SpawnTime;
 		existedPowerUp = new GameObject[SpawnPostion.Length];
 	}
 
@@ -25,7 +22,9 @@ public class PowerUpCreater : MonoBehaviour {
         TimeTicker -= Time.deltaTime;
 		if(TimeTicker < 0.0f && checkTotalPowerup() != 2)
         {
-            TimeTicker = SpawnTime;
+            //TimeTicker = SpawnTime;
+			TimeTicker = Random.Range(5,11);
+			Debug.LogWarning (TimeTicker);
 			int randomPower = findEmptySpawnPostion();
 			existedPowerUp[randomPower] = (GameObject)Instantiate(PowerUpObj, 
 			SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);

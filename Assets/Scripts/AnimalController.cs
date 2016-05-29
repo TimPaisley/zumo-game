@@ -243,7 +243,7 @@ public class AnimalController : MonoBehaviour {
                 }
             }
             powerUpQueue.Add(nph);
-            //Debug.LogWarning("Apply: " + currentPower + " powerup");
+//            Debug.LogWarning("Apply: " + currentPower + " powerup");
             if (currentPower.Equals("mass"))
             {
 				this.transform.localScale = (this.transform.localScale * 1.5f);
@@ -280,7 +280,7 @@ public class AnimalController : MonoBehaviour {
             maxSpeed = originalMaxSpeed;
 			speed = minSpeed;
         }
-		else if (currentPower.Equals("speed"))
+		else if (currentPower.Equals("dashCD"))
 		{
 			dashCooldown = originalDashCD;
 		}
