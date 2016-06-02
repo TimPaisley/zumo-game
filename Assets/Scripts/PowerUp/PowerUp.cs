@@ -10,7 +10,7 @@ public class PowerUp : MonoBehaviour {
 	void Awake(){
 		PuTypes= new string[]{"mass", "speed", "dashCD"};
 		int randomPower = Random.Range(0,PuTypes.Length);
-		Debug.LogWarning (PuTypes[2]);
+//		Debug.LogWarning (PuTypes[2]);
 		PuType = PuTypes[randomPower];
 	}
 	void Start () {

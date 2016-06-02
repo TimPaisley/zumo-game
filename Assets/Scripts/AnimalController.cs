@@ -50,7 +50,6 @@ public class AnimalController : MonoBehaviour {
     private float originalMaxSpeed;
     private float originalMinSpeed;
 	private float originalDashCD;
-    private ArrayList powerUpQueue;
 
     void Start () {
 		// Initialize Global References
@@ -70,7 +69,7 @@ public class AnimalController : MonoBehaviour {
         originalMaxSpeed = maxSpeed;
         originalMinSpeed = minSpeed;
 		originalDashCD = dashCooldown;
-        powerUpQueue = new ArrayList();
+       
     }
 
 	void FixedUpdate () {
@@ -86,8 +85,6 @@ public class AnimalController : MonoBehaviour {
 		}
 		if (isDashing) {
 			dashLengthRemaining -= Time.deltaTime;
-
-
 			if (dashLengthRemaining <= 0) {
 				dashLengthRemaining = 0;
 				isDashing = false;
@@ -116,25 +113,7 @@ public class AnimalController : MonoBehaviour {
 				knockBackTimer = knockBackDelay;
 			}
 		}
-        int index = -1; 
-        // The index of the power up that needs to be removed
-        for (int i = 0; i < powerUpQueue.Count; i++)
-        //Check if powerup run out of time
-        {
-            PowerUpHistory ph = (PowerUpHistory)powerUpQueue[i];
-			float currTicker = ph.getTicker();
-			if (currTicker < 0.0f)
-            {
-                removePowerUp(ph.getPuType());
-                index = i;     
-            }
-			puDisplay.updateTimer(ph.getPuType(),currTicker);
-        }
-
-        if(index != -1)
-        {
-            powerUpQueue.RemoveAt(index);
-        }
+      
     }
 
 	public void Move (float v, float h) {
@@ -224,6 +203,7 @@ public class AnimalController : MonoBehaviour {
 
 		}
 	}
+
 	public void Rotate(float v, float h){
 
 		if(h!=0&&v!=0){
@@ -288,46 +268,8 @@ public class AnimalController : MonoBehaviour {
 		if (collision.transform.tag == "Environment") {
 			dashLengthRemaining = 0.0f;
 		}
-        // If the collides with power up item
-        else if (collision.transform.tag == "PowerUp")
-        {
-            PowerUp pu = collision.gameObject.GetComponent<PowerUp>();
-            string currentPower = pu.getPowerUpType();
-            PowerUpHistory nph = new PowerUpHistory(currentPower);
-            for(int i = 0; i<powerUpQueue.Count; i++)
-            // if the power up is already active on the animal restart the timer
-            {
-                PowerUpHistory ph = (PowerUpHistory)powerUpQueue[i];
-                if (ph.getPuType().Equals(currentPower))
-                {
-                    //Debug.LogWarning("Extended: " + currentPower + " timer");
-                    ph.restTicker();
-                    Destroy(collision.gameObject);
-					puDisplay.displayPowerUp(currentPower);
-                    return;
-                }
-            }
-            powerUpQueue.Add(nph);
-//            Debug.LogWarning("Apply: " + currentPower + " powerup");
-            if (currentPower.Equals("mass"))
-            {
-				this.transform.localScale = (this.transform.localScale * 1.5f);
-                rb.mass = rb.mass * pu.getMassMultiplie();
-            }
-            else if (currentPower.Equals("speed"))
-            {
-                minSpeed *= pu.getSpeedMulti();
-                maxSpeed *= pu.getSpeedMulti();
-				speed = maxSpeed;
-			}
-			else if (currentPower.Equals("dashCD"))
-			{
-				dashCooldown = (float)(dashCooldown/pu.getNewDashCD());
-			}
-            Destroy(collision.gameObject);
-			puDisplay.displayPowerUp(currentPower);
-        }
 
+		//if it collides with powerup is done in the powerup script
     }
 
     public void removePowerUp(string currentPower)
@@ -394,28 +336,5 @@ public class AnimalController : MonoBehaviour {
         rb.mass = 10;
         rb.AddForce(Vector3.Normalize(transform.position - boardPos) * 100 + Vector3.up * 200);
         rb.AddTorque(1000, 500, 1000);
-    }
-
-    public class PowerUpHistory{
-        private string pu = "";
-        private float ticker = 10.0f;
-
-        public PowerUpHistory(string p)
-        {
-            pu = p;
-        }
-        public float getTicker()
-        {
-            ticker -= Time.deltaTime;
-            return ticker;
-        }
-        public void restTicker()
-        {
-            ticker = 10.0f;
-        }
-        public string getPuType()
-        {
-            return pu;
-        }
     }
 }

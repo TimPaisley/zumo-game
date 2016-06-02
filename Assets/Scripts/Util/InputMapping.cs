@@ -80,6 +80,7 @@ public class InputMapping {
 	public InputControl xAxis { get; private set; }
 	public InputControl yAxis { get; private set; }
 	public InputControl dashButton { get; private set; }
+	public InputControl abilityButton { get; private set; }
 	public InputControl actionButton { get; private set; }
 
 	public InputMapping(int deviceIndex, Side side) {
@@ -94,6 +95,7 @@ public class InputMapping {
 		xAxis = side == Side.LEFT ? inputDevice.LeftStickX : inputDevice.RightStickX;
 		yAxis = side == Side.LEFT ? inputDevice.LeftStickY : inputDevice.RightStickY;
 		dashButton = side == Side.LEFT ? inputDevice.LeftTrigger : inputDevice.RightTrigger;
+		abilityButton = side == Side.LEFT ? inputDevice.DPadUp : inputDevice.Action4;// need to add keyboard support
 		actionButton = inputDevice.Action1;
 	}
 }

@@ -24,7 +24,7 @@ public class PowerUpCreater : MonoBehaviour {
         {
             //TimeTicker = SpawnTime;
 			TimeTicker = Random.Range(5,11);
-			Debug.LogWarning (TimeTicker);
+//			Debug.LogWarning (TimeTicker);
 			int randomPower = findEmptySpawnPostion();
 			existedPowerUp[randomPower] = (GameObject)Instantiate(PowerUpObj, 
 			SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
