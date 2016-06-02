@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour {
         rgb(243, 21, 81),
         rgb(36, 154, 192),
         rgb(255, 149, 35),
-        rgb(177, 96, 255)
+        rgb(177, 96, 255),
+		Color.black,
+		Color.black
     };
 
     // Player Variables
