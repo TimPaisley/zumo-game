@@ -2019,7 +2019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400758, guid: 725c3cc33dd610e4a8a7c4a919697d04, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.0731359
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 400758, guid: 725c3cc33dd610e4a8a7c4a919697d04, type: 2}
       propertyPath: m_LocalPosition.z

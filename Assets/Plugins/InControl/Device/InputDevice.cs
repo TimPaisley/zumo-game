@@ -239,7 +239,7 @@ namespace InControl
 		}
 
 
-		public bool MenuWasPressed
+		public virtual bool MenuWasPressed
 		{
 			get
 			{

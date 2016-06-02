@@ -61,6 +61,19 @@ public class DeathmatchScene : VirtualScene {
 
             gameOver = true;
         }
+
+		foreach (var player in players) {
+			if (player.input.menuButton.WasPressed) {
+				if (Time.timeScale == 0) {
+					Time.timeScale = 1;
+					//TODO hide pause menu
+				} else {
+					Time.timeScale = 0;
+					//TODO show pause menu
+				}
+				return;
+			}
+		}
     }
 
     public void Prepare (PlayerController[] readyPlayers) {
