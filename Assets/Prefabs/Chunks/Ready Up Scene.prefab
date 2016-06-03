@@ -323,7 +323,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'PLAYER 2
+  m_Text: 'PLAYER Y
 
 '
 --- !u!114 &11408224
@@ -365,6 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xboxSprite: {fileID: 21300000, guid: 6848965313c7ddc4b987134e272773b7, type: 3}
+  leftPlayerText: {fileID: 11416220}
+  rightPlayerText: {fileID: 11406374}
   leftPlayerButton: {fileID: 22465984}
   rightPlayerButton: {fileID: 22465804}
   leftPlayerReadyIcon: {fileID: 22445464}
@@ -418,7 +420,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: PLAYER 1
+  m_Text: PLAYER X
 --- !u!114 &11425672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -912,7 +914,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1178,7 +1179,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.1}
+  m_AnchoredPosition: {x: 0, y: -0.6}
   m_SizeDelta: {x: 20, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22475126

@@ -329,7 +329,7 @@ Prefab:
     - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: board
       value: 
-      objectReference: {fileID: 1301926164}
+      objectReference: {fileID: 1301990574}
     - target: {fileID: 11438496, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: initialPostion
       value: 
@@ -341,7 +341,7 @@ Prefab:
     - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: board
       value: 
-      objectReference: {fileID: 1301926164}
+      objectReference: {fileID: 1301990574}
     - target: {fileID: 11418870, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: initialPostion
       value: 
@@ -353,7 +353,7 @@ Prefab:
     - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: board
       value: 
-      objectReference: {fileID: 1301926164}
+      objectReference: {fileID: 1301990574}
     - target: {fileID: 11422268, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: initialPostion
       value: 
@@ -373,7 +373,7 @@ Prefab:
     - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: board
       value: 
-      objectReference: {fileID: 1301926164}
+      objectReference: {fileID: 1301990574}
     - target: {fileID: 11412648, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_Color.r
       value: 1
@@ -436,15 +436,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: dashSpeed
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: dashSpeed
-      value: 35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: dashSpeed
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5485514, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_Mass
@@ -463,9 +463,249 @@ Prefab:
       propertyPath: m_Mass
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minTurnSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: acceleration
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: decceleration
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: slowAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: turnRate
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minTurnSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: acceleration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: decceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: slowAngle
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: turnRate
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: maxSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: acceleration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: decceleration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: slowAngle
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: turnRate
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minTurnSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: acceleration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: decceleration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: slowAngle
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: turnRate
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashCooldown
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: minTurnSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 414216, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 414216, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516856, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_Center.z
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 456938, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 456938, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 10.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &246882187 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 182552, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+  m_PrefabInternal: {fileID: 246882186}
+--- !u!114 &246882188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246882187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 45
+  dashMass: 5
+  dashLength: 0.25
+  dashCooldown: 2
+--- !u!1 &246882189 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 196194, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+  m_PrefabInternal: {fileID: 246882186}
+--- !u!1 &246882190 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 119254, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+  m_PrefabInternal: {fileID: 246882186}
+--- !u!114 &246882191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246882189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 30
+  dashMass: 8
+  dashLength: 0.25
+  dashCooldown: 2
+--- !u!114 &246882192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246882190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 35
+  dashMass: 7
+  dashLength: 0.25
+  dashCooldown: 2
+--- !u!1 &246882193 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 112958, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+  m_PrefabInternal: {fileID: 246882186}
+--- !u!114 &246882194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 246882193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 45
+  dashMass: 5
+  dashLength: 0.25
+  dashCooldown: 2
 --- !u!1001 &251133742
 Prefab:
   m_ObjectHideFlags: 0
@@ -1505,7 +1745,7 @@ Prefab:
     - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: focalTransform
       value: 
-      objectReference: {fileID: 1301926167}
+      objectReference: {fileID: 0}
     - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: readyUpScene
       value: 
@@ -1541,6 +1781,30 @@ Prefab:
     - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: bounceForce
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: focalSize
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: aperture
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: dofHdrShader
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: dx11BokehShader
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: dx11BokehTexture
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
@@ -2100,6 +2364,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 725c3cc33dd610e4a8a7c4a919697d04, type: 2}
   m_IsPrefabParent: 0
+--- !u!23 &1301990574 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 2381668, guid: 725c3cc33dd610e4a8a7c4a919697d04,
+    type: 2}
+  m_PrefabInternal: {fileID: 1301990573}
 --- !u!1 &1305158012 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 72b3f23a11f2e6b4ca4b20c853ef947c, type: 3}
@@ -3367,7 +3636,7 @@ Prefab:
       objectReference: {fileID: 1446442667}
     - target: {fileID: 131252, guid: 7b2f7121c3d99944caeeb773d7e33729, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b2f7121c3d99944caeeb773d7e33729, type: 2}

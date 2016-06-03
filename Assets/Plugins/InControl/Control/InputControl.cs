@@ -145,13 +145,13 @@ namespace InControl
 		}
 
 
-		public bool WasPressed
+		public virtual bool WasPressed
 		{
 			get { return thisState && !lastState; }
 		}
 
 
-		public bool WasReleased
+		public virtual bool WasReleased
 		{
 			get { return !thisState && lastState; }
 		}

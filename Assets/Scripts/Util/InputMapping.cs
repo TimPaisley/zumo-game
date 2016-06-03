@@ -44,6 +44,14 @@ public class InputMapping {
 			get { return Input.GetKey(key); }
 		}
 
+		public override bool WasPressed {
+			get { return Input.GetKeyDown(key); }
+		}
+
+		public override bool WasReleased {
+			get { return Input.GetKeyUp(key); }
+		}
+
 		public override string ToString() {
 			return string.Format("[KeyInputControl: IsPressed={0}]", IsPressed);
 		}

@@ -557,6 +557,7 @@ GameObject:
   - 82: {fileID: 8208452}
   - 65: {fileID: 6517584}
   - 114: {fileID: 11422268}
+  - 114: {fileID: 11499954}
   m_Layer: 0
   m_Name: Fox 2
   m_TagString: Animal
@@ -851,6 +852,7 @@ GameObject:
   - 82: {fileID: 8295442}
   - 65: {fileID: 6516856}
   - 114: {fileID: 11481280}
+  - 114: {fileID: 11496654}
   m_Layer: 0
   m_Name: Tiger
   m_TagString: Animal
@@ -2457,6 +2459,7 @@ GameObject:
   - 224: {fileID: 22422856}
   - 222: {fileID: 22293616}
   - 114: {fileID: 11445728}
+  - 114: {fileID: 11445546}
   m_Layer: 5
   m_Name: Animal Chooser
   m_TagString: Untagged
@@ -3359,6 +3362,7 @@ GameObject:
   - 82: {fileID: 8295412}
   - 65: {fileID: 6579360}
   - 114: {fileID: 11418870}
+  - 114: {fileID: 11488968}
   m_Layer: 0
   m_Name: Fox 1
   m_TagString: Animal
@@ -3941,6 +3945,7 @@ GameObject:
   - 82: {fileID: 8200126}
   - 65: {fileID: 6516548}
   - 114: {fileID: 11438496}
+  - 114: {fileID: 11457704}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Animal
@@ -4111,7 +4116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182552}
   m_LocalRotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
-  m_LocalPosition: {x: 4.4, y: 0, z: 1.8}
+  m_LocalPosition: {x: 4.4, y: -0.32, z: 1.8}
   m_LocalScale: {x: 13, y: 13, z: 13}
   m_Children:
   - {fileID: 461894}
@@ -4521,7 +4526,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 104718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.74}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 445532}
@@ -5150,9 +5155,9 @@ Transform:
   - {fileID: 22497814}
   - {fileID: 22451958}
   - {fileID: 402474}
+  - {fileID: 456938}
   - {fileID: 460416}
   - {fileID: 473000}
-  - {fileID: 456938}
   - {fileID: 406484}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -6006,12 +6011,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119254}
   m_LocalRotation: {x: 0, y: 0.38808465, z: 0, w: 0.92162377}
-  m_LocalPosition: {x: 13.420792, y: -0.100000024, z: 9.668613}
+  m_LocalPosition: {x: 14.17, y: -0.58, z: 10.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 414216}
   m_Father: {fileID: 433060}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!4 &457010
 Transform:
   m_ObjectHideFlags: 1
@@ -6108,14 +6113,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196194}
   m_LocalRotation: {x: 0, y: 0.37375674, z: 0, w: 0.92752683}
-  m_LocalPosition: {x: 4.37, y: 0, z: 10.619999}
+  m_LocalPosition: {x: 4.37, y: -0.43, z: 10.619999}
   m_LocalScale: {x: 47, y: 47, z: 47}
   m_Children:
   - {fileID: 450116}
   - {fileID: 483292}
   - {fileID: 449336}
   m_Father: {fileID: 433060}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &461114
 Transform:
   m_ObjectHideFlags: 1
@@ -6454,7 +6459,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112958}
   m_LocalRotation: {x: 0, y: 0.38268346, z: 0, w: 0.9238795}
-  m_LocalPosition: {x: 14.28, y: 0, z: 1.83}
+  m_LocalPosition: {x: 14.28, y: -0.36, z: 1.83}
   m_LocalScale: {x: 13, y: 13, z: 13}
   m_Children:
   - {fileID: 430408}
@@ -6472,7 +6477,7 @@ Transform:
   - {fileID: 423554}
   - {fileID: 410278}
   m_Father: {fileID: 433060}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &473116
 Transform:
   m_ObjectHideFlags: 1
@@ -7285,7 +7290,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182552}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1.25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -7300,7 +7305,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196194}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -7330,7 +7335,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119254}
   serializedVersion: 2
-  m_Mass: 2
+  m_Mass: 1.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -7356,12 +7361,12 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119254}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: c72b47438d221467c991e1b33f784ac5, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5, y: 2.9, z: 4.5}
-  m_Center: {x: 0, y: 1.5, z: 0.8}
+  m_Center: {x: 0, y: 1.5, z: 0.3}
 --- !u!65 &6517584
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -7786,19 +7791,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 0}
-  maxSpeed: 15
   minSpeed: 5
+  maxSpeed: 15
   minTurnSpeed: 8
   acceleration: 0.4
-  decceleration: -0.6
-  dashSpeed: 3
-  dashMass: 5
-  dashCooldown: 1
-  dashLength: 0.25
-  knockBackDelay: 0.2
+  decceleration: 1
   slowAngle: 70
   turnRate: 40
-  speed: 0
+  knockBackDelay: 0.2
 --- !u!114 &11408338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7860,7 +7860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7938,19 +7938,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 0}
-  maxSpeed: 8
   minSpeed: 3
-  minTurnSpeed: 6
+  maxSpeed: 8
+  minTurnSpeed: 5
   acceleration: 0.2
-  decceleration: -0.4
-  dashSpeed: 3
-  dashMass: 5
-  dashCooldown: 2
-  dashLength: 0.5
+  decceleration: 0.5
+  slowAngle: 50
+  turnRate: 40
   knockBackDelay: 0.2
-  slowAngle: 70
-  turnRate: 30
-  speed: 0
 --- !u!114 &11421304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8101,19 +8096,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 0}
-  maxSpeed: 15
   minSpeed: 5
+  maxSpeed: 15
   minTurnSpeed: 8
   acceleration: 0.4
-  decceleration: -0.6
-  dashSpeed: 3
-  dashMass: 5
-  dashCooldown: 1
-  dashLength: 0.25
-  knockBackDelay: 0.2
+  decceleration: 1
   slowAngle: 70
   turnRate: 40
-  speed: 0
+  knockBackDelay: 0.2
 --- !u!114 &11436942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8188,7 +8178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneBase: {fileID: 135404}
   noPositionMarker: {fileID: 406484}
-  basePicker: {fileID: 22422856}
+  baseChooser: {fileID: 11445546}
   animals:
   - {fileID: 11402602}
   - {fileID: 11420380}
@@ -8201,6 +8191,19 @@ MonoBehaviour:
   - {fileID: 158732}
   animalColumnCount: 2
   pickerSpacing: 10
+--- !u!114 &11445546
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c78ff991d29c93488abf43565a1cee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  hasChosen: 0
 --- !u!114 &11445652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8303,6 +8306,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11457704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 30
+  dashMass: 8
+  dashLength: 0.25
+  dashCooldown: 2
 --- !u!114 &11462006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8381,6 +8399,21 @@ MonoBehaviour:
   dashCDPrefab: {fileID: 138684, guid: a95d8a99e6bc6413e82efe4f087752a1, type: 2}
   initialPostion: {fileID: 0}
   canvas: {fileID: 0}
+--- !u!114 &11488968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 45
+  dashMass: 5
+  dashLength: 0.25
+  dashCooldown: 2
 --- !u!114 &11489522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8393,19 +8426,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   board: {fileID: 0}
-  maxSpeed: 12
-  minSpeed: 5
-  minTurnSpeed: 8
-  acceleration: 0.4
-  decceleration: -0.6
-  dashSpeed: 3
-  dashMass: 5
-  dashCooldown: 1
-  dashLength: 0.25
+  minSpeed: 4
+  maxSpeed: 10
+  minTurnSpeed: 7
+  acceleration: 0.3
+  decceleration: 0.6
+  slowAngle: 60
+  turnRate: 50
   knockBackDelay: 0.2
-  slowAngle: 70
-  turnRate: 40
-  speed: 0
+--- !u!114 &11496654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 35
+  dashMass: 7
+  dashLength: 0.25
+  dashCooldown: 2
+--- !u!114 &11499954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 45
+  dashMass: 5
+  dashLength: 0.25
+  dashCooldown: 2
 --- !u!136 &13605594
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -8816,7 +8874,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -8835,7 +8892,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -8983,7 +9039,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 6.4982586, y: 0.1}
+  m_AnchoredPosition: {x: 6.4982586, y: -0.6}
   m_SizeDelta: {x: 20, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22457182

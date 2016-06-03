@@ -11,9 +11,7 @@ public class PlayerController : MonoBehaviour {
         rgb(243, 21, 81),
         rgb(36, 154, 192),
         rgb(255, 149, 35),
-        rgb(177, 96, 255),
-		Color.black,
-		Color.black
+        rgb(177, 96, 255)
     };
 
     // Player Variables
@@ -34,7 +32,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public Color color {
-        get { return PlayerColors[playerIndex]; }
+		get { return playerIndex < PlayerColors.Length ? PlayerColors[playerIndex] : Color.black; }
     }
 
     void Awake () {
@@ -44,27 +42,28 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate () {
 		if (isReady && isAlive) {
-			if(animal.dashIsCharging){
-				animal.Rotate (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
-			}
-			else{
-				animal.Move (input.xAxis.Value, -input.yAxis.Value); // y-axis is inverted by default
-			}
-			if (input.dashButton.IsPressed) {
-				animal.dashCharge();
-			}
-			if(input.dashButton.WasReleased){
-				animal.Dash();
+			if (animal.isDashing) {
+				animal.Move(new Vector2 (input.xAxis.Value, input.yAxis.Value).magnitude);
+			} else if (animal.isDashCharging) {
+				animal.Rotate(input.xAxis.Value, -input.yAxis.Value);
+
+				if (input.dashButton.WasReleased) {
+					animal.PerformDash();
+				}
+			} else {
+				animal.Rotate(input.xAxis.Value, -input.yAxis.Value);
+
+				if (input.dashButton.WasPressed) {
+					animal.StartDashCharge();
+				} else {
+					animal.Move(new Vector2 (input.xAxis.Value, input.yAxis.Value).magnitude);
+				}
 			}
 
-			if (input.dashButton.WasReleased) {
-
+			if (!animal.isInBounds) {
+				isAlive = false;
+				animal.Kill();
 			}
-
-            if (!animal.isInBounds) {
-                isAlive = false;
-                animal.Kill();
-            }
 		}
 	}
 

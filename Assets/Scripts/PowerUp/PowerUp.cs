@@ -28,9 +28,9 @@ public class PowerUp : MonoBehaviour {
     {
         return massMultiplier;
     }
-	public float getNewDashCD()
+	public float getDashCDMulti()
 	{
-		return reduceDashCD;
+		return 1 / reduceDashCD;
 	}
 		
 }
