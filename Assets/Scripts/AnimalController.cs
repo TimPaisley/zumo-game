@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(DashController), typeof(PowerUpDisplay))]
+[RequireComponent(typeof(DashController), typeof(PowerUpController))]
 public class AnimalController : MonoBehaviour {
 	private const float ALMOST_ZERO = 0.15f;
 
@@ -12,7 +12,7 @@ public class AnimalController : MonoBehaviour {
 	private Rigidbody rb;
 	private Animator anim;
 	private DashController dashController;
-	private PowerUpDisplay powerupController;
+	private PowerUpController powerupController;
 
 	// Control Variables
 	public Renderer board;
@@ -72,7 +72,7 @@ public class AnimalController : MonoBehaviour {
 		anim = GetComponentInChildren<Animator>(); // GetComponent<Animator>() when new fox is imported
 
 		dashController = GetComponent<DashController>();
-		powerupController = GetComponent<PowerUpDisplay>();
+		powerupController = GetComponent<PowerUpController>();
 
 		baseMass = rb.mass;
 		speed = minSpeed;

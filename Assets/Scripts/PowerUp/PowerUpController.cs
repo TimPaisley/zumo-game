@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class PowerUpDisplay : MonoBehaviour {
+public class PowerUpController : MonoBehaviour {
 	//Prefab
 	public GameObject PuDisplayPrefab;
 	public GameObject MassPuPrefab;

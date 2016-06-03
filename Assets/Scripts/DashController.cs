@@ -16,7 +16,7 @@ public class DashController : MonoBehaviour {
 	}
 
 	private AudioSource dashSound;
-	private PowerUpDisplay powerupController;
+	private PowerUpController powerupController;
 
 	private float dashCharger;
 	private float dashLengthRemaining;
@@ -25,7 +25,7 @@ public class DashController : MonoBehaviour {
 	void Awake() {
 		massMultiplier = 1;
 		dashSound = GetComponent<AudioSource>();
-		powerupController = GetComponent<PowerUpDisplay>();
+		powerupController = GetComponent<PowerUpController>();
 	}
 
 	void FixedUpdate() {
