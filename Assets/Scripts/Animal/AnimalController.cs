@@ -102,16 +102,37 @@ public class AnimalController : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision collision) {
+	void OnTriggerEnter(Collider other) {
 		// If this collides with another animal, bounce away and display particle
-		if (collision.transform.tag == "Animal") {
+		if (!knockedBack && other.transform.tag == "AnimalHead") {
 			dashController.Stop();
+			// StartCoroutine(gm.ShowCollisionParticle(other.contacts [0].point));
 
-			StartCoroutine(gm.ShowCollisionParticle(collision.contacts [0].point));
+			// Calculate vector away from collision object
+			Vector3 awayDir = (transform.position - other.transform.parent.position);
 
-			BounceAway(collision.transform.position);
+			// Calculate vector between direction and Y-axis (upwards)
+			Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
+
+			Debug.Log ("Trigger Collision");
+
+			// Add impulse force in that direction
+			rb.AddForce(dir * other.gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude/2 * gm.bounceForce, ForceMode.Impulse);
+
+			// Allow player to leave the ground
+			knockedBack = true;
 		}
+	}
 
+	private bool isGrounded {
+		get {
+			var raycastHit = raycast(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
+
+			return raycastHit.HasValue && raycastHit.Value.distance < 1.0f;
+		}
+	}
+
+	void OnCollisionEnter(Collision collision) {
 		//if it collides with terrain
 		if (collision.transform.tag == "Environment") {
 			dashController.Stop();
@@ -191,28 +212,6 @@ public class AnimalController : MonoBehaviour {
 	public void Kill() {
 		anim.Stop();
 		throwOutOfBounds();
-	}
-
-	public void BounceAway(Vector3 otherPos) {
-		// Calculate vector away from collision object
-		Vector3 awayDir = (transform.position - otherPos);
-
-		// Calculate vector between direction and Y-axis (upwards)
-		Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
-
-		// Add impulse force in that direction
-		rb.AddForce(dir * gm.bounceForce, ForceMode.Impulse);
-
-		// Allow player to leave the ground
-		knockedBack = true;
-	}
-
-	private bool isGrounded {
-		get {
-			var raycastHit = raycast(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
-
-			return raycastHit.HasValue && raycastHit.Value.distance < 1.0f;
-		}
 	}
 
 	private RaycastHit? raycast(Vector3 origin, Vector3 direction) {

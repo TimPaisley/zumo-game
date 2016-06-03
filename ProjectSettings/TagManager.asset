@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Environment
   - PowerUp
+  - AnimalHead
   layers:
   - Default
   - TransparentFX
