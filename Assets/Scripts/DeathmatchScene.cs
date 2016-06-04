@@ -14,6 +14,7 @@ public class DeathmatchScene : VirtualScene {
 
     private CameraManager cameraManager;
     private MusicManager musicManager;
+    private MenuBackgroundManager menuBackgroundManager;
     private PlayerController[] players;
     private FollowAnimal[] playerIndicators;
     private delegate bool PlayerChecker (PlayerController player);
@@ -35,10 +36,11 @@ public class DeathmatchScene : VirtualScene {
 
         musicManager = FindObjectOfType<MusicManager>();
         cameraManager = FindObjectOfType<CameraManager>();
+        menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
     }
 	
 	void Update () {
-        if (!inProgress) {
+        if (gameOver) {
             //TODO restart the game properly
             if (players.Any(player => player.input.actionButton.IsPressed)) {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -76,7 +78,7 @@ public class DeathmatchScene : VirtualScene {
 		}
     }
 
-    public void Prepare (PlayerController[] readyPlayers) {
+    public override void Prepare (PlayerController[] readyPlayers) {
         gameStarted = false;
         players = readyPlayers;
         playerIndicators = new FollowAnimal[readyPlayers.Length];
@@ -101,6 +103,7 @@ public class DeathmatchScene : VirtualScene {
         }
 
         cameraManager.Use(cameraManager.gameCamera);
+        menuBackgroundManager.HideAll();
     }
 
     public override void Activate () {

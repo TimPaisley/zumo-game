@@ -15,7 +15,7 @@ public class MenuBackgroundManager : MonoBehaviour {
         characterChoiceBackground.gameObject.SetActive(true);
     }
 
-    public void Hide() {
+    public void HideAll() {
         readyUpBackground.gameObject.SetActive(false);
         characterChoiceBackground.gameObject.SetActive(false);
     }

@@ -116,7 +116,7 @@ public class CharacterChoiceScene : VirtualScene {
         }
 	}
 
-    public void Prepare (PlayerController[] readyPlayers) {
+    public override void Prepare (PlayerController[] readyPlayers) {
         players = readyPlayers;
         choiceMadePlayers.Clear();
 
