@@ -15,11 +15,13 @@ public class ReadyUpScene : VirtualScene {
     public GameManager gameManager;
 
     private MusicManager musicManager;
+    private MenuBackgroundManager menuBackgroundManager;
     private RectTransform canvasTransform;
     private List<PlayerController> playerControllers;
 
 	void Start () {
         musicManager = FindObjectOfType<MusicManager>();
+        menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
         canvasTransform = canvas.GetComponent<RectTransform>();
         playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
@@ -64,6 +66,7 @@ public class ReadyUpScene : VirtualScene {
 
         canvas.enabled = true;
         musicManager.Play(musicManager.menuSong);
+        menuBackgroundManager.ShowForReadyUp();
     }
 
     public override void Deactivate () {

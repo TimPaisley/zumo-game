@@ -19,6 +19,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
     
     private GameManager gameManager;
     private CameraManager cameraManager;
+    private MenuBackgroundManager menuBackgroundManager;
 
     private PlayerController[] players;
     private Dictionary<PlayerController, RectTransform> playerSelectionIndicators = new Dictionary<PlayerController, RectTransform>();
@@ -27,6 +28,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 	void Start () {
         gameManager = FindObjectOfType<GameManager>();
         cameraManager = FindObjectOfType<CameraManager>();
+        menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
 
         baseSelectionIndicator.gameObject.SetActive(false);
         startGameButton.gameObject.SetActive(false);
@@ -77,6 +79,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
     public override void Activate () {
         base.Activate();
 
+        menuBackgroundManager.ShowForCharacterChoice();
         sceneBase.SetActive(true);
     }
 

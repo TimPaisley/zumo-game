@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 
 	//public ParticleSystem collisionPS;
 	//private ParticleSystem.EmissionModule collisionEM;
-    
+
     void Start () {
         if (instantPlay) {
             setupInstantPlay();
