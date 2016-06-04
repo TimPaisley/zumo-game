@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour {
 	public float bounceForce = 10.0f;
     public bool instantPlay = false;
 
-    public ReadyUpScene readyUpScene;
-    public CharacterChoiceScene characterChoiceScene;
-    public DeathmatchScene inGameScene;
+    public VirtualScene readyUpScene;
+    public VirtualScene characterChoiceScene;
+    public VirtualScene inGameScene;
 
 	//public ParticleSystem collisionPS;
 	//private ParticleSystem.EmissionModule collisionEM;

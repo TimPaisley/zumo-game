@@ -9,6 +9,10 @@ using UnityEngine;
  * virtual scenes are used to separate the different game states
  */
 public abstract class VirtualScene : MonoBehaviour {
+    public virtual void Prepare (PlayerController[] players) {
+        // do nothing; should be overridden if necessary
+    }
+
     public virtual void Activate () {
         gameObject.SetActive(true);
     }
