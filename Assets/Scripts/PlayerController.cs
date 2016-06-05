@@ -43,14 +43,18 @@ public class PlayerController : MonoBehaviour {
 	void FixedUpdate () {
 		if (isReady && isAlive) {
 			if (animal.isDashing) {
-				animal.Move(new Vector2 (input.xAxis.Value, input.yAxis.Value).magnitude);
+				animal.Move (new Vector2 (input.xAxis.Value, input.yAxis.Value).magnitude);
 			} else if (animal.isDashCharging) {
-				animal.Rotate(input.xAxis.Value, -input.yAxis.Value);
+				animal.Rotate (input.xAxis.Value, -input.yAxis.Value);
 
 				if (input.dashButton.WasReleased) {
-					animal.PerformDash();
+					animal.PerformDash ();
 				}
-			} else {
+			} 
+			else if (input.abilityButton.WasPressed) {
+				animal.PerformAbility ();
+			}
+			else {
 				animal.Rotate(input.xAxis.Value, -input.yAxis.Value);
 
 				if (input.dashButton.WasPressed) {

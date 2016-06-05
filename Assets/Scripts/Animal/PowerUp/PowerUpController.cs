@@ -32,6 +32,8 @@ public class PowerUpController : MonoBehaviour {
 	public float massMultiplier { get; private set; }
 	public float dashCooldownMultiplier { get; private set; }
 
+	private Renderer rend;
+
     void Awake () {
 		powerUps = new Dictionary<string, GameObject> ();
 		powerUpQueue = new List<PowerUpHistory> ();
@@ -50,7 +52,7 @@ public class PowerUpController : MonoBehaviour {
 		animalRB = GetComponent<Rigidbody> ();
         cameraManager = FindObjectOfType<CameraManager>();
 	}
-		
+
 	void Update () {
 		var animalPos = cameraManager.mainCamera.WorldToViewportPoint(animal.transform.position);
 		var screenPos = new Vector2(

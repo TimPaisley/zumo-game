@@ -39,6 +39,11 @@ public class AnimalController : MonoBehaviour {
 	private RaycastHit hit;
 	private Ray downRay;
 
+	//Ability related fields
+	//If panda ability is active, this is used due to how mass is handled currently
+	public bool pandaAbility = false; 
+	public bool disableControl = false;
+
 	public bool isDashing {
 		get { return dashController.isDashing; }
 	}
@@ -80,7 +85,14 @@ public class AnimalController : MonoBehaviour {
 
 	void Update() {
 		// Make sure mass is kept up to date
-		rb.mass = currentMass;
+		if (pandaAbility) {
+			//The panda's ability is implemented here because the current 
+			//implementation updates mass every frame
+			//TODO Move the ability out // might require to change how mass is handled
+			rb.mass = 1000;
+		} else {
+			rb.mass = currentMass;
+		}
 
 		// Update animator
 		if (rb.velocity.magnitude > ALMOST_ZERO || dashController.dashIsCharging) {
@@ -146,55 +158,61 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	public void Rotate(float v, float h) {
-		if (v == 0 && h == 0) {
-			return;
-		}
+		if (!disableControl) { // Disable control when actived panda ability
+			
+			if (v == 0 && h == 0) {
+				return;
+			}
 
-		if (!knockedBack && isGrounded) {
-			var movement = new Vector3 (h, 0, v);
+			if (!knockedBack && isGrounded) {
+				var movement = new Vector3 (h, 0, v);
 
-			//rotate speed is dependent on current speed
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(new Vector3 (movement.x, 0.0f, movement.z)), Time.deltaTime * (turnRate / speed));
+				//rotate speed is dependent on current speed
+				transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (new Vector3 (movement.x, 0.0f, movement.z)), Time.deltaTime * (turnRate / speed));
 
-			//deccelerate if turning
-			if (Vector3.Angle(movement, transform.forward) > slowAngle && speed > minTurnSpeed) {
-				speed = Mathf.Max(speed - decceleration, minSpeed);
+				//deccelerate if turning
+				if (Vector3.Angle (movement, transform.forward) > slowAngle && speed > minTurnSpeed) {
+					speed = Mathf.Max (speed - decceleration, minSpeed);
+				}
 			}
 		}
 	}
 
 	public void Move(float inputMagnitude) {
-		if (inputMagnitude == 0) {
-			return;
-		}
-
-		var maxMovementSpeed = currentMaxSpeed * inputMagnitude;
-		var movement = new Vector3 (transform.forward.x, rb.velocity.y, transform.forward.z);
-
-		if (!knockedBack && isGrounded) {
-			// Adjust Y movement to account for gravity
-			movement.y = rb.velocity.y / speed;
-
-			// Apply changes in velocity
-			if (isDashing) {
-				// Make sure player doesn't fly upwards on slopes
-				movement.y = Mathf.Clamp(movement.y, 0, 0.01f);
-
-				rb.velocity = movement * dashController.dashSpeed;
-			} else {
-				speed = Mathf.Min(speed + acceleration, maxMovementSpeed);
-
-				rb.velocity = movement * speed;
+		if (!disableControl) { // Disable control when actived panda ability
+			
+			if (inputMagnitude == 0) {
+				return;
 			}
 
-			//remove speed if player is stationary
-			if (rb.velocity == Vector3.zero) {
-				stationaryDelay++;
-				if (stationaryDelay == 5) {
-					speed = minSpeed;
+			var maxMovementSpeed = currentMaxSpeed * inputMagnitude;
+			var movement = new Vector3 (transform.forward.x, rb.velocity.y, transform.forward.z);
+
+			if (!knockedBack && isGrounded) {
+				// Adjust Y movement to account for gravity
+				movement.y = rb.velocity.y / speed;
+
+				// Apply changes in velocity
+				if (isDashing) {
+					// Make sure player doesn't fly upwards on slopes
+					movement.y = Mathf.Clamp (movement.y, 0, 0.01f);
+
+					rb.velocity = movement * dashController.dashSpeed;
+				} else {
+					speed = Mathf.Min (speed + acceleration, maxMovementSpeed);
+
+					rb.velocity = movement * speed;
 				}
-			} else {
-				stationaryDelay = 0;
+
+				//remove speed if player is stationary
+				if (rb.velocity == Vector3.zero) {
+					stationaryDelay++;
+					if (stationaryDelay == 5) {
+						speed = minSpeed;
+					}
+				} else {
+					stationaryDelay = 0;
+				}
 			}
 		}
 	}
@@ -206,7 +224,14 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	public void PerformDash() {
-		dashController.PerformDash();
+		if (!disableControl) { // Disable control when actived panda ability
+			dashController.PerformDash();
+		}
+	}
+
+	public void PerformAbility(){
+		AnimalAbility ability = GetComponent<AnimalAbility>();
+		ability.applyAbility ();
 	}
 
 	public void Kill() {
