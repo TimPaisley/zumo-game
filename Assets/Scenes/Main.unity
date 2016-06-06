@@ -1004,7 +1004,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -2251,7 +2250,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5410,7 +5408,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -5633,6 +5630,7 @@ GameObject:
   - 82: {fileID: 644102411}
   - 65: {fileID: 644102416}
   - 114: {fileID: 644102417}
+  - 114: {fileID: 644102418}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Animal
@@ -5767,6 +5765,9 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 30
   knockBackDelay: 0.2
+  isHitByHead: 0
+  pandaAbility: 0
+  disableControl: 0
 --- !u!136 &644102413
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5837,6 +5838,21 @@ MonoBehaviour:
   dashCDPrefab: {fileID: 138684, guid: a95d8a99e6bc6413e82efe4f087752a1, type: 2}
   initialPostion: {fileID: 1121208771}
   canvas: {fileID: 1390303993}
+--- !u!114 &644102418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644102408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  dashMass: 0
+  dashLength: 0
+  dashCooldown: 0
 --- !u!1 &644797192
 GameObject:
   m_ObjectHideFlags: 0
@@ -10686,7 +10702,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330866798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.46433333, y: 0, z: -0.46716192}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1511844175}
@@ -11266,7 +11282,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -11547,6 +11562,7 @@ GameObject:
   - 82: {fileID: 1446442670}
   - 65: {fileID: 1446442672}
   - 114: {fileID: 1446442673}
+  - 114: {fileID: 1446442668}
   m_Layer: 0
   m_Name: Fox 1
   m_TagString: Animal
@@ -11617,6 +11633,24 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 40
   knockBackDelay: 0.2
+  isHitByHead: 0
+  pandaAbility: 0
+  disableControl: 0
+--- !u!114 &1446442668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446442664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  dashMass: 0
+  dashLength: 0
+  dashCooldown: 0
 --- !u!54 &1446442669
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12369,6 +12403,7 @@ GameObject:
   - 82: {fileID: 1511844169}
   - 65: {fileID: 1511844168}
   - 114: {fileID: 1511844176}
+  - 114: {fileID: 1511844171}
   m_Layer: 0
   m_Name: Fox 2
   m_TagString: Animal
@@ -12386,8 +12421,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.1, z: 0.2}
-  m_Center: {x: 0, y: 0.055, z: 0}
+  m_Size: {x: 0.05, y: 0.1, z: 0.17}
+  m_Center: {x: 0, y: 0.055, z: -0.005}
 --- !u!82 &1511844169
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12482,6 +12517,24 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 40
   knockBackDelay: 0.2
+  isHitByHead: 0
+  pandaAbility: 0
+  disableControl: 0
+--- !u!114 &1511844171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1511844167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  dashMass: 0
+  dashLength: 0
+  dashCooldown: 0
 --- !u!54 &1511844173
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12867,7 +12920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b582b40744d284badacff2ff25dfa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 5
+  bounceForce: 1
   instantPlay: 0
   readyUpScene: {fileID: 241659051}
   characterChoiceScene: {fileID: 497043016}
@@ -15567,6 +15620,7 @@ GameObject:
   - 82: {fileID: 1910980518}
   - 65: {fileID: 1910980517}
   - 114: {fileID: 1910980516}
+  - 114: {fileID: 1910980521}
   m_Layer: 0
   m_Name: Tiger Wrapper
   m_TagString: Animal
@@ -15711,6 +15765,9 @@ MonoBehaviour:
   slowAngle: 70
   turnRate: 40
   knockBackDelay: 0.2
+  isHitByHead: 0
+  pandaAbility: 0
+  disableControl: 0
 --- !u!54 &1910980520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15726,6 +15783,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!114 &1910980521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1910980514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edd2d8b717fe48eda911ba2231c62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  dashMass: 0
+  dashLength: 0
+  dashCooldown: 0
 --- !u!1 &1919744614
 GameObject:
   m_ObjectHideFlags: 0
@@ -15954,7 +16026,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

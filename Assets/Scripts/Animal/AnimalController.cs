@@ -28,6 +28,7 @@ public class AnimalController : MonoBehaviour {
 	public float turnRate = 5.0f;
 	[Header("Other")]
 	public float knockBackDelay = 0.2f;
+	public float backLash = 1.0f;
 
 	// Management Variables
 	private float baseMass;
@@ -56,6 +57,7 @@ public class AnimalController : MonoBehaviour {
 	public float currentMass {
 		get { return baseMass * powerupController.massMultiplier * dashController.massMultiplier; }
 	}
+
 
 	public float speed { get; private set; }
 
@@ -115,26 +117,54 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		
 		// If this collides with another animal, bounce away and display particle
 		if (!knockedBack && other.transform.tag == "AnimalHead") {
 			dashController.Stop();
 			// StartCoroutine(gm.ShowCollisionParticle(other.contacts [0].point));
 
+			//get the animalobject from the collision
+			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
+
+
 			// Calculate vector away from collision object
-			Vector3 awayDir = (transform.position - other.transform.parent.position);
+			Vector3 awayDir = (transform.position - otherAnimal.transform.position);
 
 			// Calculate vector between direction and Y-axis (upwards)
 			Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
 
 			Debug.Log ("Trigger Collision");
+			Debug.Log ((dir * otherAnimal.GetComponent<Rigidbody>().velocity.magnitude*otherAnimal.currentMass * gm.bounceForce).magnitude);
+			float oppSpeed = Mathf.Max(otherAnimal.speed/2,5);
+			float oppMass = otherAnimal.currentMass;
+			
+
+
+			//make other animal bounce back
+			otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
+			Vector3 otherDir = new Vector3 (otherAwayDir.x, 0.0f, otherAwayDir.z).normalized + new Vector3 (0, 1, 0);
+			otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*backLash* gm.bounceForce, ForceMode.Impulse);
+			otherAnimal.knockedBack = true;
+			//otherAnimal.recoil (transform.position,oppSpeed);
 
 			// Add impulse force in that direction
-			rb.AddForce(dir * other.gameObject.GetComponentInParent<Rigidbody>().velocity.magnitude/2 * gm.bounceForce, ForceMode.Impulse);
+			rb.AddForce(dir * oppSpeed* oppMass * gm.bounceForce, ForceMode.Impulse);
 
 			// Allow player to leave the ground
 			knockedBack = true;
 		}
 	}
+
+	public void recoil(Vector3 otherAnimal,float oppSpeed){
+		rb.velocity = Vector3.zero;
+		Vector3 awayDir = (transform.position - otherAnimal);
+		Vector3 otherDir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
+		rb.AddForce(otherDir*oppSpeed*backLash* gm.bounceForce, ForceMode.Impulse);
+		knockedBack = true;
+
+	}
+
 
 	private bool isGrounded {
 		get {
@@ -145,6 +175,7 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
+
 		//if it collides with terrain
 		if (collision.transform.tag == "Environment") {
 			dashController.Stop();
