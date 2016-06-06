@@ -84,6 +84,9 @@ public class AnimalController : MonoBehaviour {
 
 		baseMass = rb.mass;
 		speed = minSpeed;
+
+		//set up hitSound
+		hitSound.ignoreListenerVolume = true;
 	}
 
 	void Update() {
@@ -134,11 +137,20 @@ public class AnimalController : MonoBehaviour {
 			// Calculate vector between direction and Y-axis (upwards)
 			Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
 
-			Debug.Log ("Trigger Collision");
-			Debug.Log ((dir * otherAnimal.GetComponent<Rigidbody>().velocity.magnitude*otherAnimal.currentMass * gm.bounceForce).magnitude);
+
 			float oppSpeed = Mathf.Max(otherAnimal.speed/2,5);
 			float oppMass = otherAnimal.currentMass;
-			
+
+
+			float sizeOfHit = (dir * oppSpeed* oppMass * gm.bounceForce).magnitude;
+			float volume = 1.0f;
+			Debug.Log ("Trigger Collision");
+			Debug.Log (sizeOfHit);
+
+			//playhitting sound
+			volume = sizeOfHit/50;
+
+			hitSound.volume = volume;
 			hitSound.PlayOneShot(hitSound.clip);
 
 			//make other animal bounce back
