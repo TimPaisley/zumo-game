@@ -29,6 +29,7 @@ public class AnimalController : MonoBehaviour {
 	[Header("Other")]
 	public float knockBackDelay = 0.2f;
 	public float backLash = 1.0f;
+	public AudioSource hitSound;
 
 	// Management Variables
 	private float baseMass;
@@ -138,7 +139,7 @@ public class AnimalController : MonoBehaviour {
 			float oppSpeed = Mathf.Max(otherAnimal.speed/2,5);
 			float oppMass = otherAnimal.currentMass;
 			
-
+			hitSound.PlayOneShot(hitSound.clip);
 
 			//make other animal bounce back
 			otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
