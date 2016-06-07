@@ -22,10 +22,14 @@ public class DashController : MonoBehaviour {
 	private float dashLengthRemaining;
 	private float dashCooldownRemaining;
 
+	public ParticleSystem ps;
+	private ParticleSystem.EmissionModule em;
+
 	void Awake() {
 		massMultiplier = 1;
 		dashSound = GetComponent<AudioSource>();
 		powerupController = GetComponent<PowerUpController>();
+		em = ps.emission;
 	}
 
 	void FixedUpdate() {
@@ -53,6 +57,10 @@ public class DashController : MonoBehaviour {
 
 	public bool StartDashCharge() {
 		if (dashCooldownRemaining == 0) {
+			ps.Simulate(0.0f,true,true);
+			em.enabled = true;
+			ps.Play ();
+
 			dashIsCharging = true;
 			return true;
 		}
@@ -74,6 +82,8 @@ public class DashController : MonoBehaviour {
 	}
 
 	public void Stop() {
+		em.enabled = false;
+		ps.Stop ();
 		isDashing = false;
 		dashIsCharging = false;
 
