@@ -124,13 +124,19 @@ public class AnimalController : MonoBehaviour {
 		
 		// If this collides with another animal, bounce away and display particle
 		if (!knockedBack && other.transform.tag == "AnimalHead") {
-			dashController.Stop();
+
+
 			// StartCoroutine(gm.ShowCollisionParticle(other.contacts [0].point));
 
 			//get the animalobject from the collision
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
 
-
+			if (isDashing) {
+				dashController.Stop();
+			}
+			if(otherAnimal.isDashing){
+				otherAnimal.dashController.Stop();
+			}
 			// Calculate vector away from collision object
 			Vector3 awayDir = (transform.position - otherAnimal.transform.position);
 
@@ -195,7 +201,9 @@ public class AnimalController : MonoBehaviour {
 
 		//if it collides with terrain
 		if (collision.transform.tag == "Environment") {
-			dashController.Stop();
+			if(isDashing){
+				dashController.Stop();
+			}
 		}
 
 		//if it collides with powerup
