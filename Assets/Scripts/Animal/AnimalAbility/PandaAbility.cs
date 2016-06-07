@@ -47,7 +47,10 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 			animal.pandaAbility = true;
 			animal.disableControl = true;
 			foreach(Material m in rend.materials){
-				m.color = Color.gray;
+				//m.color = Color.gray;
+				Color color = new Color(m.color.a/2, m.color.r, m.color.g, m.color.b);
+				//color.a = 0.1f;
+				m.color = color;
 			}
 			isActive = true;
 		}
