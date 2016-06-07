@@ -162,6 +162,7 @@ public class AnimalController : MonoBehaviour {
 
 			Debug.Log ("size of hit: "+sizeOfHit);
 			Debug.Log ("upwardMomentum when hit:"+(rb.velocity).y);
+			Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
 			Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
 
 			// Add impulse force in that direction
@@ -249,12 +250,11 @@ public class AnimalController : MonoBehaviour {
 					speed = Mathf.Min (speed + acceleration, maxMovementSpeed);
 
 					//cancel out weird super high bounce bug
-					if(movement.y>20||movement.y<-20){
+					if(movement.y>100||movement.y<-100){
 						movement.y = 0.0f;
 					}
 
 					rb.velocity = movement * speed;
-					Debug.Log ("upwardMomentum in move:"+(rb.velocity).y);
 				}
 
 				//remove speed if player is stationary
