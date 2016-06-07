@@ -282,6 +282,11 @@ public class AnimalController : MonoBehaviour {
 		}
 	}
 
+
+	public void halt(){
+		rb.velocity = Vector3.zero;
+		knockedBack = true;
+	}
 	public void PerformAbility(){
 		AnimalAbility ability = GetComponent<AnimalAbility>();
 		ability.applyAbility ();

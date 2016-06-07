@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 			else {
 				animal.Rotate(input.xAxis.Value, -input.yAxis.Value);
 
-				if (input.dashButton.WasPressed) {
+				if (input.dashButton.IsPressed) {
 					animal.StartDashCharge();
 				} else {
 					animal.Move(new Vector2 (input.xAxis.Value, input.yAxis.Value).magnitude);

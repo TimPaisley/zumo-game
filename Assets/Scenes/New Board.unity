@@ -1919,6 +1919,18 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1154174117}
+    - target: {fileID: 143800, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 109576, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 192842, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
   m_IsPrefabParent: 0
@@ -2988,6 +3000,34 @@ Prefab:
     - target: {fileID: 11457704, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: dashLength
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11402602, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: backLash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: backLash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420380, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: backLash
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11436234, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: backLash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11488968, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499954, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496654, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: dashLength
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13605594, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
