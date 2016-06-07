@@ -241,6 +241,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83422ddd6e65d74dab751316f440546, type: 3}
   m_IsPrefabParent: 0
+--- !u!82 &197727622 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8264682, guid: e91461f055ad1c144b9e5ab87fbfeda1,
+    type: 2}
+  m_PrefabInternal: {fileID: 998263828}
 --- !u!1 &210136140 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100010, guid: 8a7351e5fe76c6c44832db0db25802b8, type: 3}
@@ -1485,7 +1490,7 @@ Prefab:
   m_IsPrefabParent: 0
 --- !u!82 &1000091837 stripped
 AudioSource:
-  m_PrefabParentObject: {fileID: 8264682, guid: e91461f055ad1c144b9e5ab87fbfeda1,
+  m_PrefabParentObject: {fileID: 8272902, guid: e91461f055ad1c144b9e5ab87fbfeda1,
     type: 2}
   m_PrefabInternal: {fileID: 998263828}
 --- !u!4 &1062828459 stripped
@@ -2032,9 +2037,9 @@ Prefab:
       value: 
       objectReference: {fileID: 1154174117}
     - target: {fileID: 11415096, guid: bb16128ebea285444b6e49390babb373, type: 2}
-      propertyPath: gameManager
+      propertyPath: nextSceneEffect
       value: 
-      objectReference: {fileID: 1550336505}
+      objectReference: {fileID: 197727622}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb16128ebea285444b6e49390babb373, type: 2}
   m_IsPrefabParent: 0
@@ -2154,12 +2159,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83422ddd6e65d74dab751316f440546, type: 3}
   m_IsPrefabParent: 0
---- !u!114 &1550336505 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1,
-    type: 2}
-  m_PrefabInternal: {fileID: 998263828}
-  m_Script: {fileID: 11500000, guid: c4b582b40744d284badacff2ff25dfa5, type: 3}
 --- !u!1 &1565849906
 GameObject:
   m_ObjectHideFlags: 0
