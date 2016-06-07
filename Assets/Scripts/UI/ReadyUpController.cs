@@ -16,6 +16,7 @@ public class ReadyUpController : MonoBehaviour {
     public Image image;
 
     public PlayerController basePlayerController { get; set; } // Set by the parent ReadyUpMenu
+	public AudioSource clickAudio;
 
     public PlayerController leftPlayer { get; private set; }
     public PlayerController rightPlayer { get; private set; }
@@ -25,12 +26,14 @@ public class ReadyUpController : MonoBehaviour {
             leftPlayer.isReady = true;
             leftPlayerButton.gameObject.SetActive(false);
             leftPlayerReadyIcon.gameObject.SetActive(true);
+			clickAudio.PlayOneShot(clickAudio.clip);
         }
         
         if (!rightPlayer.isReady && rightPlayer.input.dashButton.IsPressed) {
             rightPlayer.isReady = true;
             rightPlayerButton.gameObject.SetActive(false);
             rightPlayerReadyIcon.gameObject.SetActive(true);
+			clickAudio.PlayOneShot(clickAudio.clip);
         }
     }
 
