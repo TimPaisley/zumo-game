@@ -279,8 +279,10 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	public void StartDashCharge() {
-		if (dashController.StartDashCharge()) {
-			rb.velocity = Vector3.zero;
+		if (!disableControl) {
+			if (dashController.StartDashCharge ()) {
+				rb.velocity = Vector3.zero;
+			}
 		}
 	}
 

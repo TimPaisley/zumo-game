@@ -13,7 +13,8 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 	void Start(){
 	  //rb = this.GetComponent<Rigidbody>();
 	  animal = GetComponent<AnimalController>();
-		rend = this.GetComponentInChildren<Renderer>();
+		Renderer[] r = GetComponentsInChildren<Renderer> ();
+		rend = r [1];
 		colors = new Color[rend.materials.Length];	
 		for (int i = 0; i < rend.materials.Length; i++) {
 			colors [i] = rend.materials [i].color;
@@ -45,12 +46,9 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 			print ("Panda ability");
 			animal.pandaAbility = true;
 			animal.disableControl = true;
-
-			//r.material.color = Color.yellow;
 			foreach(Material m in rend.materials){
-				m.color = Color.yellow;
+				m.color = Color.gray;
 			}
-
 			isActive = true;
 		}
 		isAvailable = false;

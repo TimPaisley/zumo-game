@@ -20,7 +20,7 @@ public class PowerUpController : MonoBehaviour {
     private CameraManager cameraManager;
 	private int yOffset = 100;
 	private AnimalController animal;
-	private Rigidbody animalRB;
+	//private Rigidbody animalRB;
 
 	private RectTransform canvasRect;
 	private RectTransform rectTransform;
@@ -49,7 +49,7 @@ public class PowerUpController : MonoBehaviour {
 		rectTransform = Display.GetComponent<RectTransform>();
         rectTransform.SetParent(canvasRect, false);
         animal = GetComponent<AnimalController>();
-		animalRB = GetComponent<Rigidbody> ();
+		//animalRB = GetComponent<Rigidbody> ();
         cameraManager = FindObjectOfType<CameraManager>();
 	}
 
