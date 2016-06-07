@@ -156,7 +156,7 @@ public class AnimalController : MonoBehaviour {
 			otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
 			Vector3 otherDir = new Vector3 (otherAwayDir.x, 0.0f, otherAwayDir.z).normalized + new Vector3 (0, 1, 0);
-			otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*backLash* gm.bounceForce, ForceMode.Impulse);
+			otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*otherAnimal.backLash* gm.bounceForce, ForceMode.Impulse);
 			otherAnimal.knockedBack = true;
 			//otherAnimal.recoil (transform.position,oppSpeed);
 

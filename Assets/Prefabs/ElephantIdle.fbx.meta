@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 47237d6d86c4f4f0c99cd818811b1e4c
+timeCreated: 1465272918
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: FLshoulder
+    100004: FLshoulder2
+    100006: FLtoe
+    100008: FRshoulder
+    100010: FRshoulder2
+    100012: FRtoe
+    100014: head
+    100016: head 1
+    100018: imagePlane1
+    100020: imagePlane2
+    100022: Lbl1
+    100024: Lbl2
+    100026: Lbl3
+    100028: Lbl4
+    100030: Lbl5
+    100032: Lbl6
+    100034: LBleg
+    100036: LBtoe
+    100038: LBtoe 1
+    100040: Le
+    100042: Lear
+    100044: LeftBackLeg
+    100046: LeftBkfoot
+    100048: leftEar
+    100050: LeftFntfoot
+    100052: Lfl1
+    100054: Lfl2
+    100056: Lfl3
+    100058: Lfl4
+    100060: Lfl5
+    100062: Lfl6
+    100064: LFleg
+    100066: LFtoe
+    100068: main
+    100070: MASTER
+    100072: master
+    100074: pCube3
+    100076: Rbl1
+    100078: Rbl2
+    100080: Rbl3
+    100082: Rbl4
+    100084: Rbl5
+    100086: Rbl6
+    100088: RBleg
+    100090: RBtoe
+    100092: Rbtoe
+    100094: Re
+    100096: Rear
+    100098: Rfl1
+    100100: Rfl2
+    100102: Rfl3
+    100104: Rfl4
+    100106: Rfl5
+    100108: Rfl6
+    100110: RFleg
+    100112: RFtoe
+    100114: RightBackLeg
+    100116: RightBkfoot
+    100118: RightEar
+    100120: RightFntfoot
+    100122: spine1
+    100124: spine1 1
+    100126: spine2
+    100128: spine2 1
+    100130: spine3
+    100132: spine3 1
+    100134: t2
+    100136: t3
+    100138: tail1
+    100140: tail1 1
+    100142: tail1 2
+    100144: tail2
+    100146: tail2 1
+    100148: tail3
+    100150: tail4
+    100152: tail5
+    100154: trunk1
+    100156: trunk1 1
+    100158: trunk2
+    100160: trunk2 1
+    100162: trunk3
+    100164: trunk3 1
+    100166: trunk4
+    100168: trunk4 1
+    100170: trunk5
+    100172: trunk6
+    100174: trunksk1
+    100176: trunksk2
+    400000: //RootNode
+    400002: FLshoulder
+    400004: FLshoulder2
+    400006: FLtoe
+    400008: FRshoulder
+    400010: FRshoulder2
+    400012: FRtoe
+    400014: head
+    400016: head 1
+    400018: imagePlane1
+    400020: imagePlane2
+    400022: Lbl1
+    400024: Lbl2
+    400026: Lbl3
+    400028: Lbl4
+    400030: Lbl5
+    400032: Lbl6
+    400034: LBleg
+    400036: LBtoe
+    400038: LBtoe 1
+    400040: Le
+    400042: Lear
+    400044: LeftBackLeg
+    400046: LeftBkfoot
+    400048: leftEar
+    400050: LeftFntfoot
+    400052: Lfl1
+    400054: Lfl2
+    400056: Lfl3
+    400058: Lfl4
+    400060: Lfl5
+    400062: Lfl6
+    400064: LFleg
+    400066: LFtoe
+    400068: main
+    400070: MASTER
+    400072: master
+    400074: pCube3
+    400076: Rbl1
+    400078: Rbl2
+    400080: Rbl3
+    400082: Rbl4
+    400084: Rbl5
+    400086: Rbl6
+    400088: RBleg
+    400090: RBtoe
+    400092: Rbtoe
+    400094: Re
+    400096: Rear
+    400098: Rfl1
+    400100: Rfl2
+    400102: Rfl3
+    400104: Rfl4
+    400106: Rfl5
+    400108: Rfl6
+    400110: RFleg
+    400112: RFtoe
+    400114: RightBackLeg
+    400116: RightBkfoot
+    400118: RightEar
+    400120: RightFntfoot
+    400122: spine1
+    400124: spine1 1
+    400126: spine2
+    400128: spine2 1
+    400130: spine3
+    400132: spine3 1
+    400134: t2
+    400136: t3
+    400138: tail1
+    400140: tail1 1
+    400142: tail1 2
+    400144: tail2
+    400146: tail2 1
+    400148: tail3
+    400150: tail4
+    400152: tail5
+    400154: trunk1
+    400156: trunk1 1
+    400158: trunk2
+    400160: trunk2 1
+    400162: trunk3
+    400164: trunk3 1
+    400166: trunk4
+    400168: trunk4 1
+    400170: trunk5
+    400172: trunk6
+    400174: trunksk1
+    400176: trunksk2
+    4300000: pCube3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCube3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
