@@ -144,8 +144,7 @@ public class AnimalController : MonoBehaviour {
 
 			float sizeOfHit = (dir * oppSpeed* oppMass * gm.bounceForce).magnitude;
 			float volume = 1.0f;
-			Debug.Log ("Trigger Collision");
-			Debug.Log (sizeOfHit);
+			Debug.Log ("size of hit: "+sizeOfHit);
 
 			//playhitting sound
 			volume = sizeOfHit/50;
@@ -160,6 +159,10 @@ public class AnimalController : MonoBehaviour {
 			otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*backLash* gm.bounceForce, ForceMode.Impulse);
 			otherAnimal.knockedBack = true;
 			//otherAnimal.recoil (transform.position,oppSpeed);
+
+			Debug.Log ("size of hit: "+sizeOfHit);
+			Debug.Log ("upwardMomentum when hit:"+(rb.velocity).y);
+			Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
 
 			// Add impulse force in that direction
 			rb.AddForce(dir * oppSpeed* oppMass * gm.bounceForce, ForceMode.Impulse);
@@ -245,7 +248,13 @@ public class AnimalController : MonoBehaviour {
 				} else {
 					speed = Mathf.Min (speed + acceleration, maxMovementSpeed);
 
+					//cancel out weird super high bounce bug
+					if(movement.y>20||movement.y<-20){
+						movement.y = 0.0f;
+					}
+
 					rb.velocity = movement * speed;
+					Debug.Log ("upwardMomentum in move:"+(rb.velocity).y);
 				}
 
 				//remove speed if player is stationary
