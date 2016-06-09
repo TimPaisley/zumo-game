@@ -43,7 +43,8 @@ public class AnimalController : MonoBehaviour {
 
 	//Ability related fields
 	//If panda ability is active, this is used due to how mass is handled currently
-	public bool pandaAbility = false; 
+	public bool pandaAbility = false;
+    public bool foxAbility = false;
 	public bool disableControl = false;
 
 	public bool isDashing {
@@ -121,11 +122,8 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		
-		// If this collides with another animal, bounce away and display particle
-		if (!knockedBack && other.transform.tag == "AnimalHead") {
-
-
+    // If this collides with another animal, bounce away and display particle
+    if (!knockedBack && other.transform.tag == "AnimalHead" && !foxAbility) {
 			// StartCoroutine(gm.ShowCollisionParticle(other.contacts [0].point));
 
 			//get the animalobject from the collision
@@ -181,12 +179,7 @@ public class AnimalController : MonoBehaviour {
 			if(otherAnimal.isDashing){
 				otherAnimal.dashController.Stop();
 			}
-
-
-
-
-
-		}
+    }
 	}
 
 	public void recoil(Vector3 otherAnimal,float oppSpeed){
@@ -221,7 +214,14 @@ public class AnimalController : MonoBehaviour {
 			powerupController.Apply(collision.gameObject.GetComponent<PowerUp>());
 			Destroy(collision.gameObject);
 		}
-	}
+
+
+        if (foxAbility && collision.transform.tag == "Animal")
+        {
+            BoxCollider bc = this.GetComponent<BoxCollider>();
+            Physics.IgnoreCollision(bc, collision.collider);
+        }
+    }
 
 	public void Rotate(float v, float h) {
 		if (!disableControl) { // Disable control when actived panda ability

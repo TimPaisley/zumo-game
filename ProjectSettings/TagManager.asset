@@ -9,6 +9,7 @@ TagManager:
   - Environment
   - PowerUp
   - AnimalHead
+  - Ghost
   layers:
   - Default
   - TransparentFX

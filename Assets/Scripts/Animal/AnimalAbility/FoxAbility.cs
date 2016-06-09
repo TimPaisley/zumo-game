@@ -10,7 +10,7 @@ public class FoxAbility : MonoBehaviour,AnimalAbility {
 	private Renderer rend;
 	public Color[] colors;
 	public float transparency = 0.5f;
-
+    public GameObject head;
 	void Start(){
 		//rb = this.GetComponent<Rigidbody>();
 		animal = GetComponent<AnimalController>();
@@ -31,9 +31,11 @@ public class FoxAbility : MonoBehaviour,AnimalAbility {
 				for (int i = 0; i < rend.materials.Length; i++) {
 					rend.materials [i].color = colors [i];
 				}
-
-				print ("Disabled Fox ability");
-
+                animal.foxAbility = false;
+                BoxCollider bc = head.GetComponent<BoxCollider>();
+                bc.enabled = true;
+                head.transform.tag = "AnimalHead";
+                print ("Disabled Fox ability");
 			} else {
 				Color newColour = getNextColor(rend.material.GetColor("_Color"));
 				foreach(Material m in rend.materials){
@@ -83,8 +85,11 @@ public class FoxAbility : MonoBehaviour,AnimalAbility {
 			foreach(Material m in rend.materials){
 				m.color = newColour;
 			}
-			this.transform.tag = "Untagged";
-			isActive = true;
+             animal.foxAbility = true;
+             BoxCollider bc = head.GetComponent<BoxCollider>();
+             bc.enabled = false;
+             head.transform.tag = "Ghost";
+             isActive = true;
 		}
 		isAvailable = false;
 	}

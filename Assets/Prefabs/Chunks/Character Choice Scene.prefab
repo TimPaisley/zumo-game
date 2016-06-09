@@ -4794,7 +4794,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153652}
-  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
+  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
   m_LocalPosition: {x: 0.002830171, y: -0.039852124, z: -0.0075525427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5043,7 +5043,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125072}
-  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
+  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
   m_LocalPosition: {x: -0.037475195, y: 6.661338e-18, z: -2.7755574e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9076,6 +9076,7 @@ MonoBehaviour:
   backLash: 1
   hitSound: {fileID: 0}
   pandaAbility: 0
+  foxAbility: 0
   disableControl: 0
 --- !u!114 &11409812
 MonoBehaviour:
@@ -9272,6 +9273,7 @@ MonoBehaviour:
   backLash: 2
   hitSound: {fileID: 0}
   pandaAbility: 0
+  foxAbility: 0
   disableControl: 0
 --- !u!114 &11426618
 MonoBehaviour:
@@ -9425,6 +9427,7 @@ MonoBehaviour:
   backLash: 2
   hitSound: {fileID: 0}
   pandaAbility: 0
+  foxAbility: 0
   disableControl: 0
 --- !u!114 &11446454
 MonoBehaviour:
@@ -9559,6 +9562,7 @@ MonoBehaviour:
   ticker: 10
   colors: []
   transparency: 0.5
+  head: {fileID: 186320}
 --- !u!114 &11460058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9766,6 +9770,7 @@ MonoBehaviour:
   backLash: 1.5
   hitSound: {fileID: 0}
   pandaAbility: 0
+  foxAbility: 0
   disableControl: 0
 --- !u!114 &11496654
 MonoBehaviour:
