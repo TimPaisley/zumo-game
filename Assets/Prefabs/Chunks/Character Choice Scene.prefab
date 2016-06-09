@@ -9556,6 +9556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68eea1b4fe07454896a03f99a3f8e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ticker: 10
+  colors: []
+  transparency: 0.5
 --- !u!114 &11460058
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -16349,6 +16352,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
