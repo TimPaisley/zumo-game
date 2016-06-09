@@ -2040,6 +2040,10 @@ Prefab:
       propertyPath: nextSceneEffect
       value: 
       objectReference: {fileID: 197727622}
+    - target: {fileID: 11415096, guid: bb16128ebea285444b6e49390babb373, type: 2}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2079210353}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb16128ebea285444b6e49390babb373, type: 2}
   m_IsPrefabParent: 0
@@ -3200,6 +3204,12 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 478542, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
   m_PrefabInternal: {fileID: 1322650632}
+--- !u!114 &2079210353 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1,
+    type: 2}
+  m_PrefabInternal: {fileID: 998263828}
+  m_Script: {fileID: 11500000, guid: c4b582b40744d284badacff2ff25dfa5, type: 3}
 --- !u!1001 &2102836189
 Prefab:
   m_ObjectHideFlags: 0

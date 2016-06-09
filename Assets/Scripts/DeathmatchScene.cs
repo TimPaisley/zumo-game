@@ -26,7 +26,7 @@ public class DeathmatchScene : VirtualScene {
         get { return gameStarted && !gameOver; }
     }
     
-    void Start () {
+    void Awake () {
         winText.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
 

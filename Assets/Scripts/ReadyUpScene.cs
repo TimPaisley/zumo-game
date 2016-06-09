@@ -19,7 +19,7 @@ public class ReadyUpScene : VirtualScene {
     private RectTransform canvasTransform;
     private List<PlayerController> playerControllers;
 
-	void Start () {
+	void Awake () {
         musicManager = FindObjectOfType<MusicManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
         canvasTransform = canvas.GetComponent<RectTransform>();

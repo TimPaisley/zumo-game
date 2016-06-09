@@ -25,7 +25,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
     private Dictionary<PlayerController, RectTransform> playerSelectionIndicators = new Dictionary<PlayerController, RectTransform>();
     private Dictionary<PlayerController, RectTransform> playerChoiceIndicators = new Dictionary<PlayerController, RectTransform>();
 
-	void Start () {
+	void Awake () {
         gameManager = FindObjectOfType<GameManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
