@@ -131,12 +131,7 @@ public class AnimalController : MonoBehaviour {
 			//get the animalobject from the collision
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
 
-			if (isDashing) {
-				dashController.Stop();
-			}
-			if(otherAnimal.isDashing){
-				otherAnimal.dashController.Stop();
-			}
+
 			// Calculate vector away from collision object
 			Vector3 awayDir = (transform.position - otherAnimal.transform.position);
 
@@ -158,24 +153,39 @@ public class AnimalController : MonoBehaviour {
 			hitSound.volume = volume;
 			hitSound.PlayOneShot(hitSound.clip);
 
-			//make other animal bounce back
-			otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
-			Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
-			Vector3 otherDir = new Vector3 (otherAwayDir.x, 0.0f, otherAwayDir.z).normalized + new Vector3 (0, 1, 0);
-			otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*otherAnimal.backLash* gm.bounceForce, ForceMode.Impulse);
-			otherAnimal.knockedBack = true;
-			//otherAnimal.recoil (transform.position,oppSpeed);
-
-			Debug.Log ("size of hit: "+sizeOfHit);
-			Debug.Log ("upwardMomentum when hit:"+(rb.velocity).y);
-			Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
-			Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
-
 			// Add impulse force in that direction
 			rb.AddForce(dir * oppSpeed* oppMass * gm.bounceForce, ForceMode.Impulse);
 
 			// Allow player to leave the ground
 			knockedBack = true;
+			Debug.Log ("size of hit: "+sizeOfHit);
+			Debug.Log ("upwardMomentum when hit:"+(rb.velocity).y);
+
+			if(otherAnimal.isDashing&&!isDashing){}
+			else{
+				//make other animal bounce back
+				otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
+				Vector3 otherDir = new Vector3 (otherAwayDir.x, 0.0f, otherAwayDir.z).normalized + new Vector3 (0, 1, 0);
+				otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*otherAnimal.backLash* gm.bounceForce, ForceMode.Impulse);
+				otherAnimal.knockedBack = true;
+
+				Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
+				Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
+				//otherAnimal.recoil (transform.position,oppSpeed);
+			}
+
+			if (isDashing) {
+				dashController.Stop();
+			}
+			if(otherAnimal.isDashing){
+				otherAnimal.dashController.Stop();
+			}
+
+
+
+
+
 		}
 	}
 
@@ -237,7 +247,7 @@ public class AnimalController : MonoBehaviour {
 	public void Move(float inputMagnitude) {
 		if (!disableControl) { // Disable control when actived panda ability
 			
-			if (inputMagnitude == 0) {
+			if (inputMagnitude == 0&&!isDashing) {
 				return;
 			}
 

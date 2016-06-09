@@ -86,11 +86,9 @@ public class DashController : MonoBehaviour {
 		if (dashIsCharging) {
 			dashIsCharging = false;
 			massMultiplier = dashCharger;
-			dashCharger = 0;
-
 			isDashing = true;
-			dashLengthRemaining = dashLength;
-
+			dashLengthRemaining = dashLength*dashCharger;
+			dashCharger = 0;
 			dashSound.PlayOneShot(dashSound.clip);
 		}
 	}
