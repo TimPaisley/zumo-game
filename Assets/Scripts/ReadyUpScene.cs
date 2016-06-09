@@ -12,16 +12,14 @@ public class ReadyUpScene : VirtualScene {
     public ReadyUpController baseControllerView;
     public PlayerController basePlayerController;
     public GameObject startIndicator;
-	public AudioSource nextSceneEffect;
+    public GameManager gameManager;
 
-	private GameManager gameManager;
     private MusicManager musicManager;
     private MenuBackgroundManager menuBackgroundManager;
     private RectTransform canvasTransform;
     private List<PlayerController> playerControllers;
 
 	void Start () {
-		gameManager = FindObjectOfType<GameManager>();
         musicManager = FindObjectOfType<MusicManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
         canvasTransform = canvas.GetComponent<RectTransform>();
@@ -56,8 +54,6 @@ public class ReadyUpScene : VirtualScene {
             }
 
             if (playerActionButtonPressed()) {
-				nextSceneEffect.PlayOneShot(nextSceneEffect.clip);
-
                 gameManager.characterChoiceScene.Prepare(players);
                 gameManager.characterChoiceScene.Activate();
                 Deactivate();

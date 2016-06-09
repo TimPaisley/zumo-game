@@ -41,11 +41,10 @@ public class DeathmatchScene : VirtualScene {
 	
 	void Update () {
         if (gameOver) {
+            //TODO restart the game properly
             if (players.Any(player => player.input.actionButton.IsPressed)) {
-				rematch();
-			} else if (players.Any(player => player.input.menuButton.WasPressed)) {
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			}
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
 
             return;
         }
@@ -81,13 +80,8 @@ public class DeathmatchScene : VirtualScene {
 
     public override void Prepare (PlayerController[] readyPlayers) {
         gameStarted = false;
-		gameOver = false;
         players = readyPlayers;
         playerIndicators = new FollowAnimal[readyPlayers.Length];
-
-		foreach (var player in players) {
-			player.isAlive = false;
-		}
 
         winText.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
@@ -144,24 +138,4 @@ public class DeathmatchScene : VirtualScene {
         yield return new WaitForSeconds(0.5f);
         countdownItems.Last().SetActive(false);
     }
-
-	private void rematch() {
-		// Animals must be destroyed after Prepare() because new ones are instantiated from them
-		var oldAnimals = players.Select(player => player.animal).ToList();
-
-		// However indicators must be destroyed here because playerIndicators is overridden ... sigh
-		foreach (var indicator in playerIndicators) {
-			//TODO destroy properly
-			indicator.gameObject.SetActive(false);
-		}
-
-		Prepare(players);
-
-		foreach (var animal in oldAnimals) {
-			//TODO destroy properly
-			animal.gameObject.SetActive(false);
-		}
-
-		Activate();
-	}
 }
