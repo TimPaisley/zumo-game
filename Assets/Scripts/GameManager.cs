@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour {
 	//public ParticleSystem collisionPS;
 	//private ParticleSystem.EmissionModule collisionEM;
 
+	void Awake () {
+		readyUpScene.gameObject.SetActive(true);
+		characterChoiceScene.gameObject.SetActive(true);
+		inGameScene.gameObject.SetActive(true);
+	}
+
     void Start () {
         if (instantPlay) {
             setupInstantPlay();
