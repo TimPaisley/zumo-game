@@ -30,12 +30,14 @@ public class AnimalController : MonoBehaviour {
 	public float knockBackDelay = 0.2f;
 	public float backLash = 1.0f;
 	public AudioSource hitSound;
+	private AudioSource[] animalSound;
 
 	// Management Variables
 	private float baseMass;
 	private bool knockedBack;
 	private float knockBackTimer;
 	private int stationaryDelay = 0;
+	private int index = 0;
 
 	// Raycast Variables
 	private RaycastHit hit;
@@ -82,6 +84,7 @@ public class AnimalController : MonoBehaviour {
 
 		dashController = GetComponent<DashController>();
 		powerupController = GetComponent<PowerUpController>();
+		animalSound = GetComponents<AudioSource> ();
 
 		baseMass = rb.mass;
 		speed = minSpeed;
@@ -162,15 +165,16 @@ public class AnimalController : MonoBehaviour {
 			if(otherAnimal.isDashing&&!isDashing){}
 			else{
 				//make other animal bounce back
-				otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
-				Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
-				Vector3 otherDir = new Vector3 (otherAwayDir.x, 0.0f, otherAwayDir.z).normalized + new Vector3 (0, 1, 0);
-				otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*otherAnimal.backLash* gm.bounceForce, ForceMode.Impulse);
-				otherAnimal.knockedBack = true;
+				//otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
+				//Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
+				//Vector3 otherDir = new Vector3 (otherAwayDir.x, 0.0f, otherAwayDir.z).normalized + new Vector3 (0, 1, 0);
+				//otherAnimal.GetComponent<Rigidbody>().AddForce(otherDir*oppSpeed*otherAnimal.backLash* gm.bounceForce, ForceMode.Impulse);
+				//otherAnimal.knockedBack = true;
 
-				Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
-				Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
-				//otherAnimal.recoil (transform.position,oppSpeed);
+				//Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
+				//Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
+				makeRandomNoise();
+				otherAnimal.recoil (transform.position,oppSpeed);
 			}
 
 			if (isDashing) {
@@ -179,16 +183,27 @@ public class AnimalController : MonoBehaviour {
 			if(otherAnimal.isDashing){
 				otherAnimal.dashController.Stop();
 			}
-    }
+		}
 	}
 
 	public void recoil(Vector3 otherAnimal,float oppSpeed){
+		//make other animal bounce back
 		rb.velocity = Vector3.zero;
 		Vector3 awayDir = (transform.position - otherAnimal);
 		Vector3 otherDir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
 		rb.AddForce(otherDir*oppSpeed*backLash* gm.bounceForce, ForceMode.Impulse);
 		knockedBack = true;
 
+		Debug.Log ("upwardMomentum when hitting:"+(rb.velocity).y);
+		Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
+
+	}
+
+	public void makeRandomNoise(){
+		//animalSound [index].Stop ();
+		index = (int)(3*Random.value);
+		Debug.Log (index);
+		animalSound[index].PlayOneShot(animalSound[index].clip);
 	}
 
 

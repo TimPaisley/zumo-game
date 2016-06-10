@@ -16,7 +16,7 @@ public class DashController : MonoBehaviour {
 		get { return dashCooldown * powerupController.dashCooldownMultiplier; }
 	}
 	public AudioSource chargeSound;
-	private AudioSource dashSound;
+	private AudioSource[] dashSound;
 	private PowerUpController powerupController;
 
 	private float dashCharger;
@@ -29,7 +29,7 @@ public class DashController : MonoBehaviour {
 
 	void Awake() {
 		massMultiplier = 1;
-		dashSound = GetComponent<AudioSource>();
+		dashSound = GetComponents<AudioSource>();
 		powerupController = GetComponent<PowerUpController>();
 		//set up hitSound
 		chargeSound.ignoreListenerVolume = true;
@@ -89,7 +89,9 @@ public class DashController : MonoBehaviour {
 			isDashing = true;
 			dashLengthRemaining = dashLength*dashCharger;
 			dashCharger = 0;
-			dashSound.PlayOneShot(dashSound.clip);
+
+			int index = (int)(3*UnityEngine.Random.value);
+			dashSound[index].PlayOneShot(dashSound[index].clip);
 		}
 	}
 
