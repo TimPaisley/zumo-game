@@ -131,6 +131,14 @@ public class AnimalController : MonoBehaviour {
 
 			//get the animalobject from the collision
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
+			//if(){}
+			//else if(){}
+			//else if(){}
+			//else{}
+
+
+
+
 
 
 			// Calculate vector away from collision object
@@ -155,6 +163,7 @@ public class AnimalController : MonoBehaviour {
 			hitSound.PlayOneShot(hitSound.clip);
 
 			// Add impulse force in that direction
+			rb.velocity = Vector3.zero;
 			rb.AddForce(dir * oppSpeed* oppMass * gm.bounceForce, ForceMode.Impulse);
 
 			// Allow player to leave the ground
@@ -162,8 +171,9 @@ public class AnimalController : MonoBehaviour {
 			Debug.Log ("size of hit: "+sizeOfHit);
 			Debug.Log ("upwardMomentum when hit:"+(rb.velocity).y);
 
-			if(otherAnimal.isDashing&&!isDashing){}
-			else{
+
+			Debug.Log ("is dashing?: "+ isDashing);
+
 				//make other animal bounce back
 				//otherAnimal.GetComponent<Rigidbody>().velocity = Vector3.zero;
 				//Vector3 otherAwayDir = (otherAnimal.transform.position - transform.position);
@@ -175,7 +185,7 @@ public class AnimalController : MonoBehaviour {
 				//Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
 				makeRandomNoise();
 				otherAnimal.recoil (transform.position,oppSpeed);
-			}
+
 
 			if (isDashing) {
 				dashController.Stop();

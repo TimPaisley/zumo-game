@@ -911,6 +911,10 @@ Prefab:
       propertyPath: hitSound
       value: 
       objectReference: {fileID: 1703495754}
+    - target: {fileID: 11440418, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: backLash
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_IsPrefabParent: 0

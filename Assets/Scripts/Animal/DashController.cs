@@ -9,7 +9,7 @@ public class DashController : MonoBehaviour {
 
 
 	public bool dashIsCharging { get; private set; }
-	public bool isDashing { get; private set; }
+	public bool isDashing { get;  set; }
 	public float massMultiplier { get; private set; }
 
 	public float currentDashCooldown {
@@ -23,6 +23,7 @@ public class DashController : MonoBehaviour {
 	private float dashLengthRemaining;
 	private float dashCooldownRemaining;
 	private bool charged = false;
+	private bool minCharge = false;
 
 	public ParticleSystem ps;
 	private ParticleSystem.EmissionModule em;
@@ -83,11 +84,12 @@ public class DashController : MonoBehaviour {
 	}
 
 	public void PerformDash() {
+
 		if (dashIsCharging) {
 			dashIsCharging = false;
-			massMultiplier = dashCharger;
+			massMultiplier = Mathf.Max(dashCharger,1.0f);
 			isDashing = true;
-			dashLengthRemaining = dashLength*dashCharger;
+			dashLengthRemaining = dashLength;
 			dashCharger = 0;
 
 			int index = (int)(3*UnityEngine.Random.value);
