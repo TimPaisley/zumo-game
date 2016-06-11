@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 
     public VirtualScene readyUpScene;
     public VirtualScene characterChoiceScene;
+    public VirtualScene boardChoiceScene;
     public VirtualScene inGameScene;
 
 	public ParticleSystem collisionPS;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
         } else {
             inGameScene.Deactivate();
             characterChoiceScene.Deactivate();
+            if (boardChoiceScene) boardChoiceScene.Deactivate(); //TODO board choice
             readyUpScene.Activate();
         }
 

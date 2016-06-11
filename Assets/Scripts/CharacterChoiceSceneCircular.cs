@@ -59,8 +59,14 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         if (playerChoiceIndicators.Count == players.Length && players.Any(player => player.input.actionButton.IsPressed)) {
             assignAnimals();
 
-            gameManager.inGameScene.Prepare(players);
-            gameManager.inGameScene.Activate();
+            if (gameManager.boardChoiceScene) { //TODO board choice
+                gameManager.boardChoiceScene.Prepare(players);
+                gameManager.boardChoiceScene.Activate();
+            } else {
+                gameManager.inGameScene.Prepare(players);
+                gameManager.inGameScene.Activate();
+            }
+
             Deactivate();
         }
 	}
