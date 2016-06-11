@@ -127,8 +127,6 @@ public class AnimalController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
     // If this collides with another animal, bounce away and display particle
     if (!knockedBack && other.transform.tag == "AnimalHead" && !foxAbility) {
-			// StartCoroutine(gm.ShowCollisionParticle(other.contacts [0].point));
-
 			//get the animalobject from the collision
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
 
@@ -216,7 +214,6 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision collision) {
-
 		//if it collides with terrain
 		if (collision.transform.tag == "Environment") {
 			if(isDashing){

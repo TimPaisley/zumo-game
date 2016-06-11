@@ -24,8 +24,10 @@ public class DashController : MonoBehaviour {
 	private float dashCooldownRemaining;
 	private bool charged = false;
 
-	public ParticleSystem ps;
-	private ParticleSystem.EmissionModule em;
+	public ParticleSystem chargePS;
+	public ParticleSystem dashPS;
+	private ParticleSystem.EmissionModule chargeEM;
+	private ParticleSystem.EmissionModule dashEM;
 
 	void Awake() {
 		massMultiplier = 1;
@@ -34,8 +36,8 @@ public class DashController : MonoBehaviour {
 		//set up hitSound
 		chargeSound.ignoreListenerVolume = true;
 
-		em = ps.emission;
-
+		chargeEM = chargePS.emission;
+		dashEM = dashPS.emission;
 	}
 
 	void FixedUpdate() {
@@ -69,9 +71,9 @@ public class DashController : MonoBehaviour {
 
 	public bool StartDashCharge() {
 		if (dashCooldownRemaining == 0) {
-			ps.Simulate(0.0f,true,true);
-			em.enabled = true;
-			ps.Play ();
+			chargePS.Simulate(0.0f,true,true);
+			chargeEM.enabled = true;
+			chargePS.Play ();
 
 			dashIsCharging = true;
 			chargeSound.volume = 1.0f;
@@ -84,10 +86,18 @@ public class DashController : MonoBehaviour {
 
 	public void PerformDash() {
 		if (dashIsCharging) {
+			chargeEM.enabled = false;
+			chargePS.Stop ();
+			chargePS.Clear ();
+
+			dashPS.Simulate(0.0f,true,true);
+			dashEM.enabled = true;
+			dashPS.Play ();
+
 			dashIsCharging = false;
-			massMultiplier = dashCharger;
+			massMultiplier = Mathf.Max(dashCharger,1.0f);
 			isDashing = true;
-			dashLengthRemaining = dashLength*dashCharger;
+			dashLengthRemaining = dashLength;
 			dashCharger = 0;
 
 			int index = (int)(3*UnityEngine.Random.value);
@@ -96,8 +106,10 @@ public class DashController : MonoBehaviour {
 	}
 
 	public void Stop() {
-		em.enabled = false;
-		ps.Stop ();
+		dashEM.enabled = false;
+		dashPS.Stop ();
+		dashPS.Clear ();
+
 		isDashing = false;
 		dashIsCharging = false;
 		charged = false;

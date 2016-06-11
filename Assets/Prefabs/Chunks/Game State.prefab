@@ -1121,6 +1121,7 @@ MonoBehaviour:
   readyUpScene: {fileID: 0}
   characterChoiceScene: {fileID: 0}
   inGameScene: {fileID: 0}
+  collisionPS: {fileID: 0}
 --- !u!114 &11494834
 MonoBehaviour:
   m_ObjectHideFlags: 1
