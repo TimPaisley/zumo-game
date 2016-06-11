@@ -21,18 +21,6 @@ public class InputMapping {
 		}
 	}
 
-	public class MenuButtonControl {
-		private InputDevice input;
-
-		public MenuButtonControl(InputDevice device) {
-			input = device;
-		}
-
-		public bool WasPressed {
-			get { return input.MenuWasPressed; }
-		}
-	}
-
 	public class KeyInputControl : InputControl {
 		private KeyCode key;
 
@@ -64,9 +52,10 @@ public class InputMapping {
 		private InputControl rightStickY = new AxisInputControl("Vertical 2");
 		private InputControl leftTrigger = new KeyInputControl(KeyCode.Space);
 		private InputControl rightTrigger = new KeyInputControl(KeyCode.RightShift);
-		private InputControl action1 = new KeyInputControl(KeyCode.Return);
+        private InputControl action1 = new KeyInputControl(KeyCode.Return);
+        private InputControl action2 = new KeyInputControl(KeyCode.Escape);
 
-		public override InputControl LeftStickX {
+        public override InputControl LeftStickX {
 			get { return leftStickX; }
 		}
 		public override InputControl LeftStickY {
@@ -87,7 +76,10 @@ public class InputMapping {
 		public override InputControl Action1 {
 			get { return action1; }
 		}
-		public override bool MenuWasPressed {
+        public override InputControl Action2 {
+            get { return action2; }
+        }
+        public override bool MenuWasPressed {
 			get { return Input.GetKeyDown(KeyCode.Escape); }
 		}
 
@@ -105,7 +97,7 @@ public class InputMapping {
 	public InputControl dashButton { get; private set; }
 	public InputControl abilityButton { get; private set; }
 	public InputControl actionButton { get; private set; }
-	public MenuButtonControl menuButton { get; private set; }
+	public InputControl menuButton { get; private set; }
 
 	public InputMapping(int deviceIndex, Side side) {
 		if (deviceIndex < InputManager.Devices.Count) {
@@ -121,6 +113,6 @@ public class InputMapping {
 		dashButton = side == Side.LEFT ? inputDevice.LeftTrigger : inputDevice.RightTrigger;
 		abilityButton = side == Side.LEFT ? inputDevice.DPadUp : inputDevice.Action4;//TODO need to add keyboard support
 		actionButton = inputDevice.Action1;
-		menuButton = new MenuButtonControl(inputDevice);
+		menuButton = inputDevice.Action2;
 	}
 }
