@@ -799,37 +799,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11470650, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 2001560017}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.60286677
+      value: -0.6028667
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.26554087
+      value: -0.26554084
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.2763774
+      value: 0.27637738
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.6997538
+      value: 0.69975376
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.60286677
+      value: -0.6028667
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.26554087
+      value: -0.26554084
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.2763774
+      value: 0.27637738
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.6997538
+      value: 0.69975376
       objectReference: {fileID: 0}
     - target: {fileID: 11418870, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: initialPostion
@@ -2891,6 +2895,11 @@ Transform:
   - {fileID: 1305158016}
   m_Father: {fileID: 1301926167}
   m_RootOrder: 1
+--- !u!20 &2001560017 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2045718, guid: e91461f055ad1c144b9e5ab87fbfeda1,
+    type: 2}
+  m_PrefabInternal: {fileID: 998263828}
 --- !u!4 &2013924979 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d83422ddd6e65d74dab751316f440546, type: 3}
