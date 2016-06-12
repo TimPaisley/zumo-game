@@ -83,8 +83,8 @@ public class InputMapping {
 		xAxis = side == Side.LEFT ? inputDevice.LeftStickX : inputDevice.RightStickX;
 		yAxis = side == Side.LEFT ? inputDevice.LeftStickY : inputDevice.RightStickY;
 		dashButton = side == Side.LEFT ? inputDevice.LeftTrigger : inputDevice.RightTrigger;
-		abilityButton = side == Side.LEFT ? inputDevice.DPadUp : inputDevice.Action4;
-
+		abilityButton = side == Side.LEFT ? inputDevice.LeftBumper : inputDevice.RightBumper;
+            
 		actionButton = inputDevice.Action1;
 		backButton = inputDevice.Action2;
 		menuButton = inputDevice.Action4;
