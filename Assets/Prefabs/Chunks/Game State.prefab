@@ -1120,6 +1120,7 @@ MonoBehaviour:
   instantPlay: 0
   readyUpScene: {fileID: 0}
   characterChoiceScene: {fileID: 0}
+  boardChoiceScene: {fileID: 0}
   inGameScene: {fileID: 0}
   collisionPS: {fileID: 0}
 --- !u!114 &11494834
@@ -1141,6 +1142,10 @@ MonoBehaviour:
   - {fileID: 0}
   PowerUpObj: {fileID: 161344, guid: c68f71480165048c3b3b706f23a58c1c, type: 2}
   SpawnTime: 4
+  speedUp: {fileID: 163526, guid: 4123bbc4e114448e19f424e2857ea2a5, type: 2}
+  massUp: {fileID: 188502, guid: 3b9c04904d87e47c5abfa3c89d3cab2a, type: 2}
+  dashUp: {fileID: 171568, guid: a857c0cf78bd046ae8f538bd0b887659, type: 2}
+  PuTypes: []
 --- !u!124 &12400624
 Behaviour:
   m_ObjectHideFlags: 1

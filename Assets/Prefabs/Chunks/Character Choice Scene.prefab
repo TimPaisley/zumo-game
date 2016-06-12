@@ -2698,6 +2698,7 @@ GameObject:
   - 114: {fileID: 11440274}
   - 82: {fileID: 8227594}
   - 82: {fileID: 8238788}
+  - 114: {fileID: 11451074}
   m_Layer: 0
   m_Name: Elephant
   m_TagString: Animal
@@ -10121,6 +10122,20 @@ MonoBehaviour:
   - {fileID: 22459584}
   indicatorContainer: {fileID: 22486250}
   startGameButton: {fileID: 22475832}
+--- !u!114 &11451074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6fa61bb1f4e64865b295bbe4c17c149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ticker: 5
+  shake: 0
+  colors: []
 --- !u!114 &11451422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23125,6 +23140,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
