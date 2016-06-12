@@ -57,7 +57,6 @@ public class DashController : MonoBehaviour {
 			dashLengthRemaining -= Time.deltaTime;
 			if (dashLengthRemaining <= 0) {
 				Stop();
-				GetComponentInParent<AnimalController> ().halt();
 				//moved powerupcode to Stop();
 			} 
 		} else {

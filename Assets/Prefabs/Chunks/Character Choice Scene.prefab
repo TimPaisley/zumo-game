@@ -10478,7 +10478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 25
   dashMass: 4
-  dashLength: 0.25
+  dashLength: 0.5
   dashCooldown: 2
   chargeSound: {fileID: 0}
   chargePS: {fileID: 19868016}
@@ -23151,7 +23151,6 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
