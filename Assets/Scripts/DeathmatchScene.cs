@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class DeathmatchScene : VirtualScene {
+	[Header("UI")]
     public Canvas hudCanvas;
-    public GameObject winText;
+	public Canvas pauseMenu;
+	public Text pauseTitleText;
+	public Text pauseActionText;
+	public Text pauseResetText;
+
+	[Header("Countdown")]
     public GameObject[] countdownItems;
     public AudioSource countdownNumberSound;
     public AudioSource countdownCompleteSound;
+
+	[Header("Gameplay")]
     public FollowAnimal basePlayerIndicator;
     public Transform[] spawnPoints;
 
@@ -27,7 +36,7 @@ public class DeathmatchScene : VirtualScene {
     }
     
     void Awake () {
-        winText.SetActive(false);
+		pauseMenu.gameObject.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
 
         foreach (var item in countdownItems) {
@@ -55,11 +64,11 @@ public class DeathmatchScene : VirtualScene {
         if (alivePlayers == 1) {
             var winningPlayer = players.First(player => player.isAlive);
 
-            foreach (var text in winText.GetComponentsInChildren<TextMesh>()) {
-                text.text = "Player " + (winningPlayer.playerIndex + 1) + " Wins!";
-            }
+//            foreach (var text in winText.GetComponentsInChildren<TextMesh>()) {
+//                text.text = "Player " + (winningPlayer.playerIndex + 1) + " Wins!";
+//            }
 
-            winText.SetActive(true);
+			pauseMenu.gameObject.SetActive(true);
             musicManager.Play(musicManager.winSong);
 
             gameOver = true;
@@ -85,7 +94,7 @@ public class DeathmatchScene : VirtualScene {
         players = readyPlayers;
         playerIndicators = new FollowAnimal[readyPlayers.Length];
 
-        winText.SetActive(false);
+		pauseMenu.gameObject.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
 
         foreach (var player in players) {
