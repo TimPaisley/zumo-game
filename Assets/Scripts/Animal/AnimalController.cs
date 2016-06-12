@@ -9,7 +9,7 @@ public class AnimalController : MonoBehaviour {
 	private GameManager gm;
 
 	// Local References
-	private Rigidbody rb;
+	public Rigidbody rb;
 	private Animator anim;
 	private DashController dashController;
 	private PowerUpController powerupController;

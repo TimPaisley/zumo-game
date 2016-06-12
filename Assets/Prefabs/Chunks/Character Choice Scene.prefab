@@ -9728,6 +9728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 5
   maxSpeed: 15
@@ -9925,6 +9926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 3
   maxSpeed: 8
@@ -10080,6 +10082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 1
   maxSpeed: 5
@@ -10425,6 +10428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05aa4260589b254f83aa683bc97da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 4
   maxSpeed: 10

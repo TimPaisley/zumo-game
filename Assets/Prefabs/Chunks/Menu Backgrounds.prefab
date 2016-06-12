@@ -375,6 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyUpBackground: {fileID: 22482008}
   characterChoiceBackground: {fileID: 22411576}
+  boardChoiceBackground: {fileID: 0}
 --- !u!222 &22200400
 CanvasRenderer:
   m_ObjectHideFlags: 1
