@@ -1150,6 +1150,7 @@ GameObject:
   - 224: {fileID: 22405870}
   - 222: {fileID: 22279996}
   - 114: {fileID: 11456468}
+  - 114: {fileID: 11420338}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -3478,7 +3479,6 @@ MonoBehaviour:
   - {fileID: 101544}
   - {fileID: 129572}
   - {fileID: 150464}
-  - {fileID: 107858}
   countdownNumberSound: {fileID: 8250060}
   countdownCompleteSound: {fileID: 8295280}
   basePlayerIndicator: {fileID: 11407774}
@@ -3561,6 +3561,18 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Menu
+--- !u!114 &11420338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 185732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4840af7ee364a647b1758832f3b025f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOffset: 1
 --- !u!114 &11428744
 MonoBehaviour:
   m_ObjectHideFlags: 1

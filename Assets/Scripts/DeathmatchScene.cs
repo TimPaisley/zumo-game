@@ -28,12 +28,18 @@ public class DeathmatchScene : VirtualScene {
     private FollowAnimal[] playerIndicators;
     private delegate bool PlayerChecker (PlayerController player);
 
+	private Color pausedTextColor;
+
     public bool gameStarted = false;
     private bool gameOver = false;
 
     public bool inProgress {
         get { return gameStarted && !gameOver; }
     }
+
+	private bool isPaused {
+		get { return Time.timeScale == 0; }
+	}
     
     void Awake () {
 		pauseMenu.gameObject.SetActive(false);
@@ -46,6 +52,8 @@ public class DeathmatchScene : VirtualScene {
         musicManager = FindObjectOfType<MusicManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
+
+		pausedTextColor = pauseTitleText.color;
     }
 	
 	void Update () {
@@ -64,9 +72,9 @@ public class DeathmatchScene : VirtualScene {
         if (alivePlayers == 1) {
             var winningPlayer = players.First(player => player.isAlive);
 
-//            foreach (var text in winText.GetComponentsInChildren<TextMesh>()) {
-//                text.text = "Player " + (winningPlayer.playerIndex + 1) + " Wins!";
-//            }
+			pauseTitleText.text = winningPlayer.playerName + " Wins!";
+			pauseTitleText.color = winningPlayer.color;
+			pauseActionText.text = "Rematch";
 
 			pauseMenu.gameObject.SetActive(true);
             musicManager.Play(musicManager.winSong);
@@ -74,17 +82,24 @@ public class DeathmatchScene : VirtualScene {
             gameOver = true;
         }
 
-		foreach (var player in players) {
-			if (player.input.menuButton.WasPressed) {
-				if (Time.timeScale == 0) {
-					Time.timeScale = 1;
-					//TODO hide pause menu
-				} else {
-					Time.timeScale = 0;
-					//TODO show pause menu
-				}
-				return;
+		if (isPaused) {
+			if (players.Any(player => (player.input.menuButton.WasPressed || player.input.actionButton.WasPressed))) {
+				// Unpause
+				Time.timeScale = 1;
+				
+				pauseMenu.gameObject.SetActive(false);
+			} else if (players.Any(player => player.input.backButton.WasPressed)) {
+				// Go to menu
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
+		} else if (players.Any(player => player.input.menuButton.WasPressed)) {
+			// Pause
+			Time.timeScale = 0;
+
+			pauseTitleText.text = "Paused";
+			pauseTitleText.color = pausedTextColor;
+			pauseActionText.text = "Resume";
+			pauseMenu.gameObject.SetActive(true);
 		}
     }
 
