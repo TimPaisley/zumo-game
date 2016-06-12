@@ -15,9 +15,11 @@ public class CameraManager : MonoBehaviour {
     private Transform targetTransform;
 
 	void Start () {
-        mainCamera = Instantiate(menuCamera);
+        mainCamera = Instantiate(gameCamera);
+		mainCamera.gameObject.SetActive(true);
 
         menuCamera.gameObject.SetActive(false);
+		tiltedMenuCamera.gameObject.SetActive(false);
         gameCamera.gameObject.SetActive(false);
 	}
 	
