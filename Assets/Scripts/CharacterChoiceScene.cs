@@ -93,7 +93,7 @@ public class CharacterChoiceScene : VirtualScene {
 
         foreach (var operation in chooseOperations) {
             if (operation.chooser != null) {
-                operation.chooser.player.animal = animals[operation.animalIndex];
+                operation.chooser.player.baseAnimal = animals[operation.animalIndex];
 
                 var indicator = animalChoiceIndicators[operation.animalIndex];
                 indicator.SetActive(true);
@@ -121,7 +121,7 @@ public class CharacterChoiceScene : VirtualScene {
         choiceMadePlayers.Clear();
 
         foreach (var player in players) {
-            player.animal = null;
+            player.baseAnimal = null;
         }
 
         var choosers = readyPlayers.Select(player => createAnimalChooser(player)).ToList();
@@ -187,7 +187,7 @@ public class CharacterChoiceScene : VirtualScene {
         var animal = animals[index];
 
         foreach (var player in choiceMadePlayers) {
-            if (player.animal == animal) {
+            if (player.baseAnimal == animal) {
                 return new ChooserChooseOperation();
             }
         }

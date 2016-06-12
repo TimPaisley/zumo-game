@@ -75,7 +75,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         players = readyPlayers;
 
         foreach (var player in players) {
-            player.animal = null;
+            player.baseAnimal = null;
             playerSelectionIndicators[player] = createSelectionIndicator(player);
         }
 
@@ -91,6 +91,12 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 
     public override void Deactivate () {
         base.Deactivate();
+
+		foreach (var indicator in playerSelectionIndicators.Values) {
+			Destroy(indicator.gameObject);
+		}
+
+		playerSelectionIndicators.Clear();
 
         sceneBase.SetActive(false);
     }
@@ -132,7 +138,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         foreach (var indicator in playerChoiceIndicators) {
             var index = Array.IndexOf(animalChoiceIndicators, indicator.Value);
 
-            indicator.Key.animal = animals[index];
+            indicator.Key.baseAnimal = animals[index];
         }
     }
 

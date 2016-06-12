@@ -33,8 +33,9 @@ public class GameManager : MonoBehaviour {
         var players = FindObjectsOfType<PlayerController>().OrderBy(player => player.playerIndex).ToArray();
 
         foreach (var player in players) {
-            player.animal.gameObject.SetActive(false);
+            player.baseAnimal.gameObject.SetActive(false);
             player.Setup(player.playerIndex);
+			player.ResetAnimal(player.baseAnimal.transform);
             player.isReady = true;
         }
 

@@ -84,6 +84,17 @@ public class PowerUpController : MonoBehaviour {
 		}
 	}
 
+	public void RemoveAll () {
+		foreach (var powerup in powerUps) {
+			removePowerUp(powerup.Key);
+
+			Destroy(powerup.Value.gameObject);
+		}
+
+		powerUps.Clear();
+		powerUpQueue.Clear();
+	}
+
 	public void Apply(PowerUp pu) {
 		string currentPower = pu.getPowerUpType();
 		PowerUpHistory nph = new PowerUpHistory(currentPower);

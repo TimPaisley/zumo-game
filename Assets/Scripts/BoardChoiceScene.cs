@@ -161,6 +161,10 @@ public class BoardChoiceScene : VirtualScene {
     public override void Deactivate () {
         base.Deactivate();
 
+		foreach (var indicator in playerSelectionIndicators.Values) {
+			Destroy(indicator.gameObject);
+		}
+
         sceneBase.SetActive(false);
     }
 
@@ -214,7 +218,7 @@ public class BoardChoiceScene : VirtualScene {
         rouletteSpinner.gameObject.SetActive(true);
 
         var board = playerChoices.Values.ElementAt(
-            new System.Random().Next(0, playerChoices.Count - 1)
+            new System.Random().Next(0, playerChoices.Count)
         );
         var indicator = boardVoteIndicators[Array.IndexOf(boards, board)];
 

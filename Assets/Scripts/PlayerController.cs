@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     };
 
     // Player Variables
-    public AnimalController animal;
+    public AnimalController baseAnimal;
     public Renderer board;
     public int playerIndex;
 
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour {
     public Color color {
 		get { return playerIndex < PlayerColors.Length ? PlayerColors[playerIndex] : Color.black; }
     }
+
+	public AnimalController animal { get; private set; }
 
     void Awake () {
         isReady = false;
@@ -77,4 +79,15 @@ public class PlayerController : MonoBehaviour {
 
         input = new InputMapping(playerIndex / 2, controllerSide);
     }
+
+	public void ResetAnimal (Transform spawnPoint) {
+		if (animal) {
+			Destroy(animal.gameObject);
+		}
+
+		animal = Instantiate(baseAnimal);
+		animal.gameObject.SetActive(true);
+		animal.transform.position = spawnPoint.position;
+		animal.transform.localRotation = spawnPoint.localRotation;
+	}
 }

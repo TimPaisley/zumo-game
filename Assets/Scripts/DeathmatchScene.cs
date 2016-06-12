@@ -93,12 +93,7 @@ public class DeathmatchScene : VirtualScene {
         }
 
         for (var i = 0; i < players.Length; i++) {
-            var animal = Instantiate(players[i].animal);
-            animal.gameObject.SetActive(true);
-            animal.transform.position = spawnPoints[i].position;
-            animal.transform.localRotation = spawnPoints[i].localRotation;
-
-            players[i].animal = animal;
+			players[i].ResetAnimal(spawnPoints[i]);
 
             var playerIndicator = Instantiate(basePlayerIndicator);
             playerIndicator.player = players[i];
@@ -146,21 +141,11 @@ public class DeathmatchScene : VirtualScene {
     }
 
     private void rematch () {
-        // Animals must be destroyed after Prepare() because new ones are instantiated from them
-        var oldAnimals = players.Select(player => player.animal).ToList();
-
-        // However indicators must be destroyed here because playerIndicators is overridden ... sigh
         foreach (var indicator in playerIndicators) {
-            //TODO destroy properly
-            indicator.gameObject.SetActive(false);
+			Destroy(indicator.gameObject);
         }
 
         Prepare(players);
-
-        foreach (var animal in oldAnimals) {
-            //TODO destroy properly
-            animal.gameObject.SetActive(false);
-        }
 
         Activate();
     }

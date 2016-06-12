@@ -336,6 +336,7 @@ public class AnimalController : MonoBehaviour {
 
 	public void Kill() {
 		anim.Stop();
+		powerupController.RemoveAll();
 		throwOutOfBounds();
 	}
 
