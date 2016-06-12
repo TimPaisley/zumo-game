@@ -47,7 +47,8 @@ public class AnimalController : MonoBehaviour {
 	//If panda ability is active, this is used due to how mass is handled currently
 	public bool pandaAbility = false;
     public bool foxAbility = false;
-	public bool disableControl = false;
+    public bool tigerAbility = false;
+    public bool disableControl = false;
 
 	public bool isDashing {
 		get { return dashController.isDashing; }
@@ -160,12 +161,15 @@ public class AnimalController : MonoBehaviour {
 			hitSound.volume = volume;
 			hitSound.PlayOneShot(hitSound.clip);
 
-			// Add impulse force in that direction
-			rb.velocity = Vector3.zero;
-			rb.AddForce(dir * oppSpeed* oppMass * gm.bounceForce, ForceMode.Impulse);
+            // Add impulse force in that direction
+            if (!tigerAbility)// in tiger ability don't perform impulse
+            {
+                rb.velocity = Vector3.zero;
+                rb.AddForce(dir * oppSpeed * oppMass * gm.bounceForce, ForceMode.Impulse);
+            }
 
-			// Allow player to leave the ground
-			knockedBack = true;
+            // Allow player to leave the ground
+            knockedBack = true;
 			Debug.Log ("size of hit: "+sizeOfHit);
 			Debug.Log ("upwardMomentum when hit:"+(rb.velocity).y);
 
@@ -182,10 +186,13 @@ public class AnimalController : MonoBehaviour {
 				//Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
 				//Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
 				makeRandomNoise();
-				otherAnimal.recoil (transform.position,oppSpeed);
+                if (!otherAnimal.tigerAbility)// if the other animal is using tigerability ignore
+                {
+                    otherAnimal.recoil(transform.position, oppSpeed);
+                }
 
 
-			if (isDashing) {
+            if (isDashing) {
 				dashController.Stop();
 			}
 			if(otherAnimal.isDashing){

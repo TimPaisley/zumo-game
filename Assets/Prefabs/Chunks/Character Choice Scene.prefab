@@ -9743,6 +9743,7 @@ MonoBehaviour:
   hitSound: {fileID: 0}
   pandaAbility: 0
   foxAbility: 0
+  tigerAbility: 0
   disableControl: 0
 --- !u!114 &11409812
 MonoBehaviour:
@@ -9941,6 +9942,7 @@ MonoBehaviour:
   hitSound: {fileID: 0}
   pandaAbility: 0
   foxAbility: 0
+  tigerAbility: 0
   disableControl: 0
 --- !u!114 &11426618
 MonoBehaviour:
@@ -10097,6 +10099,7 @@ MonoBehaviour:
   hitSound: {fileID: 0}
   pandaAbility: 0
   foxAbility: 0
+  tigerAbility: 0
   disableControl: 0
 --- !u!114 &11446454
 MonoBehaviour:
@@ -10305,7 +10308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ticker: 10
   colors: []
-  head: {fileID: 0}
+  flash: 0
 --- !u!114 &11475962
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10460,6 +10463,7 @@ MonoBehaviour:
   hitSound: {fileID: 0}
   pandaAbility: 0
   foxAbility: 0
+  tigerAbility: 0
   disableControl: 0
 --- !u!114 &11496654
 MonoBehaviour:
