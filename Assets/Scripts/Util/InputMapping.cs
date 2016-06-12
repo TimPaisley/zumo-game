@@ -45,49 +45,7 @@ public class InputMapping {
 		}
 	}
 
-	public class KeyboardInputDevice : InputDevice {
-		private InputControl leftStickX = new AxisInputControl("Horizontal");
-		private InputControl leftStickY = new AxisInputControl("Vertical");
-		private InputControl rightStickX = new AxisInputControl("Horizontal 2");
-		private InputControl rightStickY = new AxisInputControl("Vertical 2");
-		private InputControl leftTrigger = new KeyInputControl(KeyCode.Space);
-		private InputControl rightTrigger = new KeyInputControl(KeyCode.RightShift);
-        private InputControl action1 = new KeyInputControl(KeyCode.Return);
-        private InputControl action2 = new KeyInputControl(KeyCode.Escape);
-
-        public override InputControl LeftStickX {
-			get { return leftStickX; }
-		}
-		public override InputControl LeftStickY {
-			get { return leftStickY; }
-		}
-		public override InputControl RightStickX {
-			get { return rightStickX; }
-		}
-		public override InputControl RightStickY {
-			get { return rightStickY; }
-		}
-		public override InputControl RightTrigger {
-			get { return rightTrigger; }
-		}
-		public override InputControl LeftTrigger {
-			get { return leftTrigger; }
-		}
-		public override InputControl Action1 {
-			get { return action1; }
-		}
-        public override InputControl Action2 {
-            get { return action2; }
-        }
-        public override bool MenuWasPressed {
-			get { return Input.GetKeyDown(KeyCode.Escape); }
-		}
-
-		public KeyboardInputDevice () : base("") { }
-	}
-
-	//TODO remove when there's a proper menu
-	private class FakeInputDevice : InputDevice {
+	public class FakeInputDevice : InputDevice {
 		public FakeInputDevice () : base("") { }
 	}
 
@@ -97,22 +55,38 @@ public class InputMapping {
 	public InputControl dashButton { get; private set; }
 	public InputControl abilityButton { get; private set; }
 	public InputControl actionButton { get; private set; }
+	public InputControl backButton { get; private set; }
 	public InputControl menuButton { get; private set; }
 
 	public InputMapping(int deviceIndex, Side side) {
 		if (deviceIndex < InputManager.Devices.Count) {
 			inputDevice = InputManager.Devices[deviceIndex];
-		} else if (deviceIndex == InputManager.Devices.Count) {
-			inputDevice = new KeyboardInputDevice();
+			setupControllerControls(side);
 		} else {
 			inputDevice = new FakeInputDevice();
+			setupKeyboardControls(side);
 		}
+	}
 
+	public void setupKeyboardControls(Side side) {
+		xAxis = side == Side.LEFT ? new AxisInputControl ("Horizontal") : new AxisInputControl ("Horizontal 2");
+		yAxis = side == Side.LEFT ? new AxisInputControl ("Vertical") : new AxisInputControl ("Vertical 2");
+		dashButton = side == Side.LEFT ? new KeyInputControl (KeyCode.Space) : new KeyInputControl (KeyCode.RightShift);
+		abilityButton = side == Side.LEFT ? new KeyInputControl (KeyCode.Z) : new KeyInputControl (KeyCode.Slash);
+
+		actionButton = new KeyInputControl (KeyCode.Return);
+		backButton = new KeyInputControl (KeyCode.Backspace);
+		menuButton = new KeyInputControl (KeyCode.Escape);
+	}
+
+	public void setupControllerControls(Side side) {
 		xAxis = side == Side.LEFT ? inputDevice.LeftStickX : inputDevice.RightStickX;
 		yAxis = side == Side.LEFT ? inputDevice.LeftStickY : inputDevice.RightStickY;
 		dashButton = side == Side.LEFT ? inputDevice.LeftTrigger : inputDevice.RightTrigger;
-		abilityButton = side == Side.LEFT ? inputDevice.DPadUp : inputDevice.Action4;//TODO need to add keyboard support
+		abilityButton = side == Side.LEFT ? inputDevice.LeftBumper : inputDevice.RightBumper;
+            
 		actionButton = inputDevice.Action1;
-		menuButton = inputDevice.Action2;
+		backButton = inputDevice.Action2;
+		menuButton = inputDevice.Action4;
 	}
 }

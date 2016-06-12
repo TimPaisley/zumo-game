@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class DeathmatchScene : VirtualScene {
+	[Header("UI")]
     public Canvas hudCanvas;
-    public GameObject winText;
+	public Canvas pauseMenu;
+	public Text pauseTitleText;
+	public Text pauseActionText;
+	public Text pauseResetText;
+
+	[Header("Countdown")]
     public GameObject[] countdownItems;
     public AudioSource countdownNumberSound;
     public AudioSource countdownCompleteSound;
+
+	[Header("Gameplay")]
     public FollowAnimal basePlayerIndicator;
     public Transform[] spawnPoints;
 
@@ -19,15 +28,21 @@ public class DeathmatchScene : VirtualScene {
     private FollowAnimal[] playerIndicators;
     private delegate bool PlayerChecker (PlayerController player);
 
+	private Color pausedTextColor;
+
     public bool gameStarted = false;
     private bool gameOver = false;
 
     public bool inProgress {
         get { return gameStarted && !gameOver; }
     }
+
+	private bool isPaused {
+		get { return Time.timeScale == 0; }
+	}
     
     void Awake () {
-        winText.SetActive(false);
+		pauseMenu.gameObject.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
 
         foreach (var item in countdownItems) {
@@ -37,6 +52,8 @@ public class DeathmatchScene : VirtualScene {
         musicManager = FindObjectOfType<MusicManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
+
+		pausedTextColor = pauseTitleText.color;
     }
 	
 	void Update () {
@@ -55,27 +72,34 @@ public class DeathmatchScene : VirtualScene {
         if (alivePlayers == 1) {
             var winningPlayer = players.First(player => player.isAlive);
 
-            foreach (var text in winText.GetComponentsInChildren<TextMesh>()) {
-                text.text = "Player " + (winningPlayer.playerIndex + 1) + " Wins!";
-            }
+			pauseTitleText.text = winningPlayer.playerName + " Wins!";
+			pauseTitleText.color = winningPlayer.color;
+			pauseActionText.text = "Rematch";
 
-            winText.SetActive(true);
+			pauseMenu.gameObject.SetActive(true);
             musicManager.Play(musicManager.winSong);
 
             gameOver = true;
         }
 
-		foreach (var player in players) {
-			if (player.input.menuButton.WasPressed) {
-				if (Time.timeScale == 0) {
-					Time.timeScale = 1;
-					//TODO hide pause menu
-				} else {
-					Time.timeScale = 0;
-					//TODO show pause menu
-				}
-				return;
+		if (isPaused) {
+			if (players.Any(player => (player.input.menuButton.WasPressed || player.input.actionButton.WasPressed))) {
+				// Unpause
+				Time.timeScale = 1;
+				
+				pauseMenu.gameObject.SetActive(false);
+			} else if (players.Any(player => player.input.backButton.WasPressed)) {
+				// Go to menu
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			}
+		} else if (players.Any(player => player.input.menuButton.WasPressed)) {
+			// Pause
+			Time.timeScale = 0;
+
+			pauseTitleText.text = "Paused";
+			pauseTitleText.color = pausedTextColor;
+			pauseActionText.text = "Resume";
+			pauseMenu.gameObject.SetActive(true);
 		}
     }
 
@@ -85,7 +109,7 @@ public class DeathmatchScene : VirtualScene {
         players = readyPlayers;
         playerIndicators = new FollowAnimal[readyPlayers.Length];
 
-        winText.SetActive(false);
+		pauseMenu.gameObject.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
 
         foreach (var player in players) {

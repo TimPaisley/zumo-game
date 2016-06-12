@@ -63,6 +63,6 @@ public class ReadyUpController : MonoBehaviour {
     }
 
     private bool isKeyboardController(InputDevice device) {
-        return device is InputMapping.KeyboardInputDevice;
+        return device is InputMapping.FakeInputDevice;
     }
 }

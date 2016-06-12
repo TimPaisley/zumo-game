@@ -7,14 +7,13 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 	private bool isAvailable = true;
 	private bool isActive = false;
 	public float ticker = 10.0f;
-	private Renderer rend;
+	private SkinnedMeshRenderer rend;
 	public Color[] colors;
 
 	void Start(){
 	  //rb = this.GetComponent<Rigidbody>();
 	  animal = GetComponent<AnimalController>();
-		Renderer[] r = GetComponentsInChildren<Renderer> ();
-		rend = r [1];
+		rend = GetComponentInChildren<SkinnedMeshRenderer>();  
 		colors = new Color[rend.materials.Length];	
 		for (int i = 0; i < rend.materials.Length; i++) {
 			colors [i] = rend.materials [i].color;

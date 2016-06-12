@@ -8,8 +8,13 @@ public class PowerUpCreater : MonoBehaviour {
     public float SpawnTime = 4f;
     private float TimeTicker;
 	private GameObject[] existedPowerUp;
+	public GameObject speedUp;
+	public GameObject massUp;
+	public GameObject dashUp;
+	public string[] PuTypes;
 
 	void Awake () {
+		PuTypes= new string[]{"mass", "speed", "dashCD"};
 		TimeTicker = SpawnTime;
 		existedPowerUp = new GameObject[SpawnPostion.Length];
 	}
@@ -25,9 +30,23 @@ public class PowerUpCreater : MonoBehaviour {
             //TimeTicker = SpawnTime;
 			TimeTicker = Random.Range(5,11);
 //			Debug.LogWarning (TimeTicker);
+
+			int randomType = Random.Range(0,PuTypes.Length);
+			string t = PuTypes[randomType];
 			int randomPower = findEmptySpawnPostion();
-			existedPowerUp[randomPower] = (GameObject)Instantiate(PowerUpObj, 
-			SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
+
+			if(t.Equals("mass")){
+				existedPowerUp[randomPower] = (GameObject)Instantiate(massUp, 
+					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
+			}else if(t.Equals("speed")){
+				existedPowerUp[randomPower] = (GameObject)Instantiate(speedUp, 
+					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
+			}else if(t.Equals("dashCD")){
+				existedPowerUp[randomPower] = (GameObject)Instantiate(dashUp, 
+					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
+			}
+			//PowerUp curPU = existedPowerUp[randomPower].GetComponent<PowerUp> ();
+			//curPU.PuType = t;
         }
        
     }
