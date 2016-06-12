@@ -41,15 +41,12 @@ public class PowerUpController : MonoBehaviour {
 		speedMultiplier = 1;
 		massMultiplier = 1;
 		dashCooldownMultiplier = 1;
-    }
 
-	void Start(){
         Display = Instantiate(PuDisplayPrefab);
 		canvasRect = canvas.GetComponent<RectTransform>();
 		rectTransform = Display.GetComponent<RectTransform>();
         rectTransform.SetParent(canvasRect, false);
         animal = GetComponent<AnimalController>();
-		//animalRB = GetComponent<Rigidbody> ();
         cameraManager = FindObjectOfType<CameraManager>();
 	}
 

@@ -19,8 +19,8 @@ public class DeathmatchScene : VirtualScene {
 
 	[Header("Gameplay")]
     public FollowAnimal basePlayerIndicator;
-    public Transform[] spawnPoints;
 
+    private GameManager gameManager;
     private CameraManager cameraManager;
     private MusicManager musicManager;
     private MenuBackgroundManager menuBackgroundManager;
@@ -49,6 +49,7 @@ public class DeathmatchScene : VirtualScene {
             item.SetActive(false);
         }
 
+        gameManager = FindObjectOfType<GameManager>();
         musicManager = FindObjectOfType<MusicManager>();
         cameraManager = FindObjectOfType<CameraManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
@@ -117,7 +118,7 @@ public class DeathmatchScene : VirtualScene {
         }
 
         for (var i = 0; i < players.Length; i++) {
-			players[i].ResetAnimal(spawnPoints[i]);
+			players[i].ResetAnimal(gameManager.currentBoard.spawnPoints[i]);
 
             var playerIndicator = Instantiate(basePlayerIndicator);
             playerIndicator.player = players[i];

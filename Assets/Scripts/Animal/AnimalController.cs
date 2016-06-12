@@ -15,7 +15,7 @@ public class AnimalController : MonoBehaviour {
 	private PowerUpController powerupController;
 
 	// Control Variables
-	public Renderer board;
+	public Renderer board; //TODO remove; no longer used
 
 	[Header("Movement")]
 	public float minSpeed = 1.0f;
@@ -362,7 +362,7 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	private void throwOutOfBounds() {
-		var boardPos = board.transform.position;
+		var boardPos = gm.currentBoard.transform.position;
 
 		rb.freezeRotation = false;
 		rb.mass = 10;

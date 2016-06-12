@@ -26,7 +26,7 @@ public class BoardChoiceScene : VirtualScene {
         }
 
         public bool inProgress {
-            get { Debug.Log(startTime + ";;" + Time.fixedTime + ";;" + pastFewAngles.Last() + ";;" + finalAngle); return pastFewAngles.Last() < finalAngle; }
+            get { return pastFewAngles.Last() < finalAngle; }
         }
 
         public void Update() {
@@ -70,7 +70,8 @@ public class BoardChoiceScene : VirtualScene {
     public RectTransform selectionHelpIndicator;
     public float choiceCircleRadius;
 
-    public GameObject[] boards;
+    public BoardController[] boards;
+    public Transform[] boardPositions;
     public Text[] boardVoteIndicators;
     public RectTransform indicatorContainer;
     public RectTransform startGameButton;
@@ -81,10 +82,11 @@ public class BoardChoiceScene : VirtualScene {
     private GameManager gameManager;
     private CameraManager cameraManager;
     private MenuBackgroundManager menuBackgroundManager;
-    
+
+    private BoardController[] boardPreviews;
     private PlayerController[] players;
     private Dictionary<PlayerController, RectTransform> playerSelectionIndicators = new Dictionary<PlayerController, RectTransform>();
-    private Dictionary<PlayerController, GameObject> playerChoices = new Dictionary<PlayerController, GameObject>();
+    private Dictionary<PlayerController, BoardController> playerChoices = new Dictionary<PlayerController, BoardController>();
     private SpinnerSpin spin;
 
     void Awake () {
@@ -96,6 +98,12 @@ public class BoardChoiceScene : VirtualScene {
         startGameButton.gameObject.SetActive(false);
         rouletteSpinner.gameObject.SetActive(false);
         sceneBase.SetActive(false);
+
+        boardPreviews = new BoardController[boards.Length];
+        for (var i = 0; i < boards.Length; i++) {
+            boards[i].gameObject.SetActive(false);
+            boardPreviews[i] = createBoardPreview(boards[i], boardPositions[i].position);
+        }
 
         foreach (var indicator in boardVoteIndicators) {
             indicator.gameObject.SetActive(false);
@@ -110,6 +118,11 @@ public class BoardChoiceScene : VirtualScene {
                 spin.Cleanup();
                 spin = null;
 
+                foreach (var preview in boardPreviews) {
+                    preview.gameObject.SetActive(false);
+                }
+
+                gameManager.currentBoard.gameObject.SetActive(true);
                 gameManager.inGameScene.Prepare(players);
                 gameManager.inGameScene.Activate();
                 Deactivate();
@@ -155,6 +168,10 @@ public class BoardChoiceScene : VirtualScene {
         base.Activate();
 
         menuBackgroundManager.ShowForBoardChoice();
+        foreach (var preview in boardPreviews) {
+            preview.gameObject.SetActive(true);
+        }
+
         sceneBase.SetActive(true);
     }
 
@@ -186,8 +203,6 @@ public class BoardChoiceScene : VirtualScene {
         updateBoardVotes(board);
         voteSound.PlayOneShot(voteSound.clip);
 
-        Debug.Log(playerChoices.Count + "<->" + players.Length);
-
         if (playerChoices.Count == players.Length) {
             startGameButton.gameObject.SetActive(true);
         }
@@ -200,7 +215,7 @@ public class BoardChoiceScene : VirtualScene {
         updateBoardVotes(board);
     }
     
-    private void updateBoardVotes (GameObject board) {
+    private void updateBoardVotes (BoardController board) {
         var votes = playerChoices.Count(pair => pair.Value == board);
         var voteIndicator = boardVoteIndicators[Array.IndexOf(boards, board)];
 
@@ -227,8 +242,15 @@ public class BoardChoiceScene : VirtualScene {
         var finalAngle = Mathf.Atan2(dy, dx) * (180 / Mathf.PI) + 270f;
 
         spin = new SpinnerSpin(rouletteSpinner, finalAngle);
+        gameManager.currentBoard = Instantiate(board);
+    }
 
-        //TODO set game board to board
+    private BoardController createBoardPreview (BoardController board, Vector3 position) {
+        var preview = Instantiate(board);
+        preview.transform.position = position;
+        preview.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+
+        return preview;
     }
 
     private RectTransform createSelectionIndicator (PlayerController player) {

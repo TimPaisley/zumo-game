@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     public VirtualScene boardChoiceScene;
     public VirtualScene inGameScene;
 
+    public BoardController currentBoard;
+
 	public ParticleSystem collisionPS;
 	private ParticleSystem.EmissionModule collisionEM;
 
