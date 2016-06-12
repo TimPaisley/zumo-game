@@ -1451,18 +1451,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11460236, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: focalTransform
-      value: 
-      objectReference: {fileID: 1301926167}
-    - target: {fileID: 11407288, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: focalTransform
-      value: 
-      objectReference: {fileID: 1301926167}
-    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: focalTransform
-      value: 
-      objectReference: {fileID: 1959631378}
     - target: {fileID: 11494834, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: inGameScene
       value: 
@@ -1483,6 +1471,18 @@ Prefab:
       propertyPath: SpawnPostion.Array.data[3]
       value: 
       objectReference: {fileID: 937585606}
+    - target: {fileID: 11406022, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 1959631378}
+    - target: {fileID: 11407288, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 1301926167}
+    - target: {fileID: 11460236, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: focalTransform
+      value: 
+      objectReference: {fileID: 1301926167}
     - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: readyUpScene
       value: 
