@@ -20,6 +20,10 @@ public class DeathmatchScene : VirtualScene {
 	[Header("Gameplay")]
     public FollowAnimal basePlayerIndicator;
 
+    [Header("Celebration")]
+    public GameObject celebrationContainer;
+    public ParticleSystem playerCelebrationParticles;
+
     private GameManager gameManager;
     private CameraManager cameraManager;
     private MusicManager musicManager;
@@ -44,6 +48,7 @@ public class DeathmatchScene : VirtualScene {
     void Awake () {
 		pauseMenu.gameObject.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
+        celebrationContainer.gameObject.SetActive(false);
 
         foreach (var item in countdownItems) {
             item.SetActive(false);
@@ -79,6 +84,9 @@ public class DeathmatchScene : VirtualScene {
 
 			pauseMenu.gameObject.SetActive(true);
             musicManager.Play(musicManager.winSong);
+
+            celebrationContainer.SetActive(true);
+            playerCelebrationParticles.GetComponent<ParticleSystemRenderer>().material.color = winningPlayer.color;
 
             gameOver = true;
         }
