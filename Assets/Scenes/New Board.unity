@@ -1326,6 +1326,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11494834, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: inGameScene
+      value: 
+      objectReference: {fileID: 1494158672}
     - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: readyUpScene
       value: 
@@ -1339,14 +1343,6 @@ Prefab:
       value: 
       objectReference: {fileID: 860665668}
     - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: inGameScene
-      value: 
-      objectReference: {fileID: 1494158672}
-    - target: {fileID: 11407288, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11494834, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: inGameScene
       value: 
       objectReference: {fileID: 1494158672}

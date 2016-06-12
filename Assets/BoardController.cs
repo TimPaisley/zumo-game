@@ -3,4 +3,5 @@ using System.Collections;
 
 public class BoardController : MonoBehaviour {
     public Transform[] spawnPoints;
+    public Transform[] puPoints;
 }

@@ -986,7 +986,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
@@ -1146,6 +1146,7 @@ MonoBehaviour:
   characterChoiceScene: {fileID: 0}
   boardChoiceScene: {fileID: 0}
   inGameScene: {fileID: 0}
+  currentBoard: {fileID: 0}
   collisionPS: {fileID: 0}
 --- !u!114 &11494834
 MonoBehaviour:
@@ -1159,11 +1160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGameScene: {fileID: 0}
-  SpawnPostion:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   PowerUpObj: {fileID: 161344, guid: c68f71480165048c3b3b706f23a58c1c, type: 2}
   SpawnTime: 4
   speedUp: {fileID: 163526, guid: 4123bbc4e114448e19f424e2857ea2a5, type: 2}

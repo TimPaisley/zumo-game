@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PowerUpCreater : MonoBehaviour {
     public DeathmatchScene inGameScene;
-    public Transform[] SpawnPostion;
+    private Transform[] SpawnPostion;
     public GameObject PowerUpObj;
     public float SpawnTime = 4f;
     private float TimeTicker;
@@ -12,16 +12,24 @@ public class PowerUpCreater : MonoBehaviour {
 	public GameObject massUp;
 	public GameObject dashUp;
 	public string[] PuTypes;
+    private GameManager gm;
+    private string currentBoard;
 
 	void Awake () {
+        gm = FindObjectOfType<GameManager>();
 		PuTypes= new string[]{"mass", "speed", "dashCD"};
 		TimeTicker = SpawnTime;
-		existedPowerUp = new GameObject[SpawnPostion.Length];
-	}
+    }
 
-	void Update () {
+    void Update () {
         if (!inGameScene.inProgress) {
             return;
+        }
+
+        if(SpawnPostion == null)
+        {
+            SpawnPostion = gm.currentBoard.puPoints;
+            existedPowerUp = new GameObject[SpawnPostion.Length];
         }
 
         TimeTicker -= Time.deltaTime;
