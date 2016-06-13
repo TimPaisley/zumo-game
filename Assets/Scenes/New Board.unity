@@ -1546,7 +1546,7 @@ MonoBehaviour:
   playerIndex: 0
 --- !u!20 &1183277114 stripped
 Camera:
-  m_PrefabParentObject: {fileID: 2048218, guid: e91461f055ad1c144b9e5ab87fbfeda1,
+  m_PrefabParentObject: {fileID: 2046020, guid: e91461f055ad1c144b9e5ab87fbfeda1,
     type: 2}
   m_PrefabInternal: {fileID: 998263828}
 --- !u!1001 &1258186045

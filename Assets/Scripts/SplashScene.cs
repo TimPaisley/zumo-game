@@ -29,7 +29,7 @@ public class SplashScene : VirtualScene {
 		}
 
         cameraManager.mainCamera.transform.position = cameraManager.splashCamera.transform.position +
-            Vector3.up * (Mathf.Sin(Time.fixedTime) * 0.5f);
+            Vector3.up * (Mathf.Sin(Time.fixedTime / 3f) * 0.4f);
 	}
 
     public override void Activate () {
