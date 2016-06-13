@@ -22,7 +22,7 @@ public class LionAbility : MonoBehaviour,AnimalAbility {
 	public void roar (Vector3 pos, float pow) {
 		AnimalController[] animals = FindObjectsOfType<AnimalController> ();
 		foreach (AnimalController a in animals) {
-			if (!a.lionAbility) {
+			if (!a.lionAbility && !a.foxAbility) {
 				Vector3 awayFromBomb = (a.transform.position - pos);
 				a.rb.AddForce ((awayFromBomb.normalized  + new Vector3(0,1,0)) * (pow / awayFromBomb.magnitude*1.5f), ForceMode.Impulse);
 				Debug.Log ((awayFromBomb.normalized  + new Vector3(0,1,0)) * (1 / awayFromBomb.magnitude));
