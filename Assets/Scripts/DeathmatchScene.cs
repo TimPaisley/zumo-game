@@ -67,7 +67,7 @@ public class DeathmatchScene : VirtualScene {
         if (gameOver) {
             if (players.Any(player => player.input.actionButton.IsPressed)) {
                 rematch();
-            } else if (players.Any(player => player.input.menuButton.WasPressed)) {
+			} else if (players.Any(player => player.input.menuButton.WasPressed) || players.Any(player => player.input.backButton.WasPressed)) {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
 
