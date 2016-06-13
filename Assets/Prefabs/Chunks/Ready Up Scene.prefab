@@ -447,6 +447,7 @@ MonoBehaviour:
   basePlayerController: {fileID: 0}
   startIndicator: {fileID: 122294}
   gameManager: {fileID: 0}
+  menuSwitchSound: {fileID: 0}
 --- !u!114 &11416220
 MonoBehaviour:
   m_ObjectHideFlags: 1

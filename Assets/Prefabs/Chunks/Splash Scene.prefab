@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2200f0d34ea02417983c9d9b4e332e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  menuSwitchSound: {fileID: 0}
 --- !u!222 &22221360
 CanvasRenderer:
   m_ObjectHideFlags: 1

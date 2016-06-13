@@ -13,6 +13,7 @@ public class BoardChoiceScene : VirtualScene {
         private List<float> pastFewAngles;
         private float finalAngle;
         private float startTime;
+		private float endTime = -1;
 
         public SpinnerSpin(RectTransform spinner, float targetAngle) {
             baseSpinner = spinner;
@@ -26,7 +27,7 @@ public class BoardChoiceScene : VirtualScene {
         }
 
         public bool inProgress {
-            get { return pastFewAngles.Last() < finalAngle; }
+			get { return endTime < 0 || endTime + 1 < Time.fixedTime; }
         }
 
         public void Update() {
@@ -36,6 +37,10 @@ public class BoardChoiceScene : VirtualScene {
             for (var i = 0; i < spinners.Length; i++) {
                 spinners[i].localEulerAngles = new Vector3(0, 0, pastFewAngles[i] % 360);
             }
+
+			if (pastFewAngles.Last() >= finalAngle) {
+				endTime = Time.fixedTime;
+			}
         }
 
         public void Cleanup() {
@@ -84,6 +89,7 @@ public class BoardChoiceScene : VirtualScene {
     public RectTransform startGameButton;
 	public RectTransform rouletteSpinner;
     public AudioSource voteSound;
+	public AudioSource spinSound;
 
     private GameManager gameManager;
     private CameraManager cameraManager;
@@ -255,6 +261,8 @@ public class BoardChoiceScene : VirtualScene {
 
         spin = new SpinnerSpin(rouletteSpinner, finalAngle);
         gameManager.currentBoard = Instantiate(board);
+
+		spinSound.PlayOneShot(spinSound.clip);
     }
 
     private BoardController createBoardPreview (BoardController board, Vector3 position) {

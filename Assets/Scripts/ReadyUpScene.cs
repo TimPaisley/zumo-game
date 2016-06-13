@@ -13,15 +13,14 @@ public class ReadyUpScene : VirtualScene {
     public PlayerController basePlayerController;
     public GameObject startIndicator;
     public GameManager gameManager;
+	public AudioSource menuSwitchSound;
 
-    private MusicManager musicManager;
 	private CameraManager cameraManager;
     private MenuBackgroundManager menuBackgroundManager;
     private RectTransform canvasTransform;
     private List<PlayerController> playerControllers;
 
 	void Awake () {
-        musicManager = FindObjectOfType<MusicManager>();
 		cameraManager = FindObjectOfType<CameraManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
         canvasTransform = canvas.GetComponent<RectTransform>();
@@ -56,6 +55,8 @@ public class ReadyUpScene : VirtualScene {
             }
 
             if (playerActionButtonPressed()) {
+				menuSwitchSound.Play();
+
                 gameManager.characterChoiceScene.Prepare(players);
                 gameManager.characterChoiceScene.Activate();
                 Deactivate();
@@ -67,7 +68,6 @@ public class ReadyUpScene : VirtualScene {
         base.Activate();
 
         canvas.enabled = true;
-        musicManager.Play(musicManager.menuSong);
 		cameraManager.Use(cameraManager.menuCamera);
         menuBackgroundManager.ShowForReadyUp();
     }
