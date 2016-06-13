@@ -331,7 +331,7 @@ public class AnimalController : MonoBehaviour {
 					speed = Mathf.Min (speed + acceleration, maxMovementSpeed);
 
 					//cancel out weird super high bounce bug
-					if(movement.y>100||movement.y<-100){
+					if(movement.y>50.0f||movement.y<-50.0f){
 						movement.y = 0.0f;
 					}
 

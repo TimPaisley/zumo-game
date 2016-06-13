@@ -89,7 +89,7 @@ public class BombController : MonoBehaviour {
 			mr[i].enabled = false;
 		}
 
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1);
 		Reset ();
 	}
 

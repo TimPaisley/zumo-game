@@ -1456,6 +1456,10 @@ Prefab:
       propertyPath: enableXInput
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: bombRadius
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
   m_IsPrefabParent: 0
@@ -1526,6 +1530,10 @@ Prefab:
     - target: {fileID: 416294, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
       propertyPath: m_LocalPosition.z
       value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11444798, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: bombPower
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}

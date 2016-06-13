@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class GameManager : MonoBehaviour {
+	public float bombRadius = 10;
 	public float bounceForce = 10.0f;
     public bool instantPlay = false;
 
@@ -54,6 +55,10 @@ public class GameManager : MonoBehaviour {
             if (!a.foxAbility)
             {
                 Vector3 awayFromBomb = (a.transform.position - pos);
+				if (awayFromBomb.magnitude > bombRadius) {
+					continue;
+				}
+
                 a.rb.AddForce((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (pow / awayFromBomb.magnitude * 1.5f), ForceMode.Impulse);
                 Debug.Log((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (1 / awayFromBomb.magnitude));
             }
@@ -63,6 +68,10 @@ public class GameManager : MonoBehaviour {
 
 		for (int i = 0; i < victims.Length; i++) {
 			Vector3 awayFromBomb = (victims[i].transform.position - pos);
+			if (awayFromBomb.magnitude > bombRadius) {
+				continue;
+			}
+
 			victims[i].GetComponent<Rigidbody> ().AddForce((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (pow*2 / awayFromBomb.magnitude * 1.5f), ForceMode.Impulse);
 			Debug.Log((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (1 / awayFromBomb.magnitude));
 		}
