@@ -1,0 +1,273 @@
+fileFormatVersion: 2
+guid: b38050c5298aa4a128debfbf0577b6a3
+timeCreated: 1465816399
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: back
+    100002: belt
+    100004: chest
+    100006: face
+    100008: finger_1
+    100010: finger_2
+    100012: finger_3
+    100014: Head
+    100016: head
+    100018: Hip_Control
+    100020: joint10
+    100022: joint10 1
+    100024: joint11
+    100026: joint11 1
+    100028: joint14
+    100030: joint15
+    100032: L_clavicle
+    100034: L_elbow
+    100036: L_elbow 1
+    100038: L_finger_1
+    100040: L_finger_1 1
+    100042: L_finger_2
+    100044: L_finger_2 1
+    100046: L_finger_3
+    100048: L_finger_3 1
+    100050: L_foot
+    100052: L_foot 1
+    100054: L_forearm
+    100056: L_hand
+    100058: L_hand_green
+    100060: L_hip
+    100062: L_knee
+    100064: L_knee 1
+    100066: L_leg_ik
+    100068: L_shoulder
+    100070: L_shoulder 1
+    100072: L_shoulder 2
+    100074: L_shoulder_orb
+    100076: L_shoulder_ring
+    100078: L_upper_arm
+    100080: L_wrist
+    100082: L_wrist 1
+    100084: left1
+    100086: MAIN_rig
+    100088: Mesh
+    100090: mid_torso
+    100092: mouth
+    100094: neck
+    100096: neck 1
+    100098: //RootNode
+    100100: nose
+    100102: pants
+    100104: R_clavicle
+    100106: R_elbow
+    100108: R_elbow 1
+    100110: R_eye
+    100112: R_eye1
+    100114: R_foot
+    100116: R_foot 1
+    100118: R_foot 2
+    100120: R_foot1
+    100122: R_hand
+    100124: R_hand 1
+    100126: R_hip1
+    100128: R_knee
+    100130: R_knee 1
+    100132: R_leg_ik
+    100134: R_should
+    100136: R_shoulder
+    100138: R_wrist
+    100140: R_wrist 1
+    100142: shirt
+    100144: Spine
+    100146: spine_1
+    100148: spine_1 1
+    100150: spine_2
+    100152: spine_2 1
+    100154: spine_3
+    100156: spine_3 1
+    100158: stomach
+    100160: torso1
+    400000: back
+    400002: belt
+    400004: chest
+    400006: face
+    400008: finger_1
+    400010: finger_2
+    400012: finger_3
+    400014: Head
+    400016: head
+    400018: Hip_Control
+    400020: joint10
+    400022: joint10 1
+    400024: joint11
+    400026: joint11 1
+    400028: joint14
+    400030: joint15
+    400032: L_clavicle
+    400034: L_elbow
+    400036: L_elbow 1
+    400038: L_finger_1
+    400040: L_finger_1 1
+    400042: L_finger_2
+    400044: L_finger_2 1
+    400046: L_finger_3
+    400048: L_finger_3 1
+    400050: L_foot
+    400052: L_foot 1
+    400054: L_forearm
+    400056: L_hand
+    400058: L_hand_green
+    400060: L_hip
+    400062: L_knee
+    400064: L_knee 1
+    400066: L_leg_ik
+    400068: L_shoulder
+    400070: L_shoulder 1
+    400072: L_shoulder 2
+    400074: L_shoulder_orb
+    400076: L_shoulder_ring
+    400078: L_upper_arm
+    400080: L_wrist
+    400082: L_wrist 1
+    400084: left1
+    400086: MAIN_rig
+    400088: Mesh
+    400090: mid_torso
+    400092: mouth
+    400094: neck
+    400096: neck 1
+    400098: //RootNode
+    400100: nose
+    400102: pants
+    400104: R_clavicle
+    400106: R_elbow
+    400108: R_elbow 1
+    400110: R_eye
+    400112: R_eye1
+    400114: R_foot
+    400116: R_foot 1
+    400118: R_foot 2
+    400120: R_foot1
+    400122: R_hand
+    400124: R_hand 1
+    400126: R_hip1
+    400128: R_knee
+    400130: R_knee 1
+    400132: R_leg_ik
+    400134: R_should
+    400136: R_shoulder
+    400138: R_wrist
+    400140: R_wrist 1
+    400142: shirt
+    400144: Spine
+    400146: spine_1
+    400148: spine_1 1
+    400150: spine_2
+    400152: spine_2 1
+    400154: spine_3
+    400156: spine_3 1
+    400158: stomach
+    400160: torso1
+    4300000: pants
+    4300002: R_foot
+    4300004: nose
+    4300006: R_eye
+    4300008: R_hand
+    4300010: R_foot1
+    4300012: R_eye1
+    4300014: finger_2
+    4300016: finger_3
+    4300018: L_shoulder_orb
+    4300020: L_shoulder
+    4300022: mouth
+    4300024: finger_1
+    4300026: L_upper_arm
+    4300028: L_forearm
+    4300030: belt
+    4300032: L_hand_green
+    4300034: L_shoulder_ring
+    4300036: Head
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: belt
+    13700002: finger_1
+    13700004: finger_2
+    13700006: finger_3
+    13700008: Head
+    13700010: L_forearm
+    13700012: L_hand_green
+    13700014: L_shoulder
+    13700016: L_shoulder_orb
+    13700018: L_shoulder_ring
+    13700020: L_upper_arm
+    13700022: mouth
+    13700024: nose
+    13700026: pants
+    13700028: R_eye
+    13700030: R_eye1
+    13700032: R_foot 1
+    13700034: R_foot1
+    13700036: R_hand
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

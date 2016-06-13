@@ -11,6 +11,8 @@ TagManager:
   - AnimalHead
   - Ghost
   - pusp
+  - Scatter Spawn
+  - Scatter Object
   layers:
   - Default
   - TransparentFX

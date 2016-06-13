@@ -6,7 +6,7 @@ public class BombController : MonoBehaviour {
 	private GameManager gm;
 
 	private Rigidbody rb;
-	private MeshRenderer mr;
+	private MeshRenderer[] mr;
 
 	private Vector3 originalPosition;
 
@@ -18,13 +18,19 @@ public class BombController : MonoBehaviour {
 	public float fuseTimer = 10.0f;
 	public float bombPower = 200.0f;
 
+	private bool deployed = false;
+
 	void Start () {
 		gm = FindObjectOfType<GameManager> ();
 
-		mr = GetComponentInChildren<MeshRenderer> ();
+		mr = GetComponentsInChildren<MeshRenderer> ();
 		rb = GetComponent<Rigidbody> ();
 
-		mr.enabled = false;
+
+		for (int i = 0; i < mr.Length; i++) {
+			mr[i].enabled = false;
+		}
+
 		rb.useGravity = false;
 
 		originalPosition = transform.position;
@@ -42,7 +48,14 @@ public class BombController : MonoBehaviour {
 	}
 
 	public void Deploy () {
-		mr.enabled = true;
+		if (deployed) {
+			return;
+		}
+
+		for (int i = 0; i < mr.Length; i++) {
+			mr[i].enabled = true;
+		}
+
 		rb.useGravity = true;
 
 		StartCoroutine (Countdown ());
@@ -54,15 +67,14 @@ public class BombController : MonoBehaviour {
 		fusePS.Play ();
 
 		while (fuseTimer > 0) {
-			Debug.Log (fuseTimer + " seconds until detonation...");
 			yield return new WaitForSeconds (1);
 			fuseTimer--;
 		}
 
-		Detonate ();
+		StartCoroutine(Detonate ());
 	}
 
-	private void Detonate () {
+	private IEnumerator Detonate () {
 		fuseEM.enabled = false;
 		fusePS.Stop ();
 		fusePS.Clear ();
@@ -71,8 +83,13 @@ public class BombController : MonoBehaviour {
 		detonateEM.enabled = true;
 		detonatePS.Play ();
 
-		Debug.Log ("BOOOOOOM!!!");
 		gm.ApplyBombForce (this.transform.position, bombPower);
+
+		for (int i = 0; i < mr.Length; i++) {
+			mr[i].enabled = false;
+		}
+
+		yield return new WaitForSeconds (2);
 		Reset ();
 	}
 
@@ -81,8 +98,14 @@ public class BombController : MonoBehaviour {
 		fusePS.Stop ();
 		fusePS.Clear ();
 
-		Debug.Log ("Bomb Reset");
-		mr.enabled = false;
+		for (int i = 0; i < mr.Length; i++) {
+			mr[i].enabled = false;
+		}
+
+		transform.eulerAngles = Vector3.zero;
+		rb.velocity = Vector3.zero;
+
+		fuseTimer = 10.0f;
 		rb.useGravity = false;
 
 		transform.position = originalPosition;

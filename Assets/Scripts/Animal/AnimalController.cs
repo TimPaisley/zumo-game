@@ -13,6 +13,7 @@ public class AnimalController : MonoBehaviour {
 	public Animator anim;
 	private DashController dashController;
 	private PowerUpController powerupController;
+	private BombController bombController;
 
 	// Control Variables
 	public Renderer board; //TODO remove; no longer used
@@ -140,7 +141,12 @@ public class AnimalController : MonoBehaviour {
 			fakeGrounded=true;
 		}
 		if (other.transform.tag == "PowerUp") {
-			powerupController.Apply(other.gameObject.GetComponent<PowerUp>());
+			if (other.gameObject.GetComponent<PowerUp> ().PuType == "bomb") {
+				FindObjectOfType<BombController> ().Deploy ();
+			} else {
+				powerupController.Apply(other.gameObject.GetComponent<PowerUp>());
+			}
+
 			Destroy(other.gameObject);
 		}
     	// If this collides with another animal, bounce away and display particle
@@ -373,6 +379,10 @@ public class AnimalController : MonoBehaviour {
 		anim.Stop();
 		powerupController.RemoveAll();
 		throwOutOfBounds();
+	}
+
+	public void removePowerUps(){
+		powerupController.RemoveAll();
 	}
 
 	private RaycastHit? raycast(Vector3 origin, Vector3 direction) {

@@ -90,6 +90,8 @@ public class DeathmatchScene : VirtualScene {
             playerCelebrationParticles.GetComponent<ParticleSystemRenderer>().material.color = winningPlayer.color;
 
             gameOver = true;
+
+			winningPlayer.animal.removePowerUps ();
         }
 
 		if (isPaused) {

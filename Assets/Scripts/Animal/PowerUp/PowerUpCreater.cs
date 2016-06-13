@@ -11,13 +11,14 @@ public class PowerUpCreater : MonoBehaviour {
 	public GameObject speedUp;
 	public GameObject massUp;
 	public GameObject dashUp;
+	public GameObject detonator;
 	public string[] PuTypes;
     private GameManager gm;
     private string currentBoard;
 
 	void Awake () {
         gm = FindObjectOfType<GameManager>();
-		PuTypes= new string[]{"mass", "speed","stop"};//
+		PuTypes= new string[]{"mass", "speed","stop","bomb"};//
 		TimeTicker = SpawnTime;
     }
 
@@ -41,18 +42,25 @@ public class PowerUpCreater : MonoBehaviour {
 //			Debug.LogWarning (TimeTicker);
 
 			int randomType = Random.Range(0,PuTypes.Length);
-			string t = PuTypes[randomType];
+			if (randomType == 3 && Random.Range(0, 2) < -1) {
+				randomType = Random.Range (0, 2);
+			}
+//			string t = PuTypes[randomType];
+			string t = "mass";
 			int randomPower = findEmptySpawnPostion();
 
-			if(t.Equals("mass")){
-				existedPowerUp[randomPower] = (GameObject)Instantiate(massUp, 
-					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
-			}else if(t.Equals("speed")){
-				existedPowerUp[randomPower] = (GameObject)Instantiate(speedUp, 
-					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
-			}else if(t.Equals("stop")){
-				existedPowerUp[randomPower] = (GameObject)Instantiate(dashUp, 
-					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
+			if (t.Equals ("mass")) {
+				existedPowerUp [randomPower] = (GameObject)Instantiate (massUp, 
+					SpawnPostion [randomPower].position, SpawnPostion [randomPower].rotation);
+			} else if (t.Equals ("speed")) {
+				existedPowerUp [randomPower] = (GameObject)Instantiate (speedUp, 
+					SpawnPostion [randomPower].position - Vector3.up, SpawnPostion [randomPower].rotation);
+			} else if (t.Equals ("stop")) {
+				existedPowerUp [randomPower] = (GameObject)Instantiate (dashUp, 
+					SpawnPostion [randomPower].position, SpawnPostion [randomPower].rotation);
+			} else if (t.Equals ("bomb")) {
+				existedPowerUp [randomPower] = (GameObject)Instantiate (detonator, 
+					SpawnPostion [randomPower].position, SpawnPostion [randomPower].rotation);
 			}
 			//PowerUp curPU = existedPowerUp[randomPower].GetComponent<PowerUp> ();
 			//curPU.PuType = t;

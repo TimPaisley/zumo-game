@@ -58,6 +58,14 @@ public class GameManager : MonoBehaviour {
                 Debug.Log((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (1 / awayFromBomb.magnitude));
             }
 		}
+
+		GameObject[] victims = GameObject.FindGameObjectsWithTag ("Scatter Object");
+
+		for (int i = 0; i < victims.Length; i++) {
+			Vector3 awayFromBomb = (victims[i].transform.position - pos);
+			victims[i].GetComponent<Rigidbody> ().AddForce((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (pow*2 / awayFromBomb.magnitude * 1.5f), ForceMode.Impulse);
+			Debug.Log((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (1 / awayFromBomb.magnitude));
+		}
 	}
 
 	public void ShowCollisionParticle (Vector3 pos) {
