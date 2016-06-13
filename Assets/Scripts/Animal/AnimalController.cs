@@ -50,8 +50,9 @@ public class AnimalController : MonoBehaviour {
     public bool foxAbility = false;
     public bool tigerAbility = false;
 	public bool lionAbility = false;
-	public bool stopPowerup = false;
+    public bool stopPowerup = false;
     public bool disableControl = false;
+    public float elephantSpeedMultiplier = 1;// used to change the elephant's speed
 
 	public bool isDashing {
 		get { return dashController.isDashing; }
@@ -60,7 +61,7 @@ public class AnimalController : MonoBehaviour {
 		get { return dashController.dashIsCharging; }
 	}
 	public float currentMaxSpeed {
-		get { return maxSpeed * powerupController.speedMultiplier; }
+		get { return maxSpeed * powerupController.speedMultiplier* elephantSpeedMultiplier; }
 	}
 	public float currentMass {
 		get { return baseMass * powerupController.massMultiplier * dashController.massMultiplier; }
@@ -193,13 +194,10 @@ public class AnimalController : MonoBehaviour {
 				//Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
 				//Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
 				makeRandomNoise();
-               // if (!otherAnimal.tigerAbility)// if the other animal is using tigerability ignore
-               // {
-                    otherAnimal.recoil(transform.position, oppSpeed);
-               // }
+                // if (!otherAnimal.tigerAbility)// if the other animal is using tigerability ignore
+                otherAnimal.recoil(transform.position, oppSpeed);
 
-
-            if (isDashing) {
+             if (isDashing) {
 				dashController.Stop();
 			}
 			if(otherAnimal.isDashing){

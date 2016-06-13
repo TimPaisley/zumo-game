@@ -6,22 +6,28 @@ public class ElephantAbility : MonoBehaviour,AnimalAbility {
 	private bool isAvailable = true;
 	private bool isActive = false;
 	public float ticker = 5.0f;
+    private AnimalController animal;
 
-	public bool shake = false;
+    public bool shake = false;
 	private float originalPostion;
 	private SkinnedMeshRenderer rend;
 	public Color[] colors;
 	private CameraManager cm;
+    public ParticleSystem ragePS;
+    private ParticleSystem.EmissionModule rageEM;
 
-	void Awake(){
-		rend = GetComponentInChildren<SkinnedMeshRenderer>();  
+    void Awake(){
+        animal = GetComponent<AnimalController>();
+        rend = GetComponentInChildren<SkinnedMeshRenderer>();  
 		colors = new Color[rend.materials.Length];	
 		for (int i = 0; i < rend.materials.Length; i++) {
 			colors [i] = rend.materials [i].color;
 		}
-	}
+        rageEM = ragePS.emission;
 
-	void Update () {
+    }
+
+    void Update () {
 		Vector3 camPostion;
 		if (isActive) {
 			ticker -= Time.deltaTime;
@@ -38,7 +44,11 @@ public class ElephantAbility : MonoBehaviour,AnimalAbility {
 				for (int i = 0; i < rend.materials.Length; i++) {
 					rend.materials [i].color = colors [i];
 				}
-				print ("Disabled Elephant ability");
+                rageEM.enabled = false;
+                ragePS.Stop();
+                ragePS.Clear();
+                animal.elephantSpeedMultiplier = 1.0f;
+                print("Disabled Elephant ability");
 			} 
 		}
 	}
@@ -52,8 +62,12 @@ public class ElephantAbility : MonoBehaviour,AnimalAbility {
 			foreach(Material m in rend.materials){
 				m.color = Color.red;
 			}
-
-		}
+            ragePS.Simulate(0.0f, true, true);
+            rageEM.enabled = true;
+            ragePS.Play();
+            animal.elephantSpeedMultiplier = 1.5f;
+            
+    }
 		isAvailable = false;
 	}
 }
