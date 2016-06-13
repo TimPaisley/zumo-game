@@ -38,6 +38,7 @@ public class AnimalController : MonoBehaviour {
 	private float knockBackTimer;
 	private int stationaryDelay = 0;
 	private int index = 0;
+	private bool fakeGrounded;
 
 	// Raycast Variables
 	private RaycastHit hit;
@@ -127,14 +128,22 @@ public class AnimalController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other) {
-
-
-		if(other.transform.tag == "environment"){
-			//isGrounded = true;
+	void OnTriggerExit(Collider other){
+		if(other.transform.tag=="Environment"){
+			fakeGrounded = false;
 		}
-    // If this collides with another animal, bounce away and display particle
-    if (!knockedBack && other.transform.tag == "AnimalHead" && !foxAbility) {
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if(other.transform.tag == "Environment"){
+			fakeGrounded=true;
+		}
+		if (other.transform.tag == "PowerUp") {
+			powerupController.Apply(other.gameObject.GetComponent<PowerUp>());
+			Destroy(other.gameObject);
+		}
+    	// If this collides with another animal, bounce away and display particle
+    	if (!knockedBack && other.transform.tag == "AnimalHead" && !foxAbility) {
 			//get the animalobject from the collision
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
 		
@@ -222,9 +231,32 @@ public class AnimalController : MonoBehaviour {
 
 	private bool isGrounded {
 		get {
-			var raycastHit = raycast(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
+			Vector3 extents = GetComponent<BoxCollider> ().bounds.extents;
 
-			return raycastHit.HasValue && raycastHit.Value.distance < 1.0f;
+			RaycastHit centerHit;
+			Physics.Raycast(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down, out centerHit);
+
+			RaycastHit centerLeftHit;
+			Physics.Raycast(new Vector3 (transform.position.x - extents.x, transform.position.y + 0.5f, transform.position.z), Vector3.down, out centerLeftHit);
+
+			RaycastHit centerRightHit;
+			Physics.Raycast(new Vector3 (transform.position.x + extents.x, transform.position.y + 0.5f, transform.position.z), Vector3.down, out centerRightHit);
+
+			RaycastHit topLeftHit;
+			Physics.Raycast(new Vector3 (transform.position.x - extents.x, transform.position.y + 0.5f, transform.position.z + extents.z), Vector3.down, out topLeftHit);
+
+			RaycastHit topRightHit;
+			Physics.Raycast(new Vector3 (transform.position.x + extents.x, transform.position.y + 0.5f, transform.position.z + extents.z), Vector3.down, out topRightHit);
+
+			RaycastHit bottomLeftHit;
+			Physics.Raycast(new Vector3 (transform.position.x - extents.x, transform.position.y + 0.5f, transform.position.z - extents.z), Vector3.down, out bottomLeftHit);
+
+			RaycastHit bottomRightHit;
+			Physics.Raycast(new Vector3 (transform.position.x + extents.x, transform.position.y + 0.5f, transform.position.z - extents.z), Vector3.down, out bottomRightHit);
+
+			// return topLeftHit.HasValue && topLeftHit.Value.distance < 1.0f;
+
+			return 	(centerHit.distance < 1.0f || centerLeftHit.distance < 1.0f || centerRightHit.distance < 1.0f || topLeftHit.distance < 1.0f || topRightHit.distance < 1.0f || bottomLeftHit.distance < 1.0f || bottomRightHit.distance < 1.0f);
 		}
 	}
 
@@ -238,7 +270,7 @@ public class AnimalController : MonoBehaviour {
 
 		//if it collides with powerup
 		if (collision.transform.tag == "PowerUp") {
-			powerupController.Apply(collision.gameObject.GetComponent<PowerUp>());
+			
 			Destroy(collision.gameObject);
 		}
 
