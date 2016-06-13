@@ -18,6 +18,8 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 	public RectTransform baseChoiceIndicator;
 	public RectTransform choiceIndicatorsCanvas;
     public RectTransform startGameButton;
+	public AudioSource menuSwitchSound;
+	public AudioSource chooseSound;
     
     private GameManager gameManager;
     private CameraManager cameraManager;
@@ -66,14 +68,10 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         }
 
         if (playerChoiceIndicators.Count == players.Length && players.Any(player => player.input.actionButton.IsPressed)) {
-            if (gameManager.boardChoiceScene) { //TODO board choice
-                gameManager.boardChoiceScene.Prepare(players);
-                gameManager.boardChoiceScene.Activate();
-            } else {
-                gameManager.inGameScene.Prepare(players);
-                gameManager.inGameScene.Activate();
-            }
+			menuSwitchSound.PlayOneShot(menuSwitchSound.clip);
 
+            gameManager.boardChoiceScene.Prepare(players);
+            gameManager.boardChoiceScene.Activate();
             Deactivate();
         }
 	}
@@ -108,13 +106,15 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         sceneBase.SetActive(false);
     }
 
-    private void choose(PlayerController player, RectTransform closestAnimalIndicator) {
+	private void choose(PlayerController player, RectTransform closestAnimalIndicator) {
         var selectionIndicator = playerSelectionIndicators[player];
 		var chosenAnimal = animals[Array.IndexOf(animalChoiceIndicators, closestAnimalIndicator)];
 
 		if (chosenAnimal == player.animal || players.Any(p => p.baseAnimal == chosenAnimal)) {
 			return;
 		}
+
+		chooseSound.PlayOneShot(chooseSound.clip);
 
 		if (playerChoiceIndicators.ContainsKey(player)) {
             unchoose(player);

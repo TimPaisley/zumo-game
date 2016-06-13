@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 	public float bounceForce = 10.0f;
     public bool instantPlay = false;
 
+	public VirtualScene splashScene;
     public VirtualScene readyUpScene;
     public VirtualScene characterChoiceScene;
     public VirtualScene boardChoiceScene;
@@ -21,11 +22,13 @@ public class GameManager : MonoBehaviour {
         if (instantPlay) {
             setupInstantPlay();
             inGameScene.Activate();
-        } else {
+		} else {
             inGameScene.Deactivate();
             characterChoiceScene.Deactivate();
-            if (boardChoiceScene) boardChoiceScene.Deactivate(); //TODO board choice
-            readyUpScene.Activate();
+			readyUpScene.Deactivate();
+            boardChoiceScene.Deactivate();
+            
+			splashScene.Activate();
         }
 
 		collisionEM = collisionPS.emission;

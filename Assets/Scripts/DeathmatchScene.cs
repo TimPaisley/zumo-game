@@ -19,6 +19,7 @@ public class DeathmatchScene : VirtualScene {
 
 	[Header("Gameplay")]
     public FollowAnimal basePlayerIndicator;
+	public AudioSource pauseSound;
 
     [Header("Celebration")]
     public GameObject celebrationContainer;
@@ -95,7 +96,8 @@ public class DeathmatchScene : VirtualScene {
 			if (players.Any(player => (player.input.menuButton.WasPressed || player.input.actionButton.WasPressed))) {
 				// Unpause
 				Time.timeScale = 1;
-				
+				pauseSound.PlayOneShot(pauseSound.clip);
+
 				pauseMenu.gameObject.SetActive(false);
 			} else if (players.Any(player => player.input.backButton.WasPressed)) {
 				// Go to menu
@@ -104,6 +106,7 @@ public class DeathmatchScene : VirtualScene {
 		} else if (players.Any(player => player.input.menuButton.WasPressed)) {
 			// Pause
 			Time.timeScale = 0;
+			pauseSound.PlayOneShot(pauseSound.clip);
 
 			pauseTitleText.text = "Paused";
 			pauseTitleText.color = pausedTextColor;
