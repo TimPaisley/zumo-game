@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 88f0193d9ed404065b4be8f0c0d224d7
+timeCreated: 1465782410
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bamboo
+    100002: Head
+    100004: head
+    100006: IK_LeftBackLeg
+    100008: IK_LeftFrontLeg
+    100010: joint1
+    100012: joint2
+    100014: joint3
+    100016: joint4
+    100018: joint5
+    100020: joint6
+    100022: joint7
+    100024: Lbacktoe
+    100026: LEar
+    100028: LEar2
+    100030: left
+    100032: LeftBackFoot
+    100034: Leftear
+    100036: leftFrontFoot
+    100038: LFoot
+    100040: Lfoot
+    100042: LFrontLeg
+    100044: LfrontToe
+    100046: Lft
+    100048: LKnee
+    100050: Lknee
+    100052: LRearLeg
+    100054: LToe
+    100056: Ltoe
+    100058: main
+    100060: mainSpine
+    100062: MASTER
+    100064: nose
+    100066: PandaMesh
+    100068: //RootNode
+    100070: Rbackfoot
+    100072: RbackLeg
+    100074: RbackToe
+    100076: Rbt1
+    100078: REar
+    100080: REar2
+    100082: RfrontFoot
+    100084: RFrontLeg
+    100086: Rfrontleg
+    100088: RfrontToe
+    100090: RightBackFoot
+    100092: rightEar
+    100094: RightFrontFoot
+    100096: RKnee
+    100098: RKnee 1
+    100100: RRearLeg
+    100102: shoulder
+    100104: spine1
+    100106: spine1 1
+    100108: spine2
+    100110: spine2 1
+    100112: spine3
+    100114: tail
+    100116: tail 1
+    400000: bamboo
+    400002: Head
+    400004: head
+    400006: IK_LeftBackLeg
+    400008: IK_LeftFrontLeg
+    400010: joint1
+    400012: joint2
+    400014: joint3
+    400016: joint4
+    400018: joint5
+    400020: joint6
+    400022: joint7
+    400024: Lbacktoe
+    400026: LEar
+    400028: LEar2
+    400030: left
+    400032: LeftBackFoot
+    400034: Leftear
+    400036: leftFrontFoot
+    400038: LFoot
+    400040: Lfoot
+    400042: LFrontLeg
+    400044: LfrontToe
+    400046: Lft
+    400048: LKnee
+    400050: Lknee
+    400052: LRearLeg
+    400054: LToe
+    400056: Ltoe
+    400058: main
+    400060: mainSpine
+    400062: MASTER
+    400064: nose
+    400066: PandaMesh
+    400068: //RootNode
+    400070: Rbackfoot
+    400072: RbackLeg
+    400074: RbackToe
+    400076: Rbt1
+    400078: REar
+    400080: REar2
+    400082: RfrontFoot
+    400084: RFrontLeg
+    400086: Rfrontleg
+    400088: RfrontToe
+    400090: RightBackFoot
+    400092: rightEar
+    400094: RightFrontFoot
+    400096: RKnee
+    400098: RKnee 1
+    400100: RRearLeg
+    400102: shoulder
+    400104: spine1
+    400106: spine1 1
+    400108: spine2
+    400110: spine2 1
+    400112: spine3
+    400114: tail
+    400116: tail 1
+    2300000: bamboo
+    3300000: bamboo
+    4300000: PandaMesh
+    4300002: bamboo
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: PandaMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
