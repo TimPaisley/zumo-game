@@ -120,6 +120,7 @@ public class DeathmatchScene : VirtualScene {
 
 		pauseMenu.gameObject.SetActive(false);
         basePlayerIndicator.gameObject.SetActive(false);
+		celebrationContainer.gameObject.SetActive(false);
 
         foreach (var player in players) {
             player.isAlive = false;
