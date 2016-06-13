@@ -1,0 +1,235 @@
+fileFormatVersion: 2
+guid: 5e938faceb45c458585562b50d9eb308
+timeCreated: 1465795116
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: _UNKNOWN_REF_NODE_fosterParent1 1
+    100002: _UNKNOWN_REF_NODE_fosterParent2
+    100004: BackLfoot
+    100006: BackLtoe
+    100008: BackRfoot
+    100010: BackRtoe
+    100012: FrontLfoot
+    100014: FrontLtoe
+    100016: FrontRfoot
+    100018: FrontRtoe
+    100020: head
+    100022: hip
+    100024: ikHandle1
+    100026: ikHandle10
+    100028: ikHandle11
+    100030: ikHandle12
+    100032: ikHandle2
+    100034: ikHandle7
+    100036: ikHandle8
+    100038: ikHandle9
+    100040: joint1
+    100042: joint10
+    100044: joint11
+    100046: joint12
+    100048: joint13
+    100050: joint14
+    100052: joint15
+    100054: joint16
+    100056: joint17
+    100058: joint18
+    100060: joint19
+    100062: joint2
+    100064: joint20
+    100066: joint21
+    100068: joint22
+    100070: joint23
+    100072: joint24
+    100074: joint25
+    100076: joint26
+    100078: joint27
+    100080: joint28
+    100082: joint29
+    100084: joint3
+    100086: joint30
+    100088: joint31
+    100090: joint32
+    100092: joint33
+    100094: joint34
+    100096: joint35
+    100098: joint36
+    100100: joint37
+    100102: joint38
+    100104: joint39
+    100106: joint4
+    100108: joint40
+    100110: joint41
+    100112: joint42
+    100114: joint43
+    100116: joint5
+    100118: joint6
+    100120: joint7
+    100122: joint8
+    100124: joint9
+    100126: MAIN
+    100128: MASTER
+    100130: //RootNode
+    100132: pCube2
+    100134: pCube3
+    100136: spine1
+    100138: spine2
+    100140: spine3
+    100142: spine4
+    100144: tail1
+    100146: tail2
+    100148: tail3
+    100150: tail4
+    100152: tail5
+    100154: tail6
+    100156: tail7
+    100158: transform1
+    400000: _UNKNOWN_REF_NODE_fosterParent1 1
+    400002: _UNKNOWN_REF_NODE_fosterParent2
+    400004: BackLfoot
+    400006: BackLtoe
+    400008: BackRfoot
+    400010: BackRtoe
+    400012: FrontLfoot
+    400014: FrontLtoe
+    400016: FrontRfoot
+    400018: FrontRtoe
+    400020: head
+    400022: hip
+    400024: ikHandle1
+    400026: ikHandle10
+    400028: ikHandle11
+    400030: ikHandle12
+    400032: ikHandle2
+    400034: ikHandle7
+    400036: ikHandle8
+    400038: ikHandle9
+    400040: joint1
+    400042: joint10
+    400044: joint11
+    400046: joint12
+    400048: joint13
+    400050: joint14
+    400052: joint15
+    400054: joint16
+    400056: joint17
+    400058: joint18
+    400060: joint19
+    400062: joint2
+    400064: joint20
+    400066: joint21
+    400068: joint22
+    400070: joint23
+    400072: joint24
+    400074: joint25
+    400076: joint26
+    400078: joint27
+    400080: joint28
+    400082: joint29
+    400084: joint3
+    400086: joint30
+    400088: joint31
+    400090: joint32
+    400092: joint33
+    400094: joint34
+    400096: joint35
+    400098: joint36
+    400100: joint37
+    400102: joint38
+    400104: joint39
+    400106: joint4
+    400108: joint40
+    400110: joint41
+    400112: joint42
+    400114: joint43
+    400116: joint5
+    400118: joint6
+    400120: joint7
+    400122: joint8
+    400124: joint9
+    400126: MAIN
+    400128: MASTER
+    400130: //RootNode
+    400132: pCube2
+    400134: pCube3
+    400136: spine1
+    400138: spine2
+    400140: spine3
+    400142: spine4
+    400144: tail1
+    400146: tail2
+    400148: tail3
+    400150: tail4
+    400152: tail5
+    400154: tail6
+    400156: tail7
+    400158: transform1
+    4300000: pCube3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCube3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

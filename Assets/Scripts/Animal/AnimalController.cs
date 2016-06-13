@@ -10,7 +10,7 @@ public class AnimalController : MonoBehaviour {
 
 	// Local References
 	public Rigidbody rb;
-	private Animator anim;
+	public Animator anim;
 	private DashController dashController;
 	private PowerUpController powerupController;
 
@@ -48,6 +48,7 @@ public class AnimalController : MonoBehaviour {
 	public bool pandaAbility = false;
     public bool foxAbility = false;
     public bool tigerAbility = false;
+	public bool lionAbility = false;
 	public bool stopPowerup = false;
     public bool disableControl = false;
 
@@ -76,7 +77,7 @@ public class AnimalController : MonoBehaviour {
 		}
 	}
 
-	void Start() {
+	void Awake() {
 		// Initialize Global References
 		gm = FindObjectOfType<GameManager>();
 
@@ -136,16 +137,7 @@ public class AnimalController : MonoBehaviour {
     if (!knockedBack && other.transform.tag == "AnimalHead" && !foxAbility) {
 			//get the animalobject from the collision
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
-			//if(){}
-			//else if(){}
-			//else if(){}
-			//else{}
-
-
-
-
-
-
+		
 			// Calculate vector away from collision object
 			Vector3 awayDir = (transform.position - otherAnimal.transform.position);
 
