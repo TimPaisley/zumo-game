@@ -45,8 +45,7 @@ public class PowerUpCreater : MonoBehaviour {
 			if (randomType == 3 && Random.Range(0, 2) < -1) {
 				randomType = Random.Range (0, 2);
 			}
-//			string t = PuTypes[randomType];
-			string t = "mass";
+			string t = PuTypes[randomType];
 			int randomPower = findEmptySpawnPostion();
 
 			if (t.Equals ("mass")) {
