@@ -9744,6 +9744,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  stopPowerup: 0
   disableControl: 0
 --- !u!114 &11409812
 MonoBehaviour:
@@ -9943,6 +9944,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  stopPowerup: 0
   disableControl: 0
 --- !u!114 &11426618
 MonoBehaviour:
@@ -10100,6 +10102,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  stopPowerup: 0
   disableControl: 0
 --- !u!114 &11446454
 MonoBehaviour:
@@ -10464,6 +10467,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  stopPowerup: 0
   disableControl: 0
 --- !u!114 &11496654
 MonoBehaviour:
