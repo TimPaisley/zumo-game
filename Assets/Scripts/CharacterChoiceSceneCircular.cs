@@ -106,7 +106,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         var selectionIndicator = playerSelectionIndicators[player];
 		var chosenAnimal = animals[Array.IndexOf(animalChoiceIndicators, closestAnimalIndicator)];
 
-		if (chosenAnimal == player.animal) {
+		if (chosenAnimal == player.animal || players.Any(p => p.baseAnimal == chosenAnimal)) {
 			return;
 		}
 
