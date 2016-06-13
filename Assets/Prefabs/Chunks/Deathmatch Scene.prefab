@@ -1479,6 +1479,7 @@ MonoBehaviour:
   countdownNumberSound: {fileID: 8250060}
   countdownCompleteSound: {fileID: 8295280}
   basePlayerIndicator: {fileID: 11407774}
+  pauseSound: {fileID: 0}
   celebrationContainer: {fileID: 155208}
   playerCelebrationParticles: {fileID: 19825344}
   gameStarted: 0
@@ -1713,7 +1714,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ee24224f4105a1a4aa5c7742604231c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0edf96e032de74bc7b90ad51650d9e1a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
