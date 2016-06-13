@@ -9792,6 +9792,10 @@ Prefab:
       propertyPath: inGameScene
       value: 
       objectReference: {fileID: 1494158672}
+    - target: {fileID: 11494834, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: dashUp
+      value: 
+      objectReference: {fileID: 187470, guid: e6cc82f8225374295bc0192acd7d4ccb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
   m_IsPrefabParent: 0
@@ -13357,35 +13361,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.6028667
+      value: -0.60286677
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.26554084
+      value: -0.26554087
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.27637738
+      value: 0.2763774
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.69975376
+      value: 0.6997538
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.6028667
+      value: -0.60286677
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.26554084
+      value: -0.26554087
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.27637738
+      value: 0.2763774
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.69975376
+      value: 0.6997538
       objectReference: {fileID: 0}
     - target: {fileID: 11418870, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: canvas
@@ -13435,14 +13439,6 @@ Prefab:
       propertyPath: hitSound
       value: 
       objectReference: {fileID: 1703495754}
-    - target: {fileID: 19838984, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
-      propertyPath: InitialModule.startColor.maxColor.rgba
-      value: 4278190335
-      objectReference: {fileID: 0}
-    - target: {fileID: 19838984, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
-      propertyPath: prewarm
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_IsPrefabParent: 0
