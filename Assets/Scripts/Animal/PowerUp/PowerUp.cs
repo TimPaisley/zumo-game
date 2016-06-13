@@ -8,14 +8,14 @@ public class PowerUp : MonoBehaviour {
 	public float reduceDashCD = 2f;
 
 	private float customRotation;
+	private BoxCollider collider;
 
 	void Awake(){
-		
+		collider = GetComponent<BoxCollider>();
 	}
 
 	void Update () {
-		transform.eulerAngles = new Vector3(0.0f, customRotation, 0.0f);
-		customRotation += 0.1f;
+		transform.RotateAround (collider.bounds.center,Vector3.up,2.5f);
 	}
 
     public string getPowerUpType()
