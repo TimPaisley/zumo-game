@@ -1440,6 +1440,14 @@ Prefab:
       propertyPath: inGameScene
       value: 
       objectReference: {fileID: 1494158672}
+    - target: {fileID: 11407288, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: aperture
+      value: 0.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 11494834, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: detonator
+      value: 
+      objectReference: {fileID: 160054, guid: 13161ec14924c47b8ada31d02ab03c6f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
   m_IsPrefabParent: 0
@@ -1498,6 +1506,18 @@ Prefab:
     - target: {fileID: 490128, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 416294, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416294, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416294, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
