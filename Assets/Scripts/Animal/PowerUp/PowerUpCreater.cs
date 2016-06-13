@@ -17,7 +17,7 @@ public class PowerUpCreater : MonoBehaviour {
 
 	void Awake () {
         gm = FindObjectOfType<GameManager>();
-		PuTypes= new string[]{"mass", "speed", "dashCD"};
+		PuTypes= new string[]{"mass", "speed","stop"};//
 		TimeTicker = SpawnTime;
     }
 
@@ -37,6 +37,7 @@ public class PowerUpCreater : MonoBehaviour {
         {
             //TimeTicker = SpawnTime;
 			TimeTicker = Random.Range(5,11);
+
 //			Debug.LogWarning (TimeTicker);
 
 			int randomType = Random.Range(0,PuTypes.Length);
@@ -49,7 +50,7 @@ public class PowerUpCreater : MonoBehaviour {
 			}else if(t.Equals("speed")){
 				existedPowerUp[randomPower] = (GameObject)Instantiate(speedUp, 
 					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
-			}else if(t.Equals("dashCD")){
+			}else if(t.Equals("stop")){
 				existedPowerUp[randomPower] = (GameObject)Instantiate(dashUp, 
 					SpawnPostion[randomPower].position, SpawnPostion[randomPower].rotation);
 			}

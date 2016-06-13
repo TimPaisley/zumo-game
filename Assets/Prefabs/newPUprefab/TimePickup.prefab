@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e57584aa69ecf4aa6679a4eb6a1f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PuType: dashCD
+  PuType: stop
   speedMultiplier: 1.5
   massMultiplier: 2
   reduceDashCD: 2

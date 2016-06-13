@@ -48,6 +48,7 @@ public class AnimalController : MonoBehaviour {
 	public bool pandaAbility = false;
     public bool foxAbility = false;
     public bool tigerAbility = false;
+	public bool stopPowerup = false;
     public bool disableControl = false;
 
 	public bool isDashing {

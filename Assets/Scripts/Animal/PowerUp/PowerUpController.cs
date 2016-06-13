@@ -115,8 +115,17 @@ public class PowerUpController : MonoBehaviour {
 		else if (currentPower.Equals("speed")) {
 			speedMultiplier = pu.getSpeedMulti();
 		}
-		else if (currentPower.Equals("dashCD")) {
-			dashCooldownMultiplier = pu.getDashCDMulti();
+		else if (currentPower.Equals("stop")) {
+			nph.setTicker(2.0f);
+			animal.stopPowerup = true;
+			AnimalController[] acs = FindObjectsOfType<AnimalController> ();
+			print (acs.Length);
+			foreach (AnimalController ac in acs) {
+				if (!ac.stopPowerup) {
+					ac.disableControl = true;
+				}
+			}
+			//dashCooldownMultiplier = pu.getDashCDMulti();
 		}
 
 		displayPowerUp(currentPower);
@@ -129,8 +138,13 @@ public class PowerUpController : MonoBehaviour {
 			massMultiplier = 1;
 		} else if (currentPower.Equals("speed")) {
 			speedMultiplier = 1;
-		} else if (currentPower.Equals("dashCD")) {
-			dashCooldownMultiplier = 1;
+		} else if (currentPower.Equals("stop")) {
+			//dashCooldownMultiplier = 1;
+			animal.stopPowerup = false;
+			AnimalController[] acs = FindObjectsOfType<AnimalController> ();
+			foreach (AnimalController ac in acs) {
+				ac.disableControl = false;
+			}
 		}
 	}
 
@@ -149,7 +163,7 @@ public class PowerUpController : MonoBehaviour {
 				pu = Instantiate (dashPrefab);
 				pu.transform.SetParent (Display.transform);
 				powerUps.Add (name, pu);
-			} else if (name.Equals ("dashCD")) {
+			} else if (name.Equals ("stop")) {
 				pu = Instantiate (dashCDPrefab);
 				pu.transform.SetParent (Display.transform);
 				powerUps.Add (name, pu);
@@ -163,7 +177,10 @@ public class PowerUpController : MonoBehaviour {
 	public void updateTimer(string name, float remain){
 		if (powerUps.ContainsKey (name)) {
 			GameObject renew = powerUps [name];
-			float remainDur = remain/puDuration;
+			float remainDur = puDuration;
+			if (name.Equals ("stop")) {
+				remainDur = remain / 2.0f;
+			} 
 			renew.transform.GetChild (1).GetComponent<Image> ().fillAmount = remainDur;
 			if (remain < 0.0f) {
 				Destroy (renew);
@@ -191,7 +208,7 @@ public class PowerUpController : MonoBehaviour {
 	public class PowerUpHistory{
 		private string pu = "";
 		private float ticker = 10.0f;
-
+		private float original = 10.0f;
 		public PowerUpHistory(string p)
 		{
 			pu = p;
@@ -203,11 +220,16 @@ public class PowerUpController : MonoBehaviour {
 		}
 		public void restTicker()
 		{
-			ticker = 10.0f;
+			ticker = original;
 		}
 		public string getPuType()
 		{
 			return pu;
+		}
+
+		public void setTicker(float time){
+			ticker = time;
+			original = time;
 		}
 	}
 }
