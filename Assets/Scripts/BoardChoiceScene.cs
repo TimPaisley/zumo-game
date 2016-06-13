@@ -70,13 +70,19 @@ public class BoardChoiceScene : VirtualScene {
     public RectTransform selectionHelpIndicator;
     public float choiceCircleRadius;
 
+	[Header("Boards")]
     public BoardController[] boards;
     public Transform[] boardPositions;
-    public Text[] boardVoteIndicators;
-    public RectTransform indicatorContainer;
-    public RectTransform startGameButton;
-    public RectTransform rouletteSpinner;
+	public RectTransform[] boardMarkers;
 
+	[Header("Voting")]
+    public RectTransform baseVoteIndicator;
+	public RectTransform voteIndicatorsCanvas;
+    public RectTransform indicatorContainer;
+
+	[Header("Other")]
+    public RectTransform startGameButton;
+	public RectTransform rouletteSpinner;
     public AudioSource voteSound;
 
     private GameManager gameManager;
@@ -87,6 +93,7 @@ public class BoardChoiceScene : VirtualScene {
     private PlayerController[] players;
     private Dictionary<PlayerController, RectTransform> playerSelectionIndicators = new Dictionary<PlayerController, RectTransform>();
     private Dictionary<PlayerController, BoardController> playerChoices = new Dictionary<PlayerController, BoardController>();
+	private Dictionary<BoardController, RectTransform> boardVoteIndicators = new Dictionary<BoardController, RectTransform>();
     private SpinnerSpin spin;
 
     void Awake () {
@@ -105,9 +112,7 @@ public class BoardChoiceScene : VirtualScene {
             boardPreviews[i] = createBoardPreview(boards[i], boardPositions[i].position);
         }
 
-        foreach (var indicator in boardVoteIndicators) {
-            indicator.gameObject.SetActive(false);
-        }
+		baseVoteIndicator.gameObject.SetActive(false);
     }
 
     void Update () {
@@ -142,15 +147,20 @@ public class BoardChoiceScene : VirtualScene {
             var input = normalizedAxisInput(player);
             var desiredPosition = input * choiceCircleRadius;
 
-            var closestVoteIndicator = boardVoteIndicators
-                .OrderBy(ind => Vector2.Distance(ind.rectTransform.anchoredPosition, desiredPosition))
+            var closestMarker = boardMarkers
+                .OrderBy(ind => Vector2.Distance(ind.anchoredPosition, desiredPosition))
                 .First();
 
-            indicator.Value.anchoredPosition = closestVoteIndicator.rectTransform.anchoredPosition * input.magnitude;
+			indicator.Value.anchoredPosition = closestMarker.anchoredPosition * input.magnitude;
 
-            if (input.magnitude == 1) {
-                vote(player, closestVoteIndicator);
-            }
+			if (input.magnitude == 1) {
+				vote(player, closestMarker);
+				indicator.Value.localScale = new Vector2 (2, 2);
+				indicator.Value.gameObject.SetActive(true);
+			} else {
+				indicator.Value.localScale = new Vector2 (1, 1);
+				indicator.Value.gameObject.SetActive(!playerChoices.ContainsKey(player));
+			}
         }
     }
 
@@ -185,10 +195,8 @@ public class BoardChoiceScene : VirtualScene {
         sceneBase.SetActive(false);
     }
 
-    private void vote (PlayerController player, Text closestVoteIndicator) {
-        playerSelectionIndicators[player].gameObject.SetActive(false);
-
-        var board = boards[Array.IndexOf(boardVoteIndicators, closestVoteIndicator)];
+    private void vote (PlayerController player, RectTransform closestMarker) {
+        var board = boards[Array.IndexOf(boardMarkers, closestMarker)];
 
         if (playerChoices.ContainsKey(player) && playerChoices[player] == board) {
             return;
@@ -216,10 +224,14 @@ public class BoardChoiceScene : VirtualScene {
     }
     
     private void updateBoardVotes (BoardController board) {
-        var votes = playerChoices.Count(pair => pair.Value == board);
-        var voteIndicator = boardVoteIndicators[Array.IndexOf(boards, board)];
+		if (!boardVoteIndicators.ContainsKey(board)) {
+			boardVoteIndicators.Add(board, createVoteIndicator(boardPositions[Array.IndexOf(boards, board)]));
+		}
 
-        voteIndicator.text = "x" + votes;
+        var votes = playerChoices.Count(pair => pair.Value == board);
+        var voteIndicator = boardVoteIndicators[board];
+
+		voteIndicator.GetComponentInChildren<Text>().text = "x" + votes;
 
         if (votes > 0) {
             voteIndicator.gameObject.SetActive(true);
@@ -235,10 +247,10 @@ public class BoardChoiceScene : VirtualScene {
         var board = playerChoices.Values.ElementAt(
             new System.Random().Next(0, playerChoices.Count)
         );
-        var indicator = boardVoteIndicators[Array.IndexOf(boards, board)];
+        var marker = boardMarkers[Array.IndexOf(boards, board)];
 
-        var dy = indicator.rectTransform.anchoredPosition.y - rouletteSpinner.anchoredPosition.y;
-        var dx = indicator.rectTransform.anchoredPosition.x - rouletteSpinner.anchoredPosition.x;
+		var dy = marker.anchoredPosition.y - rouletteSpinner.anchoredPosition.y;
+		var dx = marker.anchoredPosition.x - rouletteSpinner.anchoredPosition.x;
         var finalAngle = Mathf.Atan2(dy, dx) * (180 / Mathf.PI) + 270f;
 
         spin = new SpinnerSpin(rouletteSpinner, finalAngle);
@@ -268,6 +280,22 @@ public class BoardChoiceScene : VirtualScene {
 
         return indicator;
     }
+
+	private RectTransform createVoteIndicator (Transform board) {
+		var voteIndicator = Instantiate(baseVoteIndicator);
+		var boardPos = cameraManager.mainCamera.WorldToViewportPoint(board.position);
+
+		var screenPos = new Vector2(
+			((boardPos.x * voteIndicatorsCanvas.sizeDelta.x) - (voteIndicatorsCanvas.sizeDelta.x * 0.5f)),
+			((boardPos.y * voteIndicatorsCanvas.sizeDelta.y) - (voteIndicatorsCanvas.sizeDelta.y * 0.5f)) + 40
+		);
+
+		voteIndicator.SetParent(voteIndicatorsCanvas, false);
+		voteIndicator.anchoredPosition = screenPos;
+		voteIndicator.gameObject.SetActive(true);
+
+		return voteIndicator;
+	}
 
     private Vector2 normalizedAxisInput (PlayerController player) {
         var input = new Vector2(player.input.xAxis.Value, player.input.yAxis.Value);
