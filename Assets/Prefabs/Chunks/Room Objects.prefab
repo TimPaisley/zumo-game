@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 485692}
   - 33: {fileID: 3347718}
   - 23: {fileID: 2330836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube5 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,8 +26,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 427256}
   - 108: {fileID: 10815250}
-  m_Layer: 0
-  m_Name: Directional Light
+  m_Layer: 8
+  m_Name: Directional Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - 33: {fileID: 3338784}
   - 23: {fileID: 2357414}
   - 95: {fileID: 9501530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,8 +61,24 @@ GameObject:
   - 4: {fileID: 420850}
   - 33: {fileID: 3308508}
   - 23: {fileID: 2329740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube7 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &102086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 402554}
+  - 108: {fileID: 10895206}
+  m_Layer: 8
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +95,7 @@ GameObject:
   - 33: {fileID: 3339984}
   - 64: {fileID: 6461126}
   - 23: {fileID: 2399920}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +112,7 @@ GameObject:
   - 4: {fileID: 436922}
   - 33: {fileID: 3303586}
   - 23: {fileID: 2396152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +130,7 @@ GameObject:
   - 33: {fileID: 3322916}
   - 65: {fileID: 6599182}
   - 23: {fileID: 2367888}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skirting right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +147,7 @@ GameObject:
   - 4: {fileID: 458968}
   - 33: {fileID: 3358134}
   - 23: {fileID: 2392312}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +165,7 @@ GameObject:
   - 33: {fileID: 3369234}
   - 64: {fileID: 6468556}
   - 23: {fileID: 2367004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +183,7 @@ GameObject:
   - 33: {fileID: 3327328}
   - 64: {fileID: 6449960}
   - 23: {fileID: 2314840}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +201,7 @@ GameObject:
   - 33: {fileID: 3366030}
   - 65: {fileID: 6553866}
   - 23: {fileID: 2304608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skirting back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +219,7 @@ GameObject:
   - 33: {fileID: 3305590}
   - 23: {fileID: 2381240}
   - 95: {fileID: 9514288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: drawers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +236,7 @@ GameObject:
   - 4: {fileID: 442666}
   - 33: {fileID: 3361088}
   - 23: {fileID: 2323206}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +253,7 @@ GameObject:
   - 4: {fileID: 419450}
   - 33: {fileID: 3383492}
   - 23: {fileID: 2376102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +270,7 @@ GameObject:
   - 4: {fileID: 404484}
   - 33: {fileID: 3346036}
   - 23: {fileID: 2385296}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +287,7 @@ GameObject:
   - 4: {fileID: 456434}
   - 33: {fileID: 3333036}
   - 23: {fileID: 2362814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +304,7 @@ GameObject:
   - 4: {fileID: 477334}
   - 33: {fileID: 3329854}
   - 23: {fileID: 2371250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +323,7 @@ GameObject:
   - 23: {fileID: 2350802}
   - 95: {fileID: 9590448}
   - 65: {fileID: 6553630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +342,7 @@ GameObject:
   - 23: {fileID: 2351100}
   - 95: {fileID: 9533498}
   - 65: {fileID: 6585382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +361,7 @@ GameObject:
   - 23: {fileID: 2342022}
   - 95: {fileID: 9508998}
   - 65: {fileID: 6564130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +378,7 @@ GameObject:
   - 4: {fileID: 482468}
   - 33: {fileID: 3320404}
   - 23: {fileID: 2356992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +396,7 @@ GameObject:
   - 33: {fileID: 3339590}
   - 23: {fileID: 2315832}
   - 95: {fileID: 9553850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: drawers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +412,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 472222}
   - 108: {fileID: 10879456}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +430,7 @@ GameObject:
   - 33: {fileID: 3390368}
   - 64: {fileID: 6434102}
   - 23: {fileID: 2301120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +448,7 @@ GameObject:
   - 33: {fileID: 3379052}
   - 64: {fileID: 6462244}
   - 23: {fileID: 2340376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Back Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +465,7 @@ GameObject:
   - 4: {fileID: 489758}
   - 33: {fileID: 3334742}
   - 23: {fileID: 2389410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PandaMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +482,7 @@ GameObject:
   - 4: {fileID: 476422}
   - 33: {fileID: 3325638}
   - 23: {fileID: 2301250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,24 +499,8 @@ GameObject:
   - 4: {fileID: 424844}
   - 33: {fileID: 3302616}
   - 23: {fileID: 2323978}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube6 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &145244
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 455802}
-  - 108: {fileID: 10854044}
-  m_Layer: 0
-  m_Name: Directional Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -517,7 +517,7 @@ GameObject:
   - 33: {fileID: 3372386}
   - 65: {fileID: 6549322}
   - 23: {fileID: 2322104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skirting left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +535,7 @@ GameObject:
   - 33: {fileID: 3383428}
   - 23: {fileID: 2391448}
   - 65: {fileID: 6501178}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406976}
   - 95: {fileID: 9567542}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: zumo-box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   - 4: {fileID: 405806}
   - 33: {fileID: 3382754}
   - 23: {fileID: 2385706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   - 23: {fileID: 2341420}
   - 95: {fileID: 9536018}
   - 65: {fileID: 6564342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chair 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +606,7 @@ GameObject:
   - 23: {fileID: 2354046}
   - 95: {fileID: 9572184}
   - 65: {fileID: 6551740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 435332}
   - 108: {fileID: 10813510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +640,7 @@ GameObject:
   - 33: {fileID: 3363602}
   - 64: {fileID: 6419292}
   - 23: {fileID: 2389858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -657,7 +657,7 @@ GameObject:
   - 4: {fileID: 492656}
   - 33: {fileID: 3352350}
   - 23: {fileID: 2300408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,13 +673,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 444870}
   - 108: {fileID: 10804410}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &156948
 GameObject:
   m_ObjectHideFlags: 1
@@ -690,7 +690,7 @@ GameObject:
   - 4: {fileID: 435818}
   - 33: {fileID: 3321528}
   - 23: {fileID: 2318894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   - 4: {fileID: 439030}
   - 33: {fileID: 3303378}
   - 23: {fileID: 2389900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,7 +725,7 @@ GameObject:
   - 33: {fileID: 3309540}
   - 23: {fileID: 2376216}
   - 95: {fileID: 9562102}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 481034}
   - 95: {fileID: 9585924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - 4: {fileID: 423536}
   - 33: {fileID: 3329188}
   - 23: {fileID: 2331358}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +775,7 @@ GameObject:
   - 4: {fileID: 451088}
   - 33: {fileID: 3345860}
   - 23: {fileID: 2334236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +790,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ GameObject:
   - 4: {fileID: 448532}
   - 33: {fileID: 3350426}
   - 23: {fileID: 2357810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +822,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 460306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Room Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   - 33: {fileID: 3327414}
   - 64: {fileID: 6431452}
   - 23: {fileID: 2372756}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: frontwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,7 +857,7 @@ GameObject:
   - 4: {fileID: 468800}
   - 33: {fileID: 3389156}
   - 23: {fileID: 2382862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +875,7 @@ GameObject:
   - 33: {fileID: 3355958}
   - 64: {fileID: 6460310}
   - 23: {fileID: 2397600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +890,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410052}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: group3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -909,7 +909,7 @@ GameObject:
   - 23: {fileID: 2353806}
   - 95: {fileID: 9503008}
   - 65: {fileID: 6576928}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Couch 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +927,7 @@ GameObject:
   - 33: {fileID: 3343234}
   - 64: {fileID: 6433650}
   - 23: {fileID: 2398740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -945,7 +945,7 @@ GameObject:
   - 33: {fileID: 3361826}
   - 64: {fileID: 6486156}
   - 23: {fileID: 2354934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +961,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 413106}
   - 108: {fileID: 10813986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +978,7 @@ GameObject:
   - 4: {fileID: 460076}
   - 33: {fileID: 3393432}
   - 23: {fileID: 2369022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +995,7 @@ GameObject:
   - 4: {fileID: 484972}
   - 33: {fileID: 3334960}
   - 23: {fileID: 2386872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1013,7 +1013,7 @@ GameObject:
   - 33: {fileID: 3390346}
   - 64: {fileID: 6402342}
   - 23: {fileID: 2357450}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Wall (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,7 +1032,7 @@ GameObject:
   - 23: {fileID: 2379512}
   - 95: {fileID: 9536928}
   - 65: {fileID: 6552792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: table (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1047,7 +1047,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 480992}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leftwall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,13 +1063,25 @@ GameObject:
   m_Component:
   - 4: {fileID: 474466}
   - 95: {fileID: 9567744}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &402554
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102086}
+  m_LocalRotation: {x: 0.70630443, y: -0.033676803, z: -0.03367682, w: 0.7063043}
+  m_LocalPosition: {x: -0.69766235, y: 8.495157, z: 0.1464901}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 460306}
+  m_RootOrder: 18
 --- !u!4 &404300
 Transform:
   m_ObjectHideFlags: 1
@@ -1288,12 +1300,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101486}
-  m_LocalRotation: {x: 0.70706815, y: -0.0074031246, z: -0.0074031283, w: 0.707068}
-  m_LocalPosition: {x: -0.69766235, y: 8.495157, z: 0.1464901}
+  m_LocalRotation: {x: 0.23358788, y: -0.19316068, z: -0.091605596, w: 0.9485432}
+  m_LocalPosition: {x: -0.7, y: 8.5, z: -48.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 460306}
-  m_RootOrder: 18
+  m_RootOrder: 28
 --- !u!4 &428380
 Transform:
   m_ObjectHideFlags: 1
@@ -1462,18 +1474,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 406976}
   m_RootOrder: 6
---- !u!4 &455802
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145244}
-  m_LocalRotation: {x: 0.27002084, y: -0.09736612, z: -0.08426619, w: 0.95420533}
-  m_LocalPosition: {x: 5.1, y: 53.5, z: -146.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 460306}
-  m_RootOrder: 28
 --- !u!4 &456434
 Transform:
   m_ObjectHideFlags: 1
@@ -1550,7 +1550,7 @@ Transform:
   - {fileID: 481034}
   - {fileID: 481392}
   - {fileID: 463670}
-  - {fileID: 427256}
+  - {fileID: 402554}
   - {fileID: 435332}
   - {fileID: 408980}
   - {fileID: 413106}
@@ -1560,7 +1560,7 @@ Transform:
   - {fileID: 442102}
   - {fileID: 486590}
   - {fileID: 480992}
-  - {fileID: 455802}
+  - {fileID: 427256}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &461556
@@ -1570,8 +1570,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192980}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: -22.6, y: 76.9, z: -99.9}
-  m_LocalScale: {x: 7.3154035, y: 1, z: 3.4182878}
+  m_LocalPosition: {x: -785, y: 188.7, z: -99.9}
+  m_LocalScale: {x: 226.956, y: 0.9999992, z: 25.77431}
   m_Children: []
   m_Father: {fileID: 480992}
   m_RootOrder: 3
@@ -4134,40 +4134,7 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_BounceIntensity: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
-  m_AreaSize: {x: 1, y: 1}
---- !u!108 &10854044
-Light:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145244}
-  m_Enabled: 1
-  serializedVersion: 6
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -4206,6 +4173,39 @@ Light:
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_AreaSize: {x: 1, y: 1}
+--- !u!108 &10895206
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102086}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_Type: 1
+  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
