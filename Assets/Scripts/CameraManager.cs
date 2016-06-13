@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class CameraManager : MonoBehaviour {
+	public Camera splashCamera;
     public Camera menuCamera;
     public Camera tiltedMenuCamera;
     public Camera gameCamera;
@@ -15,7 +16,7 @@ public class CameraManager : MonoBehaviour {
     private Transform targetTransform;
 
 	void Start () {
-        mainCamera = Instantiate(gameCamera);
+        mainCamera = Instantiate(splashCamera);
 		mainCamera.gameObject.SetActive(true);
 
         menuCamera.gameObject.SetActive(false);
