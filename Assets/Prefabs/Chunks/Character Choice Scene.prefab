@@ -4850,7 +4850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &163444
 GameObject:
   m_ObjectHideFlags: 1
@@ -15080,6 +15080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  anim: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 5
   maxSpeed: 15
@@ -15309,6 +15310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  anim: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 3
   maxSpeed: 8
@@ -15468,6 +15470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  anim: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 1
   maxSpeed: 5
@@ -15497,6 +15500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  anim: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 4
   maxSpeed: 10
@@ -15848,6 +15852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  anim: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 4
   maxSpeed: 10
@@ -15940,6 +15945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  anim: {fileID: 0}
   board: {fileID: 0}
   minSpeed: 4
   maxSpeed: 10

@@ -10,7 +10,7 @@ public class AnimalController : MonoBehaviour {
 
 	// Local References
 	public Rigidbody rb;
-	private Animator anim;
+	public Animator anim;
 	private DashController dashController;
 	private PowerUpController powerupController;
 
@@ -77,7 +77,7 @@ public class AnimalController : MonoBehaviour {
 		}
 	}
 
-	void Start() {
+	void Awake() {
 		// Initialize Global References
 		gm = FindObjectOfType<GameManager>();
 

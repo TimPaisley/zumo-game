@@ -41,6 +41,12 @@ public class CharacterChoiceSceneCircular : VirtualScene {
             indicator.gameObject.SetActive(false);
         }
 	}
+
+	void Start () {
+		foreach (var animal in animals) {
+			animal.anim.enabled = false;
+		}
+	}
 	
 	void Update () {
         foreach (var indicator in playerSelectionIndicators) {
@@ -114,6 +120,8 @@ public class CharacterChoiceSceneCircular : VirtualScene {
             unchoose(player);
         }
 
+		chosenAnimal.anim.enabled = true;
+		chosenAnimal.rb.AddForce(new Vector3 (0, chosenAnimal.rb.mass * 200, 0));
 		player.baseAnimal = chosenAnimal;
         
         if (!playerChoiceIndicators.ContainsValue(closestAnimalIndicator)) {
@@ -143,6 +151,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 			animalChoiceIndicators[Array.IndexOf(animals, player.baseAnimal)].gameObject.SetActive(false);
         }
 
+		player.baseAnimal.anim.enabled = false;
 		player.baseAnimal = null;
 
         playerSelectionIndicators[player].anchoredPosition = Vector2.zero;
