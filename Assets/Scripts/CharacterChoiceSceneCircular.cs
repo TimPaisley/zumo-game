@@ -15,6 +15,8 @@ public class CharacterChoiceSceneCircular : VirtualScene {
     public AnimalController[] animals;
     public RectTransform[] animalChoiceIndicators;
     public RectTransform indicatorContainer;
+	public RectTransform baseChoiceIndicator;
+	public RectTransform choiceIndicatorsCanvas;
     public RectTransform startGameButton;
     
     private GameManager gameManager;
@@ -31,6 +33,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
 
         baseSelectionIndicator.gameObject.SetActive(false);
+		baseChoiceIndicator.gameObject.SetActive(false);
         startGameButton.gameObject.SetActive(false);
         sceneBase.SetActive(false);
 
@@ -57,8 +60,6 @@ public class CharacterChoiceSceneCircular : VirtualScene {
         }
 
         if (playerChoiceIndicators.Count == players.Length && players.Any(player => player.input.actionButton.IsPressed)) {
-            assignAnimals();
-
             if (gameManager.boardChoiceScene) { //TODO board choice
                 gameManager.boardChoiceScene.Prepare(players);
                 gameManager.boardChoiceScene.Activate();
@@ -103,16 +104,26 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 
     private void choose(PlayerController player, RectTransform closestAnimalIndicator) {
         var selectionIndicator = playerSelectionIndicators[player];
+		var chosenAnimal = animals[Array.IndexOf(animalChoiceIndicators, closestAnimalIndicator)];
 
-        if (playerChoiceIndicators.ContainsKey(player)) {
+		if (chosenAnimal == player.animal) {
+			return;
+		}
+
+		if (playerChoiceIndicators.ContainsKey(player)) {
             unchoose(player);
         }
+
+		player.baseAnimal = chosenAnimal;
         
         if (!playerChoiceIndicators.ContainsValue(closestAnimalIndicator)) {
             closestAnimalIndicator.gameObject.SetActive(true);
-            closestAnimalIndicator.GetComponentInChildren<Text>().text = player.shortName;
-            closestAnimalIndicator.GetComponentInChildren<Image>().color = player.color;
-            playerChoiceIndicators[player] = closestAnimalIndicator;
+			closestAnimalIndicator.GetComponentInChildren<Image>().color = player.color;
+
+			var choiceIndicator = createChoiceIndicator(closestAnimalIndicator);
+			choiceIndicator.GetComponentInChildren<Text>().color = player.color;
+            choiceIndicator.GetComponentInChildren<Text>().text = player.shortName;
+            playerChoiceIndicators[player] = choiceIndicator;
 
             selectionIndicator.gameObject.SetActive(false);
         }
@@ -125,21 +136,17 @@ public class CharacterChoiceSceneCircular : VirtualScene {
     }
 
     private void unchoose (PlayerController player) {
-        if (playerChoiceIndicators.ContainsKey(player)) {
-            playerChoiceIndicators[player].gameObject.SetActive(false);
+		if (playerChoiceIndicators.ContainsKey(player)) {
+			Destroy(playerChoiceIndicators[player].gameObject);
             playerChoiceIndicators.Remove(player);
+
+			animalChoiceIndicators[Array.IndexOf(animals, player.baseAnimal)].gameObject.SetActive(false);
         }
+
+		player.baseAnimal = null;
 
         playerSelectionIndicators[player].anchoredPosition = Vector2.zero;
         playerSelectionIndicators[player].gameObject.SetActive(true);
-    }
-
-    private void assignAnimals() {
-        foreach (var indicator in playerChoiceIndicators) {
-            var index = Array.IndexOf(animalChoiceIndicators, indicator.Value);
-
-            indicator.Key.baseAnimal = animals[index];
-        }
     }
 
     private RectTransform createSelectionIndicator (PlayerController player) {
@@ -156,6 +163,22 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 
         return indicator;
     }
+
+	private RectTransform createChoiceIndicator (RectTransform animalIndicator) {
+		var choiceIndicator = Instantiate(baseChoiceIndicator);
+		var animalPos = cameraManager.mainCamera.WorldToViewportPoint(animalIndicator.transform.position);
+
+		var screenPos = new Vector2(
+			((animalPos.x * choiceIndicatorsCanvas.sizeDelta.x) - (choiceIndicatorsCanvas.sizeDelta.x * 0.5f)),
+			((animalPos.y * choiceIndicatorsCanvas.sizeDelta.y) - (choiceIndicatorsCanvas.sizeDelta.y * 0.5f)) + 40
+		);
+
+		choiceIndicator.SetParent(choiceIndicatorsCanvas, false);
+		choiceIndicator.anchoredPosition = screenPos;
+		choiceIndicator.gameObject.SetActive(true);
+
+		return choiceIndicator;
+	}
 
     private Vector2 normalizedAxisInput(PlayerController player) {
         var input = new Vector2(player.input.xAxis.Value, player.input.yAxis.Value);
