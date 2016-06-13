@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: 2f823ec6d77d2484ca5297d3f6e478ba
+timeCreated: 1465795295
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Coat
+    100002: Hair
+    100004: Head
+    100006: LeftEye
+    100008: LeftEyebrow
+    100010: LeftSideburn
+    100012: Legs
+    100014: Mouth
+    100016: //RootNode
+    100018: Night_Head
+    100020: Night_Hips
+    100022: Night_LeftArm
+    100024: Night_LeftFoot
+    100026: Night_LeftForeArm
+    100028: Night_LeftHand
+    100030: Night_LeftLeg
+    100032: Night_LeftShoulder
+    100034: Night_LeftSideburn
+    100036: Night_LeftSideburn1
+    100038: Night_LeftSideburn2
+    100040: Night_LeftSideburn3
+    100042: Night_LeftSideburn4
+    100044: Night_LeftUpLeg
+    100046: Night_Neck
+    100048: Night_RightArm
+    100050: Night_RightFoot
+    100052: Night_RightForeArm
+    100054: Night_RightHand
+    100056: Night_RightLeg
+    100058: Night_RightShoulder
+    100060: Night_RightSideburn
+    100062: Night_RightSideburn1
+    100064: Night_RightSideburn2
+    100066: Night_RightSideburn3
+    100068: Night_RightSideburn4
+    100070: Night_RightUpLeg
+    100072: Night_Spine
+    100074: Night_Spine1
+    100076: Night_Spine2
+    100078: RightEye
+    100080: RightEyebrow
+    100082: RightSideburn
+    100084: Strand1
+    100086: Strand2
+    100088: Strand3
+    100090: Strand4
+    100092: Undershirt
+    400000: Coat
+    400002: Hair
+    400004: Head
+    400006: LeftEye
+    400008: LeftEyebrow
+    400010: LeftSideburn
+    400012: Legs
+    400014: Mouth
+    400016: //RootNode
+    400018: Night_Head
+    400020: Night_Hips
+    400022: Night_LeftArm
+    400024: Night_LeftFoot
+    400026: Night_LeftForeArm
+    400028: Night_LeftHand
+    400030: Night_LeftLeg
+    400032: Night_LeftShoulder
+    400034: Night_LeftSideburn
+    400036: Night_LeftSideburn1
+    400038: Night_LeftSideburn2
+    400040: Night_LeftSideburn3
+    400042: Night_LeftSideburn4
+    400044: Night_LeftUpLeg
+    400046: Night_Neck
+    400048: Night_RightArm
+    400050: Night_RightFoot
+    400052: Night_RightForeArm
+    400054: Night_RightHand
+    400056: Night_RightLeg
+    400058: Night_RightShoulder
+    400060: Night_RightSideburn
+    400062: Night_RightSideburn1
+    400064: Night_RightSideburn2
+    400066: Night_RightSideburn3
+    400068: Night_RightSideburn4
+    400070: Night_RightUpLeg
+    400072: Night_Spine
+    400074: Night_Spine1
+    400076: Night_Spine2
+    400078: RightEye
+    400080: RightEyebrow
+    400082: RightSideburn
+    400084: Strand1
+    400086: Strand2
+    400088: Strand3
+    400090: Strand4
+    400092: Undershirt
+    2300000: Head
+    2300002: LeftEye
+    2300004: LeftEyebrow
+    2300006: Mouth
+    2300008: RightEye
+    2300010: RightEyebrow
+    2300012: Strand1
+    2300014: Strand2
+    2300016: Strand3
+    2300018: Strand4
+    3300000: Head
+    3300002: LeftEye
+    3300004: LeftEyebrow
+    3300006: Mouth
+    3300008: RightEye
+    3300010: RightEyebrow
+    3300012: Strand1
+    3300014: Strand2
+    3300016: Strand3
+    3300018: Strand4
+    4300000: Coat
+    4300002: Legs
+    4300004: Undershirt
+    4300006: LeftSideburn
+    4300008: RightSideburn
+    4300010: Strand1
+    4300012: Strand2
+    4300014: Strand3
+    4300016: Strand4
+    4300018: Head
+    4300020: Mouth
+    4300022: LeftEyebrow
+    4300024: RightEyebrow
+    4300026: RightEye
+    4300028: LeftEye
+    9500000: //RootNode
+    13700000: Coat
+    13700002: LeftSideburn
+    13700004: Legs
+    13700006: RightSideburn
+    13700008: Undershirt
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

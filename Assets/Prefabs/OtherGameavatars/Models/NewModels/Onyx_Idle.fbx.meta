@@ -1,0 +1,293 @@
+fileFormatVersion: 2
+guid: 3a093f8152c323240b4c83c4a89d32d3
+timeCreated: 1464041001
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: ArmLower.L
+    100004: ArmLower.R
+    100006: ArmUpper.L
+    100008: ArmUpper.R
+    100010: Clock
+    100012: Controller
+    100014: ElbowIK.L
+    100016: ElbowIK.L_end
+    100018: ElbowIK.R
+    100020: ElbowIK.R_end
+    100022: Foot.L
+    100024: Foot.L.001
+    100026: Foot.L.001_end
+    100028: Foot.R
+    100030: Foot.R.001
+    100032: Foot.R.001_end
+    100034: FootIK.L
+    100036: FootIK.L_end
+    100038: FootIK.R
+    100040: FootIK.R_end
+    100042: Hand.L
+    100044: Hand.L_end
+    100046: Hand.R
+    100048: Hand.R_end
+    100050: HandIK.L
+    100052: HandIK.L_end
+    100054: HandIK.R
+    100056: HandIK.R_end
+    100058: Head
+    100060: Head.001
+    100062: Head.001_end
+    100064: KneeIK.L
+    100066: KneeIK.L_end
+    100068: KneeIK.R
+    100070: KneeIK.R_end
+    100072: LowerLeg.L
+    100074: LowerLeg.R
+    100076: Onyx
+    100078: //RootNode
+    100080: Shoulder.L
+    100082: Shoulder.R
+    100084: Spine1
+    100086: Spine2
+    100088: Spine3
+    100090: UpperLeg.L
+    100092: UpperLeg.R
+    400000: Armature
+    400002: ArmLower.L
+    400004: ArmLower.R
+    400006: ArmUpper.L
+    400008: ArmUpper.R
+    400010: Clock
+    400012: Controller
+    400014: ElbowIK.L
+    400016: ElbowIK.L_end
+    400018: ElbowIK.R
+    400020: ElbowIK.R_end
+    400022: Foot.L
+    400024: Foot.L.001
+    400026: Foot.L.001_end
+    400028: Foot.R
+    400030: Foot.R.001
+    400032: Foot.R.001_end
+    400034: FootIK.L
+    400036: FootIK.L_end
+    400038: FootIK.R
+    400040: FootIK.R_end
+    400042: Hand.L
+    400044: Hand.L_end
+    400046: Hand.R
+    400048: Hand.R_end
+    400050: HandIK.L
+    400052: HandIK.L_end
+    400054: HandIK.R
+    400056: HandIK.R_end
+    400058: Head
+    400060: Head.001
+    400062: Head.001_end
+    400064: KneeIK.L
+    400066: KneeIK.L_end
+    400068: KneeIK.R
+    400070: KneeIK.R_end
+    400072: LowerLeg.L
+    400074: LowerLeg.R
+    400076: Onyx
+    400078: //RootNode
+    400080: Shoulder.L
+    400082: Shoulder.R
+    400084: Spine1
+    400086: Spine2
+    400088: Spine3
+    400090: UpperLeg.L
+    400092: UpperLeg.R
+    4300000: Clock
+    4300002: Onyx
+    7400000: Onyx_Idle1
+    9500000: //RootNode
+    13700000: Clock
+    13700002: Onyx
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Onyx_Idle1
+      takeName: Armature|ArmatureAction.001
+      firstFrame: 0
+      lastFrame: 498
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Controller
+        weight: 1
+      - path: Armature/Controller/ElbowIK.L
+        weight: 1
+      - path: Armature/Controller/ElbowIK.L/ElbowIK.L_end
+        weight: 1
+      - path: Armature/Controller/ElbowIK.R
+        weight: 1
+      - path: Armature/Controller/ElbowIK.R/ElbowIK.R_end
+        weight: 1
+      - path: Armature/Controller/FootIK.L
+        weight: 1
+      - path: Armature/Controller/FootIK.L/FootIK.L_end
+        weight: 1
+      - path: Armature/Controller/FootIK.R
+        weight: 1
+      - path: Armature/Controller/FootIK.R/FootIK.R_end
+        weight: 1
+      - path: Armature/Controller/HandIK.L
+        weight: 1
+      - path: Armature/Controller/HandIK.L/HandIK.L_end
+        weight: 1
+      - path: Armature/Controller/HandIK.R
+        weight: 1
+      - path: Armature/Controller/HandIK.R/HandIK.R_end
+        weight: 1
+      - path: Armature/Controller/KneeIK.L
+        weight: 1
+      - path: Armature/Controller/KneeIK.L/KneeIK.L_end
+        weight: 1
+      - path: Armature/Controller/KneeIK.R
+        weight: 1
+      - path: Armature/Controller/KneeIK.R/KneeIK.R_end
+        weight: 1
+      - path: Armature/Controller/Spine1
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Head
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Head/Head.001
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Head/Head.001/Head.001_end
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.L
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.L/ArmUpper.L
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.L/ArmUpper.L/ArmLower.L
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.L/ArmUpper.L/ArmLower.L/Hand.L
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.L/ArmUpper.L/ArmLower.L/Hand.L/Hand.L_end
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.R
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.R/ArmUpper.R
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.R/ArmUpper.R/ArmLower.R
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.R/ArmUpper.R/ArmLower.R/Hand.R
+        weight: 1
+      - path: Armature/Controller/Spine1/Spine2/Spine3/Shoulder.R/ArmUpper.R/ArmLower.R/Hand.R/Hand.R_end
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.L
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.L/LowerLeg.L
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.L/LowerLeg.L/Foot.L
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.L/LowerLeg.L/Foot.L/Foot.L.001
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.L/LowerLeg.L/Foot.L/Foot.L.001/Foot.L.001_end
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.R
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.R/LowerLeg.R
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.R/LowerLeg.R/Foot.R
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.R/LowerLeg.R/Foot.R/Foot.R.001
+        weight: 1
+      - path: Armature/Controller/Spine1/UpperLeg.R/LowerLeg.R/Foot.R/Foot.R.001/Foot.R.001_end
+        weight: 1
+      - path: Clock
+        weight: 1
+      - path: Onyx
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

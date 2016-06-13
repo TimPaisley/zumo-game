@@ -127,6 +127,11 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+
+
+		if(other.transform.tag == "environment"){
+			//isGrounded = true;
+		}
     // If this collides with another animal, bounce away and display particle
     if (!knockedBack && other.transform.tag == "AnimalHead" && !foxAbility) {
 			//get the animalobject from the collision

@@ -1,0 +1,161 @@
+fileFormatVersion: 2
+guid: 593b9c4e56c7343fcb80e05791b45074
+timeCreated: 1465795297
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Coat
+    100002: //RootNode
+    100004: Day_Head
+    100006: Day_Hips
+    100008: Day_LeftArm
+    100010: Day_LeftFoot
+    100012: Day_LeftForeArm
+    100014: Day_LeftHand
+    100016: Day_LeftLeg
+    100018: Day_LeftShoulder
+    100020: Day_LeftUpLeg
+    100022: Day_Neck
+    100024: Day_RightArm
+    100026: Day_RightFoot
+    100028: Day_RightForeArm
+    100030: Day_RightHand
+    100032: Day_RightLeg
+    100034: Day_RightShoulder
+    100036: Day_RightUpLeg
+    100038: Day_Spine
+    100040: Day_Spine1
+    100042: Day_Spine2
+    100044: Hair
+    100046: Head
+    100048: LeftEye
+    100050: LeftEyebrow
+    100052: Legs
+    100054: Mouth
+    100056: RightEye
+    100058: RightEyebrow
+    100060: Undershirt
+    400000: Coat
+    400002: //RootNode
+    400004: Day_Head
+    400006: Day_Hips
+    400008: Day_LeftArm
+    400010: Day_LeftFoot
+    400012: Day_LeftForeArm
+    400014: Day_LeftHand
+    400016: Day_LeftLeg
+    400018: Day_LeftShoulder
+    400020: Day_LeftUpLeg
+    400022: Day_Neck
+    400024: Day_RightArm
+    400026: Day_RightFoot
+    400028: Day_RightForeArm
+    400030: Day_RightHand
+    400032: Day_RightLeg
+    400034: Day_RightShoulder
+    400036: Day_RightUpLeg
+    400038: Day_Spine
+    400040: Day_Spine1
+    400042: Day_Spine2
+    400044: Hair
+    400046: Head
+    400048: LeftEye
+    400050: LeftEyebrow
+    400052: Legs
+    400054: Mouth
+    400056: RightEye
+    400058: RightEyebrow
+    400060: Undershirt
+    2300000: Hair
+    2300002: Head
+    2300004: LeftEye
+    2300006: LeftEyebrow
+    2300008: Mouth
+    2300010: RightEye
+    2300012: RightEyebrow
+    3300000: Hair
+    3300002: Head
+    3300004: LeftEye
+    3300006: LeftEyebrow
+    3300008: Mouth
+    3300010: RightEye
+    3300012: RightEyebrow
+    4300000: Coat
+    4300002: Undershirt
+    4300004: Legs
+    4300006: Head
+    4300008: Mouth
+    4300010: LeftEyebrow
+    4300012: RightEyebrow
+    4300014: RightEye
+    4300016: LeftEye
+    4300018: Hair
+    9500000: //RootNode
+    13700000: Coat
+    13700002: Legs
+    13700004: Undershirt
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
