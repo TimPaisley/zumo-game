@@ -177,7 +177,7 @@ public class PowerUpController : MonoBehaviour {
 	public void updateTimer(string name, float remain){
 		if (powerUps.ContainsKey (name)) {
 			GameObject renew = powerUps [name];
-			float remainDur = puDuration;
+			float remainDur = remain/puDuration;
 			if (name.Equals ("stop")) {
 				remainDur = remain / 2.0f;
 			} 

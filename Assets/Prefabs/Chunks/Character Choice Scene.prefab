@@ -4574,9 +4574,9 @@ GameObject:
   - 65: {fileID: 6516548}
   - 114: {fileID: 11438496}
   - 114: {fileID: 11457704}
-  - 114: {fileID: 11427054}
   - 82: {fileID: 8236190}
   - 82: {fileID: 8210570}
+  - 114: {fileID: 11422828}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Animal
@@ -4844,7 +4844,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153652}
-  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
+  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
   m_LocalPosition: {x: 0.002830171, y: -0.039852124, z: -0.0075525427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5104,7 +5104,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125072}
-  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
+  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
   m_LocalPosition: {x: -0.037475195, y: 6.661338e-18, z: -2.7755574e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9727,6 +9727,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  lionAbility: 0
   stopPowerup: 0
   disableControl: 0
 --- !u!114 &11409812
@@ -9937,8 +9938,22 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  lionAbility: 0
   stopPowerup: 0
   disableControl: 0
+--- !u!114 &11422828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c715497a6f284e30b968e3f6d804d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ticker: 10
+  colors: []
 --- !u!114 &11426618
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9966,19 +9981,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11427054
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c715497a6f284e30b968e3f6d804d50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ticker: 5
-  colors: []
 --- !u!114 &11435902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10095,6 +10097,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  lionAbility: 0
   stopPowerup: 0
   disableControl: 0
 --- !u!114 &11446454
@@ -10428,6 +10431,7 @@ MonoBehaviour:
   pandaAbility: 0
   foxAbility: 0
   tigerAbility: 0
+  lionAbility: 0
   stopPowerup: 0
   disableControl: 0
 --- !u!114 &11490206
@@ -24677,6 +24681,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -24695,6 +24700,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
