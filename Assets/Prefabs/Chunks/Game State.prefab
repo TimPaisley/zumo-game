@@ -110,6 +110,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &156762
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 429232}
+  - 20: {fileID: 2048218}
+  - 124: {fileID: 12489664}
+  - 92: {fileID: 9234268}
+  - 81: {fileID: 8142588}
+  m_Layer: 0
+  m_Name: Blackscreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &160530
 GameObject:
   m_ObjectHideFlags: 1
@@ -256,6 +275,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493008}
   m_RootOrder: 2
+--- !u!4 &429232
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156762}
+  m_LocalRotation: {x: 0.2850436, y: -0.64710915, z: 0.28504366, w: 0.64710903}
+  m_LocalPosition: {x: 23.5, y: 21.9, z: 0}
+  m_LocalScale: {x: 1, y: 1.0803633, z: 1.0803633}
+  m_Children: []
+  m_Father: {fileID: 450690}
+  m_RootOrder: 3
 --- !u!4 &429976
 Transform:
   m_ObjectHideFlags: 1
@@ -307,6 +338,7 @@ Transform:
   - {fileID: 464216}
   - {fileID: 488208}
   - {fileID: 442040}
+  - {fileID: 429232}
   m_Father: {fileID: 429976}
   m_RootOrder: 0
 --- !u!4 &453534
@@ -431,6 +463,40 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!20 &2048218
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156762}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0.019607844}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+  m_StereoMirrorMode: 0
 --- !u!20 &2091952
 Camera:
   m_ObjectHideFlags: 1
@@ -478,6 +544,13 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130346}
+  m_Enabled: 1
+--- !u!81 &8142588
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156762}
   m_Enabled: 1
 --- !u!81 &8153742
 AudioListener:
@@ -930,6 +1003,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!92 &9234268
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156762}
+  m_Enabled: 1
 --- !u!92 &9235684
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1179,6 +1259,13 @@ Behaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130346}
+  m_Enabled: 1
+--- !u!124 &12489664
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156762}
   m_Enabled: 1
 --- !u!124 &12495396
 Behaviour:
