@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour {
     public Camera menuCamera;
     public Camera tiltedMenuCamera;
     public Camera gameCamera;
+    public Camera blackoutCamera;
 
     public Camera mainCamera { get; private set; }
 

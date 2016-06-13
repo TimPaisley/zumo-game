@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &130346
 GameObject:
   m_ObjectHideFlags: 1
@@ -62,7 +62,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &135696
 GameObject:
   m_ObjectHideFlags: 1
@@ -328,8 +328,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100782}
-  m_LocalRotation: {x: 0.13908161, y: -0.55196404, z: 0.11968662, w: 0.81342924}
-  m_LocalPosition: {x: -19.09, y: 2.12, z: -53.53}
+  m_LocalRotation: {x: -0.17047395, y: 0.48413473, z: -0.09678361, w: -0.8527515}
+  m_LocalPosition: {x: -17.9, y: 2.3, z: -49.9}
   m_LocalScale: {x: 1, y: 1.0803633, z: 1.0803633}
   m_Children: []
   m_Father: {fileID: 450690}
@@ -1281,6 +1281,7 @@ MonoBehaviour:
   menuCamera: {fileID: 2091952}
   tiltedMenuCamera: {fileID: 2042886}
   gameCamera: {fileID: 2015848}
+  blackoutCamera: {fileID: 2048218}
 --- !u!114 &11472912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1381,6 +1382,7 @@ MonoBehaviour:
   speedUp: {fileID: 163526, guid: 4123bbc4e114448e19f424e2857ea2a5, type: 2}
   massUp: {fileID: 188502, guid: 3b9c04904d87e47c5abfa3c89d3cab2a, type: 2}
   dashUp: {fileID: 187470, guid: e6cc82f8225374295bc0192acd7d4ccb, type: 2}
+  detonator: {fileID: 0}
   PuTypes: []
 --- !u!124 &12400624
 Behaviour:

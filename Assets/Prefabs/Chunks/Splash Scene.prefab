@@ -28,7 +28,6 @@ GameObject:
   - 224: {fileID: 22428300}
   - 222: {fileID: 22239298}
   - 114: {fileID: 11406900}
-  - 114: {fileID: 11480888}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -46,7 +45,6 @@ GameObject:
   - 224: {fileID: 22432868}
   - 222: {fileID: 22221360}
   - 114: {fileID: 11431488}
-  - 114: {fileID: 11473512}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -203,18 +201,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11473512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 183822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4840af7ee364a647b1758832f3b025f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxOffset: 1
 --- !u!114 &11475244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,18 +222,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &11480888
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4840af7ee364a647b1758832f3b025f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxOffset: 1
 --- !u!114 &11483854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -260,6 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuSwitchSound: {fileID: 0}
+  splashCanvas: {fileID: 22320518}
 --- !u!222 &22221360
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -293,6 +268,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
