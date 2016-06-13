@@ -184,10 +184,10 @@ public class AnimalController : MonoBehaviour {
 				//Debug.Log ("upwardMomentum when hitting:"+(otherAnimal.GetComponent<Rigidbody>().velocity).y);
 				//Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);
 				makeRandomNoise();
-                if (!otherAnimal.tigerAbility)// if the other animal is using tigerability ignore
-                {
+               // if (!otherAnimal.tigerAbility)// if the other animal is using tigerability ignore
+               // {
                     otherAnimal.recoil(transform.position, oppSpeed);
-                }
+               // }
 
 
             if (isDashing) {
