@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PowerUpCreater : MonoBehaviour {
     public DeathmatchScene inGameScene;
@@ -23,9 +24,18 @@ public class PowerUpCreater : MonoBehaviour {
     }
 
     void Update () {
-        if (!inGameScene.inProgress) {
-            return;
-        }
+		if (!inGameScene.inProgress && existedPowerUp != null) {
+			for (var i = 0; i < existedPowerUp.Length; i++) {
+				if (existedPowerUp[i] != null) {
+					Destroy (existedPowerUp[i]);
+					existedPowerUp[i] = null;
+				}
+			}
+		}
+
+		if (!inGameScene.inProgress) {
+			return;
+		}
 
         if(SpawnPostion == null)
         {

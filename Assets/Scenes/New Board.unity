@@ -1448,6 +1448,14 @@ Prefab:
       propertyPath: detonator
       value: 
       objectReference: {fileID: 160054, guid: 13161ec14924c47b8ada31d02ab03c6f, type: 2}
+    - target: {fileID: 11472912, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: dontDestroyOnLoad
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472912, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
+      propertyPath: enableXInput
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
   m_IsPrefabParent: 0
