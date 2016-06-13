@@ -1366,7 +1366,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 429976, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11494834, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
       propertyPath: inGameScene
@@ -1763,45 +1763,57 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11462096, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1390303993}
+    - target: {fileID: 11457956, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1390303993}
     - target: {fileID: 11496654, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: chargeSound
       value: 
       objectReference: {fileID: 1000091837}
+    - target: {fileID: 11481280, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1390303993}
     - target: {fileID: 11489522, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: hitSound
       value: 
       objectReference: {fileID: 1703495754}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.60286677
+      value: -0.6028667
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.26554087
+      value: -0.26554084
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.2763774
+      value: 0.27637738
       objectReference: {fileID: 0}
     - target: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.6997538
+      value: 0.69975376
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.60286677
+      value: -0.6028667
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.26554087
+      value: -0.26554084
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.2763774
+      value: 0.27637738
       objectReference: {fileID: 0}
     - target: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.6997538
+      value: 0.69975376
       objectReference: {fileID: 0}
     - target: {fileID: 11418870, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: canvas
@@ -1851,10 +1863,6 @@ Prefab:
       propertyPath: chargeSound
       value: 
       objectReference: {fileID: 1000091837}
-    - target: {fileID: 11481280, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1390303993}
     - target: {fileID: 11446454, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
       propertyPath: menuSwitchSound
       value: 
@@ -2320,7 +2328,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455742, guid: 684cacbfa8a574c6397222e62b0a190d, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11483854, guid: 684cacbfa8a574c6397222e62b0a190d, type: 2}
       propertyPath: menuSwitchSound
@@ -3280,7 +3288,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22403694, guid: dbc57ba66272de446be9a8c5fed865d8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22403694, guid: dbc57ba66272de446be9a8c5fed865d8, type: 2}
       propertyPath: m_AnchoredPosition.x

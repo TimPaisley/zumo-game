@@ -1479,6 +1479,7 @@ MonoBehaviour:
   countdownNumberSound: {fileID: 8250060}
   countdownCompleteSound: {fileID: 8295280}
   basePlayerIndicator: {fileID: 11407774}
+  pauseSound: {fileID: 0}
   celebrationContainer: {fileID: 155208}
   playerCelebrationParticles: {fileID: 19825344}
   gameStarted: 0
@@ -9499,6 +9500,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -9517,6 +9519,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
