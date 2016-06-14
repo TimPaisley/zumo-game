@@ -31,6 +31,8 @@ public class PowerUpCreater : MonoBehaviour {
 					existedPowerUp[i] = null;
 				}
 			}
+
+			SpawnPostion = null;
 		}
 
 		if (!inGameScene.inProgress) {

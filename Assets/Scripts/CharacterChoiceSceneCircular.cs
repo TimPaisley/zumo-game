@@ -90,6 +90,7 @@ public class CharacterChoiceSceneCircular : VirtualScene {
     public override void Activate () {
         base.Activate();
 
+		startGameButton.gameObject.SetActive(false);
         menuBackgroundManager.ShowForCharacterChoice();
         sceneBase.SetActive(true);
     }
