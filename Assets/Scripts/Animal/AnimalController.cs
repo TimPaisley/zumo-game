@@ -31,6 +31,9 @@ public class AnimalController : MonoBehaviour {
 	public float knockBackDelay = 0.2f;
 	public float backLash = 1.0f;
 	public AudioSource hitSound;
+	public AudioSource stopSound;
+	public AudioSource speedSound;
+	public AudioSource massSound;
 	private AudioSource[] animalSound;
 
 	// Management Variables
@@ -145,6 +148,16 @@ public class AnimalController : MonoBehaviour {
 				FindObjectOfType<BombController> ().Deploy ();
 			} else {
 				powerupController.Apply(other.gameObject.GetComponent<PowerUp>());
+				string puType = other.gameObject.GetComponent<PowerUp> ().PuType;
+				if(puType=="speed"){
+					speedSound.PlayOneShot(speedSound.clip);
+				}
+				else if(puType=="mass"){
+					massSound.PlayOneShot(massSound.clip);
+				}
+				else if(puType=="stop"){
+					stopSound.PlayOneShot(stopSound.clip);
+				}
 			}
 
 			Destroy(other.gameObject);

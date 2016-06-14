@@ -15,6 +15,9 @@ public class BombController : MonoBehaviour {
 	private ParticleSystem.EmissionModule fuseEM;
 	private ParticleSystem.EmissionModule detonateEM;
 
+	public AudioSource bombTick;
+	public AudioSource bombExplosion;
+
 	public float fuseTimer = 10.0f;
 	public float bombPower = 200.0f;
 
@@ -57,7 +60,7 @@ public class BombController : MonoBehaviour {
 		}
 
 		rb.useGravity = true;
-
+		bombTick.Play ();
 		StartCoroutine (Countdown ());
 	}
 
@@ -82,6 +85,9 @@ public class BombController : MonoBehaviour {
 		detonatePS.Simulate(0.0f,true,true);
 		detonateEM.enabled = true;
 		detonatePS.Play ();
+
+		bombTick.Stop ();
+		bombExplosion.Play ();
 
 		gm.ApplyBombForce (this.transform.position, bombPower);
 
