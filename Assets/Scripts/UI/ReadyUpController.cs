@@ -58,6 +58,14 @@ public class ReadyUpController : MonoBehaviour {
         }
     }
 
+	public void Reset () {
+		leftPlayerButton.gameObject.SetActive(true);
+		leftPlayerReadyIcon.gameObject.SetActive(false);
+
+		rightPlayerButton.gameObject.SetActive(true);
+		rightPlayerReadyIcon.gameObject.SetActive(false);
+	}
+
     private bool isXboxController(InputDevice device) {
         return device is UnityInputDevice && (device as UnityInputDevice).Profile.Name.Contains("XBox");
     }

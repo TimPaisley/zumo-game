@@ -47,6 +47,7 @@ public class BoardChoiceScene : VirtualScene {
             foreach (var spinner in spinners.Skip(1)) {
                 Destroy(spinner.gameObject);
             }
+			baseSpinner.gameObject.SetActive (false);
         }
 
         private RectTransform createSpinnerShadow (float opacity) {
@@ -197,6 +198,15 @@ public class BoardChoiceScene : VirtualScene {
 		foreach (var indicator in playerSelectionIndicators.Values) {
 			Destroy(indicator.gameObject);
 		}
+
+		foreach (var indicator in boardVoteIndicators.Values) {
+			Destroy (indicator.gameObject);
+		}
+
+		playerSelectionIndicators.Clear ();
+		boardVoteIndicators.Clear ();
+		playerChoices.Clear ();
+
 
         sceneBase.SetActive(false);
     }

@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour {
 		get { return playerIndex < PlayerColors.Length ? PlayerColors[playerIndex] : Color.black; }
     }
 
-	public AnimalController animal { get; private set; }
+	public AnimalController animal { get; set; }
 
     void Awake () {
         isReady = false;

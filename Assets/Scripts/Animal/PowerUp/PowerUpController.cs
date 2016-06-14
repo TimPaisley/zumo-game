@@ -51,6 +51,10 @@ public class PowerUpController : MonoBehaviour {
 	}
 
 	void Update () {
+		if (animal == null) {
+			return;
+		}
+
 		var animalPos = cameraManager.mainCamera.WorldToViewportPoint(animal.transform.position);
 		var screenPos = new Vector2(
 			((animalPos.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),

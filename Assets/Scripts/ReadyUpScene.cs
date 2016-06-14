@@ -10,6 +10,7 @@ public class ReadyUpScene : VirtualScene {
 
     public Canvas canvas;
     public ReadyUpController baseControllerView;
+	public List<ReadyUpController> controllers;
     public PlayerController basePlayerController;
     public GameObject startIndicator;
     public GameManager gameManager;
@@ -24,26 +25,25 @@ public class ReadyUpScene : VirtualScene {
 		cameraManager = FindObjectOfType<CameraManager>();
         menuBackgroundManager = FindObjectOfType<MenuBackgroundManager>();
         canvasTransform = canvas.GetComponent<RectTransform>();
-        playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
-        canvas.enabled = false;
-        startIndicator.SetActive(false);
+		playerControllers = new List<PlayerController>(InputManager.Devices.Count * 2 + 2);
 
-        var yOffset = -9.5f;
+		var yOffset = -9.5f;
 
-	    for (var i = 0; i < InputManager.Devices.Count; i++) {
-            createControllerAndPlayers(i, yOffset);
+		controllers = new List<ReadyUpController> ();
 
-            yOffset -= 8;
-        }
+		for (var i = 0; i < InputManager.Devices.Count; i++) {
+			controllers.Add(createControllerAndPlayers(i, yOffset));
 
-        if (Debug.isDebugBuild) {
-            // Create hidden keyboard controller - helpful for testing
-            createControllerAndPlayers(InputManager.Devices.Count, yOffset);
-        }
+			yOffset -= 8;
+		}
 
-        baseControllerView.gameObject.SetActive(false);
-        basePlayerController.gameObject.SetActive(false);
+		if (Debug.isDebugBuild) {
+			// Create hidden keyboard controller - helpful for testing
+			controllers.Add(createControllerAndPlayers(InputManager.Devices.Count, yOffset));
+		}
+
+		canvas.enabled = false;
 	}
 	
 	void Update () {
@@ -67,6 +67,15 @@ public class ReadyUpScene : VirtualScene {
     public override void Activate () {
         base.Activate();
 
+		startIndicator.SetActive(false);
+
+		baseControllerView.gameObject.SetActive(false);
+		basePlayerController.gameObject.SetActive(false);
+
+		foreach (var controller in controllers) {
+			controller.Reset ();
+		}
+
         canvas.enabled = true;
 		cameraManager.Use(cameraManager.menuCamera);
         menuBackgroundManager.ShowForReadyUp();
@@ -78,7 +87,7 @@ public class ReadyUpScene : VirtualScene {
         canvas.enabled = false;
     }
 
-    private void createControllerAndPlayers (int deviceIndex, float yOffset) {
+    private ReadyUpController createControllerAndPlayers (int deviceIndex, float yOffset) {
         var controllerView = Instantiate(baseControllerView.gameObject);
         var viewTransform = controllerView.GetComponent<RectTransform>();
         var controllerComponent = controllerView.GetComponent<ReadyUpController>();
@@ -92,6 +101,8 @@ public class ReadyUpScene : VirtualScene {
 
         playerControllers.Add(controllerComponent.leftPlayer);
         playerControllers.Add(controllerComponent.rightPlayer);
+
+		return controllerComponent;
     }
 
     private PlayerController[] readyPlayers() {

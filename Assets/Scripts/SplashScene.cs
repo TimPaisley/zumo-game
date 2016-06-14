@@ -33,6 +33,7 @@ public class SplashScene : VirtualScene {
 	}
 
     public override void Activate () {
+		base.Activate ();
         cameraManager.mainCamera.gameObject.SetActive(false);
         cameraManager.blackoutCamera.gameObject.SetActive(true);
 

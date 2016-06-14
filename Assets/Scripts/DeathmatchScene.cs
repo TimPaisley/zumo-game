@@ -67,8 +67,8 @@ public class DeathmatchScene : VirtualScene {
         if (gameOver) {
             if (players.Any(player => player.input.actionButton.IsPressed)) {
                 rematch();
-			} else if (players.Any(player => player.input.menuButton.WasPressed) || players.Any(player => player.input.backButton.WasPressed)) {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			} else if (players.Any(player => player.input.menuButton.IsPressed) || players.Any(player => player.input.backButton.IsPressed)) {
+				loadMenu ();
             }
 
             return;
@@ -188,4 +188,32 @@ public class DeathmatchScene : VirtualScene {
 
         Activate();
     }
+
+	private void loadMenu () {
+		foreach (var indicator in playerIndicators) {
+			Destroy(indicator.gameObject);
+		}
+
+		gameStarted = false;
+		gameOver = false;
+
+		pauseMenu.gameObject.SetActive(false);
+		basePlayerIndicator.gameObject.SetActive(false);
+		celebrationContainer.gameObject.SetActive(false);
+
+		Destroy (gameManager.currentBoard.gameObject);
+		gameManager.currentBoard = null;
+
+		foreach (var player in players) {
+			Destroy (player.animal.gameObject);
+			player.isReady = false;
+			player.isAlive = false;
+		}
+
+		players = null;
+
+		gameManager.readyUpScene.Prepare (null);
+		gameManager.readyUpScene.Activate ();
+		Deactivate ();
+	}
 }

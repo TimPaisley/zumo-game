@@ -101,7 +101,16 @@ public class CharacterChoiceSceneCircular : VirtualScene {
 			Destroy(indicator.gameObject);
 		}
 
+		foreach (var indicator in playerChoiceIndicators.Values) {
+			Destroy(indicator.gameObject);
+		}
+
 		playerSelectionIndicators.Clear();
+		playerChoiceIndicators.Clear ();
+
+		foreach (var indicator in animalChoiceIndicators) {
+			indicator.gameObject.SetActive(false);
+		}
 
         sceneBase.SetActive(false);
     }
