@@ -1208,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &125734
 GameObject:
   m_ObjectHideFlags: 1
@@ -3187,7 +3187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &176880
 GameObject:
   m_ObjectHideFlags: 1
@@ -3629,7 +3629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &185752
 GameObject:
   m_ObjectHideFlags: 1
@@ -3694,7 +3694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &186934
 GameObject:
   m_ObjectHideFlags: 1
@@ -3875,7 +3875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &193292
 GameObject:
   m_ObjectHideFlags: 1
@@ -11172,7 +11172,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: fec8d924d28564f01a44ce31e1364edb, type: 3}
+  m_Mesh: {fileID: 4300000, guid: cfb4ae943194647f19473573cc644242, type: 3}
 --- !u!64 &6406478
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -11196,7 +11196,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: 6952752bc58004a65bc87965b1c1d67b, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 55e228732312a4bae94d70198d8f8e3e, type: 3}
 --- !u!64 &6450512
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -11220,7 +11220,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_Mesh: {fileID: 4300000, guid: da2e5c49f262d493d82343089116b837, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 3015768b8f4cb47fca580208d69b953a, type: 3}
 --- !u!65 &6501272
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -13655,6 +13655,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -13673,6 +13674,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0

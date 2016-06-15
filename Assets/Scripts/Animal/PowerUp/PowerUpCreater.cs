@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class PowerUpCreater : MonoBehaviour {
     public DeathmatchScene inGameScene;
     private Transform[] SpawnPostion;
-    public GameObject PowerUpObj;
     public float SpawnTime = 4f;
     private float TimeTicker;
 	private GameObject[] existedPowerUp;
@@ -21,6 +20,11 @@ public class PowerUpCreater : MonoBehaviour {
         gm = FindObjectOfType<GameManager>();
 		PuTypes= new string[]{"mass", "speed","stop","bomb"};//
 		TimeTicker = SpawnTime;
+
+        speedUp.gameObject.SetActive(false);
+        massUp.gameObject.SetActive(false);
+        dashUp.gameObject.SetActive(false);
+        detonator.gameObject.SetActive(false);
     }
 
     void Update () {
