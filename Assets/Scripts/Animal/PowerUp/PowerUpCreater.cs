@@ -66,7 +66,7 @@ public class PowerUpCreater : MonoBehaviour {
 
 			if (t.Equals ("mass")) {
 				existedPowerUp [randomPower] = (GameObject)Instantiate (massUp, 
-					SpawnPostion [randomPower].position, SpawnPostion [randomPower].rotation);
+					SpawnPostion [randomPower].position - Vector3.up, SpawnPostion [randomPower].rotation);
 			} else if (t.Equals ("speed")) {
 				existedPowerUp [randomPower] = (GameObject)Instantiate (speedUp, 
 					SpawnPostion [randomPower].position - Vector3.up, SpawnPostion [randomPower].rotation);
@@ -77,6 +77,9 @@ public class PowerUpCreater : MonoBehaviour {
 				existedPowerUp [randomPower] = (GameObject)Instantiate (detonator, 
 					SpawnPostion [randomPower].position, SpawnPostion [randomPower].rotation);
 			}
+
+			existedPowerUp [randomPower].gameObject.SetActive (true);
+
 			//PowerUp curPU = existedPowerUp[randomPower].GetComponent<PowerUp> ();
 			//curPU.PuType = t;
         }
