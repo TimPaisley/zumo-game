@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 using Zumo.InputHelper;
 
@@ -10,6 +8,7 @@ namespace Zumo {
         public VirtualScene initialScene;
 
         public CameraManager cameraManager { get; private set; }
+        public MusicManager musicManager { get; private set; }
         public PlayerController[] players { get; private set; }
 
         public IEnumerable<PlayerController> readyPlayers {
@@ -18,11 +17,12 @@ namespace Zumo {
 
         void Awake() {
             cameraManager = FindObjectOfType<CameraManager>();
+            musicManager = FindObjectOfType<MusicManager>();
             setupPlayers();
         }
 
         void Start() {
-            initialScene.Activate();
+            initialScene.Load();
         }
 
         private void setupPlayers() {
