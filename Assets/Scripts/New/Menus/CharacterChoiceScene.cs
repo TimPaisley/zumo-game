@@ -1,5 +1,8 @@
-﻿namespace Zumo {
+﻿using UnityEngine;
+
+namespace Zumo {
     class CharacterChoiceScene : VirtualScene {
+        [Header("Character Choice Scene")]
         public VirtualScene nextScene;
 
         void Update() {

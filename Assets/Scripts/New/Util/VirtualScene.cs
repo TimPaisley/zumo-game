@@ -3,29 +3,34 @@ using UnityEngine.SceneManagement;
 
 namespace Zumo {
     abstract class VirtualScene : MonoBehaviour {
-        public string sceneName;
+        [Header("Base Scene")]
+        public string sceneFilename;
+        public Camera sceneCamera;
 
         protected GameManager gameManager { get; private set; }
         protected CameraManager cameraManager { get; private set; }
         protected MusicManager musicManager { get; private set; }
 
         void Start() {
-            SetupReferences();
+            Setup();
         }
 
         public virtual void Load() {
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            SceneManager.LoadScene(sceneFilename, LoadSceneMode.Additive);
+            cameraManager.Use(sceneCamera);
         }
 
         public virtual void Unload() {
-            SceneManager.UnloadScene(sceneName);
+            SceneManager.UnloadScene(sceneFilename);
         }
 
         // Call this function if you override Start() in a subclass
-        protected virtual void SetupReferences() {
+        protected virtual void Setup() {
             gameManager = FindObjectOfType<GameManager>();
             cameraManager = gameManager.cameraManager;
             musicManager = gameManager.musicManager;
+
+            sceneCamera.enabled = false;
         }
     }
 }

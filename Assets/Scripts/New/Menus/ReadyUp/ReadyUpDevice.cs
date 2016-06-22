@@ -5,7 +5,7 @@ using System.Linq;
 using Zumo.InputHelper;
 
 namespace Zumo {
-	class ReadyUpController : MonoBehaviour {
+	class ReadyUpDevice : MonoBehaviour {
 		[Header("Controller types")]
 		public Sprite xboxController;
 		public Sprite keyboardController;

@@ -5,6 +5,7 @@ using Zumo.InputHelper;
 
 namespace Zumo {
     class GameManager : MonoBehaviour {
+        [Header("Scenes")]
         public VirtualScene initialScene;
 
         public CameraManager cameraManager { get; private set; }
@@ -27,14 +28,16 @@ namespace Zumo {
 
         private void setupPlayers() {
             var playerIndex = 0;
+            var controllerInputs = FindControllerInputs.call();
+            var keyboardInputs = FindKeyboardInputs.call();
 
-            players = new PlayerController[ControllerInput.instances.Count() + KeyboardInput.instances.Count()];
+            players = new PlayerController[controllerInputs.Count() + keyboardInputs.Count()];
 
-            foreach (var input in ControllerInput.instances) {
+            foreach (var input in controllerInputs) {
                 players[playerIndex++] = new PlayerController(playerIndex, input);
             }
 
-            foreach (var input in KeyboardInput.instances) {
+            foreach (var input in keyboardInputs) {
                 players[playerIndex++] = new PlayerController(playerIndex, input);
             }
         }

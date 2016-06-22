@@ -2,6 +2,7 @@
 
 namespace Zumo {
     public class MusicManager : MonoBehaviour {
+        [Header("Songs")]
         public AudioSource menuSong;
         public AudioSource gameSong;
         public AudioSource winSong;

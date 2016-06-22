@@ -122,16 +122,7 @@ namespace Zumo.InputHelper {
 	}
 
 	class KeyboardInput : InputMap {
-		public static IEnumerable<KeyboardInput> instances { get; private set; }
-
-		static KeyboardInput() {
-			instances = new KeyboardInput[] {
-				new KeyboardInput(InputSide.Left),
-				new KeyboardInput(InputSide.Right)
-			};
-		}
-
-		private KeyboardInput(InputSide side) {
+		public KeyboardInput(InputSide side) {
 			joystick = side == InputSide.Left ?
                 new KeyboardAxes("Horizontal", "Vertical") :
                 new KeyboardAxes("Horizontal 2", "Vertical 2");
@@ -163,21 +154,17 @@ namespace Zumo.InputHelper {
 		public InputType inputType { get { return InputType.Keyboard; } }
 	}
 
+    class FindKeyboardInputs {
+        public static KeyboardInput[] call() {
+            return new KeyboardInput[] {
+                new KeyboardInput(InputSide.Left),
+                new KeyboardInput(InputSide.Right)
+            };
+        }
+    }
+
 	class ControllerInput : InputMap {
-		public static IEnumerable<ControllerInput> instances { get; private set; }
-
-		static ControllerInput() {
-			var allInstances = new List<ControllerInput>(InputManager.Devices.Count * 2);
-
-			foreach (var device in InputManager.Devices) {
-				allInstances.Add(new ControllerInput(device, InputSide.Left));
-				allInstances.Add(new ControllerInput(device, InputSide.Right));
-			}
-
-			instances = allInstances;
-		}
-
-		private ControllerInput(InputDevice device, InputSide side) {
+		public ControllerInput(InputDevice device, InputSide side) {
 			joystick = side == InputSide.Left ? 
                 new InControlJoystick(device.LeftStickX, device.LeftStickY) :
                 new InControlJoystick(device.RightStickX, device.RightStickY);
@@ -214,4 +201,17 @@ namespace Zumo.InputHelper {
 			return device is UnityInputDevice && (device as UnityInputDevice).Profile.Name.Contains("XBox");
 		}
 	}
+
+    class FindControllerInputs {
+        public static IEnumerable<ControllerInput> call() {
+            var instances = new List<ControllerInput>(InputManager.Devices.Count * 2);
+
+            foreach (var device in InputManager.Devices) {
+                instances.Add(new ControllerInput(device, InputSide.Left));
+                instances.Add(new ControllerInput(device, InputSide.Right));
+            }
+
+            return instances;
+        }
+    }
 }
