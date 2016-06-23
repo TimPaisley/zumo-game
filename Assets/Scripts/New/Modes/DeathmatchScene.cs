@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Zumo {
-    class CharacterChoiceScene : MonoBehaviour {
+    class DeathmatchScene : MonoBehaviour {
         void Update() {
         }
     }

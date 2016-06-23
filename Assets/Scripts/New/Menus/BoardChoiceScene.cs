@@ -1,16 +1,8 @@
-﻿namespace Zumo {
-    class BoardChoiceScene : VirtualScene {
-        public VirtualScene nextScene;
+﻿using UnityEngine;
 
+namespace Zumo {
+    class BoardChoiceScene : MonoBehaviour {
         void Update() {
-        }
-
-        public override void Load() {
-            base.Load();
-        }
-
-        public override void Unload() {
-            base.Unload();
         }
     }
 }

@@ -3,13 +3,18 @@ using System.Linq;
 using UnityEngine;
 
 namespace Zumo {
-	class ReadyUpScene : VirtualScene {
-        [Header("Ready Up Scene")]
-		public VirtualScene nextScene;
+	class ReadyUpScene : MonoBehaviour {
+        public Camera sceneCamera;
 		public ReadyUpDevice baseDeviceView;
 
+        private GameManager gm;
+
+        void Awake() {
+            gm = FindObjectOfType<GameManager>();
+        }
+
 		void Start() {
-			Setup();
+            gm.cameraManager.Use(sceneCamera);
 
 			createControllers();
 		}
@@ -17,16 +22,8 @@ namespace Zumo {
 		void Update() {
 		}
 
-		public override void Load() {
-			base.Load();
-		}
-
-		public override void Unload() {
-			base.Unload();
-		}
-
 		private void createControllers() {
-			foreach (var players in gameManager.players.GroupBy(player => player.input)) {
+			foreach (var players in gm.players.GroupBy(player => player.input)) {
 				var controllerView = Instantiate(baseDeviceView);
 				controllerView.Setup(players);
 			}
