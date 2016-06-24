@@ -6,10 +6,6 @@ using Zumo.InputHelper;
 
 namespace Zumo {
 	class ReadyUpDevice : MonoBehaviour {
-		[Header("Controller types")]
-		public Sprite xboxController;
-		public Sprite keyboardController;
-
 		[Header("Child objects")]
 		public Text leftPlayerText;
 		public Text rightPlayerText;
@@ -26,8 +22,11 @@ namespace Zumo {
 
 		private Image image;
 
-		void Start() {
+		void Awake() {
 			image = GetComponent<Image>();
+
+            leftPlayerReady.gameObject.SetActive(false);
+            rightPlayerReady.gameObject.SetActive(false);
 		}
 
 		void Update() {
@@ -46,12 +45,15 @@ namespace Zumo {
 			}
 		}
 
+        public bool bothPlayersReady {
+            get { return leftPlayer.isReady && rightPlayer.isReady; }
+        }
+
 		public void Setup(IEnumerable<PlayerController> players) {
 			leftPlayer = players.First();
 			rightPlayer = players.Last();
 
 			setupPlayerText();
-			showControllerType(leftPlayer.input);
 		}
 
 		private void setupPlayerText() {
@@ -59,18 +61,6 @@ namespace Zumo {
 			leftPlayerText.color = leftPlayer.color;
 			rightPlayerText.text = rightPlayer.name;
 			rightPlayerText.color = rightPlayer.color;
-		}
-
-		private void showControllerType(InputMap input) {
-			if (input.inputType == InputType.XboxController) {
-				image.sprite = xboxController;
-				leftPlayerUnready.GetComponentInChildren<Text>().text = "LT";
-				rightPlayerUnready.GetComponentInChildren<Text>().text = "RT";
-			} else if (input.inputType == InputType.Keyboard) {
-				image.sprite = keyboardController;
-				leftPlayerUnready.GetComponentInChildren<Text>().text = "Space";
-				rightPlayerUnready.GetComponentInChildren<Text>().text = "RShift";
-			}
 		}
 	}
 }

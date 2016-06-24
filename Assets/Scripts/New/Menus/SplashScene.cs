@@ -10,6 +10,7 @@ namespace Zumo {
 
         void Awake() {
             gm = FindObjectOfType<GameManager>();
+            sceneCamera.gameObject.SetActive(false);
         }
 
         void Start() {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using InControl;
+using System.Linq;
 
 namespace Zumo.InputHelper {
 	enum InputType {
@@ -24,6 +25,8 @@ namespace Zumo.InputHelper {
 	}
 
 	interface InputMap {
+        int deviceIndex { get; }
+
 		InputStick joystick { get; }
 
 		InputButton dash { get; }
@@ -123,12 +126,14 @@ namespace Zumo.InputHelper {
 
 	class KeyboardInput : InputMap {
 		public KeyboardInput(InputSide side) {
+            deviceIndex = InputManager.Devices.Count;
+
 			joystick = side == InputSide.Left ?
                 new KeyboardAxes("Horizontal", "Vertical") :
                 new KeyboardAxes("Horizontal 2", "Vertical 2");
 
 			dash = side == InputSide.Left ?
-                new KeyboardKey(KeyCode.LeftShift) :
+                new KeyboardKey(KeyCode.Space) :
                 new KeyboardKey(KeyCode.RightShift);
 			ability = side == InputSide.Left ?
                 new KeyboardKey(KeyCode.Q) :
@@ -138,6 +143,8 @@ namespace Zumo.InputHelper {
 			back = new KeyboardKey(KeyCode.Backspace);
 			menu = new KeyboardKey(KeyCode.Escape);
 		}
+
+        public int deviceIndex { get; private set; }
 
 		public InputStick joystick { get; private set; }
 
@@ -164,14 +171,18 @@ namespace Zumo.InputHelper {
     }
 
 	class ControllerInput : InputMap {
-		public ControllerInput(InputDevice device, InputSide side) {
+		public ControllerInput(int index, InputSide side) {
+            var device = InputManager.Devices[index];
+
+            deviceIndex = index;
+
 			joystick = side == InputSide.Left ? 
                 new InControlJoystick(device.LeftStickX, device.LeftStickY) :
                 new InControlJoystick(device.RightStickX, device.RightStickY);
 
 			dash = side == InputSide.Left ?
-                new InControlButton(device.LeftBumper) :
-                new InControlButton(device.RightBumper);
+                new InControlButton(device.LeftTrigger) :
+                new InControlButton(device.RightTrigger);
 			ability = side == InputSide.Left ?
                 new InControlButton(device.LeftStickButton) :
                 new InControlButton(device.RightStickButton);
@@ -182,6 +193,8 @@ namespace Zumo.InputHelper {
 
 			inputType = isXboxController(device) ? InputType.XboxController : InputType.PSController;
 		}
+
+        public int deviceIndex { get; private set; }
 
 		public InputStick joystick { get; private set; }
 
@@ -206,9 +219,9 @@ namespace Zumo.InputHelper {
         public static IEnumerable<ControllerInput> call() {
             var instances = new List<ControllerInput>(InputManager.Devices.Count * 2);
 
-            foreach (var device in InputManager.Devices) {
-                instances.Add(new ControllerInput(device, InputSide.Left));
-                instances.Add(new ControllerInput(device, InputSide.Right));
+            foreach (var index in Enumerable.Range(0, InputManager.Devices.Count)) {
+                instances.Add(new ControllerInput(index, InputSide.Left));
+                instances.Add(new ControllerInput(index, InputSide.Right));
             }
 
             return instances;

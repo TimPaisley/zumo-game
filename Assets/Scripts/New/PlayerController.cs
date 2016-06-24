@@ -30,7 +30,7 @@ namespace Zumo {
 		}
 
 		public Color color {
-			get { return PLAYER_COLORS.ElementAtOrDefault(index); }
+			get { return index < PLAYER_COLORS.Length ? PLAYER_COLORS[index] : Color.black; }
 		}
 	}
 }
