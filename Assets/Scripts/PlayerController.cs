@@ -70,7 +70,13 @@ public class PlayerController : MonoBehaviour {
 				isAlive = false;
 				animal.Kill();
 			}
-		}
+		} else if (animal != null && !isAlive) {
+            var pantherAbility = animal.GetComponent<PantherAbility>();
+            if (pantherAbility != null && pantherAbility.isActive) {
+                pantherAbility.isActive = false;
+                pantherAbility.blackscreen.gameObject.SetActive(false);
+            }
+        }
 	}
 
     public void Setup (int index) {

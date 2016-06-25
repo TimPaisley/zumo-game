@@ -79,6 +79,12 @@ public class DeathmatchScene : VirtualScene {
         if (alivePlayers == 1) {
             var winningPlayer = players.First(player => player.isAlive);
 
+            var pantherAbility = winningPlayer.animal.GetComponent<PantherAbility>();
+            if (pantherAbility != null) {
+                pantherAbility.isActive = false;
+                pantherAbility.blackscreen.gameObject.SetActive(false);
+            }
+
 			pauseTitleText.text = winningPlayer.playerName + " Wins!";
 			pauseTitleText.color = winningPlayer.color;
 			pauseActionText.text = "Rematch";
@@ -102,8 +108,10 @@ public class DeathmatchScene : VirtualScene {
 
 				pauseMenu.gameObject.SetActive(false);
 			} else if (players.Any(player => player.input.backButton.WasPressed)) {
-				// Go to menu
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                // Go to menu
+                Time.timeScale = 1;
+                pauseSound.PlayOneShot(pauseSound.clip);
+                loadMenu();
 			}
 		} else if (players.Any(player => player.input.menuButton.WasPressed)) {
 			// Pause
@@ -212,6 +220,7 @@ public class DeathmatchScene : VirtualScene {
 
 		players = null;
 
+        musicManager.Play(musicManager.menuSong);
 		gameManager.readyUpScene.Prepare (null);
 		gameManager.readyUpScene.Activate ();
 		Deactivate ();

@@ -4,7 +4,7 @@ using System.Collections;
 public class PantherAbility : MonoBehaviour,AnimalAbility {
 
 	private bool isAvailable = true;
-	private bool isActive = false;
+	public bool isActive = false;
 	public float ticker = 5.0f;
 
 	private float originalPostion;
@@ -19,7 +19,7 @@ public class PantherAbility : MonoBehaviour,AnimalAbility {
 				isActive = false;
 				blackscreen.gameObject.SetActive (false);
 				print ("Disabled Panther ability");
-			} 
+			}
 		}
 	}
 

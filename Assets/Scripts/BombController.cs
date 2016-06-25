@@ -28,8 +28,7 @@ public class BombController : MonoBehaviour {
 
 		mr = GetComponentsInChildren<MeshRenderer> ();
 		rb = GetComponent<Rigidbody> ();
-
-
+        
 		for (int i = 0; i < mr.Length; i++) {
 			mr[i].enabled = false;
 		}
@@ -54,6 +53,7 @@ public class BombController : MonoBehaviour {
 		if (deployed) {
 			return;
 		}
+        deployed = true;
 
 		for (int i = 0; i < mr.Length; i++) {
 			mr[i].enabled = true;
@@ -100,6 +100,8 @@ public class BombController : MonoBehaviour {
 	}
 
 	public void Reset () {
+        deployed = false;
+
 		fuseEM.enabled = false;
 		fusePS.Stop ();
 		fusePS.Clear ();

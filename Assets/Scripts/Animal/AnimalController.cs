@@ -29,7 +29,7 @@ public class AnimalController : MonoBehaviour {
 	public float turnRate = 5.0f;
 	[Header("Other")]
 	public float knockBackDelay = 0.2f;
-	public float backLash = 1.0f;
+	private float backLash = 2.0f;
 	public AudioSource hitSound;
 	public AudioSource stopSound;
 	public AudioSource speedSound;
@@ -38,7 +38,7 @@ public class AnimalController : MonoBehaviour {
 
 	// Management Variables
 	private float baseMass;
-	private bool knockedBack;
+	public bool knockedBack;
 	private float knockBackTimer;
 	private int stationaryDelay = 0;
 	private int index = 0;
@@ -68,7 +68,7 @@ public class AnimalController : MonoBehaviour {
 		get { return maxSpeed * powerupController.speedMultiplier* elephantSpeedMultiplier; }
 	}
 	public float currentMass {
-		get { return baseMass * powerupController.massMultiplier * dashController.massMultiplier; }
+		get { return baseMass * powerupController.massMultiplier + dashController.massIncrease; }
 	}
 
 
@@ -168,10 +168,11 @@ public class AnimalController : MonoBehaviour {
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
 		
 			// Calculate vector away from collision object
-			Vector3 awayDir = (transform.position - otherAnimal.transform.position);
+			//Vector3 awayDir = (rb.velocity.normalized + otherAnimal.rb.velocity.normalized);
+            Vector3 awayDir = (transform.position - otherAnimal.transform.position);
 
-			// Calculate vector between direction and Y-axis (upwards)
-			Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
+            // Calculate vector between direction and Y-axis (upwards)
+            Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
 
 
 			float oppSpeed = Mathf.Max(otherAnimal.speed/2,5);
@@ -228,10 +229,13 @@ public class AnimalController : MonoBehaviour {
 	public void recoil(Vector3 otherAnimal,float oppSpeed){
 		//make other animal bounce back
 		rb.velocity = Vector3.zero;
-		Vector3 awayDir = (transform.position - otherAnimal);
-		Vector3 otherDir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
-		rb.AddForce(otherDir*oppSpeed*backLash* gm.bounceForce, ForceMode.Impulse);
-		knockedBack = true;
+        Vector3 awayDir = (transform.position - otherAnimal);
+        Vector3 otherDir = new Vector3(awayDir.x, 0.0f, awayDir.z).normalized + new Vector3(0, 1, 0);
+
+        //Vector3 otherDir = (-rb.velocity.normalized * backLash) + Vector3.up;
+
+        rb.AddForce(otherDir * oppSpeed * currentMass * gm.bounceForce, ForceMode.Impulse);
+        knockedBack = true;
 
 		Debug.Log ("upwardMomentum when hitting:"+(rb.velocity).y);
 		Debug.Log ("size of recoil: "+(otherDir*oppSpeed*backLash* gm.bounceForce).magnitude);

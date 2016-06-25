@@ -11,6 +11,8 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 	public Color[] colors;
 	private Animator animator;
 
+    public GameObject head;
+
 	void Start(){
 	    animator = GetComponent<Animator> ();
 	    //rb = this.GetComponent<Rigidbody>();
@@ -31,6 +33,10 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 				animal.disableControl = false;
 				animator.SetBool("usingAbility", false);
 
+                // Stop it being pushed back for a moment
+                animal.tigerAbility = true;
+                StartCoroutine(disableAbility());
+
 //				for (int i = 0; i < rend.materials.Length; i++) {
 //					rend.materials [i].color = colors [i];
 //				}
@@ -42,6 +48,12 @@ public class PandaAbility : MonoBehaviour, AnimalAbility {
 			return;
 		}
 	}
+
+    private IEnumerator disableAbility() {
+        yield return new WaitForSeconds(1);
+
+        animal.tigerAbility = false;
+    }
 
 	public void applyAbility (){
 		if (isAvailable) {

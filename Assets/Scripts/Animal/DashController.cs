@@ -10,7 +10,7 @@ public class DashController : MonoBehaviour {
 
 	public bool dashIsCharging { get; private set; }
 	public bool isDashing { get;  set; }
-	public float massMultiplier { get; private set; }
+	public float massIncrease { get; private set; }
 
 	public float currentDashCooldown {
 		get { return dashCooldown * powerupController.dashCooldownMultiplier; }
@@ -31,7 +31,7 @@ public class DashController : MonoBehaviour {
 	private ParticleSystem.EmissionModule dashEM;
 
 	void Awake() {
-		massMultiplier = 1;
+		massIncrease = 1;
 		dashSound = GetComponents<AudioSource>();
 		powerupController = GetComponent<PowerUpController>();
 		//set up hitSound
@@ -47,10 +47,10 @@ public class DashController : MonoBehaviour {
 			dashCharger += Time.deltaTime;
 			chargeSound.volume = (0.5f)*dashCharger;
 
-			if(dashCharger > 5.0&&charged==false){
+			if(dashCharger > 3.0&&charged==false){
 				chargeSound.Stop ();
 				charged=true;
-				dashCharger = 5;
+				dashCharger = 3.0f;
 
 			}
 		} else if (isDashing) {
@@ -96,7 +96,8 @@ public class DashController : MonoBehaviour {
 			dashPS.Play ();
 
 			dashIsCharging = false;
-			massMultiplier = Mathf.Max(dashCharger,1.0f);
+            dashCharger = Mathf.Floor(dashCharger);
+			massIncrease = Mathf.Max((dashCharger*0.5f)+1.5f,1.5f);
 			isDashing = true;
 			dashLengthRemaining = dashLength;
 			dashCharger = 0;
@@ -117,7 +118,7 @@ public class DashController : MonoBehaviour {
 		powerupController.displayDash(); //TODO differently
 
 		chargeSound.Stop ();
-		massMultiplier = 1;
+		massIncrease = 1;
 		dashLengthRemaining = 0;
 		dashCharger = 0;
 		dashCooldownRemaining = currentDashCooldown;

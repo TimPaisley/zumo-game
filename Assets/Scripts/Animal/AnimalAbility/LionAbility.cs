@@ -5,11 +5,13 @@ public class LionAbility : MonoBehaviour,AnimalAbility {
 
 	private AnimalController animal;
 	private bool isAvailable = true;
-	private float roarForce = 50.0f;
     private bool isActive = false;
+	public float roarForce = 100f;
     public float ticker = 1.0f;
     public ParticleSystem lionPS;
     private ParticleSystem.EmissionModule lionEM;
+
+    public AudioSource roarSound;
 
     void Start(){
 		animal = GetComponent<AnimalController>();
@@ -44,11 +46,14 @@ public class LionAbility : MonoBehaviour,AnimalAbility {
         lionPS.Simulate(0.0f, true, true);
         lionEM.enabled = true;
         lionPS.Play();
+        roarSound.Play();
         foreach (AnimalController a in animals) {
-			if (!a.lionAbility && !a.foxAbility) {
+			if (!a.pandaAbility && !a.foxAbility) {
+                a.rb.velocity = Vector3.zero;
 				Vector3 awayFromBomb = (a.transform.position - pos);
 				a.rb.AddForce ((awayFromBomb.normalized  + new Vector3(0,1,0)) * (pow / awayFromBomb.magnitude*1.5f), ForceMode.Impulse);
-				Debug.Log ((awayFromBomb.normalized  + new Vector3(0,1,0)) * (1 / awayFromBomb.magnitude));
+                a.knockedBack = true;
+                Debug.Log ((awayFromBomb.normalized  + new Vector3(0,1,0)) * (1 / awayFromBomb.magnitude));
 			}
 		}
        
