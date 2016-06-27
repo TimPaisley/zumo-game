@@ -14,6 +14,7 @@ TagManager:
   - Scatter Spawn
   - Scatter Object
   - Bomb
+  - outOfBounds
   layers:
   - Default
   - TransparentFX

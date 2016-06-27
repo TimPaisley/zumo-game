@@ -29,7 +29,7 @@ public class AnimalController : MonoBehaviour {
 	public float turnRate = 5.0f;
 	[Header("Other")]
 	public float knockBackDelay = 0.2f;
-	private float backLash = 2.0f;
+	private float backLash = 1.0f;
 	public AudioSource hitSound;
 	public AudioSource stopSound;
 	public AudioSource speedSound;
@@ -43,6 +43,7 @@ public class AnimalController : MonoBehaviour {
 	private int stationaryDelay = 0;
 	private int index = 0;
 	private bool fakeGrounded;
+    private bool inBounds = true;
 
 	// Raycast Variables
 	private RaycastHit hit;
@@ -76,10 +77,11 @@ public class AnimalController : MonoBehaviour {
 
 	public bool isInBounds {
 		get {
+            return inBounds;
 			// Check whether a raycast straight down hits the ground
-			var raycastHit = raycast(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
+			//var raycastHit = raycast(new Vector3 (transform.position.x, transform.position.y + 0.5f, transform.position.z), Vector3.down);
 
-			return raycastHit.HasValue && Tags.HasAnyTag(raycastHit.Value.collider.gameObject, Tags.BoardObjects);
+			//return raycastHit.HasValue && Tags.HasAnyTag(raycastHit.Value.collider.gameObject, Tags.BoardObjects);
 		}
 	}
 
@@ -103,8 +105,9 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void Update() {
-		// Make sure mass is kept up to date
-		if (pandaAbility) {
+
+        // Make sure mass is kept up to date
+        if (pandaAbility) {
 			//The panda's ability is implemented here because the current 
 			//implementation updates mass every frame
 			//TODO Move the ability out // might require to change how mass is handled
@@ -140,6 +143,9 @@ public class AnimalController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+        if (other.transform.tag=="outOfBounds") {
+            inBounds = false;
+        }
 		if(other.transform.tag == "Environment"){
 			fakeGrounded=true;
 		}
@@ -168,8 +174,8 @@ public class AnimalController : MonoBehaviour {
 			AnimalController otherAnimal = other.GetComponentInParent<AnimalController>();
 		
 			// Calculate vector away from collision object
-			//Vector3 awayDir = (rb.velocity.normalized + otherAnimal.rb.velocity.normalized);
-            Vector3 awayDir = (transform.position - otherAnimal.transform.position);
+			Vector3 awayDir = (rb.velocity.normalized + otherAnimal.rb.velocity.normalized);
+           // Vector3 awayDir = (transform.position - otherAnimal.transform.position);
 
             // Calculate vector between direction and Y-axis (upwards)
             Vector3 dir = new Vector3 (awayDir.x, 0.0f, awayDir.z).normalized + new Vector3 (0, 1, 0);
@@ -229,7 +235,7 @@ public class AnimalController : MonoBehaviour {
 	public void recoil(Vector3 otherAnimal,float oppSpeed){
 		//make other animal bounce back
 		rb.velocity = Vector3.zero;
-        Vector3 awayDir = (transform.position - otherAnimal);
+        Vector3 awayDir = -transform.forward;
         Vector3 otherDir = new Vector3(awayDir.x, 0.0f, awayDir.z).normalized + new Vector3(0, 1, 0);
 
         //Vector3 otherDir = (-rb.velocity.normalized * backLash) + Vector3.up;
@@ -262,8 +268,9 @@ public class AnimalController : MonoBehaviour {
 
 			RaycastHit centerRightHit;
 			Physics.Raycast(new Vector3 (transform.position.x + extents.x, transform.position.y + 0.5f, transform.position.z), Vector3.down, out centerRightHit);
+           // Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z+extents.z), -transform.forward);
 
-			RaycastHit topLeftHit;
+            RaycastHit topLeftHit;
 			Physics.Raycast(new Vector3 (transform.position.x - extents.x, transform.position.y + 0.5f, transform.position.z + extents.z), Vector3.down, out topLeftHit);
 
 			RaycastHit topRightHit;
@@ -275,8 +282,10 @@ public class AnimalController : MonoBehaviour {
 			RaycastHit bottomRightHit;
 			Physics.Raycast(new Vector3 (transform.position.x + extents.x, transform.position.y + 0.5f, transform.position.z - extents.z), Vector3.down, out bottomRightHit);
 
-			// return topLeftHit.HasValue && topLeftHit.Value.distance < 1.0f;
-
+            // return topLeftHit.HasValue && topLeftHit.Value.distance < 1.0f;
+           // if (centerRightHit.collider.tag == "Environment") {
+              //  return true;
+           // };
 			return 	(centerHit.distance < 1.0f || centerLeftHit.distance < 1.0f || centerRightHit.distance < 1.0f || topLeftHit.distance < 1.0f || topRightHit.distance < 1.0f || bottomLeftHit.distance < 1.0f || bottomRightHit.distance < 1.0f);
 		}
 	}

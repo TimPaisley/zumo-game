@@ -19,6 +19,7 @@ public class BombController : MonoBehaviour {
 	public AudioSource bombExplosion;
 
 	public float fuseTimer = 10.0f;
+    public float currentTimer;
 	public float bombPower = 200.0f;
 
 	private bool deployed = false;
@@ -61,6 +62,7 @@ public class BombController : MonoBehaviour {
 
 		rb.useGravity = true;
 		bombTick.Play ();
+        currentTimer = fuseTimer;
 		StartCoroutine (Countdown ());
 	}
 
@@ -69,9 +71,9 @@ public class BombController : MonoBehaviour {
 		fuseEM.enabled = true;
 		fusePS.Play ();
 
-		while (fuseTimer > 0) {
+		while (currentTimer > 0) {
 			yield return new WaitForSeconds (1);
-			fuseTimer--;
+			currentTimer--;
 		}
 
 		StartCoroutine(Detonate ());
@@ -95,9 +97,10 @@ public class BombController : MonoBehaviour {
 			mr[i].enabled = false;
 		}
 
-		yield return new WaitForSeconds (1);
+		
 		Reset ();
-	}
+        yield return new WaitForSeconds(0);
+    }
 
 	public void Reset () {
         deployed = false;
@@ -113,7 +116,6 @@ public class BombController : MonoBehaviour {
 		transform.eulerAngles = Vector3.zero;
 		rb.velocity = Vector3.zero;
 
-		fuseTimer = 10.0f;
 		rb.useGravity = false;
 
 		transform.position = originalPosition;
