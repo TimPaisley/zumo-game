@@ -143,32 +143,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 11444798, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: fuseTimer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11444798, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: bombPower
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410398, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: m_Mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410398, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: m_AngularDrag
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283938, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8283938, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
+    - target: {fileID: 19874398, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: moveWithTransform
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19874398, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
-      propertyPath: playOnAwake
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19954966, guid: e7a7ce14570f7e34ba737d0d86fb9777, type: 2}
+      propertyPath: m_RenderAlignment
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -247,18 +231,6 @@ Prefab:
       propertyPath: inGameScene
       value: 
       objectReference: {fileID: 1494158672}
-    - target: {fileID: 166684, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11488694, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: bounceForce
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493944, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
-      propertyPath: massMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e91461f055ad1c144b9e5ab87fbfeda1, type: 2}
   m_IsPrefabParent: 0
@@ -710,6 +682,30 @@ Prefab:
       propertyPath: lengthInSec
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8236190, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e0bc772df03fb43eebfa0193a180c5df, type: 3}
+    - target: {fileID: 8210570, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e2ec0540f7a2a4af98c6217d95f96c92, type: 3}
+    - target: {fileID: 8200126, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6fcc5b09e797e4dfc905082cdf0a0059, type: 3}
+    - target: {fileID: 8217330, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a01ff5ddfe2e64ab2abd8b04766bc9d0, type: 3}
+    - target: {fileID: 8244728, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b63add6c67519499ab00b21c37240a17, type: 3}
+    - target: {fileID: 8295412, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3161a65c2246b443f9cd9b9d5cddf519, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_IsPrefabParent: 0

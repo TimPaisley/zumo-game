@@ -1204,7 +1204,7 @@ GameObject:
   - 114: {fileID: 11420450}
   m_Layer: 0
   m_Name: Beach Wrapper
-  m_TagString: Untagged
+  m_TagString: Beach
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3183,7 +3183,7 @@ GameObject:
   - 114: {fileID: 11422478}
   m_Layer: 0
   m_Name: Desert Wrapper
-  m_TagString: Untagged
+  m_TagString: Desert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3871,7 +3871,7 @@ GameObject:
   - 114: {fileID: 11459034}
   m_Layer: 0
   m_Name: Savannah Wrapper
-  m_TagString: Untagged
+  m_TagString: Savannah
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

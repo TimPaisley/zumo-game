@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class GameManager : MonoBehaviour {
-	public float bombRadius = 10;
+	
 	public float bounceForce = 10.0f;
     public bool instantPlay = false;
 
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
         inGameScene.Prepare(players);
     }
 
-	public void ApplyBombForce (Vector3 pos, float pow) {
+	public void ApplyBombForce (Vector3 pos, float pow, float bombRadius) {
 		AnimalController[] animals = FindObjectsOfType<AnimalController> ();
 
 		foreach (AnimalController a in animals) {
@@ -58,8 +58,9 @@ public class GameManager : MonoBehaviour {
 				if (awayFromBomb.magnitude > bombRadius) {
 					continue;
 				}
-
+                a.rb.velocity = Vector3.zero;
                 a.rb.AddForce((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (pow / awayFromBomb.magnitude * 1.5f), ForceMode.Impulse);
+                a.knockedBack = true;
                 Debug.Log((awayFromBomb.normalized + new Vector3(0, 1, 0)) * (1 / awayFromBomb.magnitude));
             }
 		}

@@ -3,6 +3,9 @@ using System.Collections;
 
 public class MusicManager : MonoBehaviour {
     public AudioSource menuSong;
+    public AudioSource desertSong;
+    public AudioSource beachSong;
+    public AudioSource safariSong;
     public AudioSource gameSong;
     public AudioSource winSong;
 

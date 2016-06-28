@@ -15,6 +15,9 @@ TagManager:
   - Scatter Object
   - Bomb
   - outOfBounds
+  - Beach
+  - Desert
+  - Savannah
   layers:
   - Default
   - TransparentFX

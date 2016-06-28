@@ -158,11 +158,18 @@ public class DeathmatchScene : VirtualScene {
         base.Activate();
 
         musicManager.Stop();
-
+        Debug.Log(gameManager.currentBoard.name);
+        if (gameManager.currentBoard.tag == "Beach") { musicManager.Play(musicManager.beachSong); }
+        else if (gameManager.currentBoard.tag == "Desert") { musicManager.Play(musicManager.desertSong); }
+        else if (gameManager.currentBoard.tag == "Savannah") { musicManager.Play(musicManager.safariSong); }
+        else
+        {
+            musicManager.Play(musicManager.gameSong);
+        }
         StartCoroutine(DoCountdown());
     }
 
-    public IEnumerator DoCountdown () {
+    public IEnumerator DoCountdown() {
         for (var i = 0; i < countdownItems.Length - 1; i++) {
             countdownItems[i].SetActive(true);
             countdownNumberSound.PlayOneShot(countdownNumberSound.clip);
@@ -180,8 +187,6 @@ public class DeathmatchScene : VirtualScene {
         foreach (var indicator in playerIndicators) {
             indicator.gameStarted = true;
         }
-
-        musicManager.Play(musicManager.gameSong);
 
         yield return new WaitForSeconds(0.5f);
         countdownItems.Last().SetActive(false);

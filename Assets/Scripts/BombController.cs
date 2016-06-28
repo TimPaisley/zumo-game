@@ -21,8 +21,9 @@ public class BombController : MonoBehaviour {
 	public float fuseTimer = 10.0f;
     public float currentTimer;
 	public float bombPower = 200.0f;
+    public float bombRadius = 10;
 
-	private bool deployed = false;
+    private bool deployed = false;
 
 	void Start () {
 		gm = FindObjectOfType<GameManager> ();
@@ -91,7 +92,7 @@ public class BombController : MonoBehaviour {
 		bombTick.Stop ();
 		bombExplosion.Play ();
 
-		gm.ApplyBombForce (this.transform.position, bombPower);
+		gm.ApplyBombForce (this.transform.position, bombPower,bombRadius);
 
 		for (int i = 0; i < mr.Length; i++) {
 			mr[i].enabled = false;
