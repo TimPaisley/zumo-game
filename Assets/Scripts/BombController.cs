@@ -55,6 +55,8 @@ public class BombController : MonoBehaviour {
 		if (deployed) {
 			return;
 		}
+        rb.velocity = Vector3.zero;
+        transform.position = originalPosition;
         deployed = true;
 
 		for (int i = 0; i < mr.Length; i++) {
@@ -98,9 +100,9 @@ public class BombController : MonoBehaviour {
 			mr[i].enabled = false;
 		}
 
-		
-		Reset ();
         yield return new WaitForSeconds(0);
+        Reset ();
+        
     }
 
 	public void Reset () {
@@ -119,6 +121,6 @@ public class BombController : MonoBehaviour {
 
 		rb.useGravity = false;
 
-		transform.position = originalPosition;
+		
 	}
 }

@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 22371112}
   baseControllerView: {fileID: 11409404}
+  controllers: []
   basePlayerController: {fileID: 0}
   startIndicator: {fileID: 122294}
   gameManager: {fileID: 0}
@@ -935,6 +936,7 @@ Canvas:
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0

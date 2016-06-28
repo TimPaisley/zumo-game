@@ -3301,7 +3301,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4b582b40744d284badacff2ff25dfa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombRadius: 10
   bounceForce: 1.1
   instantPlay: 0
   splashScene: {fileID: 0}
