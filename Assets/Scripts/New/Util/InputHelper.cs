@@ -14,6 +14,8 @@ namespace Zumo.InputHelper {
 		float xAxis { get; }
 
 		float yAxis { get; }
+
+		Vector2 position { get; }
 	}
 
 	interface InputButton {
@@ -25,7 +27,7 @@ namespace Zumo.InputHelper {
 	}
 
 	interface InputMap {
-        int deviceIndex { get; }
+		int deviceIndex { get; }
 
 		InputStick joystick { get; }
 
@@ -57,6 +59,10 @@ namespace Zumo.InputHelper {
 
 		public float yAxis {
 			get { return Input.GetAxis(yAxisName); }
+		}
+
+		public Vector2 position {
+			get { return new Vector2(xAxis, yAxis); }
 		}
 	}
 
@@ -96,6 +102,10 @@ namespace Zumo.InputHelper {
 		public float yAxis {
 			get { return yAxisControl.Value; }
 		}
+
+		public Vector2 position {
+			get { return new Vector2(xAxis, yAxis); }
+		}
 	}
 
 	class InControlButton : InputButton {
@@ -126,7 +136,7 @@ namespace Zumo.InputHelper {
 
 	class KeyboardInput : InputMap {
 		public KeyboardInput(InputSide side) {
-            deviceIndex = InputManager.Devices.Count;
+			deviceIndex = InputManager.Devices.Count;
 
 			joystick = side == InputSide.Left ?
                 new KeyboardAxes("Horizontal", "Vertical") :
@@ -144,7 +154,7 @@ namespace Zumo.InputHelper {
 			menu = new KeyboardKey(KeyCode.Escape);
 		}
 
-        public int deviceIndex { get; private set; }
+		public int deviceIndex { get; private set; }
 
 		public InputStick joystick { get; private set; }
 
@@ -161,20 +171,20 @@ namespace Zumo.InputHelper {
 		public InputType inputType { get { return InputType.Keyboard; } }
 	}
 
-    class FindKeyboardInputs {
-        public static KeyboardInput[] call() {
-            return new KeyboardInput[] {
-                new KeyboardInput(InputSide.Left),
-                new KeyboardInput(InputSide.Right)
-            };
-        }
-    }
+	class FindKeyboardInputs {
+		public static KeyboardInput[] call () {
+			return new KeyboardInput[] {
+				new KeyboardInput(InputSide.Left),
+				new KeyboardInput(InputSide.Right)
+			};
+		}
+	}
 
 	class ControllerInput : InputMap {
 		public ControllerInput(int index, InputSide side) {
-            var device = InputManager.Devices[index];
+			var device = InputManager.Devices[index];
 
-            deviceIndex = index;
+			deviceIndex = index;
 
 			joystick = side == InputSide.Left ? 
                 new InControlJoystick(device.LeftStickX, device.LeftStickY) :
@@ -194,7 +204,7 @@ namespace Zumo.InputHelper {
 			inputType = isXboxController(device) ? InputType.XboxController : InputType.PSController;
 		}
 
-        public int deviceIndex { get; private set; }
+		public int deviceIndex { get; private set; }
 
 		public InputStick joystick { get; private set; }
 
@@ -210,21 +220,21 @@ namespace Zumo.InputHelper {
 
 		public InputType inputType { get; private set; }
 
-		private bool isXboxController(InputDevice device) {
+		private bool isXboxController (InputDevice device) {
 			return device is UnityInputDevice && (device as UnityInputDevice).Profile.Name.Contains("XBox");
 		}
 	}
 
-    class FindControllerInputs {
-        public static IEnumerable<ControllerInput> call() {
-            var instances = new List<ControllerInput>(InputManager.Devices.Count * 2);
+	class FindControllerInputs {
+		public static IEnumerable<ControllerInput> call () {
+			var instances = new List<ControllerInput>(InputManager.Devices.Count * 2);
 
-            foreach (var index in Enumerable.Range(0, InputManager.Devices.Count)) {
-                instances.Add(new ControllerInput(index, InputSide.Left));
-                instances.Add(new ControllerInput(index, InputSide.Right));
-            }
+			foreach (var index in Enumerable.Range(0, InputManager.Devices.Count)) {
+				instances.Add(new ControllerInput(index, InputSide.Left));
+				instances.Add(new ControllerInput(index, InputSide.Right));
+			}
 
-            return instances;
-        }
-    }
+			return instances;
+		}
+	}
 }
