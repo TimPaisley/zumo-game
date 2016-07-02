@@ -5,12 +5,9 @@ using UnityEngine.UI;
 namespace Zumo {
 	class ChooseableAnimal : MonoBehaviour {
 		public Image selectionIndicator;
-		public float animalOffset = 4.5f;
+		public Animal animal;
 
 		Vector2 basePosition;
-		GameObject animalMesh;
-
-		public AnimalController animal { get; private set; }
 
 		public PlayerController player { get; private set; }
 
@@ -19,19 +16,14 @@ namespace Zumo {
 		}
 
 		void Awake () {
-			ResetChoice();
-		}
+			DontDestroyOnLoad(animal.gameObject);
+			animal.gameObject.SetActive(false);
+			selectionIndicator.gameObject.SetActive(false);
 
-		public void Setup (AnimalController newAnimal, float angle) {
-			animal = newAnimal;
-			animalMesh = Instantiate(animal.mesh);
-
-			basePosition = new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
-
-			selectionIndicator.transform.RotateAround(selectionIndicator.transform.position, Vector3.forward, angle * Mathf.Rad2Deg);
-
-			animalMesh.transform.position = new Vector3(basePosition.y * animalOffset + 1, 0, basePosition.x * animalOffset);
-			animalMesh.transform.RotateAround(animalMesh.transform.position, Vector3.up, angle * Mathf.Rad2Deg + 90);
+			basePosition = new Vector2(
+				-Mathf.Sin(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad),
+				Mathf.Cos(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad)
+			);
 		}
 
 		public void Choose (PlayerController chosenPlayer) {

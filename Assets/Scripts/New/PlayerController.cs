@@ -17,7 +17,7 @@ namespace Zumo {
 
 		public bool isReady { get; set; }
 
-		public AnimalController chosenAnimal { get; set; }
+		public Animal chosenAnimal { get; set; }
 
 		public int index { get; private set; }
 

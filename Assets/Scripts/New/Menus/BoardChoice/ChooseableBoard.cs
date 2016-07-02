@@ -23,9 +23,6 @@ namespace Zumo {
 				Mathf.Cos(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad)
 			);
 
-			Debug.Log(gameObject.name + ": " + selectionIndicator.transform.localEulerAngles.z +
-				" => -sin " + basePosition.x + ", cos " + basePosition.y);
-
 			selectionIndicator.gameObject.SetActive(false);
 		}
 
