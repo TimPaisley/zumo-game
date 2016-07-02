@@ -4,35 +4,39 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 namespace Zumo {
-	class ChooseableBoard : MonoBehaviour {
+	class ChoosableBoard : MonoBehaviour {
 		public Image selectionIndicator;
 		public GameObject board;
 
 		Vector2 basePosition;
-		HashSet<PlayerController> playerVotes;
+		HashSet<Player> playerVotes;
 
 		public int votes {
 			get { return playerVotes.Count; }
 		}
 
 		void Awake () {
-			playerVotes = new HashSet<PlayerController>();
+			board.transform.SetParent(null);
+			DontDestroyOnLoad(board.gameObject);
+
+			board.gameObject.SetActive(false);
+			selectionIndicator.gameObject.SetActive(false);
+
+			playerVotes = new HashSet<Player>();
 
 			basePosition = new Vector2(
 				-Mathf.Sin(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad),
 				Mathf.Cos(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad)
 			);
-
-			selectionIndicator.gameObject.SetActive(false);
 		}
 
-		public void Vote (PlayerController player) {
+		public void Vote (Player player) {
 			playerVotes.Add(player);
 
 			selectionIndicator.gameObject.SetActive(true);
 		}
 
-		public void RemoveVote (PlayerController player) {
+		public void RemoveVote (Player player) {
 			playerVotes.Remove(player);
 
 			if (playerVotes.Count == 0) {
@@ -40,7 +44,7 @@ namespace Zumo {
 			}
 		}
 
-		public bool VotedBy (PlayerController player) {
+		public bool VotedBy (Player player) {
 			return playerVotes.Contains(player);
 		}
 

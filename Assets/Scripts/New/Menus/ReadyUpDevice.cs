@@ -17,8 +17,8 @@ namespace Zumo {
 		[Header("Audio")]
 		public AudioSource readyUpSound;
 
-		private PlayerController leftPlayer;
-		private PlayerController rightPlayer;
+		private Player leftPlayer;
+		private Player rightPlayer;
 
 		private Image image;
 
@@ -49,7 +49,7 @@ namespace Zumo {
             get { return leftPlayer.isReady && rightPlayer.isReady; }
         }
 
-		public void Setup(IEnumerable<PlayerController> players) {
+		public void Setup(IEnumerable<Player> players) {
 			leftPlayer = players.First();
 			rightPlayer = players.Last();
 

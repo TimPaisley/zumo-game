@@ -496,7 +496,7 @@ RectTransform:
   m_Children:
   - {fileID: 435709633}
   m_Father: {fileID: 540425757}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.19, y: -11.1}
@@ -1039,8 +1039,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -1.53}
   m_LocalScale: {x: -0.95, y: 0.95, z: 0.95}
   m_Children:
-  - {fileID: 1619356790}
   - {fileID: 240108481}
+  - {fileID: 1619356790}
   - {fileID: 607061212}
   - {fileID: 142879446}
   - {fileID: 2050308689}
@@ -2146,7 +2146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1309583879}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784be36f8eec5483399f4d236d293ab8, type: 3}
+  m_Script: {fileID: 11500000, guid: 96bdd4a6f62304ae8a3a9d0f549444ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneCamera: {fileID: 998183397}
@@ -2541,7 +2541,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 540425757}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 22450624, guid: da26ec66504ab412b9766f93709b3d3d, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da26ec66504ab412b9766f93709b3d3d, type: 2}
   m_IsPrefabParent: 0

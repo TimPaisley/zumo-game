@@ -1749,46 +1749,6 @@ Transform:
   - {fileID: 1767241414}
   m_Father: {fileID: 1854686612}
   m_RootOrder: 1
---- !u!1 &127512419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 127512421}
-  - 114: {fileID: 127512420}
-  m_Layer: 0
-  m_Name: Ready Up Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &127512420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 127512419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade09299fce71ec468679af2d933a4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneFilename: Ready Up
---- !u!4 &127512421
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 127512419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.643456, y: -34.95401, z: 4.1990824}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
 --- !u!1 &128970968
 GameObject:
   m_ObjectHideFlags: 0
@@ -10571,46 +10531,6 @@ Transform:
   - {fileID: 1822394051}
   m_Father: {fileID: 1479473124}
   m_RootOrder: 0
---- !u!1 &846169707
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 846169708}
-  - 114: {fileID: 846169709}
-  m_Layer: 0
-  m_Name: Splash Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &846169708
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 846169707}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!114 &846169709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 846169707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade09299fce71ec468679af2d933a4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneFilename: Splash Scene
 --- !u!1 &846233140
 GameObject:
   m_ObjectHideFlags: 0
@@ -11161,46 +11081,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!1 &888167178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 888167179}
-  - 114: {fileID: 888167180}
-  m_Layer: 0
-  m_Name: Board Choice Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &888167179
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 888167178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.643456, y: -34.95401, z: 4.1990824}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
---- !u!114 &888167180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 888167178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade09299fce71ec468679af2d933a4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneFilename: Board Choice
 --- !u!1 &891973527
 GameObject:
   m_ObjectHideFlags: 0
@@ -18709,46 +18589,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 469411173}
   m_RootOrder: 0
---- !u!1 &1515925891
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1515925893}
-  - 114: {fileID: 1515925892}
-  m_Layer: 0
-  m_Name: Character Choice Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1515925892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1515925891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade09299fce71ec468679af2d933a4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneFilename: Character Choice
---- !u!4 &1515925893
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1515925891}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.643456, y: -34.95401, z: 4.1990824}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &1529193567
 GameObject:
   m_ObjectHideFlags: 0
@@ -23708,46 +23548,6 @@ Transform:
   - {fileID: 1688753382}
   m_Father: {fileID: 133158251}
   m_RootOrder: 0
---- !u!1 &1889932486
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1889932488}
-  - 114: {fileID: 1889932487}
-  m_Layer: 0
-  m_Name: Deathmatch Loader
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1889932487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1889932486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade09299fce71ec468679af2d933a4a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneFilename: 
---- !u!4 &1889932488
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1889932486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -68.643456, y: -34.95401, z: 4.1990824}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
 --- !u!1 &1897977630
 GameObject:
   m_ObjectHideFlags: 0
@@ -24168,11 +23968,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f8549e3ff52c14b809b2ab270e9d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  splashScene: {fileID: 846169709}
-  readyUpScene: {fileID: 127512420}
-  characterChoiceScene: {fileID: 1515925892}
-  boardChoiceScene: {fileID: 888167180}
-  deathmatchScene: {fileID: 1889932487}
+  splashScene: Splash Screen
+  readyUpScene: Ready Up
+  animalChoiceScene: Animal Choice
+  boardChoiceScene: Board Choice
+  deathmatchScene: Deathmatch
 --- !u!4 &1904591303
 Transform:
   m_ObjectHideFlags: 0

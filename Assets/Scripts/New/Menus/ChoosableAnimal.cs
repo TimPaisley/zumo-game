@@ -1,22 +1,23 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Zumo {
-	class ChooseableAnimal : MonoBehaviour {
+	class ChoosableAnimal : MonoBehaviour {
 		public Image selectionIndicator;
 		public Animal animal;
 
 		Vector2 basePosition;
 
-		public PlayerController player { get; private set; }
+		public Player player { get; private set; }
 
 		public bool isChosen {
 			get { return player != null; }
 		}
 
 		void Awake () {
+			animal.transform.SetParent(null);
 			DontDestroyOnLoad(animal.gameObject);
+
 			animal.gameObject.SetActive(false);
 			selectionIndicator.gameObject.SetActive(false);
 
@@ -26,7 +27,7 @@ namespace Zumo {
 			);
 		}
 
-		public void Choose (PlayerController chosenPlayer) {
+		public void Choose (Player chosenPlayer) {
 			player = chosenPlayer;
 			player.chosenAnimal = animal;
 

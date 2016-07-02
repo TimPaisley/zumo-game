@@ -5,7 +5,7 @@ using UnityEngine;
 using Zumo.InputHelper;
 
 namespace Zumo {
-	class ReadyUpScene : MonoBehaviour {
+	class ReadyUp : MonoBehaviour {
         public Camera sceneCamera;
 
         [Header("Device Views")]
@@ -35,7 +35,7 @@ namespace Zumo {
 		void Update() {
             if (deviceViews.All(view => view.bothPlayersReady) &&
                     gm.readyPlayers.Any(player => player.input.confirm.isPressed)) {
-                gm.SwitchScene(gm.characterChoiceScene);
+                gm.SwitchScene(gm.animalChoiceScene);
             }
 		}
 

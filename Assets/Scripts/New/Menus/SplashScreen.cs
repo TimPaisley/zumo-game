@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 namespace Zumo {
-    class SplashScene : MonoBehaviour {
+    class SplashScreen : MonoBehaviour {
         public Camera sceneCamera;
 
-        private GameManager gm;
+        GameManager gm;
 
         void Awake() {
             gm = FindObjectOfType<GameManager>();
@@ -14,7 +13,6 @@ namespace Zumo {
         }
 
         void Start() {
-            gm.options.Reset();
             gm.cameraManager.Use(sceneCamera, 0);
         }
 

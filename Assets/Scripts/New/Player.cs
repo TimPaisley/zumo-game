@@ -3,12 +3,12 @@ using UnityEngine;
 using System.Linq;
 
 namespace Zumo {
-	class PlayerController {
-		private readonly Color[] PLAYER_COLORS = new Color[] {
+	class Player {
+		static readonly Color[] PLAYER_COLORS = {
 			ColorHelper.fromHex("#FFFFFF")
 		};
 
-		public PlayerController(int index, InputMap input) {
+		public Player(int index, InputMap input) {
 			this.index = index;
 			this.input = input;
 

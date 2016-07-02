@@ -1,20 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using UnityEngine;
 using System.Linq;
-using UnityEngine;
 
 namespace Zumo {
-	class CharacterChoiceScene : MonoBehaviour {
+    class BoardChoice : MonoBehaviour {
 		const float CHOICE_THRESHOLD = 0.7f;
 
 		public Camera sceneCamera;
 		public GameObject nextSceneText;
 
 		GameManager gm;
-		ChooseableAnimal[] chooseableAnimals;
+		ChoosableBoard[] choosableBoards;
 
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
-			chooseableAnimals = FindObjectsOfType<ChooseableAnimal>();
+			choosableBoards = FindObjectsOfType<ChoosableBoard>();
 
 			nextSceneText.gameObject.SetActive(false);
 			sceneCamera.gameObject.SetActive(false);
@@ -26,11 +25,11 @@ namespace Zumo {
 
 		void Update () {
 			foreach (var player in gm.readyPlayers) {
-				var desiredAnimal = findDesiredAnimal(player);
+				var desiredBoard = findDesiredBoard(player);
 
-				if (desiredAnimal != null && !desiredAnimal.isChosen) {
-					unchoose(player);
-					desiredAnimal.Choose(player);
+				if (desiredBoard != null && !desiredBoard.VotedBy(player)) {
+					unvote(player);
+					desiredBoard.Vote(player);
 				}
 			}
 
@@ -38,26 +37,26 @@ namespace Zumo {
 				nextSceneText.gameObject.SetActive(true);
 
 				if (gm.readyPlayers.Any(player => player.input.confirm.isPressed)) {
-					gm.SwitchScene(gm.boardChoiceScene);
+					gm.SwitchScene(gm.deathmatchScene);
 				}
 			}
 		}
 
-		ChooseableAnimal findDesiredAnimal (PlayerController player) {
+		ChoosableBoard findDesiredBoard (Player player) {
 			var inputPosition = player.input.joystick.position;
 
 			if (inputPosition.magnitude > CHOICE_THRESHOLD) {
-				return chooseableAnimals.OrderBy(chooser => chooser.DistanceFrom(inputPosition)).First();
+				return choosableBoards.OrderBy(chooser => chooser.DistanceFrom(inputPosition)).First();
 			}
 
 			return null;
 		}
 
-		void unchoose (PlayerController player) {
-			var existingChoice = chooseableAnimals.FirstOrDefault(animal => animal.player == player);
+		void unvote (Player player) {
+			var existingChoice = choosableBoards.FirstOrDefault(board => board.VotedBy(player));
 
 			if (existingChoice != null) {
-				existingChoice.ResetChoice();
+				existingChoice.RemoveVote(player);
 			}
 		}
 
@@ -66,7 +65,7 @@ namespace Zumo {
 		}
 
 		int chosenPlayerCount () {
-			return chooseableAnimals.Count(animal => animal.player != null);
+			return choosableBoards.Sum(board => board.votes);
 		}
-	}
+    }
 }

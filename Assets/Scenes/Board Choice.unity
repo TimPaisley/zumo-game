@@ -973,7 +973,7 @@ GameObject:
   - 4: {fileID: 115663104}
   - 114: {fileID: 115663105}
   m_Layer: 0
-  m_Name: Forest Preview
+  m_Name: Forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 115663103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f830d9dda2d4b4a16b96e1fbe10c352a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81586e94c54475aab951e32b6ab814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 1273510235}
@@ -1631,10 +1631,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1.080363, z: 1.080363}
   m_Children:
   - {fileID: 1352620302}
-  - {fileID: 1349809396}
-  - {fileID: 881314713}
-  - {fileID: 235525972}
   - {fileID: 1953627033}
+  - {fileID: 235525972}
+  - {fileID: 881314713}
+  - {fileID: 1349809396}
   m_Father: {fileID: 0}
   m_RootOrder: 4
 --- !u!1 &188895154
@@ -2074,7 +2074,7 @@ Transform:
   - {fileID: 567488443}
   - {fileID: 551413219}
   m_Father: {fileID: 182158195}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!114 &235525973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2504,7 +2504,7 @@ GameObject:
   - 4: {fileID: 261739918}
   - 114: {fileID: 261739919}
   m_Layer: 0
-  m_Name: Beach Preview
+  m_Name: Beach
   m_TagString: Beach
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2533,7 +2533,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 261739917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f830d9dda2d4b4a16b96e1fbe10c352a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81586e94c54475aab951e32b6ab814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 2139319770}
@@ -2959,7 +2959,7 @@ GameObject:
   - 4: {fileID: 288589849}
   - 114: {fileID: 288589850}
   m_Layer: 0
-  m_Name: Tundra Preview
+  m_Name: Tundra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2989,7 +2989,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 288589848}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f830d9dda2d4b4a16b96e1fbe10c352a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81586e94c54475aab951e32b6ab814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 1582668050}
@@ -5224,7 +5224,7 @@ GameObject:
   - 4: {fileID: 635267594}
   - 114: {fileID: 635267595}
   m_Layer: 0
-  m_Name: Desert Preview
+  m_Name: Desert
   m_TagString: Desert
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5254,7 +5254,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 635267593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f830d9dda2d4b4a16b96e1fbe10c352a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81586e94c54475aab951e32b6ab814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 43697881}
@@ -6833,7 +6833,7 @@ Transform:
   - {fileID: 375209132}
   - {fileID: 1637795380}
   m_Father: {fileID: 182158195}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &881314714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10120,7 +10120,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1301983412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25a2efa2633bf1646bc0b3e1ed280484, type: 3}
+  m_Script: {fileID: 11500000, guid: 236a50912105c4cb7a1a4ca290192e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneCamera: {fileID: 1289752817}
@@ -10578,7 +10578,7 @@ Transform:
   - {fileID: 401971988}
   - {fileID: 1840451293}
   m_Father: {fileID: 182158195}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!114 &1349809397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12977,7 +12977,7 @@ GameObject:
   - 4: {fileID: 1629689328}
   - 114: {fileID: 1629689329}
   m_Layer: 0
-  m_Name: Savannah Preview
+  m_Name: Savannah
   m_TagString: Savannah
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13006,7 +13006,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1629689327}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f830d9dda2d4b4a16b96e1fbe10c352a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f81586e94c54475aab951e32b6ab814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 520699363}
@@ -15529,7 +15529,7 @@ Transform:
   - {fileID: 1154554791}
   - {fileID: 957349439}
   m_Father: {fileID: 182158195}
-  m_RootOrder: 4
+  m_RootOrder: 1
 --- !u!114 &1953627034
 MonoBehaviour:
   m_ObjectHideFlags: 0
