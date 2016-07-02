@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Animal Choice.unity
   - enabled: 1
     path: Assets/Scenes/Board Choice.unity
+  - enabled: 1
+    path: Assets/Scenes/Deathmatch.unity

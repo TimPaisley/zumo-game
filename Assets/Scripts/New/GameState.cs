@@ -4,15 +4,15 @@ using System.Linq;
 namespace Zumo {
 	class GameState {
 		public Player[] players { get; private set; }
-		public Board chosenBoard;
+		public Board chosenBoard { get; set; }
 
-		Dictionary<Player, bool> playerReadyStates;
-		Dictionary<Player, Animal> playerAnimals;
+		Dictionary<Player, bool> playerReadyStates = new Dictionary<Player, bool>();
+		Dictionary<Player, Animal> playerAnimals = new Dictionary<Player, Animal>();
 
 		public GameState (Player[] allPlayers) {
 			players = allPlayers;
-			playerAnimals = new Dictionary<Player, Animal>();
-			playerReadyStates = new Dictionary<Player, bool>();
+
+			Reset();
 		}
 
 		public IEnumerable<Player> readyPlayers {
@@ -30,6 +30,11 @@ namespace Zumo {
 		public void Reset () {
 			playerReadyStates.Clear();
 			playerAnimals.Clear();
+
+			foreach (var player in players) {
+				playerAnimals.Add(player, null);
+				playerReadyStates.Add(player, false);
+			}
 
 			chosenBoard = null;
 		}

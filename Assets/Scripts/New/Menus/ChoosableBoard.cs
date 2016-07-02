@@ -6,13 +6,17 @@ using System.Collections.Generic;
 namespace Zumo {
 	class ChoosableBoard : MonoBehaviour {
 		public Image selectionIndicator;
-		public GameObject board;
+		public Board board;
 
 		Vector2 basePosition;
 		HashSet<Player> playerVotes;
 
 		public int votes {
 			get { return playerVotes.Count; }
+		}
+
+		public float indicatorAngle {
+			get { return selectionIndicator.transform.localEulerAngles.z; }
 		}
 
 		void Awake () {
@@ -25,8 +29,8 @@ namespace Zumo {
 			playerVotes = new HashSet<Player>();
 
 			basePosition = new Vector2(
-				-Mathf.Sin(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad),
-				Mathf.Cos(selectionIndicator.transform.localEulerAngles.z * Mathf.Deg2Rad)
+				-Mathf.Sin(indicatorAngle * Mathf.Deg2Rad),
+				Mathf.Cos(indicatorAngle * Mathf.Deg2Rad)
 			);
 		}
 

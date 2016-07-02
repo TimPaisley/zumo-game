@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Linq;
+using System.Collections;
 
 namespace Zumo {
     class BoardChoice : MonoBehaviour {
 		const float CHOICE_THRESHOLD = 0.7f;
 
 		public Camera sceneCamera;
+		public BoardChoiceSpinner choiceSpinner;
 		public GameObject nextSceneText;
 
 		GameManager gm;
 		ChoosableBoard[] choosableBoards;
+		Coroutine choosingBoard;
 
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
@@ -36,10 +39,29 @@ namespace Zumo {
 			if (allPlayersChosen()) {
 				nextSceneText.gameObject.SetActive(true);
 
-				if (gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
-					gm.SwitchScene(gm.deathmatchScene);
+				if (choosingBoard == null &&
+						gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
+					choosingBoard = StartCoroutine(chooseBoardAndContinue());
 				}
 			}
+		}
+
+		IEnumerator chooseBoardAndContinue () {
+			var chosenBoard = chooseBoard();
+			gm.state.chosenBoard = chosenBoard.board;
+
+			yield return choiceSpinner.SpinToBoard(chosenBoard);
+
+			choosingBoard = null;
+			gm.SwitchScene(gm.deathmatchScene);
+		}
+
+		ChoosableBoard chooseBoard () {
+			var luckyPlayer = gm.state.readyPlayers.ElementAt(
+				Random.Range(0, gm.state.readyPlayers.Count())
+			);
+
+			return choosableBoards.First(board => board.VotedBy(luckyPlayer));
 		}
 
 		ChoosableBoard findDesiredBoard (Player player) {
