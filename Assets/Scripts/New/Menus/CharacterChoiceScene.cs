@@ -6,17 +6,23 @@ namespace Zumo {
 	class CharacterChoiceScene : MonoBehaviour {
 		const float CHOICE_THRESHOLD = 0.7f;
 
+		public Camera sceneCamera;
 		public ChooseableAnimal baseChooseableAnimal;
 		public GameObject nextSceneText;
 
 		GameManager gm;
-		List<ChooseableAnimal> chosenAnimals = new List<ChooseableAnimal>();
+		List<ChooseableAnimal> chooseableAnimals = new List<ChooseableAnimal>();
 
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
 
 			nextSceneText.gameObject.SetActive(false);
 			baseChooseableAnimal.gameObject.SetActive(false);
+			sceneCamera.gameObject.SetActive(false);
+		}
+
+		void Start () {
+			gm.cameraManager.Use(sceneCamera);
 			setupChooseableAnimals();
 		}
 
@@ -45,7 +51,7 @@ namespace Zumo {
 			var angleIncrement = (Mathf.PI * 2) / animals.Length;
 
 			foreach (var animal in animals) {
-				chosenAnimals.Add(buildChooseableAnimal(animal, angle));
+				chooseableAnimals.Add(buildChooseableAnimal(animal, angle));
 				animal.gameObject.SetActive(false);
 
 				angle += angleIncrement;
@@ -66,15 +72,14 @@ namespace Zumo {
 			var inputPosition = player.input.joystick.position;
 
 			if (inputPosition.magnitude > CHOICE_THRESHOLD) {
-				Debug.Log("desired position: " + inputPosition);
-				return chosenAnimals.OrderBy(chooser => chooser.DistanceFrom(inputPosition)).First();
+				return chooseableAnimals.OrderBy(chooser => chooser.DistanceFrom(inputPosition)).First();
 			}
 
 			return null;
 		}
 
 		void unchoose (PlayerController player) {
-			var existingChoice = chosenAnimals.Find(animal => animal.player == player);
+			var existingChoice = chooseableAnimals.FirstOrDefault(animal => animal.player == player);
 
 			if (existingChoice != null) {
 				existingChoice.ResetChoice();
@@ -86,7 +91,7 @@ namespace Zumo {
 		}
 
 		int chosenPlayerCount () {
-			return chosenAnimals.Count(animal => animal.player != null);
+			return chooseableAnimals.Count(animal => animal.player != null);
 		}
 	}
 }

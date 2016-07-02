@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Ready Up.unity
   - enabled: 1
     path: Assets/Scenes/Character Choice.unity
+  - enabled: 1
+    path: Assets/Scenes/Board Choice.unity

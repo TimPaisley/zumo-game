@@ -15,8 +15,8 @@ namespace Zumo {
         public float baseY = -9.5f;
         public float yIncrement = -8f;
 
-        private GameManager gm;
-        private List<ReadyUpDevice> deviceViews = new List<ReadyUpDevice>();
+        GameManager gm;
+        List<ReadyUpDevice> deviceViews = new List<ReadyUpDevice>();
 
         void Awake() {
             gm = FindObjectOfType<GameManager>();
