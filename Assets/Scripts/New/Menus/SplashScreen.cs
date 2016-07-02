@@ -17,7 +17,7 @@ namespace Zumo {
         }
 
         void Update() {
-            if (gm.players.Any(player => player.input.confirm.isPressed)) {
+            if (gm.state.players.Any(player => player.input.confirm.isPressed)) {
                 gm.SwitchScene(gm.readyUpScene);
             }
         }

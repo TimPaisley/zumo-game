@@ -18,23 +18,20 @@ namespace Zumo {
 
         public CameraManager cameraManager { get; private set; }
         public MusicManager musicManager { get; private set; }
-        public Player[] players { get; private set; }
+        
+		public GameState state { get; private set; }
 
         string currentScene;
 
         void Awake() {
             cameraManager = FindObjectOfType<CameraManager>();
             musicManager = FindObjectOfType<MusicManager>();
-            players = findPlayers();
+			state = new GameState(findPlayers());
         }
 
         void Start() {
             // Pausing for a moment with a blank screen allows physics objects in the room to come to rest
             StartCoroutine(loadInitialScene());
-        }
-
-        public IEnumerable<Player> readyPlayers {
-            get { return players.Where(player => player.isReady); }
         }
 
 		public void SwitchScene(string name) {

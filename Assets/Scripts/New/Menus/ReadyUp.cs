@@ -34,7 +34,7 @@ namespace Zumo {
 
 		void Update() {
             if (deviceViews.All(view => view.bothPlayersReady) &&
-                    gm.readyPlayers.Any(player => player.input.confirm.isPressed)) {
+                    gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
                 gm.SwitchScene(gm.animalChoiceScene);
             }
 		}
@@ -42,7 +42,7 @@ namespace Zumo {
 		private void createDeviceViews() {
             var yOffset = baseY;
 
-			foreach (var players in gm.players.GroupBy(player => player.input.deviceIndex)) {
+			foreach (var players in gm.state.players.GroupBy(player => player.input.deviceIndex)) {
                 var deviceView = createDeviceView(players.First().input, yOffset);
 				deviceView.Setup(players);
                 deviceViews.Add(deviceView);

@@ -171,7 +171,7 @@ namespace Zumo.InputHelper {
 		public InputType inputType { get { return InputType.Keyboard; } }
 	}
 
-	class FindKeyboardInputs {
+	static class FindKeyboardInputs {
 		public static KeyboardInput[] call () {
 			return new KeyboardInput[] {
 				new KeyboardInput(InputSide.Left),
@@ -225,8 +225,8 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	class FindControllerInputs {
-		public static IEnumerable<ControllerInput> call () {
+	static class FindControllerInputs {
+		public static List<ControllerInput> call () {
 			var instances = new List<ControllerInput>(InputManager.Devices.Count * 2);
 
 			foreach (var index in Enumerable.Range(0, InputManager.Devices.Count)) {

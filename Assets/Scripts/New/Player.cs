@@ -11,13 +11,7 @@ namespace Zumo {
 		public Player(int index, InputMap input) {
 			this.index = index;
 			this.input = input;
-
-			isReady = false;
 		}
-
-		public bool isReady { get; set; }
-
-		public Animal chosenAnimal { get; set; }
 
 		public int index { get; private set; }
 

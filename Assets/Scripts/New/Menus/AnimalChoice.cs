@@ -25,7 +25,7 @@ namespace Zumo {
 		}
 
 		void Update () {
-			foreach (var player in gm.readyPlayers) {
+			foreach (var player in gm.state.readyPlayers) {
 				var desiredAnimal = findDesiredAnimal(player);
 
 				if (desiredAnimal != null && !desiredAnimal.isChosen) {
@@ -37,7 +37,7 @@ namespace Zumo {
 			if (allPlayersChosen()) {
 				nextSceneText.gameObject.SetActive(true);
 
-				if (gm.readyPlayers.Any(player => player.input.confirm.isPressed)) {
+				if (gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
 					gm.SwitchScene(gm.boardChoiceScene);
 				}
 			}
@@ -62,7 +62,7 @@ namespace Zumo {
 		}
 
 		bool allPlayersChosen () {
-			return chosenPlayerCount() == gm.readyPlayers.Count();
+			return chosenPlayerCount() == gm.state.readyPlayers.Count();
 		}
 
 		int chosenPlayerCount () {

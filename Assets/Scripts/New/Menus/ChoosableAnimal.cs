@@ -6,6 +6,7 @@ namespace Zumo {
 		public Image selectionIndicator;
 		public Animal animal;
 
+		GameState state;
 		Vector2 basePosition;
 
 		public Player player { get; private set; }
@@ -15,6 +16,8 @@ namespace Zumo {
 		}
 
 		void Awake () {
+			state = FindObjectOfType<GameManager>().state;
+
 			animal.transform.SetParent(null);
 			DontDestroyOnLoad(animal.gameObject);
 
@@ -29,7 +32,7 @@ namespace Zumo {
 
 		public void Choose (Player chosenPlayer) {
 			player = chosenPlayer;
-			player.chosenAnimal = animal;
+			state.ChooseAnimal(chosenPlayer, animal);
 
 			selectionIndicator.gameObject.SetActive(true);
 			selectionIndicator.color = player.color;

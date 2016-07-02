@@ -17,12 +17,14 @@ namespace Zumo {
 		[Header("Audio")]
 		public AudioSource readyUpSound;
 
-		private Player leftPlayer;
-		private Player rightPlayer;
+		GameState state;
+		Player leftPlayer;
+		Player rightPlayer;
 
-		private Image image;
+		Image image;
 
 		void Awake() {
+			state = FindObjectOfType<GameManager>().state;
 			image = GetComponent<Image>();
 
             leftPlayerReady.gameObject.SetActive(false);
@@ -30,15 +32,15 @@ namespace Zumo {
 		}
 
 		void Update() {
-			if (!leftPlayer.isReady && leftPlayer.input.dash.isPressed) {
-				leftPlayer.isReady = true;
+			if (!state.readyPlayers.Contains(leftPlayer) && leftPlayer.input.dash.isPressed) {
+				state.ReadyUp(leftPlayer);
 				leftPlayerUnready.gameObject.SetActive(false);
 				leftPlayerReady.gameObject.SetActive(true);
 				readyUpSound.Play();
 			}
 
-			if (!rightPlayer.isReady && rightPlayer.input.dash.isPressed) {
-				rightPlayer.isReady = true;
+			if (!state.readyPlayers.Contains(rightPlayer) && rightPlayer.input.dash.isPressed) {
+				state.ReadyUp(rightPlayer);
 				rightPlayerUnready.gameObject.SetActive(false);
 				rightPlayerReady.gameObject.SetActive(true);
 				readyUpSound.Play();
@@ -46,17 +48,13 @@ namespace Zumo {
 		}
 
         public bool bothPlayersReady {
-            get { return leftPlayer.isReady && rightPlayer.isReady; }
+			get { return state.readyPlayers.Contains(leftPlayer) && state.readyPlayers.Contains(rightPlayer); }
         }
 
 		public void Setup(IEnumerable<Player> players) {
 			leftPlayer = players.First();
 			rightPlayer = players.Last();
 
-			setupPlayerText();
-		}
-
-		private void setupPlayerText() {
 			leftPlayerText.text = leftPlayer.name;
 			leftPlayerText.color = leftPlayer.color;
 			rightPlayerText.text = rightPlayer.name;
