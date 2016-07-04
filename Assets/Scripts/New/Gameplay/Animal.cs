@@ -39,7 +39,7 @@ namespace Zumo {
 			get { return Physics.CheckBox(collider.center + (Vector3.up * 0.5f), collider.size / 2); }
 		}
 
-		bool isControllable { get { return isGrounded && !bouncer.knockedBack && !ability.disableControl; }}
+		bool isControllable { get { return isGrounded && !bouncer.knockedBack && !ability.disableControl && !pickups.disableControl; }}
 
 		bool canRotate { get { return isControllable && !dash.isDashing; } }
 
