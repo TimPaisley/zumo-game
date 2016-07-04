@@ -33,14 +33,14 @@ namespace Zumo {
 
 		void Update() {
 			if (!state.readyPlayers.Contains(leftPlayer) && leftPlayer.input.dash.isPressed) {
-				state.ReadyUp(leftPlayer);
+				state.readyPlayers.Add(leftPlayer);
 				leftPlayerUnready.gameObject.SetActive(false);
 				leftPlayerReady.gameObject.SetActive(true);
 				readyUpSound.Play();
 			}
 
 			if (!state.readyPlayers.Contains(rightPlayer) && rightPlayer.input.dash.isPressed) {
-				state.ReadyUp(rightPlayer);
+				state.readyPlayers.Add(rightPlayer);
 				rightPlayerUnready.gameObject.SetActive(false);
 				rightPlayerReady.gameObject.SetActive(true);
 				readyUpSound.Play();

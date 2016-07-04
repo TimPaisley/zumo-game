@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Zumo {
 	class Board : MonoBehaviour {
-		public GameObject mesh;
+		public Transform[] spawnPoints;
 	}
 }

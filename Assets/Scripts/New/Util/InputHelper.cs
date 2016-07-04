@@ -10,12 +10,20 @@ namespace Zumo.InputHelper {
 		Keyboard
 	}
 
-	interface InputStick {
-		float xAxis { get; }
+	abstract class InputStick {
+		public abstract float xAxis { get; }
 
-		float yAxis { get; }
+		public abstract float yAxis { get; }
 
-		Vector2 position { get; }
+		public abstract Vector2 position { get; }
+
+		public float magnitude {
+			get { return position.magnitude; }
+		}
+
+		public bool isPressed {
+			get { return !Mathf.Approximately(magnitude, 0); }
+		}
 	}
 
 	interface InputButton {
@@ -45,29 +53,29 @@ namespace Zumo.InputHelper {
 	}
 
 	class KeyboardAxes : InputStick {
-		private string xAxisName;
-		private string yAxisName;
+		string xAxisName;
+		string yAxisName;
 
 		public KeyboardAxes(string xAxisName, string yAxisName) {
 			this.xAxisName = xAxisName;
 			this.yAxisName = yAxisName;
 		}
 
-		public float xAxis {
+		public override float xAxis {
 			get { return Input.GetAxis(xAxisName); }
 		}
 
-		public float yAxis {
+		public override float yAxis {
 			get { return Input.GetAxis(yAxisName); }
 		}
 
-		public Vector2 position {
+		public override Vector2 position {
 			get { return new Vector2(xAxis, yAxis); }
 		}
 	}
 
 	class KeyboardKey : InputButton {
-		private KeyCode keyCode;
+		KeyCode keyCode;
 
 		public KeyboardKey(KeyCode keyCode) {
 			this.keyCode = keyCode;
@@ -87,29 +95,29 @@ namespace Zumo.InputHelper {
 	}
 
 	class InControlJoystick : InputStick {
-		private InputControl xAxisControl;
-		private InputControl yAxisControl;
+		InputControl xAxisControl;
+		InputControl yAxisControl;
 
 		public InControlJoystick(InputControl xAxisControl, InputControl yAxisControl) {
 			this.xAxisControl = xAxisControl;
 			this.yAxisControl = yAxisControl;
 		}
 
-		public float xAxis {
+		public override float xAxis {
 			get { return xAxisControl.Value; }
 		}
 
-		public float yAxis {
+		public override float yAxis {
 			get { return yAxisControl.Value; }
 		}
 
-		public Vector2 position {
+		public override Vector2 position {
 			get { return new Vector2(xAxis, yAxis); }
 		}
 	}
 
 	class InControlButton : InputButton {
-		private InputControl control;
+		InputControl control;
 
 		public InControlButton(InputControl control) {
 			this.control = control;
@@ -173,7 +181,7 @@ namespace Zumo.InputHelper {
 
 	static class FindKeyboardInputs {
 		public static KeyboardInput[] call () {
-			return new KeyboardInput[] {
+			return new [] {
 				new KeyboardInput(InputSide.Left),
 				new KeyboardInput(InputSide.Right)
 			};
@@ -220,7 +228,7 @@ namespace Zumo.InputHelper {
 
 		public InputType inputType { get; private set; }
 
-		private bool isXboxController (InputDevice device) {
+		static bool isXboxController (InputDevice device) {
 			return device is UnityInputDevice && (device as UnityInputDevice).Profile.Name.Contains("XBox");
 		}
 	}
