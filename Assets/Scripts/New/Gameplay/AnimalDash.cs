@@ -50,6 +50,10 @@ namespace Zumo {
 			massIncrease = 0;
 		}
 
+		public void StopIfDashing () {
+			if (isDashing) Stop();
+		}
+
 		public void StartDashCharging () {
 			stopCoroutines();
 			dashCharge = StartCoroutine(chargeDash());

@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 namespace Zumo {
     class GameManager : MonoBehaviour {
+		public float bounceForce = 1f;
+
         [Header("Menus")]
         public string splashScene;
         public string readyUpScene;

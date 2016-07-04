@@ -5,7 +5,6 @@ namespace Zumo {
 	class Animal : MonoBehaviour {
 		// Configuration
 
-		[Header("Animation")]
 		public float animationSpeedMultiplier = 0.1f;
 		public float minAnimationSpeed = 0.7f;
 
@@ -14,25 +13,26 @@ namespace Zumo {
 
 		// Local References
 
-		Rigidbody rigidBody;
+		public Rigidbody rigidBody { get; private set; }
+
 		BoxCollider collider;
 		Animator animator;
 		float baseMass;
 
-		public AnimalMovement movement { get; private set; }
-		public AnimalBouncing bouncer { get; private set; }
-		public AnimalDash dash { get; private set; }
-		public AnimalPickups pickups { get; private set; }
-		public AnimalAbility ability { get; private set; }
+		AnimalMovement movement;
+		AnimalBouncing bouncer;
+		AnimalDash dash;
+		AnimalPickups pickups;
+		AnimalAbility ability;
 
 		// State
 
-		InputMap input {
-			get { return player.input; }
-		}
-
 		float currentMass {
 			get { return baseMass + dash.massIncrease + ability.massIncrease; }
+		}
+
+		InputMap input {
+			get { return player.input; }
 		}
 
 		bool isGrounded {
@@ -58,6 +58,8 @@ namespace Zumo {
 		}
 
 		bool canBounceBack { get { return !bouncer.knockedBack; } }
+
+		bool shouldRecoil { get { return !ability.disableRecoil; }}
 
 		// Lifecycle
 
@@ -120,7 +122,9 @@ namespace Zumo {
 				var otherAnimal = other.GetComponentInParent<Animal>();
 
 				bouncer.BounceAwayFrom(otherAnimal);
-				otherAnimal.bouncer.RecoilFrom(this);
+				dash.StopIfDashing();
+
+				otherAnimal.RecoilFrom(this);
 			}
 		}
 
@@ -128,7 +132,14 @@ namespace Zumo {
 			var other = collision.gameObject;
 
 			if (other.CompareTag(Tags.Environment)) {
-				if (dash.isDashing) dash.Stop();
+				dash.StopIfDashing();
+			}
+		}
+
+		public void RecoilFrom (Animal other) {
+			if (shouldRecoil) {
+				bouncer.RecoilFrom(this);
+				dash.StopIfDashing();
 			}
 		}
 
@@ -145,6 +156,14 @@ namespace Zumo {
 
 		void kill () {
 			isAlive = false;
+			throwOutOfBounds();
+		}
+
+		void throwOutOfBounds() {
+			rigidBody.freezeRotation = false;
+			rigidBody.mass = 10;
+			rigidBody.AddForce(transform.position.normalized * 100 + Vector3.up * 200);
+			rigidBody.AddTorque(1000, 500, 1000);
 		}
 
 		RaycastHit? raycast(Vector3 origin, Vector3 direction) {

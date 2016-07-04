@@ -6,6 +6,8 @@ namespace Zumo {
 
 		public bool disableControl { get; protected set; }
 
+		public bool disableRecoil { get; protected set; }
+
 		public int massIncrease { get; protected set; }
 
 		public abstract void Perform ();
