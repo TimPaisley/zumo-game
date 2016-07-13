@@ -2,10 +2,9 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
-using Zumo.InputHelper;
 
 namespace Zumo {
-	class ReadyUpDevice : MonoBehaviour {
+	public class ReadyUpDevice : MonoBehaviour {
 		[Header("Child objects")]
 		public Text leftPlayerText;
 		public Text rightPlayerText;

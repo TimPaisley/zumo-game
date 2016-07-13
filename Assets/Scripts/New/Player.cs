@@ -1,9 +1,8 @@
 ﻿using Zumo.InputHelper;
 using UnityEngine;
-using System.Linq;
 
 namespace Zumo {
-	class Player {
+	public class Player {
 		static readonly Color[] PLAYER_COLORS = {
 			ColorHelper.fromHex("#FFFFFF")
 		};

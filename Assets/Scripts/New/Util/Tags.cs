@@ -1,5 +1,5 @@
 ﻿namespace Zumo {
-	static class Tags {
+	public static class Tags {
 		public const string OutOfBounds = "OutOfBounds";
 		public const string Pickup = "Pickup";
 		public const string AnimalHead = "AnimalHead";

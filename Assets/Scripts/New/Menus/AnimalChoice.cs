@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
 namespace Zumo {
-	class AnimalChoice : MonoBehaviour {
+	public class AnimalChoice : MonoBehaviour {
 		const float CHOICE_THRESHOLD = 0.7f;
 
 		public Camera sceneCamera;

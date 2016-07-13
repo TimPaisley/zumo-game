@@ -7,7 +7,7 @@ namespace Zumo {
         public AudioSource gameSong;
         public AudioSource winSong;
 
-        private AudioSource nowPlaying;
+        AudioSource nowPlaying;
 
         public void Play (AudioSource song) {
             Stop();

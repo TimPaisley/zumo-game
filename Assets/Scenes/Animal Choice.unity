@@ -95,7 +95,6 @@ GameObject:
   - 224: {fileID: 1071899}
   - 222: {fileID: 1071901}
   - 114: {fileID: 1071900}
-  - 114: {fileID: 1071902}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Untagged
@@ -153,19 +152,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1071898}
---- !u!114 &1071902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1071898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7694d7c97d5e34fca9b9e9adc9b7df12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionIndicator: {fileID: 1071900}
-  animal: {fileID: 0}
 --- !u!1 &2214598
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +576,11 @@ GameObject:
   - 54: {fileID: 26961926}
   - 65: {fileID: 26961923}
   - 114: {fileID: 26961918}
+  - 114: {fileID: 26961922}
+  - 114: {fileID: 26961921}
+  - 114: {fileID: 26961920}
+  - 114: {fileID: 26961919}
+  - 114: {fileID: 26961924}
   m_Layer: 0
   m_Name: Tiger
   m_TagString: Animal
@@ -625,6 +616,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7346437453f7141b4be6180c3396f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeedMultiplier: 0.1
+  minAnimationSpeed: 0.7
+--- !u!114 &26961919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26961916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2a743ca9d9b46e38fec9bedafff416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &26961920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26961916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f740c3aaa644353928d4a6efe48c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeDuration: 3
+  dashDuration: 0.5
+  cooldownDuration: 4
+  minSpeedIncrease: 0
+  maxSpeedIncrease: 0
+  minMassIncrease: 0
+  maxMassIncrease: 0
+--- !u!114 &26961921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26961916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &26961922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26961916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0
+  maxSpeed: 0
+  acceleration: 0
+  turnRate: 0
+  slowAngle: 0
+  turnDeceleration: 0
+  turnMinSpeed: 0
 --- !u!65 &26961923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -638,6 +689,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 3, z: 4.3}
   m_Center: {x: 0, y: 1.4, z: 0.15}
+--- !u!114 &26961924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26961916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26723d1fa54cd4491b76e1671f72e11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
 --- !u!54 &26961926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10434,6 +10497,11 @@ GameObject:
   - 54: {fileID: 409628506}
   - 65: {fileID: 409628499}
   - 114: {fileID: 409628498}
+  - 114: {fileID: 409628503}
+  - 114: {fileID: 409628502}
+  - 114: {fileID: 409628501}
+  - 114: {fileID: 409628500}
+  - 114: {fileID: 409628504}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Animal
@@ -10469,6 +10537,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7346437453f7141b4be6180c3396f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeedMultiplier: 0.1
+  minAnimationSpeed: 0.7
 --- !u!65 &409628499
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10481,6 +10551,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 3, z: 4.3}
   m_Center: {x: 0, y: 1.4, z: 0.15}
+--- !u!114 &409628500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409628496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2a743ca9d9b46e38fec9bedafff416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &409628501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409628496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f740c3aaa644353928d4a6efe48c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeDuration: 3
+  dashDuration: 0.5
+  cooldownDuration: 4
+  minSpeedIncrease: 0
+  maxSpeedIncrease: 0
+  minMassIncrease: 0
+  maxMassIncrease: 0
+--- !u!114 &409628502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409628496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &409628503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409628496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0
+  maxSpeed: 0
+  acceleration: 0
+  turnRate: 0
+  slowAngle: 0
+  turnDeceleration: 0
+  turnMinSpeed: 0
+--- !u!114 &409628504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409628496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b981dbe4baaa4640803194453c755c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &409628506
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12956,7 +13095,6 @@ GameObject:
   - 224: {fileID: 596237883}
   - 222: {fileID: 596237886}
   - 114: {fileID: 596237885}
-  - 114: {fileID: 596237884}
   m_Layer: 0
   m_Name: Tiger
   m_TagString: Untagged
@@ -12981,19 +13119,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.33000118}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: -0.000000063329935}
---- !u!114 &596237884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 596237882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7694d7c97d5e34fca9b9e9adc9b7df12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionIndicator: {fileID: 596237885}
-  animal: {fileID: 0}
 --- !u!114 &596237885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17402,7 +17527,12 @@ GameObject:
   - 4: {fileID: 684668296}
   - 54: {fileID: 684668298}
   - 65: {fileID: 684668297}
+  - 114: {fileID: 684668303}
+  - 114: {fileID: 684668302}
+  - 114: {fileID: 684668301}
+  - 114: {fileID: 684668300}
   - 114: {fileID: 684668299}
+  - 114: {fileID: 684668304}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -17461,9 +17591,81 @@ MonoBehaviour:
   m_GameObject: {fileID: 684668295}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2a743ca9d9b46e38fec9bedafff416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &684668300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684668295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f740c3aaa644353928d4a6efe48c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeDuration: 3
+  dashDuration: 0.5
+  cooldownDuration: 4
+  minSpeedIncrease: 0
+  maxSpeedIncrease: 0
+  minMassIncrease: 0
+  maxMassIncrease: 0
+--- !u!114 &684668301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684668295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &684668302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684668295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0
+  maxSpeed: 0
+  acceleration: 0
+  turnRate: 0
+  slowAngle: 0
+  turnDeceleration: 0
+  turnMinSpeed: 0
+--- !u!114 &684668303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684668295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7346437453f7141b4be6180c3396f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeedMultiplier: 0.1
+  minAnimationSpeed: 0.7
+--- !u!114 &684668304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684668295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86728d90b011c4985ae2d335f6ee9dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
 --- !u!1 &686183275
 GameObject:
   m_ObjectHideFlags: 0
@@ -19536,7 +19738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 888299921}
-  animal: {fileID: 684668299}
+  animal: {fileID: 684668303}
 --- !u!1 &834632913
 GameObject:
   m_ObjectHideFlags: 0
@@ -20367,7 +20569,6 @@ GameObject:
   - 224: {fileID: 888299919}
   - 222: {fileID: 888299922}
   - 114: {fileID: 888299921}
-  - 114: {fileID: 888299920}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -20392,19 +20593,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.3300012}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: -0.000000063329935}
---- !u!114 &888299920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 888299918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7694d7c97d5e34fca9b9e9adc9b7df12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionIndicator: {fileID: 888299921}
-  animal: {fileID: 0}
 --- !u!114 &888299921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20503,7 +20691,6 @@ GameObject:
   - 224: {fileID: 894715667}
   - 222: {fileID: 894715670}
   - 114: {fileID: 894715669}
-  - 114: {fileID: 894715668}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Untagged
@@ -20528,19 +20715,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.33000097}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: -0.000000063329935}
---- !u!114 &894715668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 894715666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7694d7c97d5e34fca9b9e9adc9b7df12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionIndicator: {fileID: 894715669}
-  animal: {fileID: 0}
 --- !u!114 &894715669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22211,6 +22385,11 @@ GameObject:
   - 54: {fileID: 905644342}
   - 65: {fileID: 905644341}
   - 114: {fileID: 905644343}
+  - 114: {fileID: 905644347}
+  - 114: {fileID: 905644346}
+  - 114: {fileID: 905644345}
+  - 114: {fileID: 905644344}
+  - 114: {fileID: 905644348}
   m_Layer: 0
   m_Name: Elephant
   m_TagString: Untagged
@@ -22273,6 +22452,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7346437453f7141b4be6180c3396f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeedMultiplier: 0.1
+  minAnimationSpeed: 0.7
+--- !u!114 &905644344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905644339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2a743ca9d9b46e38fec9bedafff416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &905644345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905644339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f740c3aaa644353928d4a6efe48c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeDuration: 3
+  dashDuration: 0.5
+  cooldownDuration: 4
+  minSpeedIncrease: 0
+  maxSpeedIncrease: 0
+  minMassIncrease: 0
+  maxMassIncrease: 0
+--- !u!114 &905644346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905644339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &905644347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905644339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0
+  maxSpeed: 0
+  acceleration: 0
+  turnRate: 0
+  slowAngle: 0
+  turnDeceleration: 0
+  turnMinSpeed: 0
+--- !u!114 &905644348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905644339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40c9de2647eaf4a0b92a517f51d211a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
 --- !u!1 &908543736
 GameObject:
   m_ObjectHideFlags: 0
@@ -28837,9 +29088,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1193753977}
-  - 65: {fileID: 1193753978}
   - 54: {fileID: 1193753979}
+  - 65: {fileID: 1193753978}
+  - 114: {fileID: 1193753984}
+  - 114: {fileID: 1193753983}
+  - 114: {fileID: 1193753982}
+  - 114: {fileID: 1193753981}
   - 114: {fileID: 1193753980}
+  - 114: {fileID: 1193753985}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Untagged
@@ -28898,9 +29154,81 @@ MonoBehaviour:
   m_GameObject: {fileID: 1193753976}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2a743ca9d9b46e38fec9bedafff416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1193753981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193753976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f740c3aaa644353928d4a6efe48c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeDuration: 3
+  dashDuration: 0.5
+  cooldownDuration: 4
+  minSpeedIncrease: 0
+  maxSpeedIncrease: 0
+  minMassIncrease: 0
+  maxMassIncrease: 0
+--- !u!114 &1193753982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193753976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1193753983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193753976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 3
+  maxSpeed: 8
+  acceleration: 0.5
+  turnRate: 45
+  slowAngle: 35
+  turnDeceleration: 0.5
+  turnMinSpeed: 3
+--- !u!114 &1193753984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193753976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7346437453f7141b4be6180c3396f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeedMultiplier: 0.1
+  minAnimationSpeed: 0.7
+--- !u!114 &1193753985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193753976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57085371b9dfb45fbb59f544828180b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
 --- !u!1 &1199174806
 GameObject:
   m_ObjectHideFlags: 0
@@ -35880,7 +36208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectionIndicator: {fileID: 1071900}
-  animal: {fileID: 1193753980}
+  animal: {fileID: 1193753984}
 --- !u!1 &1387130179
 GameObject:
   m_ObjectHideFlags: 0
@@ -41249,7 +41577,6 @@ GameObject:
   - 224: {fileID: 1712002419}
   - 222: {fileID: 1712002422}
   - 114: {fileID: 1712002421}
-  - 114: {fileID: 1712002420}
   m_Layer: 0
   m_Name: Elephant
   m_TagString: Untagged
@@ -41274,19 +41601,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.33000115}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: -0.000000063329935}
---- !u!114 &1712002420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1712002418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7694d7c97d5e34fca9b9e9adc9b7df12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionIndicator: {fileID: 1712002421}
-  animal: {fileID: 0}
 --- !u!114 &1712002421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45655,6 +45969,11 @@ GameObject:
   - 54: {fileID: 1791412520}
   - 65: {fileID: 1791412517}
   - 114: {fileID: 1791412512}
+  - 114: {fileID: 1791412516}
+  - 114: {fileID: 1791412515}
+  - 114: {fileID: 1791412514}
+  - 114: {fileID: 1791412513}
+  - 114: {fileID: 1791412518}
   m_Layer: 0
   m_Name: Panther
   m_TagString: Animal
@@ -45689,6 +46008,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7346437453f7141b4be6180c3396f8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSpeedMultiplier: 0.1
+  minAnimationSpeed: 0.7
+--- !u!114 &1791412513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791412510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2a743ca9d9b46e38fec9bedafff416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1791412514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791412510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f740c3aaa644353928d4a6efe48c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chargeDuration: 3
+  dashDuration: 0.5
+  cooldownDuration: 4
+  minSpeedIncrease: 0
+  maxSpeedIncrease: 0
+  minMassIncrease: 0
+  maxMassIncrease: 0
+--- !u!114 &1791412515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791412510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1791412516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791412510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0
+  maxSpeed: 0
+  acceleration: 0
+  turnRate: 0
+  slowAngle: 0
+  turnDeceleration: 0
+  turnMinSpeed: 0
 --- !u!65 &1791412517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45702,6 +46081,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4, y: 2.2, z: 3.8}
   m_Center: {x: 0, y: 1.1, z: 0.6}
+--- !u!114 &1791412518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791412510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bf11b808951472da61446587c9fa0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
 --- !u!54 &1791412520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -48029,7 +48420,6 @@ GameObject:
   - 224: {fileID: 1971211413}
   - 222: {fileID: 1971211416}
   - 114: {fileID: 1971211415}
-  - 114: {fileID: 1971211414}
   m_Layer: 0
   m_Name: Panther
   m_TagString: Untagged
@@ -48054,19 +48444,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.330001}
   m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: -0.000000063329935}
---- !u!114 &1971211414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1971211412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7694d7c97d5e34fca9b9e9adc9b7df12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectionIndicator: {fileID: 1971211415}
-  animal: {fileID: 0}
 --- !u!114 &1971211415
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Zumo {
-	class AnimalDash : MonoBehaviour {
+	public class AnimalDash : MonoBehaviour {
 		const float CHARGE_LEVELS = 3f;
 
 		// Configuration

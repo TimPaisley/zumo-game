@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 namespace Zumo {
-	class AnimalPickups : MonoBehaviour {
+	public class AnimalPickups : MonoBehaviour {
 		static Player timeStopper;
 
 		Animal animal;

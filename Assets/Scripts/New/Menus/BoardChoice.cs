@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections;
 
 namespace Zumo {
-    class BoardChoice : MonoBehaviour {
+    public class BoardChoice : MonoBehaviour {
 		const float CHOICE_THRESHOLD = 0.7f;
 
 		public Camera sceneCamera;

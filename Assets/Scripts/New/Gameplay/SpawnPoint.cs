@@ -1,9 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
 
-namespace AssemblyCSharp {
-	public class SpawnPoint {
-		public SpawnPoint() {
-		}
-	}
+namespace Zumo {
+	public class SpawnPoint : MonoBehaviour { }
 }
-

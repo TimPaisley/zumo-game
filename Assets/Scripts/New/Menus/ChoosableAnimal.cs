@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 namespace Zumo {
-	class ChoosableAnimal : MonoBehaviour {
+	public class ChoosableAnimal : MonoBehaviour {
 		public Image selectionIndicator;
 		public Animal animal;
 
@@ -19,9 +19,9 @@ namespace Zumo {
 			state = FindObjectOfType<GameManager>().state;
 
 			animal.transform.SetParent(null);
+			animal.gameObject.SetActive(false);
 			DontDestroyOnLoad(animal.gameObject);
 
-			animal.gameObject.SetActive(false);
 			selectionIndicator.gameObject.SetActive(false);
 
 			basePosition = new Vector2(

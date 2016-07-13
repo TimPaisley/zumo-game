@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 
 namespace Zumo {
-	enum PickupType {
+	public enum PickupType {
 		Speed,
 		Mass,
 		TimeStop,
 		Bomb
 	}
 
-	class Pickup : MonoBehaviour {
+	public class Pickup : MonoBehaviour {
 		public PickupType type;
 
 		[Header("Speed/Mass/TimeStop")]

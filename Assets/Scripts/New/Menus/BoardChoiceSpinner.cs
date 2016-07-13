@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine.UI;
 
 namespace Zumo {
-	class BoardChoiceSpinner : MonoBehaviour {
+	public class BoardChoiceSpinner : MonoBehaviour {
 		public RectTransform baseSpinner;
 
 		RectTransform[] spinners;

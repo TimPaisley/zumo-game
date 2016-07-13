@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Zumo {
-	class ColorHelper {
+	public static class ColorHelper {
 		public static Color fromHex(string hexColor) {
 			Color color = Color.black;
 			ColorUtility.TryParseHtmlString(hexColor, out color);

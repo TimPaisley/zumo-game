@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace Zumo {
-	class AnimalBouncing : MonoBehaviour {
+	public class AnimalBouncing : MonoBehaviour {
 		const float KNOCKBACK_TIMEOUT = 0.2f;
 
 		public bool isGrounded { get; private set; }

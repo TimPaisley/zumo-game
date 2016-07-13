@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Zumo {
-    class SplashScreen : MonoBehaviour {
+    public class SplashScreen : MonoBehaviour {
         public Camera sceneCamera;
 
         GameManager gm;

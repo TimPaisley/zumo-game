@@ -2,14 +2,13 @@
 using UnityEngine;
 
 namespace Zumo {
-    class CameraManager : MonoBehaviour {
-        [Header("Main Camera")]
+    public class CameraManager : MonoBehaviour {
         public Camera defaultCamera;
 
-        private Camera currentCamera;
+        Camera currentCamera;
 
-        private Coroutine currentMovement;
-        private Coroutine currentShake;
+        Coroutine currentMovement;
+        Coroutine currentShake;
 
         void Start () {
             defaultCamera.gameObject.SetActive(false);

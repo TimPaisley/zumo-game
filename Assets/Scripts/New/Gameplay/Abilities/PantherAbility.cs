@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Zumo {
-	class PantherAbility : AnimalAbility {
+	public class PantherAbility : AnimalAbility {
 		public float duration = 5f;
 
 		public override void Perform () {

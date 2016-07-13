@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Zumo {
-    class Deathmatch : MonoBehaviour {
+    public class Deathmatch : MonoBehaviour {
 		public Countdown countdown;
 
 		GameManager gm;
@@ -18,6 +18,8 @@ namespace Zumo {
 		}
 
 		void Start () {
+			Debug.Log("Starting deathmatch");
+
 			setupBoard();
 			setupPlayerAnimals();
 

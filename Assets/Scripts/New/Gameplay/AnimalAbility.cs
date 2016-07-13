@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Zumo {
-	abstract class AnimalAbility : MonoBehaviour {
+	public abstract class AnimalAbility : MonoBehaviour {
 		public bool canBePerformed { get; protected set; }
 
 		public bool disableControl { get; protected set; }

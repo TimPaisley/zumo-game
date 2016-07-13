@@ -4,13 +4,13 @@ using InControl;
 using System.Linq;
 
 namespace Zumo.InputHelper {
-	enum InputType {
+	public enum InputType {
 		PSController,
 		XboxController,
 		Keyboard
 	}
 
-	abstract class InputStick {
+	public abstract class InputStick {
 		public abstract float xAxis { get; }
 
 		public abstract float yAxis { get; }
@@ -26,7 +26,7 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	interface InputButton {
+	public interface InputButton {
 		bool isPressed { get; }
 
 		bool wasPressed { get; }
@@ -34,7 +34,7 @@ namespace Zumo.InputHelper {
 		bool wasReleased { get; }
 	}
 
-	interface InputMap {
+	public interface InputMap {
 		int deviceIndex { get; }
 
 		InputStick joystick { get; }
@@ -52,7 +52,7 @@ namespace Zumo.InputHelper {
 		InputType inputType { get; }
 	}
 
-	class KeyboardAxes : InputStick {
+	public class KeyboardAxes : InputStick {
 		string xAxisName;
 		string yAxisName;
 
@@ -74,7 +74,7 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	class KeyboardKey : InputButton {
+	public class KeyboardKey : InputButton {
 		KeyCode keyCode;
 
 		public KeyboardKey(KeyCode keyCode) {
@@ -94,7 +94,7 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	class InControlJoystick : InputStick {
+	public class InControlJoystick : InputStick {
 		InputControl xAxisControl;
 		InputControl yAxisControl;
 
@@ -116,7 +116,7 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	class InControlButton : InputButton {
+	public class InControlButton : InputButton {
 		InputControl control;
 
 		public InControlButton(InputControl control) {
@@ -136,13 +136,13 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	enum InputSide {
+	public enum InputSide {
 		Left,
 		Right
 
 	}
 
-	class KeyboardInput : InputMap {
+	public class KeyboardInput : InputMap {
 		public KeyboardInput(InputSide side) {
 			deviceIndex = InputManager.Devices.Count;
 
@@ -179,7 +179,7 @@ namespace Zumo.InputHelper {
 		public InputType inputType { get { return InputType.Keyboard; } }
 	}
 
-	static class FindKeyboardInputs {
+	public static class FindKeyboardInputs {
 		public static KeyboardInput[] call () {
 			return new [] {
 				new KeyboardInput(InputSide.Left),
@@ -188,7 +188,7 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	class ControllerInput : InputMap {
+	public class ControllerInput : InputMap {
 		public ControllerInput(int index, InputSide side) {
 			var device = InputManager.Devices[index];
 
@@ -233,7 +233,7 @@ namespace Zumo.InputHelper {
 		}
 	}
 
-	static class FindControllerInputs {
+	public static class FindControllerInputs {
 		public static List<ControllerInput> call () {
 			var instances = new List<ControllerInput>(InputManager.Devices.Count * 2);
 

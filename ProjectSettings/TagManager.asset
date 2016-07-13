@@ -7,14 +7,14 @@ TagManager:
   - Animal
   - Ground
   - Environment
-  - PowerUp
+  - Pickup
   - AnimalHead
   - Ghost
   - pusp
   - Scatter Spawn
   - Scatter Object
   - Bomb
-  - outOfBounds
+  - OutOfBounds
   - Beach
   - Desert
   - Savannah

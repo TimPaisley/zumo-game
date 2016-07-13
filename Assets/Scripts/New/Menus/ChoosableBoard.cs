@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
 namespace Zumo {
-	class ChoosableBoard : MonoBehaviour {
+	public class ChoosableBoard : MonoBehaviour {
 		public Image selectionIndicator;
 		public Board board;
 

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Zumo {
-	class FoxAbility : AnimalAbility {
+	public class FoxAbility : AnimalAbility {
 		public float duration = 5f;
 
 		bool disableCollisions;

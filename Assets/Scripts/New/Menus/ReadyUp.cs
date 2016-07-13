@@ -5,7 +5,7 @@ using UnityEngine;
 using Zumo.InputHelper;
 
 namespace Zumo {
-	class ReadyUp : MonoBehaviour {
+	public class ReadyUp : MonoBehaviour {
         public Camera sceneCamera;
 
         [Header("Device Views")]

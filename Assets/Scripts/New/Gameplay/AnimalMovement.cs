@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Zumo {
-	class AnimalMovement : MonoBehaviour {
+	public class AnimalMovement : MonoBehaviour {
 		[Header("Movement")]
 		public float minSpeed;
 		public float maxSpeed;
@@ -13,9 +13,9 @@ namespace Zumo {
 		public float turnDeceleration;
 		public float turnMinSpeed;
 
-		Rigidbody rigidBody;
-
 		public float currentSpeed { get; private set; }
+
+		Rigidbody rigidBody;
 
 		void Awake () {
 			rigidBody = GetComponent<Rigidbody>();

@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Zumo {
-	class GameState {
+	public class GameState {
 		public readonly Player[] players;
 		public readonly HashSet<Player> readyPlayers = new HashSet<Player>();
 		public readonly Dictionary<Player, Animal> chosenAnimals = new Dictionary<Player, Animal>();

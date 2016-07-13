@@ -2,7 +2,7 @@
 using Zumo.InputHelper;
 
 namespace Zumo {
-	class Animal : MonoBehaviour {
+	public class Animal : MonoBehaviour {
 		// Configuration
 
 		public float animationSpeedMultiplier = 0.1f;
@@ -15,7 +15,7 @@ namespace Zumo {
 
 		public Rigidbody rigidBody { get; private set; }
 
-		BoxCollider collider;
+		BoxCollider boxCollider;
 		Animator animator;
 		float baseMass;
 
@@ -36,7 +36,7 @@ namespace Zumo {
 		}
 
 		bool isGrounded {
-			get { return Physics.CheckBox(collider.center + (Vector3.up * 0.5f), collider.size / 2); }
+			get { return Physics.CheckBox(boxCollider.center + (Vector3.up * 0.5f), boxCollider.size / 2); }
 		}
 
 		bool isControllable { get { return isGrounded && !bouncer.knockedBack && !ability.disableControl && !pickups.disableControl; }}
@@ -65,7 +65,7 @@ namespace Zumo {
 
 		void Awake () {
 			rigidBody = GetComponent<Rigidbody>();
-			collider = GetComponent<BoxCollider>();
+			boxCollider = GetComponent<BoxCollider>();
 			animator = GetComponent<Animator>();
 
 			movement = GetComponent<AnimalMovement>();
