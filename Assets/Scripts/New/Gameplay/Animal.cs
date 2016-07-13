@@ -10,6 +10,7 @@ namespace Zumo {
 
 		public Player player { get; set; }
 		public bool isAlive { get; private set; }
+		public bool isActive { get; set; }
 
 		// Local References
 
@@ -36,22 +37,36 @@ namespace Zumo {
 		}
 
 		bool isGrounded {
-			get { return Physics.CheckBox(boxCollider.center + (Vector3.up * 0.5f), boxCollider.size / 2); }
+			get { return Physics.CheckBox(boxCollider.center + (Vector3.up * -0.5f), boxCollider.size / 2); }
 		}
 
-		bool isControllable { get { return isGrounded && !bouncer.knockedBack && !ability.disableControl && !pickups.disableControl; }}
+		bool isControllable {
+			get { return isGrounded && !bouncer.knockedBack && !ability.disableControl && !pickups.disableControl; }
+		}
 
-		bool canRotate { get { return isControllable && !dash.isDashing; } }
+		bool canRotate {
+			get { return isControllable && !dash.isDashing; }
+		}
 
-		bool wantsToRotate { get { return input.joystick.isPressed; } }
+		bool wantsToRotate {
+			get { return input.joystick.isPressed; }
+		}
 
-		bool canMove { get { return isControllable && !dash.isCharging; } }
+		bool canMove {
+			get { return isControllable && !dash.isCharging; }
+		}
 
-		bool wantsToMove { get { return dash.isDashing || input.joystick.isPressed; }}
+		bool wantsToMove {
+			get { return dash.isDashing || input.joystick.isPressed; }
+		}
 
-		bool canStartDashCharging { get { return isControllable && dash.isInactive; } }
+		bool canStartDashCharging {
+			get { return isControllable && dash.isInactive; }
+		}
 
-		bool canStartDashing { get { return dash.isCharging; } }
+		bool canStartDashing {
+			get { return dash.isCharging; }
+		}
 
 		bool canPerformAbility {
 			get { return isControllable && ability.canBePerformed && !dash.isCharging && !dash.isDashing; }
@@ -66,7 +81,7 @@ namespace Zumo {
 		void Awake () {
 			rigidBody = GetComponent<Rigidbody>();
 			boxCollider = GetComponent<BoxCollider>();
-			animator = GetComponent<Animator>();
+			animator = GetComponentInChildren<Animator>();
 
 			movement = GetComponent<AnimalMovement>();
 			bouncer = GetComponent<AnimalBouncing>();
@@ -75,10 +90,12 @@ namespace Zumo {
 			ability = GetComponent<AnimalAbility>();
 
 			baseMass = rigidBody.mass;
+
+			isAlive = true;
 		}
 
 		void Update () {
-			if (isAlive) {
+			if (isAlive && isActive) {
 				updateComponentState();
 
 				if (canRotate && wantsToRotate) {
@@ -86,8 +103,8 @@ namespace Zumo {
 				}
 
 				if (canMove && wantsToMove) {
-					var currentMinSpeed = movement.minSpeed + dash.speedIncrease;
-					var currentMaxSpeed = movement.maxSpeed + dash.speedIncrease;
+					var currentMinSpeed = movement.baseMinSpeed + dash.speedIncrease;
+					var currentMaxSpeed = movement.baseMaxSpeed + dash.speedIncrease;
 
 					if (!dash.isDashing) {
 						currentMaxSpeed *= Mathf.Clamp(input.joystick.magnitude, 0, 1);

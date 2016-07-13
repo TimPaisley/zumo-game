@@ -669,8 +669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
+  baseMinSpeed: 0
+  baseMaxSpeed: 0
   acceleration: 0
   turnRate: 0
   slowAngle: 0
@@ -2215,7 +2215,7 @@ Transform:
   m_PrefabParentObject: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152216297}
-  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
+  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
   m_LocalPosition: {x: -0.037475195, y: 6.661338e-18, z: -2.7755574e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10602,8 +10602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
+  baseMinSpeed: 0
+  baseMaxSpeed: 0
   acceleration: 0
   turnRate: 0
   slowAngle: 0
@@ -17634,13 +17634,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
-  acceleration: 0
-  turnRate: 0
-  slowAngle: 0
-  turnDeceleration: 0
-  turnMinSpeed: 0
+  baseMinSpeed: 5
+  baseMaxSpeed: 15
+  acceleration: 1
+  turnRate: 55
+  slowAngle: 45
+  turnDeceleration: 0.5
+  turnMinSpeed: 3
 --- !u!114 &684668303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22505,8 +22505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
+  baseMinSpeed: 0
+  baseMaxSpeed: 0
   acceleration: 0
   turnRate: 0
   slowAngle: 0
@@ -29197,8 +29197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 3
-  maxSpeed: 8
+  baseMinSpeed: 3
+  baseMaxSpeed: 10
   acceleration: 0.5
   turnRate: 45
   slowAngle: 35
@@ -39711,7 +39711,7 @@ Transform:
   m_PrefabParentObject: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1680573913}
-  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
+  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
   m_LocalPosition: {x: -0.037475195, y: 6.661338e-18, z: -2.7755574e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -46061,8 +46061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
+  baseMinSpeed: 0
+  baseMaxSpeed: 0
   acceleration: 0
   turnRate: 0
   slowAngle: 0
@@ -47049,7 +47049,7 @@ Transform:
   m_PrefabParentObject: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867034020}
-  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
+  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
   m_LocalPosition: {x: 0.002830171, y: -0.039852124, z: -0.0075525427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -49356,7 +49356,7 @@ Transform:
   m_PrefabParentObject: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2066412334}
-  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
+  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
   m_LocalPosition: {x: 0.002830171, y: -0.039852124, z: -0.0075525427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

@@ -5,9 +5,11 @@ using System.Linq;
 
 namespace Zumo {
     public class Deathmatch : MonoBehaviour {
-		public Countdown countdown;
+		public Camera sceneCamera;
 
 		GameManager gm;
+		Countdown countdown;
+
 		Board board;
 		List<Animal> playerAnimals = new List<Animal>();
 
@@ -15,10 +17,13 @@ namespace Zumo {
 
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
+			countdown = GetComponent<Countdown>();
+
+			sceneCamera.gameObject.SetActive(false);
 		}
 
 		void Start () {
-			Debug.Log("Starting deathmatch");
+			gm.cameraManager.Use(sceneCamera);
 
 			setupBoard();
 			setupPlayerAnimals();
@@ -49,14 +54,15 @@ namespace Zumo {
 			foreach (var player in gm.state.readyPlayers) {
 				var animal = Instantiate(gm.state.chosenAnimals[player]);
 
+				spawnPoints.MoveNext();
+
 				animal.player = player;
 				animal.transform.position = spawnPoints.Current.position;
 				animal.transform.rotation = spawnPoints.Current.rotation;
-				animal.enabled = false;
+				animal.isActive = false;
+				animal.gameObject.SetActive(true);
 
 				playerAnimals.Add(animal);
-
-				spawnPoints.MoveNext();
 			}
 		}
 
@@ -64,7 +70,7 @@ namespace Zumo {
 			yield return countdown.Play();
 
 			foreach (var animal in playerAnimals) {
-				animal.enabled = true;
+				animal.isActive = true;
 			}
 		}
 

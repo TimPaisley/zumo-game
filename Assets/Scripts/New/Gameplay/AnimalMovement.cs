@@ -3,8 +3,8 @@
 namespace Zumo {
 	public class AnimalMovement : MonoBehaviour {
 		[Header("Movement")]
-		public float minSpeed;
-		public float maxSpeed;
+		public float baseMinSpeed;
+		public float baseMaxSpeed;
 		public float acceleration;
 
 		[Header("Turning")]
@@ -19,6 +19,8 @@ namespace Zumo {
 
 		void Awake () {
 			rigidBody = GetComponent<Rigidbody>();
+
+			currentSpeed = baseMinSpeed;
 		}
 
 		public void Rotate (Vector3 desiredDirection) {
@@ -31,7 +33,7 @@ namespace Zumo {
 
 			// Decelerate if turning
 			if (Vector3.Angle(desiredDirection, transform.forward) > slowAngle && currentSpeed > turnMinSpeed) {
-				currentSpeed = Mathf.Clamp(currentSpeed - turnDeceleration, turnMinSpeed, maxSpeed);
+				currentSpeed = Mathf.Clamp(currentSpeed - turnDeceleration, turnMinSpeed, baseMaxSpeed);
 			}
 		}
 
@@ -49,7 +51,7 @@ namespace Zumo {
 
 		public void RemainStationary () {
 			// Progressively lower the starting speed
-			currentSpeed = Mathf.Clamp(currentSpeed - acceleration, minSpeed, maxSpeed);
+			currentSpeed = Mathf.Clamp(currentSpeed - acceleration, baseMinSpeed, baseMaxSpeed);
 		}
 	}
 }
