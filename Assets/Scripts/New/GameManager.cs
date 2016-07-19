@@ -25,18 +25,20 @@ namespace Zumo {
 
         string currentScene;
 
-        void Awake() {
+        void Awake () {
             cameraManager = FindObjectOfType<CameraManager>();
             musicManager = FindObjectOfType<MusicManager>();
 			state = new GameState(findPlayers());
         }
 
-        void Start() {
+        void Start () {
+            unloadDynamicScenes();
+
             // Pausing for a moment with a blank screen allows physics objects in the room to come to rest
             StartCoroutine(loadInitialScene());
         }
 
-		public void SwitchScene(string name) {
+		public void SwitchScene (string name) {
 			if (currentScene != null) {
 				SceneManager.UnloadScene(currentScene);
 			}
@@ -45,13 +47,23 @@ namespace Zumo {
 			SceneManager.LoadScene(currentScene, LoadSceneMode.Additive);
         }
 
-        IEnumerator loadInitialScene() {
+        void unloadDynamicScenes () {
+            var scenes = new[] {
+                splashScene, readyUpScene, animalChoiceScene, boardChoiceScene, deathmatchScene
+            };
+
+            foreach (var scene in scenes) {
+                SceneManager.UnloadScene(scene);
+            }
+        }
+
+        IEnumerator loadInitialScene () {
             yield return new WaitForSeconds(0.2f);
 
             SwitchScene(splashScene);
         }
 
-        Player[] findPlayers() {
+        Player[] findPlayers () {
             var playerIndex = 0;
             var controllerInputs = FindControllerInputs.call();
             var keyboardInputs = FindKeyboardInputs.call();

@@ -10,6 +10,10 @@ namespace Zumo {
         AudioSource nowPlaying;
 
         public void Play (AudioSource song) {
+            if (nowPlaying == song) {
+                return;
+            }
+
             Stop();
 
             nowPlaying = song;

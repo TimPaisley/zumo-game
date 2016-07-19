@@ -28,6 +28,7 @@ namespace Zumo {
 
 		void Start() {
             gm.cameraManager.Use(sceneCamera);
+            gm.musicManager.Play(gm.musicManager.menuSong);
 
 			createDeviceViews();
 		}
@@ -44,6 +45,7 @@ namespace Zumo {
 
 			foreach (var players in gm.state.players.GroupBy(player => player.input.deviceIndex)) {
                 var deviceView = createDeviceView(players.First().input, yOffset);
+
 				deviceView.Setup(players);
                 deviceViews.Add(deviceView);
 

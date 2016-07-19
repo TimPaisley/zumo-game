@@ -24,7 +24,8 @@ namespace Zumo {
 
 		void Start () {
 			gm.cameraManager.Use(sceneCamera);
-		}
+            gm.musicManager.Play(gm.musicManager.menuSong);
+        }
 
 		void Update () {
 			foreach (var player in gm.state.readyPlayers) {

@@ -39,11 +39,11 @@ namespace Zumo {
         }
 
         private IEnumerator moveCamera(Camera target, float duration) {
-            var targetPosition = target.transform.position;
-            var targetLocalEulerAngles = target.transform.localEulerAngles;
             var originalPosition = currentCamera.transform.position;
             var originalLocalEulerAngles = currentCamera.transform.localEulerAngles;
-
+            var targetPosition = target.transform.position;
+            var targetLocalEulerAngles = smallestAngleDifference(target.transform.localEulerAngles, originalLocalEulerAngles);
+            
             var elapsed = 0f;
 
             while (elapsed < duration) {
@@ -68,7 +68,7 @@ namespace Zumo {
             setCurrentCamera(target);
         }
 
-        private IEnumerator shakeCamera(float intensity, float period) {
+        IEnumerator shakeCamera(float intensity, float period) {
             var originalPosition = currentCamera.transform.position;
 
             while (true) {
@@ -82,11 +82,33 @@ namespace Zumo {
             }
         }
 
-        private void setCurrentCamera(Camera camera) {
+        void setCurrentCamera(Camera camera) {
             if (currentCamera) Destroy(currentCamera.gameObject);
 
             currentCamera = Instantiate(camera);
             currentCamera.gameObject.SetActive(true);
+        }
+
+        Vector3 smallestAngleDifference(Vector3 targetAngle, Vector3 originAngle) {
+            if (targetAngle.x - originAngle.x < -180) {
+                targetAngle.x += 360;
+            } else if (targetAngle.x - originAngle.x > 180) {
+                targetAngle.x -= 360;
+            }
+
+            if (targetAngle.y - originAngle.y < -180) {
+                targetAngle.y += 360;
+            } else if (targetAngle.y - originAngle.y > 180) {
+                targetAngle.y -= 360;
+            }
+
+            if (targetAngle.z - originAngle.z < -180) {
+                targetAngle.z += 360;
+            } else if (targetAngle.z - originAngle.z > 180) {
+                targetAngle.z -= 360;
+            }
+
+            return targetAngle;
         }
     }
 }

@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Zumo {
     public class Deathmatch : MonoBehaviour {
+        //TODO reposition the boards in the editor so this isn't necessary
+        static readonly Vector3 BOARD_OFFSET = new Vector3(0, 1f, 0);
+
 		public Camera sceneCamera;
 
 		GameManager gm;
@@ -24,8 +27,9 @@ namespace Zumo {
 
 		void Start () {
 			gm.cameraManager.Use(sceneCamera);
+            gm.musicManager.Play(gm.musicManager.gameSong);
 
-			setupBoard();
+            setupBoard();
 			setupPlayerAnimals();
 
 			StartCoroutine(playCountdownAndBegin());
@@ -44,7 +48,7 @@ namespace Zumo {
 
 		void setupBoard () {
 			board = Instantiate(gm.state.chosenBoard);
-			board.transform.position = Vector3.zero;
+			board.transform.position = Vector3.zero + BOARD_OFFSET;
 			board.gameObject.SetActive(true);
 		}
 
