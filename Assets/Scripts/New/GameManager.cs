@@ -32,7 +32,7 @@ namespace Zumo {
         }
 
         void Start () {
-            unloadDynamicScenes();
+            ensureCorrectSceneSetup();
 
             // Pausing for a moment with a blank screen allows physics objects in the room to come to rest
             StartCoroutine(loadInitialScene());
@@ -47,13 +47,13 @@ namespace Zumo {
 			SceneManager.LoadScene(currentScene, LoadSceneMode.Additive);
         }
 
-        void unloadDynamicScenes () {
-            var scenes = new[] {
-                splashScene, readyUpScene, animalChoiceScene, boardChoiceScene, deathmatchScene
-            };
+        void ensureCorrectSceneSetup () {
+            var persistentSceneName = gameObject.scene.name;
 
-            foreach (var scene in scenes) {
-                SceneManager.UnloadScene(scene);
+            for (var i = 0; i < SceneManager.sceneCount; i++) {
+                if (SceneManager.GetSceneAt(i).name != persistentSceneName) {
+                    SceneManager.UnloadScene(SceneManager.GetSceneAt(i).buildIndex);
+                }
             }
         }
 

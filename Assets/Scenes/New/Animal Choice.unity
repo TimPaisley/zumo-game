@@ -654,12 +654,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 0.5
+  dashDuration: 1
   cooldownDuration: 4
-  minSpeedIncrease: 0
-  maxSpeedIncrease: 0
-  minMassIncrease: 0
-  maxMassIncrease: 0
+  minSpeedIncrease: 10
+  maxSpeedIncrease: 20
+  minMassIncrease: 5
+  maxMassIncrease: 8
 --- !u!114 &26961921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,13 +682,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMinSpeed: 0
-  baseMaxSpeed: 0
-  acceleration: 0
-  turnRate: 0
-  slowAngle: 0
-  turnDeceleration: 0
-  turnMinSpeed: 0
+  baseMinSpeed: 4
+  baseMaxSpeed: 10
+  acceleration: 1
+  turnRate: 60
+  slowAngle: 65
+  turnDeceleration: 0.3
+  turnMinSpeed: 5
 --- !u!65 &26961923
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2280,7 +2280,7 @@ Transform:
   m_PrefabParentObject: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 152216297}
-  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
+  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
   m_LocalPosition: {x: -0.037475195, y: 6.661338e-18, z: -2.7755574e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10762,12 +10762,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 0.5
+  dashDuration: 1
   cooldownDuration: 4
-  minSpeedIncrease: 0
-  maxSpeedIncrease: 0
-  minMassIncrease: 0
-  maxMassIncrease: 0
+  minSpeedIncrease: 10
+  maxSpeedIncrease: 20
+  minMassIncrease: 5
+  maxMassIncrease: 8
 --- !u!114 &409628502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10790,13 +10790,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMinSpeed: 0
-  baseMaxSpeed: 0
-  acceleration: 0
-  turnRate: 0
-  slowAngle: 0
-  turnDeceleration: 0
-  turnMinSpeed: 0
+  baseMinSpeed: 3
+  baseMaxSpeed: 9
+  acceleration: 1
+  turnRate: 50
+  slowAngle: 60
+  turnDeceleration: 0.3
+  turnMinSpeed: 4
 --- !u!114 &409628504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17921,12 +17921,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 0.5
+  dashDuration: 1
   cooldownDuration: 4
-  minSpeedIncrease: 0
-  maxSpeedIncrease: 0
-  minMassIncrease: 0
-  maxMassIncrease: 0
+  minSpeedIncrease: 10
+  maxSpeedIncrease: 20
+  minMassIncrease: 5
+  maxMassIncrease: 8
 --- !u!114 &684668301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17952,8 +17952,8 @@ MonoBehaviour:
   baseMinSpeed: 5
   baseMaxSpeed: 15
   acceleration: 1
-  turnRate: 55
-  slowAngle: 45
+  turnRate: 70
+  slowAngle: 70
   turnDeceleration: 0.5
   turnMinSpeed: 3
 --- !u!114 &684668303
@@ -22902,12 +22902,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 0.5
+  dashDuration: 1
   cooldownDuration: 4
-  minSpeedIncrease: 0
-  maxSpeedIncrease: 0
-  minMassIncrease: 0
-  maxMassIncrease: 0
+  minSpeedIncrease: 10
+  maxSpeedIncrease: 20
+  minMassIncrease: 5
+  maxMassIncrease: 8
 --- !u!114 &905644346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22930,13 +22930,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMinSpeed: 0
-  baseMaxSpeed: 0
-  acceleration: 0
-  turnRate: 0
-  slowAngle: 0
-  turnDeceleration: 0
-  turnMinSpeed: 0
+  baseMinSpeed: 1
+  baseMaxSpeed: 4
+  acceleration: 1
+  turnRate: 50
+  slowAngle: 40
+  turnDeceleration: 0.2
+  turnMinSpeed: 2
 --- !u!114 &905644348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29713,12 +29713,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 0.5
+  dashDuration: 1
   cooldownDuration: 4
-  minSpeedIncrease: 0
-  maxSpeedIncrease: 0
-  minMassIncrease: 0
-  maxMassIncrease: 0
+  minSpeedIncrease: 10
+  maxSpeedIncrease: 20
+  minMassIncrease: 5
+  maxMassIncrease: 8
 --- !u!114 &1193753982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29742,9 +29742,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMinSpeed: 3
-  baseMaxSpeed: 10
+  baseMaxSpeed: 7
   acceleration: 0.5
-  turnRate: 45
+  turnRate: 55
   slowAngle: 35
   turnDeceleration: 0.5
   turnMinSpeed: 3
@@ -40447,7 +40447,7 @@ Transform:
   m_PrefabParentObject: {fileID: 407500, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1680573913}
-  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
+  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
   m_LocalPosition: {x: -0.037475195, y: 6.661338e-18, z: -2.7755574e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46825,12 +46825,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 0.5
+  dashDuration: 1
   cooldownDuration: 4
-  minSpeedIncrease: 0
-  maxSpeedIncrease: 0
-  minMassIncrease: 0
-  maxMassIncrease: 0
+  minSpeedIncrease: 10
+  maxSpeedIncrease: 20
+  minMassIncrease: 5
+  maxMassIncrease: 8
 --- !u!114 &1791412515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46853,13 +46853,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26481b9a535c414c94e962cd6c1fad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMinSpeed: 0
-  baseMaxSpeed: 0
-  acceleration: 0
-  turnRate: 0
-  slowAngle: 0
-  turnDeceleration: 0
-  turnMinSpeed: 0
+  baseMinSpeed: 4
+  baseMaxSpeed: 10
+  acceleration: 0.5
+  turnRate: 70
+  slowAngle: 70
+  turnDeceleration: 0.3
+  turnMinSpeed: 5
 --- !u!65 &1791412517
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47871,7 +47871,7 @@ Transform:
   m_PrefabParentObject: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1867034020}
-  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
+  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
   m_LocalPosition: {x: 0.002830171, y: -0.039852124, z: -0.0075525427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50255,7 +50255,7 @@ Transform:
   m_PrefabParentObject: {fileID: 401724, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2066412334}
-  m_LocalRotation: {x: -0.60286677, y: -0.26554087, z: 0.2763774, w: 0.6997538}
+  m_LocalRotation: {x: -0.6028667, y: -0.26554084, z: 0.27637738, w: 0.69975376}
   m_LocalPosition: {x: 0.002830171, y: -0.039852124, z: -0.0075525427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

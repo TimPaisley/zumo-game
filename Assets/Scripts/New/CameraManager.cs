@@ -21,7 +21,7 @@ namespace Zumo {
                 StopCoroutine(currentMovement);
             }
 
-            currentMovement = StartCoroutine(moveCamera(camera, animationDuration));
+            currentMovement = StartCoroutine(transitionToCamera(camera, animationDuration));
         }
 
         public void Shake (float intensity, float period = 1) {
@@ -38,7 +38,7 @@ namespace Zumo {
             }
         }
 
-        private IEnumerator moveCamera(Camera target, float duration) {
+        private IEnumerator transitionToCamera(Camera target, float duration) {
             var originalPosition = currentCamera.transform.position;
             var originalLocalEulerAngles = currentCamera.transform.localEulerAngles;
             var targetPosition = target.transform.position;

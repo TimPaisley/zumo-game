@@ -46,10 +46,6 @@ namespace Zumo {
 			}
 		}
 
-        public bool bothPlayersReady {
-			get { return state.readyPlayers.Contains(leftPlayer) && state.readyPlayers.Contains(rightPlayer); }
-        }
-
 		public void Setup(IEnumerable<Player> players) {
 			leftPlayer = players.First();
 			rightPlayer = players.Last();

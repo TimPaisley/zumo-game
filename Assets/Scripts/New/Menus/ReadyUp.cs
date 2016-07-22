@@ -6,6 +6,8 @@ using Zumo.InputHelper;
 
 namespace Zumo {
 	public class ReadyUp : MonoBehaviour {
+        const int MIN_PLAYERS = 2;
+
         public Camera sceneCamera;
 
         [Header("Device Views")]
@@ -34,7 +36,7 @@ namespace Zumo {
 		}
 
 		void Update() {
-            if (deviceViews.All(view => view.bothPlayersReady) &&
+            if (gm.state.readyPlayers.Count() >= MIN_PLAYERS &&
                     gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
                 gm.SwitchScene(gm.animalChoiceScene);
             }
