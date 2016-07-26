@@ -9,6 +9,7 @@ namespace Zumo {
         const int MIN_PLAYERS = 2;
 
         public Camera sceneCamera;
+        public GameObject nextSceneText;
 
         [Header("Device Views")]
 		public ReadyUpDevice psControllerView;
@@ -22,6 +23,7 @@ namespace Zumo {
 
         void Awake() {
             gm = FindObjectOfType<GameManager>();
+            nextSceneText.gameObject.SetActive(false);
             psControllerView.gameObject.SetActive(false);
             xboxControllerView.gameObject.SetActive(false);
             keyboardView.gameObject.SetActive(false);
@@ -36,9 +38,14 @@ namespace Zumo {
 		}
 
 		void Update() {
-            if (gm.state.readyPlayers.Count() >= MIN_PLAYERS &&
-                    gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
-                gm.SwitchScene(gm.animalChoiceScene);
+            var readyPlayerCount = gm.state.readyPlayers.Count();
+
+            if (readyPlayerCount >= MIN_PLAYERS) {
+                nextSceneText.gameObject.SetActive(true);
+
+                if (gm.state.readyPlayers.Any(player => player.input.confirm.isPressed)) {
+                    gm.SwitchScene(gm.animalChoiceScene);
+                }
             }
 		}
 

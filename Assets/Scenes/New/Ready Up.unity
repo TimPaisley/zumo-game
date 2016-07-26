@@ -2175,6 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneCamera: {fileID: 998183397}
+  nextSceneText: {fileID: 240108477}
   psControllerView: {fileID: 607061209}
   xboxControllerView: {fileID: 142879447}
   keyboardView: {fileID: 2050308690}

@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 namespace Zumo {
     public class GameManager : MonoBehaviour {
 		public float bounceForce = 1f;
+        public float blankScreenTime = 0.3f;
 
         [Header("Menus")]
         public string splashScene;
@@ -49,16 +50,23 @@ namespace Zumo {
 
         void ensureCorrectSceneSetup () {
             var persistentSceneName = gameObject.scene.name;
+            var scenesToUnload = new List<Scene>(SceneManager.sceneCount);
+
+            // Two-step process here because sceneCount changes when a scene is unloaded
 
             for (var i = 0; i < SceneManager.sceneCount; i++) {
                 if (SceneManager.GetSceneAt(i).name != persistentSceneName) {
-                    SceneManager.UnloadScene(SceneManager.GetSceneAt(i).buildIndex);
+                    scenesToUnload.Add(SceneManager.GetSceneAt(i));
                 }
+            }
+
+            foreach (var scene in scenesToUnload) {
+                SceneManager.UnloadScene(scene.buildIndex);
             }
         }
 
         IEnumerator loadInitialScene () {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(blankScreenTime);
 
             SwitchScene(splashScene);
         }
