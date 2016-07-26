@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 1
+  dashDuration: 0.5
   cooldownDuration: 4
   minSpeedIncrease: 10
   maxSpeedIncrease: 20
@@ -10762,7 +10762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 1
+  dashDuration: 0.5
   cooldownDuration: 4
   minSpeedIncrease: 10
   maxSpeedIncrease: 20
@@ -17921,7 +17921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 1
+  dashDuration: 0.5
   cooldownDuration: 4
   minSpeedIncrease: 10
   maxSpeedIncrease: 20
@@ -22902,7 +22902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 1
+  dashDuration: 0.5
   cooldownDuration: 4
   minSpeedIncrease: 10
   maxSpeedIncrease: 20
@@ -29713,7 +29713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 1
+  dashDuration: 0.5
   cooldownDuration: 4
   minSpeedIncrease: 10
   maxSpeedIncrease: 20
@@ -46825,7 +46825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargeDuration: 3
-  dashDuration: 1
+  dashDuration: 0.5
   cooldownDuration: 4
   minSpeedIncrease: 10
   maxSpeedIncrease: 20

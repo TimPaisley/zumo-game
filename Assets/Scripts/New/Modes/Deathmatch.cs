@@ -12,6 +12,7 @@ namespace Zumo {
 
 		GameManager gm;
 		Countdown countdown;
+        AudioSource introEffect;
 
 		Board board;
 		List<Animal> playerAnimals = new List<Animal>();
@@ -21,13 +22,14 @@ namespace Zumo {
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
 			countdown = GetComponent<Countdown>();
+            introEffect = gameObject.AddComponent<AudioSource>();
 
 			sceneCamera.gameObject.SetActive(false);
 		}
 
 		void Start () {
 			gm.cameraManager.Use(sceneCamera);
-            gm.musicManager.Play(gm.musicManager.gameSong);
+            gm.musicManager.Stop();
 
             setupBoard();
 			setupPlayerAnimals();
@@ -76,6 +78,11 @@ namespace Zumo {
 			foreach (var animal in playerAnimals) {
 				animal.isActive = true;
 			}
+
+            introEffect.PlayOneShot(board.intro);
+            yield return new WaitForSeconds(board.intro.length);
+
+            gm.musicManager.Play(board.music);
 		}
 
 		void showWinner (Animal winner) {

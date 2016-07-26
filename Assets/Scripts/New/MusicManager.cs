@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
 
 namespace Zumo {
+    [RequireComponent(typeof(AudioSource))]
     public class MusicManager : MonoBehaviour {
         [Header("Songs")]
-        public AudioSource menuSong;
-        public AudioSource gameSong;
-        public AudioSource winSong;
+        public AudioClip menuSong;
+        public AudioClip winSong;
 
         AudioSource nowPlaying;
 
-        public void Play (AudioSource song) {
-            if (nowPlaying == song) {
+        void Awake () {
+            nowPlaying = GetComponent<AudioSource>();
+        }
+
+        public void Play (AudioClip song) {
+            if (nowPlaying.clip == song) {
                 return;
             }
 
             Stop();
 
-            nowPlaying = song;
+            nowPlaying.clip = song;
             nowPlaying.Play();
         }
 
