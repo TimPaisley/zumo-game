@@ -79,11 +79,13 @@ namespace Zumo {
             var players = new Player[controllerInputs.Count() + keyboardInputs.Count()];
 
             foreach (var input in controllerInputs) {
-                players[playerIndex++] = new Player(playerIndex, input);
+                players[playerIndex] = new Player(playerIndex, input);
+                playerIndex++;
             }
 
             foreach (var input in keyboardInputs) {
-                players[playerIndex++] = new Player(playerIndex, input);
+                players[playerIndex] = new Player(playerIndex, input);
+                playerIndex++;
             }
 
             return players;

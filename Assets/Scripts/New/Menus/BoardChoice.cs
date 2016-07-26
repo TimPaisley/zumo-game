@@ -51,9 +51,17 @@ namespace Zumo {
 			var chosenBoard = chooseBoard();
 			gm.state.chosenBoard = chosenBoard.board;
 
+            foreach (var board in choosableBoards) {
+                board.HideSelectionIndicator();
+            }
+
 			yield return choiceSpinner.SpinToBoard(chosenBoard);
 
-			choosingBoard = null;
+            foreach (var board in choosableBoards) {
+                board.Reset();
+            }
+
+            choosingBoard = null;
 			gm.SwitchScene(gm.deathmatchScene);
 		}
 

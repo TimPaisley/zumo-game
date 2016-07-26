@@ -36,6 +36,10 @@ namespace Zumo {
 
 			selectionIndicator.gameObject.SetActive(true);
 			selectionIndicator.color = player.color;
+
+            var playerNameText = selectionIndicator.GetComponentInChildren<Text>();
+            playerNameText.text = player.shortName;
+            playerNameText.color = player.color;
 		}
 
 		public void ResetChoice () {
