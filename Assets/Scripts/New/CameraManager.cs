@@ -5,7 +5,7 @@ namespace Zumo {
     public class CameraManager : MonoBehaviour {
         public Camera defaultCamera;
 
-        Camera currentCamera;
+        public Camera currentCamera { get; private set; }
 
         Coroutine currentMovement;
         Coroutine currentShake;

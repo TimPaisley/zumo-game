@@ -9,10 +9,11 @@ namespace Zumo {
         static readonly Vector3 BOARD_OFFSET = new Vector3(0, 1f, 0);
 
 		public Camera sceneCamera;
+		public Countdown countdown;
+        public HUD hud;
 
 		GameManager gm;
-		Countdown countdown;
-        AudioSource introEffect;
+        AudioSource introPlayer;
 
 		Board board;
 		List<Animal> playerAnimals = new List<Animal>();
@@ -21,18 +22,17 @@ namespace Zumo {
 
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
-			countdown = GetComponent<Countdown>();
-            introEffect = gameObject.AddComponent<AudioSource>();
+            introPlayer = gameObject.AddComponent<AudioSource>();
 
 			sceneCamera.gameObject.SetActive(false);
 		}
 
 		void Start () {
-			gm.cameraManager.Use(sceneCamera);
             gm.musicManager.Stop();
 
             setupBoard();
 			setupPlayerAnimals();
+            hud.Setup(playerAnimals);
 
 			StartCoroutine(playCountdownAndBegin());
 		}
@@ -73,13 +73,16 @@ namespace Zumo {
 		}
 
 		IEnumerator playCountdownAndBegin () {
-			yield return countdown.Play();
+            gm.cameraManager.Use(sceneCamera, 1f);
+            yield return new WaitForSeconds(1f);
+
+            yield return countdown.Play();
 
 			foreach (var animal in playerAnimals) {
 				animal.isActive = true;
 			}
 
-            introEffect.PlayOneShot(board.intro);
+            introPlayer.PlayOneShot(board.intro);
             yield return new WaitForSeconds(board.intro.length);
 
             gm.musicManager.Play(board.music);

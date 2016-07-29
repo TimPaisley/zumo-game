@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Zumo {
 	public class GameState {
@@ -14,7 +15,11 @@ namespace Zumo {
 		}
 
 		public void ChooseAnimal (Player player, Animal animal) {
-			chosenAnimals[player] = animal;
+            if (chosenAnimals[player]) {
+                Object.Destroy(chosenAnimals[player]);
+            }
+
+			chosenAnimals[player] = Object.Instantiate(animal);
 		}
 
 		public void Reset () {
