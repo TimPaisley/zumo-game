@@ -663,6 +663,12 @@ MonoBehaviour:
   maxMassIncrease: 4
   chargeParticles: {fileID: 898521215}
   dashParticles: {fileID: 2089624586}
+  chargeSounds:
+  - {fileID: 8300000, guid: 02c3ff5c755e8b241ab45f32b63bee7b, type: 3}
+  - {fileID: 8300000, guid: f7321464344675e4387fbe4dba2fcdfc, type: 3}
+  - {fileID: 8300000, guid: 2fa355e033629c940b8ea0e90ae83bb4, type: 3}
+  dashAnimalSound: {fileID: 8300000, guid: a0c2611f89fc94ff38fd3c2bdcf5526d, type: 3}
+  dashBackgroundSound: {fileID: 8300000, guid: a50cd5f51f6b9de47af731ddb3bac244, type: 3}
 --- !u!114 &26961921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 30d1666e0638d41169e43dcf5daef865, type: 3}
 --- !u!114 &26961922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10921,6 +10928,12 @@ MonoBehaviour:
   maxMassIncrease: 4
   chargeParticles: {fileID: 1152894578}
   dashParticles: {fileID: 1735841607}
+  chargeSounds:
+  - {fileID: 8300000, guid: 02c3ff5c755e8b241ab45f32b63bee7b, type: 3}
+  - {fileID: 8300000, guid: f7321464344675e4387fbe4dba2fcdfc, type: 3}
+  - {fileID: 8300000, guid: 2fa355e033629c940b8ea0e90ae83bb4, type: 3}
+  dashAnimalSound: {fileID: 8300000, guid: ae23e81702fc143ecb0855c2fe5bc42e, type: 3}
+  dashBackgroundSound: {fileID: 8300000, guid: a50cd5f51f6b9de47af731ddb3bac244, type: 3}
 --- !u!114 &409628502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10932,6 +10945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 30d1666e0638d41169e43dcf5daef865, type: 3}
 --- !u!114 &409628503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18157,6 +18171,12 @@ MonoBehaviour:
   maxMassIncrease: 4
   chargeParticles: {fileID: 1706548295}
   dashParticles: {fileID: 664946779}
+  chargeSounds:
+  - {fileID: 8300000, guid: 02c3ff5c755e8b241ab45f32b63bee7b, type: 3}
+  - {fileID: 8300000, guid: f7321464344675e4387fbe4dba2fcdfc, type: 3}
+  - {fileID: 8300000, guid: 2fa355e033629c940b8ea0e90ae83bb4, type: 3}
+  dashAnimalSound: {fileID: 8300000, guid: 3eaccc4c363bbc342aa4e84ba27f6002, type: 3}
+  dashBackgroundSound: {fileID: 8300000, guid: a50cd5f51f6b9de47af731ddb3bac244, type: 3}
 --- !u!114 &684668301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18168,6 +18188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 30d1666e0638d41169e43dcf5daef865, type: 3}
 --- !u!114 &684668302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23216,6 +23237,12 @@ MonoBehaviour:
   maxMassIncrease: 4
   chargeParticles: {fileID: 156994653}
   dashParticles: {fileID: 628756553}
+  chargeSounds:
+  - {fileID: 8300000, guid: 02c3ff5c755e8b241ab45f32b63bee7b, type: 3}
+  - {fileID: 8300000, guid: f7321464344675e4387fbe4dba2fcdfc, type: 3}
+  - {fileID: 8300000, guid: 2fa355e033629c940b8ea0e90ae83bb4, type: 3}
+  dashAnimalSound: {fileID: 8300000, guid: 8e74edf8406774e0580a16e598d03452, type: 3}
+  dashBackgroundSound: {fileID: 8300000, guid: a50cd5f51f6b9de47af731ddb3bac244, type: 3}
 --- !u!114 &905644346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23227,6 +23254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 30d1666e0638d41169e43dcf5daef865, type: 3}
 --- !u!114 &905644347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30177,6 +30205,12 @@ MonoBehaviour:
   maxMassIncrease: 4
   chargeParticles: {fileID: 1319152292}
   dashParticles: {fileID: 1232520000}
+  chargeSounds:
+  - {fileID: 8300000, guid: 02c3ff5c755e8b241ab45f32b63bee7b, type: 3}
+  - {fileID: 8300000, guid: f7321464344675e4387fbe4dba2fcdfc, type: 3}
+  - {fileID: 8300000, guid: 2fa355e033629c940b8ea0e90ae83bb4, type: 3}
+  dashAnimalSound: {fileID: 8300000, guid: 85d5dece984bbbe4c9e87323a0dbd891, type: 3}
+  dashBackgroundSound: {fileID: 8300000, guid: a50cd5f51f6b9de47af731ddb3bac244, type: 3}
 --- !u!114 &1193753982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30188,6 +30222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 30d1666e0638d41169e43dcf5daef865, type: 3}
 --- !u!114 &1193753983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30401,7 +30436,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.980194, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 409628497}
   m_RootOrder: 1
@@ -47292,6 +47327,12 @@ MonoBehaviour:
   maxMassIncrease: 4
   chargeParticles: {fileID: 295931214}
   dashParticles: {fileID: 1740937169}
+  chargeSounds:
+  - {fileID: 8300000, guid: 02c3ff5c755e8b241ab45f32b63bee7b, type: 3}
+  - {fileID: 8300000, guid: f7321464344675e4387fbe4dba2fcdfc, type: 3}
+  - {fileID: 8300000, guid: 2fa355e033629c940b8ea0e90ae83bb4, type: 3}
+  dashAnimalSound: {fileID: 8300000, guid: d31dec2d4b9ac4894a85905e1ef92b66, type: 3}
+  dashBackgroundSound: {fileID: 8300000, guid: a50cd5f51f6b9de47af731ddb3bac244, type: 3}
 --- !u!114 &1791412515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47303,6 +47344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333b34ec5a4b645da93819db2bf147f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitSound: {fileID: 8300000, guid: 30d1666e0638d41169e43dcf5daef865, type: 3}
 --- !u!114 &1791412516
 MonoBehaviour:
   m_ObjectHideFlags: 0

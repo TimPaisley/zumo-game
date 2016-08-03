@@ -21,6 +21,9 @@ namespace Zumo {
         [Header("Effects")]
         public ParticleSystem chargeParticles;
         public ParticleSystem dashParticles;
+        public AudioClip[] chargeSounds;
+        public AudioClip dashAnimalSound;
+        public AudioClip dashBackgroundSound;
 
 		// Internal State
 
@@ -30,6 +33,9 @@ namespace Zumo {
 		Coroutine dashCharge;
 		Coroutine dash;
 		Coroutine dashCooldown;
+
+        InterestingAudioSource audio;
+        InterestingAudioSource backgroundAudio;
 
 		// Public State
 
@@ -50,6 +56,9 @@ namespace Zumo {
         void Awake () {
             stopParticles(chargeParticles);
             stopParticles(dashParticles);
+
+            audio = new InterestingAudioSource(gameObject);
+            backgroundAudio = new InterestingAudioSource(gameObject);
         }
 
 		// Actions
@@ -82,6 +91,7 @@ namespace Zumo {
             startParticles(chargeParticles);
 
 			for (var i = 0; i < CHARGE_LEVELS; i++) {
+                audio.PlayOnce(chargeSounds[i]);
 				yield return new WaitForSeconds(chargeDuration / CHARGE_LEVELS);
 
 				chargedMassIncrease += (maxMassIncrease - minMassIncrease) / CHARGE_LEVELS;
@@ -96,6 +106,8 @@ namespace Zumo {
 			massIncrease = chargedMassIncrease;
 
             startParticles(dashParticles);
+            audio.PlayOnce(dashAnimalSound);
+            backgroundAudio.PlayOnce(dashBackgroundSound);
 
 			yield return new WaitForSeconds(dashDuration);
 

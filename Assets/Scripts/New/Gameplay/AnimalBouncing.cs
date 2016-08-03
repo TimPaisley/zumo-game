@@ -5,20 +5,25 @@ namespace Zumo {
 	public class AnimalBouncing : MonoBehaviour {
 		const float KNOCKBACK_TIMEOUT = 0.2f;
 
+        public AudioClip hitSound;
+
 		public bool isGrounded { get; private set; }
 		public bool knockedBack { get; private set; }
 
 		GameManager gm;
 		Rigidbody rigidBody;
 		Coroutine knockbackTimer;
+        InterestingAudioSource audio;
 
 		void Awake () {
 			gm = FindObjectOfType<GameManager>();
 			rigidBody = GetComponent<Rigidbody>();
+            audio = new InterestingAudioSource(gameObject);
 		}
 
 		public void BounceAwayFrom (Animal other) {
 			bounceOff(other, other.rigidBody.velocity.normalized);
+            audio.PlayOnce(hitSound);
 		}
 
 		public void RecoilFrom (Animal other) {
