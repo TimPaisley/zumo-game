@@ -29,8 +29,16 @@ namespace Zumo {
 		// State
 
 		float currentMass {
-			get { return baseMass + dash.massIncrease + ability.massIncrease; }
+			get { return baseMass + dash.massIncrease + pickups.massIncrease + ability.massIncrease; }
 		}
+
+        float currentMinSpeed {
+            get { return movement.baseMinSpeed + dash.speedIncrease + pickups.speedIncrease; }
+        }
+
+        float currentMaxSpeed {
+            get { return movement.baseMaxSpeed + dash.speedIncrease + pickups.speedIncrease; }
+        }
 
 		InputMap input {
 			get { return player.input; }
@@ -103,14 +111,9 @@ namespace Zumo {
 				}
 
 				if (canMove && wantsToMove) {
-					var currentMinSpeed = movement.baseMinSpeed + dash.speedIncrease;
-					var currentMaxSpeed = movement.baseMaxSpeed + dash.speedIncrease;
-
-					if (!dash.isDashing) {
-						currentMaxSpeed *= Mathf.Clamp(input.joystick.magnitude, 0, 1);
-					}
-
-					movement.Move(currentMinSpeed, currentMaxSpeed);
+					var actualMaxSpeed = dash.isDashing ? currentMaxSpeed : currentMaxSpeed * Mathf.Clamp(input.joystick.magnitude, 0, 1);
+                    
+                    movement.Move(currentMinSpeed, actualMaxSpeed);
 				} else {
 					movement.RemainStationary();
 				}
@@ -134,7 +137,6 @@ namespace Zumo {
 				kill();
 			} else if (other.CompareTag(Tags.Pickup)) {
 				pickups.PickUp(other.GetComponent<Pickup>());
-				Destroy(other.gameObject);
 			} else if (other.CompareTag(Tags.AnimalHead) && canBounceBack) {
 				var otherAnimal = other.GetComponentInParent<Animal>();
 

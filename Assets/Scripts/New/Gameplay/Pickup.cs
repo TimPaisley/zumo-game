@@ -20,6 +20,6 @@ namespace Zumo {
 		public float fuseTime = 0f;
 		public float power = 0f;
 
-		public Player owner { get; set; }
+        public Animal owner { get; set; }
 	}
 }

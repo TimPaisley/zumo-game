@@ -11,8 +11,9 @@ namespace Zumo {
 		public Camera sceneCamera;
 		public Countdown countdown;
         public HUD hud;
-
-		GameManager gm;
+        public PickupSpawner spawner;
+        
+        GameManager gm;
         AudioSource introPlayer;
 
 		Board board;
@@ -33,6 +34,7 @@ namespace Zumo {
             setupBoard();
 			setupPlayerAnimals();
             hud.Setup(playerAnimals);
+            spawner.Enable(board.pickupSpawnPoints);
 
 			StartCoroutine(playCountdownAndBegin());
 		}
@@ -55,7 +57,7 @@ namespace Zumo {
 		}
 
 		void setupPlayerAnimals () {
-			var spawnPoints = board.spawnPoints.AsEnumerable().GetEnumerator();
+			var spawnPoints = board.animalSpawnPoints.AsEnumerable().GetEnumerator();
 
 			foreach (var player in gm.state.readyPlayers) {
 				var animal = Instantiate(gm.state.chosenAnimals[player]);
@@ -84,6 +86,8 @@ namespace Zumo {
 
             introPlayer.PlayOneShot(board.intro);
             yield return new WaitForSeconds(board.intro.length);
+
+            countdown.Stop();
 
             gm.musicManager.Play(board.music);
 		}

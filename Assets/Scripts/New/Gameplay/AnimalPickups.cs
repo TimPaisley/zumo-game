@@ -22,7 +22,9 @@ namespace Zumo {
 			apply(pickup);
 
 			if (pickup.duration > 0) {
-				pickup.owner = animal.player;
+                pickup.owner = animal; // Make sure the pickup manager detects it's been collected
+                pickup.gameObject.SetActive(false);
+
 				activePickups.Add(pickup);
 				StartCoroutine(expirePickup(pickup));
 			} else {
@@ -36,7 +38,7 @@ namespace Zumo {
 			revert(pickup);
 
 			activePickups.Remove(pickup);
-			Destroy(pickup.gameObject);
+            Destroy(pickup.gameObject);
 		}
 
 		void apply (Pickup pickup) {

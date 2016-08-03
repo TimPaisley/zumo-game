@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 namespace Zumo {
 	public class Countdown : MonoBehaviour {
@@ -16,21 +17,23 @@ namespace Zumo {
         }
 
 		public IEnumerator Play () {
-            CountdownStep currentStep = null;
-
-            foreach (var step in steps) {
-                if (currentStep != null) {
-                    currentStep.gameObject.SetActive(false);
-                }
-
-                currentStep = step;
+            foreach (var step in steps.Take(steps.Length - 1)) {
+                var currentStep = step;
                 currentStep.gameObject.SetActive(true);
 
                 numberSound.Play();
                 yield return new WaitForSeconds(1f);
+
+                currentStep.gameObject.SetActive(false);
             }
 
-            currentStep.gameObject.SetActive(false);
+            steps.Last().gameObject.SetActive(true);
 		}
+
+        public void Stop () {
+            foreach (var step in steps) {
+                step.gameObject.SetActive(false);
+            }
+        }
 	}
 }
