@@ -10,6 +10,7 @@ namespace Zumo {
 
 	public class Pickup : MonoBehaviour {
 		public PickupType type;
+        public AudioClip pickupSound;
 
 		[Header("Speed/Mass/TimeStop")]
 		public float duration = 0f;

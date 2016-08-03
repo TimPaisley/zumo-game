@@ -6,7 +6,8 @@ namespace Zumo {
 	public class AnimalPickups : MonoBehaviour {
 		static Player timeStopper;
 
-		Animal animal;
+        Animal animal;
+        InterestingAudioSource audio;
 		List<Pickup> activePickups = new List<Pickup>();
 
 		public float speedIncrease { get; private set; }
@@ -16,10 +17,15 @@ namespace Zumo {
 
 		void Awake () {
 			animal = GetComponent<Animal>();
+            audio = new InterestingAudioSource(gameObject);
 		}
 
 		public void PickUp (Pickup pickup) {
 			apply(pickup);
+
+            if (pickup.pickupSound) {
+                audio.PlayOnce(pickup.pickupSound);
+            }
 
 			if (pickup.duration > 0) {
                 pickup.owner = animal; // Make sure the pickup manager detects it's been collected

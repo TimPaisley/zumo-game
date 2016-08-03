@@ -3661,6 +3661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  pickupSound: {fileID: 8300000, guid: d68ff8e05479b4d27a7a7bf56463d527, type: 3}
   duration: 5
   speedIncrease: 0
   massIncrease: 2
@@ -3743,6 +3744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  pickupSound: {fileID: 8300000, guid: 6b4963336a3784aa1b9857b9bd082baa, type: 3}
   duration: 5
   speedIncrease: 10
   massIncrease: 0
@@ -5991,7 +5993,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  duration: 5
+  pickupSound: {fileID: 8300000, guid: 4de3ca41d3da54fccb149d3b6f5c1403, type: 3}
+  duration: 2
   speedIncrease: 0
   massIncrease: 0
   fuseTime: 0
