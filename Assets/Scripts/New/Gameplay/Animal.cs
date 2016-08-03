@@ -20,6 +20,7 @@ namespace Zumo {
 		Animator animator;
 		float baseMass;
 
+        GroundedChecker grounding;
 		AnimalMovement movement;
 		AnimalBouncing bouncer;
 		AnimalDash dash;
@@ -45,7 +46,7 @@ namespace Zumo {
 		}
 
 		bool isGrounded {
-			get { return Physics.CheckBox(boxCollider.center + (Vector3.up * -0.5f), boxCollider.size / 2); }
+			get { return grounding.isGrounded; }
 		}
 
 		bool isControllable {
@@ -91,6 +92,7 @@ namespace Zumo {
 			boxCollider = GetComponent<BoxCollider>();
 			animator = GetComponentInChildren<Animator>();
 
+            grounding = GetComponent<GroundedChecker>();
 			movement = GetComponent<AnimalMovement>();
 			bouncer = GetComponent<AnimalBouncing>();
 			dash = GetComponent<AnimalDash>();

@@ -594,6 +594,7 @@ GameObject:
   - 114: {fileID: 26961920}
   - 114: {fileID: 26961919}
   - 114: {fileID: 26961924}
+  - 114: {fileID: 26961925}
   m_Layer: 0
   m_Name: Tiger
   m_TagString: Animal
@@ -724,6 +725,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+--- !u!114 &26961925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 26961916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b85d2efa174774196339f10ee33c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &26961926
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10847,6 +10859,7 @@ GameObject:
   - 114: {fileID: 409628501}
   - 114: {fileID: 409628500}
   - 114: {fileID: 409628504}
+  - 114: {fileID: 409628505}
   m_Layer: 0
   m_Name: Lion
   m_TagString: Animal
@@ -10973,6 +10986,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b981dbe4baaa4640803194453c755c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &409628505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 409628496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b85d2efa174774196339f10ee33c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &409628506
@@ -18089,6 +18113,7 @@ GameObject:
   - 114: {fileID: 684668300}
   - 114: {fileID: 684668299}
   - 114: {fileID: 684668304}
+  - 114: {fileID: 684668305}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -18232,6 +18257,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+--- !u!114 &684668305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 684668295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b85d2efa174774196339f10ee33c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &686183275
 GameObject:
   m_ObjectHideFlags: 0
@@ -23141,6 +23177,7 @@ GameObject:
   - 114: {fileID: 905644345}
   - 114: {fileID: 905644344}
   - 114: {fileID: 905644348}
+  - 114: {fileID: 905644349}
   m_Layer: 0
   m_Name: Elephant
   m_TagString: Untagged
@@ -23285,6 +23322,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+--- !u!114 &905644349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 905644339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b85d2efa174774196339f10ee33c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908543736
 GameObject:
   m_ObjectHideFlags: 0
@@ -30123,6 +30171,7 @@ GameObject:
   - 114: {fileID: 1193753981}
   - 114: {fileID: 1193753980}
   - 114: {fileID: 1193753985}
+  - 114: {fileID: 1193753986}
   m_Layer: 0
   m_Name: Panda
   m_TagString: Untagged
@@ -30266,6 +30315,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+--- !u!114 &1193753986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193753976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b85d2efa174774196339f10ee33c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1199174806
 GameObject:
   m_ObjectHideFlags: 0
@@ -47259,6 +47319,7 @@ GameObject:
   - 114: {fileID: 1791412514}
   - 114: {fileID: 1791412513}
   - 114: {fileID: 1791412518}
+  - 114: {fileID: 1791412519}
   m_Layer: 0
   m_Name: Panther
   m_TagString: Animal
@@ -47388,6 +47449,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 5
+--- !u!114 &1791412519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791412510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b85d2efa174774196339f10ee33c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1791412520
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Zumo {
-    class InterestingAudioSource {
+    public class InterestingAudioSource {
         AudioSource audio;
 
         public InterestingAudioSource (GameObject gameObject) {
