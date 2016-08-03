@@ -18,6 +18,10 @@ namespace Zumo {
 		public float minMassIncrease;
 		public float maxMassIncrease;
 
+        [Header("Effects")]
+        public ParticleSystem chargeParticles;
+        public ParticleSystem dashParticles;
+
 		// Internal State
 
 		float chargedSpeedIncrease;
@@ -41,26 +45,33 @@ namespace Zumo {
 
 		public bool isInactive { get { return !isCharging && !isDashing && !isCoolingDown; } }
 
+        // Lifecycle
+
+        void Awake () {
+            stopParticles(chargeParticles);
+            stopParticles(dashParticles);
+        }
+
 		// Actions
 
 		public void Stop () {
-			stopCoroutines();
+			stopOngoingActions();
 
 			speedIncrease = 0;
 			massIncrease = 0;
-		}
+        }
 
 		public void StopIfDashing () {
 			if (isDashing) Stop();
 		}
 
 		public void StartDashCharging () {
-			stopCoroutines();
+			stopOngoingActions();
 			dashCharge = StartCoroutine(chargeDash());
 		}
 
 		public void StartDashing () {
-			stopCoroutines();
+			stopOngoingActions();
 			dash = StartCoroutine(performDash());
 		}
 
@@ -68,24 +79,30 @@ namespace Zumo {
 			chargedSpeedIncrease = minSpeedIncrease;
 			chargedMassIncrease = minMassIncrease;
 
+            startParticles(chargeParticles);
+
 			for (var i = 0; i < CHARGE_LEVELS; i++) {
 				yield return new WaitForSeconds(chargeDuration / CHARGE_LEVELS);
 
 				chargedMassIncrease += (maxMassIncrease - minMassIncrease) / CHARGE_LEVELS;
 				chargedSpeedIncrease += (maxSpeedIncrease - minSpeedIncrease) / CHARGE_LEVELS;
 			}
+
+            stopParticles(chargeParticles);
 		}
 
 		IEnumerator performDash () {
 			speedIncrease = chargedSpeedIncrease;
 			massIncrease = chargedMassIncrease;
 
+            startParticles(dashParticles);
+
 			yield return new WaitForSeconds(dashDuration);
 
 			speedIncrease = 0;
 			massIncrease = 0;
 
-			stopCoroutines();
+			stopOngoingActions();
 			dashCooldown = StartCoroutine(cooldown());
 		}
 
@@ -95,7 +112,7 @@ namespace Zumo {
 			Stop();
 		}
 
-		void stopCoroutines () {
+		void stopOngoingActions () {
 			if (dashCharge != null) {
 				StopCoroutine(dashCharge);
 				dashCharge = null;
@@ -110,6 +127,25 @@ namespace Zumo {
 				StopCoroutine(dashCooldown);
 				dashCooldown = null;
 			}
+
+            stopParticles(chargeParticles);
+            stopParticles(dashParticles);
 		}
-	}
+
+        void startParticles (ParticleSystem particles) {
+            var emission = particles.emission;
+            emission.enabled = true;
+
+            particles.Simulate(0.0f, true, true);
+            particles.Play();
+        }
+
+        void stopParticles (ParticleSystem particles) {
+            var emission = particles.emission;
+            emission.enabled = false;
+            
+            particles.Stop();
+            particles.Clear();
+        }
+    }
 }
