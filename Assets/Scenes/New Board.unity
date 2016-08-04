@@ -550,6 +550,74 @@ Prefab:
       propertyPath: massSound
       value: 
       objectReference: {fileID: 998263831}
+    - target: {fileID: 443332, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: ShapeModule.radius
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414576, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414576, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 414576, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startColor.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.ctime0
+      value: 386
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.key0.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800382, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
+      propertyPath: InitialModule.startColor.maxGradient.ctime1
+      value: 65535
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04bb8367415c02c45b51fe6f63d05f94, type: 2}
   m_IsPrefabParent: 0

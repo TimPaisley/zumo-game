@@ -319,7 +319,7 @@ public class AnimalController : MonoBehaviour {
 				return;
 			}
 
-			if (!knockedBack && isGrounded) {
+			if (!knockedBack) {
 				var movement = new Vector3 (h, 0, v);
 
 				//rotate speed is dependent on current speed
@@ -327,7 +327,8 @@ public class AnimalController : MonoBehaviour {
 
 				//deccelerate if turning
 				if (Vector3.Angle (movement, transform.forward) > slowAngle && speed > minTurnSpeed) {
-					speed = Mathf.Max (speed - decceleration, minSpeed);
+                        speed = Mathf.Max(speed - decceleration, minSpeed);
+                    
 				}
 			}
 		}
@@ -343,27 +344,31 @@ public class AnimalController : MonoBehaviour {
 			var maxMovementSpeed = currentMaxSpeed * inputMagnitude;
 			var movement = new Vector3 (transform.forward.x, rb.velocity.y, transform.forward.z);
 
-			if (!knockedBack && isGrounded) {
+			if (!knockedBack) {
 				// Adjust Y movement to account for gravity
 				movement.y = rb.velocity.y / speed;
 
-				// Apply changes in velocity
-				if (isDashing) {
-					// Make sure player doesn't fly upwards on slopes
-					movement.y = Mathf.Clamp (movement.y, 0, 0.01f);
+                // Apply changes in velocity
+                if (isDashing)
+                {
+                    // Make sure player doesn't fly upwards on slopes
+                    movement.y = Mathf.Clamp(movement.y, 0, 0.01f);
 
-					rb.velocity = movement * dashController.dashSpeed;
-				} else {
-					speed = Mathf.Min (speed + acceleration, maxMovementSpeed);
+                    rb.velocity = movement * dashController.dashSpeed;
+                }
+                else if (isGrounded)
+                {
+                    speed = Mathf.Min(speed + acceleration, maxMovementSpeed);
 
-					//cancel out weird super high bounce bug
-					if(movement.y>50.0f||movement.y<-50.0f){
-						movement.y = 0.0f;
-					}
+                    //cancel out weird super high bounce bug
+                    if (movement.y > 50.0f || movement.y < -50.0f)
+                    {
+                        movement.y = 0.0f;
+                    }
 
-					rb.velocity = movement * speed;
-				}
-
+                    rb.velocity = movement * speed;
+                }
+                else { return; }
 				//remove speed if player is stationary
 				if (rb.velocity == Vector3.zero) {
 					stationaryDelay++;
@@ -379,7 +384,7 @@ public class AnimalController : MonoBehaviour {
 
 	public void StartDashCharge() {
 		if (!disableControl) {
-			if (dashController.StartDashCharge ()) {
+			if (dashController.StartDashCharge ()&&isGrounded) {
 				rb.velocity = Vector3.zero;
 			}
 		}

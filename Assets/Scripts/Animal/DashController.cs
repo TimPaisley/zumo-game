@@ -48,7 +48,9 @@ public class DashController : MonoBehaviour {
 			chargeSound.volume = (0.5f)*dashCharger;
 
 			if(dashCharger > 3.0&&charged==false){
-				chargeSound.Stop ();
+                chargePS.Stop();
+                chargePS.Clear();
+                chargeSound.Stop ();
 				charged=true;
 				dashCharger = 3.0f;
 
