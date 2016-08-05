@@ -6,6 +6,9 @@ namespace Zumo {
 	public class AnimalPickups : MonoBehaviour {
 		static Player timeStopper;
 
+        public ParticleSystem speedParticles;
+        public float massScale;
+
         Animal animal;
         InterestingAudioSource audio;
 		List<Pickup> activePickups = new List<Pickup>();
@@ -18,7 +21,10 @@ namespace Zumo {
 		void Awake () {
 			animal = GetComponent<Animal>();
             audio = new InterestingAudioSource(gameObject);
-		}
+
+            speedParticles.Stop();
+            speedParticles.Clear();
+        }
 
 		public void PickUp (Pickup pickup) {
 			apply(pickup);
@@ -51,6 +57,7 @@ namespace Zumo {
 			switch (pickup.type) {
 			case PickupType.Speed:
 				speedIncrease += pickup.speedIncrease;
+                speedParticles.Play();
 				break;
 			case PickupType.Mass:
 				massIncrease += pickup.massIncrease;
@@ -68,6 +75,8 @@ namespace Zumo {
 			switch (pickup.type) {
 			case PickupType.Speed:
 				speedIncrease -= pickup.speedIncrease;
+                speedParticles.Stop();
+                speedParticles.Clear();
 				break;
 			case PickupType.Mass:
 				massIncrease -= pickup.massIncrease;
