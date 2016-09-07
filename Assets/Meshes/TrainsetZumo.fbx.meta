@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: b8b5a395376fd4963a08b5be72c8d574
+timeCreated: 1473069005
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: carts
+    100002: Larm
+    100004: Lbackwheel
+    100006: Lconnector
+    100008: Lfrontwheel
+    100010: Lmiddlewheel
+    100012: Lpiston
+    100014: rails
+    100016: Rarm
+    100018: rbackwheel
+    100020: Rconnector
+    100022: rfrontwheel
+    100024: rmiddlewheel
+    100026: Rpiston
+    100028: track
+    100030: train
+    100032: trainbody
+    100034: //RootNode
+    400000: carts
+    400002: Larm
+    400004: Lbackwheel
+    400006: Lconnector
+    400008: Lfrontwheel
+    400010: Lmiddlewheel
+    400012: Lpiston
+    400014: rails
+    400016: Rarm
+    400018: rbackwheel
+    400020: Rconnector
+    400022: rfrontwheel
+    400024: rmiddlewheel
+    400026: Rpiston
+    400028: track
+    400030: train
+    400032: trainbody
+    400034: //RootNode
+    2300000: carts
+    2300002: Larm
+    2300004: Lbackwheel
+    2300006: Lconnector
+    2300008: Lfrontwheel
+    2300010: Lmiddlewheel
+    2300012: Lpiston
+    2300014: rails
+    2300016: Rarm
+    2300018: rbackwheel
+    2300020: Rconnector
+    2300022: rfrontwheel
+    2300024: rmiddlewheel
+    2300026: Rpiston
+    2300028: track
+    2300030: trainbody
+    3300000: carts
+    3300002: Larm
+    3300004: Lbackwheel
+    3300006: Lconnector
+    3300008: Lfrontwheel
+    3300010: Lmiddlewheel
+    3300012: Lpiston
+    3300014: rails
+    3300016: Rarm
+    3300018: rbackwheel
+    3300020: Rconnector
+    3300022: rfrontwheel
+    3300024: rmiddlewheel
+    3300026: Rpiston
+    3300028: track
+    3300030: trainbody
+    4300000: Lfrontwheel
+    4300002: Lmiddlewheel
+    4300004: Lbackwheel
+    4300006: rfrontwheel
+    4300008: rmiddlewheel
+    4300010: rbackwheel
+    4300012: Larm
+    4300014: Rarm
+    4300016: Lpiston
+    4300018: Rpiston
+    4300020: Lconnector
+    4300022: Rconnector
+    4300024: trainbody
+    4300026: rails
+    4300028: carts
+    4300030: track
+    7400000: trainLoop
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: trainLoop
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 390
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: carts
+        weight: 1
+      - path: rails
+        weight: 1
+      - path: track
+        weight: 1
+      - path: train
+        weight: 1
+      - path: train/Larm
+        weight: 1
+      - path: train/Lbackwheel
+        weight: 1
+      - path: train/Lconnector
+        weight: 1
+      - path: train/Lfrontwheel
+        weight: 1
+      - path: train/Lmiddlewheel
+        weight: 1
+      - path: train/Lpiston
+        weight: 1
+      - path: train/Rarm
+        weight: 1
+      - path: train/rbackwheel
+        weight: 1
+      - path: train/Rconnector
+        weight: 1
+      - path: train/rfrontwheel
+        weight: 1
+      - path: train/rmiddlewheel
+        weight: 1
+      - path: train/Rpiston
+        weight: 1
+      - path: train/trainbody
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
