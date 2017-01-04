@@ -6,6 +6,8 @@ public class MusicManager : MonoBehaviour {
     public AudioSource desertSong;
     public AudioSource beachSong;
     public AudioSource safariSong;
+    public AudioSource tundraSong;
+    public AudioSource forestSong;
     public AudioSource gameSong;
     public AudioSource winSong;
 

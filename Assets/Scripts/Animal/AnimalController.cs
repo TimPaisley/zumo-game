@@ -190,7 +190,7 @@ public class AnimalController : MonoBehaviour {
 			Debug.Log ("size of hit: "+sizeOfHit);
 
 			//playhitting sound
-			volume = sizeOfHit/50;
+			volume = sizeOfHit/100;
 
 			hitSound.volume = volume;
 			hitSound.PlayOneShot(hitSound.clip);

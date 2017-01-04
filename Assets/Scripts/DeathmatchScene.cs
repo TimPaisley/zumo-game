@@ -162,6 +162,8 @@ public class DeathmatchScene : VirtualScene {
         if (gameManager.currentBoard.tag == "Beach") { musicManager.Play(musicManager.beachSong); }
         else if (gameManager.currentBoard.tag == "Desert") { musicManager.Play(musicManager.desertSong); }
         else if (gameManager.currentBoard.tag == "Savannah") { musicManager.Play(musicManager.safariSong); }
+        else if (gameManager.currentBoard.tag == "Forest") { musicManager.Play(musicManager.forestSong); }
+        else if (gameManager.currentBoard.tag == "Tundra") { musicManager.Play(musicManager.tundraSong); }
         else
         {
             musicManager.Play(musicManager.gameSong);

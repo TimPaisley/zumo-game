@@ -18,6 +18,8 @@ TagManager:
   - Beach
   - Desert
   - Savannah
+  - Forest
+  - Tundra
   layers:
   - Default
   - TransparentFX
